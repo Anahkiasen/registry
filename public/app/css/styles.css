@@ -6,8 +6,7 @@ a {
   text-decoration: none; }
 
 table {
-  width: 60%;
-  margin: auto; }
+  width: 100%; }
   table th {
     font-weight: bold; }
     table th:hover {
@@ -55,6 +54,9 @@ table th, .layout-header, .layout-footer {
   font-size: 1rem;
   font-weight: bold; }
 
+.packages-list__description {
+  color: #869198; }
+
 .layout-header {
   padding: 5rem 0; }
   .layout-header h1 {
@@ -62,12 +64,24 @@ table th, .layout-header, .layout-footer {
     text-align: center; }
 
 .layout-search {
+  -webkit-transition: background 0.3s;
+  -moz-transition: background 0.3s;
+  -o-transition: background 0.3s;
+  transition: background 0.3s;
   width: 100%;
   border: none;
   padding: 1rem;
   font-size: 1.5rem;
   background-color: #f4f5f6;
-  color: #869198; }
+  color: #869198;
+  outline: 0; }
+  .layout-search:focus {
+    background-color: white; }
+
+.layout-content {
+  width: 100%;
+  max-width: 90rem;
+  margin: auto; }
 
 .layout-footer {
   text-align: center;

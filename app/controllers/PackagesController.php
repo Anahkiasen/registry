@@ -17,4 +17,16 @@ class PackagesController extends BaseController
 			->with('packages', $packages);
 	}
 
+	/**
+	 * Search for a package
+	 *
+	 * @return Collection
+	 */
+	public function getSearch()
+	{
+		$query = Input::get('q');
+
+		return Package::where('name', 'LIKE', '%' .$query. '%')->get();
+	}
+
 }

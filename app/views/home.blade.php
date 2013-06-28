@@ -9,6 +9,7 @@
 			<tr>
 				<th>#</th>
 				<th>Name</th>
+				<th>Description</th>
 				<th>Downloads</th>
 			</tr>
 		</thead>
@@ -17,6 +18,7 @@
 				<tr>
 					<td class="packages-list__key">{{ $key + 1 }}</td>
 					<td><a href="{{ $package->url }}">{{ $package->name }}</a></td>
+					<td class="packages-list__description">{{ Str::words($package->description, 20) }}</td>
 					<td class="packages-list__downloads">{{ $package->downloads }}</td>
 				</tr>
 			@endforeach

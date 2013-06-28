@@ -26,17 +26,23 @@ class SeedPackages extends Seeder
 		foreach ($packages as $package) {
 			if (in_array($package->getName(), $this->ignore)) continue;
 
-			$vendor = explode('/', $package->getName())[0];
-			$type   = in_array($vendor, array('illuminate', 'laravel')) ? 'component' : 'package';
+			$vendor  = explode('/', $package->getName())[0];
+			$type    = in_array($vendor, array('illuminate', 'laravel')) ? 'component' : 'package';
 
-			Package::create(array(
+			$package = Package::create(array(
 				'name'        => $package->getName(),
 				'description' => $package->getDescription(),
-				'url'         => $package->getUrl(),
+				'packagist'   => $package->getUrl(),
 				'downloads'   => $package->getDownloads(),
 				'favorites'   => $package->getFavers(),
 				'type'        => $type,
-			))->touch();
+			));
+
+			if ($package->getInformations()->getType() != 'library') {
+				continue;
+			}
+			$package->github = $package->getInformations()->getRepository();
+			$package->touch();
 		}
 	}
 

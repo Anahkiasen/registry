@@ -2,6 +2,28 @@
 class Package extends Eloquent
 {
 
+	/**
+	 * Get all of the Package's Maintainers
+	 *
+	 * @return Collection
+	 */
+	public function maintainers()
+	{
+		return $this->belongsToMany('Maintainer');
+	}
+
+	/**
+	 * Get the informations of a package
+	 *
+	 * @return object
+	 */
+	public function getInformations()
+	{
+		return Cache::remember($this->name, 1440, function() {
+			return App::make('packagist')->get($this->name);
+		});
+	}
+
 	////////////////////////////////////////////////////////////////////
 	//////////////////////////////// SCOPES ////////////////////////////
 	////////////////////////////////////////////////////////////////////

@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePackages extends Migration
+class CreateMaintainers extends Migration
 {
 
 	/**
@@ -11,16 +11,11 @@ class CreatePackages extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('packages', function($table) {
+		Schema::create('maintainers', function($table) {
 			$table->increments('id');
 				$table->string('name');
-				$table->string('description');
-				$table->integer('downloads');
-				$table->integer('favorites');
-				$table->string('type');
-
-				$table->string('packagist');
-				$table->string('github');
+				$table->string('email');
+				$table->string('homepage');
 			$table->timestamps();
 		});
 	}
@@ -32,7 +27,7 @@ class CreatePackages extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('packages');
+		Schema::drop('maintainers');
 	}
 
 }
