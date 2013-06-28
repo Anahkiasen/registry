@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-	<table class="table">
+	<table class="table table-bordered table-condensed table-hover table-striped">
 		<thead>
 			<tr>
 				<th>#</th>
@@ -12,7 +12,7 @@
 		@foreach ($packages as $key => $package)
 			<tr>
 				<td>{{ $key }}</td>
-				<td>{{ $package->name }}</td>
+				<td><a href="{{ $package->url }}">{{ $package->name }}</a></td>
 				<td>{{ $package->downloads }} downloads</td>
 			</tr>
 		@endforeach

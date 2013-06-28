@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function()
-{
-	$packages = Package::orderBy('downloads', 'DESC')->package()->get();
+Route::controller('packages', 'PackagesController');
 
-	return View::make('home')
-		->with('packages', $packages);
-});
+Route::get('/', 'PackagesController@getIndex');
+Route::get('{type}', 'PackagesController@getIndex')->where('type', 'package|component');
