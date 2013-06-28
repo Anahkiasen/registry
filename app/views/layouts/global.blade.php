@@ -7,5 +7,6 @@
 </head>
 <body>
 	@yield('layout')
+	{{ Basset::show('application.js') }}
 </body>
 </html>

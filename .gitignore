@@ -5,3 +5,4 @@ composer.lock
 .DS_Store
 public/builds
 .sass-cache
+public/components
