@@ -13,5 +13,8 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	$packages = Package::orderBy('downloads', 'DESC')->package()->get();
+
+	return View::make('home')
+		->with('packages', $packages);
 });

@@ -80,4 +80,5 @@ App::down(function()
 |
 */
 
+require app_path().'/containers.php';
 require app_path().'/filters.php';
