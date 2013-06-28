@@ -4,7 +4,7 @@
 ///////////////////////////// DEPLOYMENT /////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-Rocketeer::after('deploy', function($task) {
+Rocketeer::after(array('deploy', 'update'), function($task) {
 	$task->command->comment('Installing Bower components');
 	$task->runForCurrentRelease('bower install');
 
