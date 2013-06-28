@@ -42,6 +42,7 @@
 		// A list of folders/file to be shared between releases
 		'shared'           => array(
 			'app/database/production.sqlite',
+			'app/storage/cache',
 		),
 	),
 
