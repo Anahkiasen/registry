@@ -10,8 +10,8 @@
 				<th>#</th>
 				<th>Name</th>
 				<th>Description</th>
-				<th class="packages-list__tags">Tags</th>
-				<th>Authors</th>
+				<th class="packages-list__tags">Tag(s)</th>
+				<th>Author(s)</th>
 				<th>Downloads</th>
 			</tr>
 		</thead>
