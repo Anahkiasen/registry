@@ -10,3 +10,15 @@ a {
 	color: $color-base;
 	text-decoration: none;
 }
+
+code pre {
+	background-color: lighten($color-silver, 20);
+	color: $color-silver--dark;
+	padding: 1rem;
+}
+
+hr {
+	border-color: lighten($color-silver, 20);
+	border-width: 1px 0 0 0;
+	margin: 2rem 0;
+}

@@ -2,7 +2,11 @@
 
 @section('layout')
 	<header class="layout-header">
-		<h1>Laravel Packages <strong>Registry</strong></h1>
+		<h1>
+			<a href="{{ URL::to('/') }}">
+				Laravel Packages <strong>Registry</strong>
+			</a>
+		</h1>
 	</header>
 	<main class="layout-content">
 		@yield('content')

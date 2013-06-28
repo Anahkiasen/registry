@@ -18,15 +18,17 @@ class PackagesController extends BaseController
 	}
 
 	/**
-	 * Search for a package
+	 * Display a package
 	 *
-	 * @return Collection
+	 * @param  integer $id
+	 *
+	 * @return View
 	 */
-	public function getSearch()
+	public function getPackage($id)
 	{
-		$query = Input::get('q');
+		$package = Package::findOrFail($id);
 
-		return Package::where('name', 'LIKE', '%' .$query. '%')->get();
+		return View::make('package', compact('package'));
 	}
 
 }

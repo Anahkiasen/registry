@@ -19,7 +19,7 @@ class Maintainer extends Eloquent
 	 */
 	public function __toString()
 	{
-		return HTML::link($this->github, $this->name);
+		return HTML::link($this->github, $this->name, array('target' => '_blank'));
 	}
 
 }

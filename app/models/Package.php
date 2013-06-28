@@ -13,6 +13,16 @@ class Package extends Eloquent
 	}
 
 	/**
+	 * Get all of the Package's versions
+	 *
+	 * @return Collection
+	 */
+	public function versions()
+	{
+		return $this->hasMany('Version');
+	}
+
+	/**
 	 * Get the informations of a package
 	 *
 	 * @return object

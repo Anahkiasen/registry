@@ -19,7 +19,7 @@
 			@foreach ($packages as $key => $package)
 				<tr>
 					<td class="packages-list__key">{{ $key + 1 }}</td>
-					<td><a href="{{ $package->url }}">{{ $package->name }}</a></td>
+					<td>{{ HTML::linkAction('PackagesController@getPackage', $package->name, $package->id) }}</td>
 					<td class="packages-list__description">{{ Str::words($package->description, 15) }}</td>
 					<td data-tags="{{{ $package->getOriginal('tags') }}}">{{ implode(', ', $package->tags) }}</td>
 					<td>{{ $package->maintainersList }}</td>

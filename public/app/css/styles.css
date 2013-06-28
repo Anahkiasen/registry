@@ -5,6 +5,16 @@ a {
   color: #f66f5f;
   text-decoration: none; }
 
+code pre {
+  background-color: #f4f5f6;
+  color: #869198;
+  padding: 1rem; }
+
+hr {
+  border-color: #f4f5f6;
+  border-width: 1px 0 0 0;
+  margin: 2rem 0; }
+
 table {
   width: 100%; }
   table th {
@@ -33,14 +43,37 @@ table th.tablesorter-headerDesc div:before {
   margin-right: 8px;
   margin-right: 0.5rem; }
 
-table th, .layout-header, .layout-footer {
+table th, .package__tags li, .layout-header, .layout-footer {
   background-color: #f66f5f;
   color: white;
   text-shadow: 0 0.25em 0 rgba(0, 0, 0, 0.1); }
+  table th a, .package__tags li a, .layout-header a, .layout-footer a {
+    color: white; }
 
-.layout-header h1 {
+.package__tags, .layout-header h1 {
   margin: 0;
   padding: 0; }
+
+.package {
+  color: #869198; }
+  .package h1, .package h2, .package h3 {
+    font-weight: 100; }
+    .package h1 small, .package h2 small, .package h3 small {
+      color: #bdc3c7;
+      font-size: 0.5em; }
+
+.package__description {
+  font-size: 1rem;
+  font-style: italic;
+  margin: 1rem 0; }
+
+.package__tags li {
+  -webkit-border-radius: 0.25em;
+  -moz-border-radius: 0.25em;
+  border-radius: 0.25em;
+  display: inline-block;
+  margin-left: 0.25rem;
+  padding: 0.25rem; }
 
 .packages-list thead th {
   padding: 1rem 0; }
