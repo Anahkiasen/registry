@@ -13,12 +13,14 @@ $('.layout-search').on('keyup', function(event) {
 			packagesInfos[key] = {
 				'name'        : infos[1].innerHTML,
 				'description' : infos[2].innerHTML,
+				'tags'        : infos[3].dataset['tags'],
 			}
 		}
 
 		if (
 			packagesInfos[key].name.match(query) ||
-			packagesInfos[key].description.match(query)) {
+			packagesInfos[key].description.match(query) ||
+			packagesInfos[key].tags.match(query)) {
 			$(package).show();
 		} else {
 			$(package).hide();

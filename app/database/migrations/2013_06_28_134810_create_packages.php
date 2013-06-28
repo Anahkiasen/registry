@@ -18,6 +18,7 @@ class CreatePackages extends Migration
 				$table->integer('downloads');
 				$table->integer('favorites');
 				$table->string('type');
+				$table->string('tags');
 
 				$table->string('packagist');
 				$table->string('github');

@@ -28,6 +28,16 @@ class Package extends Eloquent
 	///////////////////////////// ATTRIBUTES ///////////////////////////
 	////////////////////////////////////////////////////////////////////
 
+	/**
+	 * Get tags as an array
+	 *
+	 * @return array
+	 */
+	public function getTagsAttribute()
+	{
+		return (array) json_decode($this->getOriginal('tags'), true);
+	}
+
 	public function getMaintainersListAttribute()
 	{
 		$list = array();
