@@ -16,8 +16,9 @@ class PackagesController extends BaseController
 			return -1 * $package->downloads;
 		});
 
-		return View::make('home')
-			->with('packages', $packages);
+		return View::make('home', array(
+			'packages' => $packages,
+		));
 	}
 
 	/**

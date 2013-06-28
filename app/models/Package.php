@@ -80,8 +80,8 @@ class Package extends Eloquent
 	{
 		$list = array();
 		$maintainers = $this->maintainers;
-		foreach ($maintainers as &$maintainer) {
-			$maintainer = $maintainer->__toString();
+		foreach ($maintainers as $maintainer) {
+			$list[] = $maintainer->__toString();
 		}
 
 		return implode(', ', $list);
