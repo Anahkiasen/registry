@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://localhost',
+	'url' => 'http://registry.autopergamene.eu',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -184,7 +184,8 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 
-		'Basset' => 'Basset\Facade',
+		'Basset'    => 'Basset\Facade',
+		'Rocketeer' => 'Rocketeer\Facades\Rocketeer',
 
 	),
 
