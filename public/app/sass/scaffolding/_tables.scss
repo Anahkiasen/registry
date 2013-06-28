@@ -3,11 +3,11 @@
 //////////////////////////////////////////////////////////////////////
 
 table {
-	width: 100%;
+	width: 60%;
+	margin: auto;
 
 	th {
-		background-color: $color-base;
-		color: white;
+		@extend %background-base;
 		font-weight: bold;
 		&:hover {
 			background-color: darken($color-base, 5);

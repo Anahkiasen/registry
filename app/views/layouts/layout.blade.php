@@ -7,4 +7,7 @@
 	<main class="layout-content">
 		@yield('content')
 	</main>
+	<footer class="layout-footer">
+		&copy; {{ date('Y') }} - {{ HTML::link('http://autopergamene.eu/', 'Maxime Fabre') }}
+	</footer>
 @stop

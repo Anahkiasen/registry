@@ -12,12 +12,14 @@
 				<th>Downloads</th>
 			</tr>
 		</thead>
-		@foreach ($packages as $key => $package)
-			<tr>
-				<td class="packages-list__key">{{ $key + 1 }}</td>
-				<td><a href="{{ $package->url }}">{{ $package->name }}</a></td>
-				<td>{{ $package->downloads }} downloads</td>
-			</tr>
-		@endforeach
+		<tbody>
+			@foreach ($packages as $key => $package)
+				<tr>
+					<td class="packages-list__key">{{ $key + 1 }}</td>
+					<td><a href="{{ $package->url }}">{{ $package->name }}</a></td>
+					<td class="packages-list__downloads">{{ $package->downloads }}</td>
+				</tr>
+			@endforeach
+		</tbody>
 	</table>
 @stop

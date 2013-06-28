@@ -3,10 +3,8 @@
 //////////////////////////////////////////////////////////////////////
 
 .layout-header {
-	background-color: $color-base;
-	color: white;
+	@extend %background-base;
 	padding: 5rem 0;
-	text-shadow: 0 0.25em 0 rgba(black, .1);
 
 	h1 {
 		@extend %reset-margins;

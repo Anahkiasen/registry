@@ -1,0 +1,16 @@
+// Footer
+//
+//////////////////////////////////////////////////////////////////////
+
+.layout-footer {
+	@extend %background-base;
+	text-align: center;
+	font-size: 0.75rem;
+	padding: 2rem 0;
+	text-shadow: none;
+	font-weight: 100;
+
+	a {
+		color: lighten($color-base, 20);
+	}
+}

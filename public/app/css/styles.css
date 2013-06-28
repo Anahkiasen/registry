@@ -6,10 +6,9 @@ a {
   text-decoration: none; }
 
 table {
-  width: 100%; }
+  width: 60%;
+  margin: auto; }
   table th {
-    background-color: #f66f5f;
-    color: white;
     font-weight: bold; }
     table th:hover {
       background-color: #f55947;
@@ -35,6 +34,11 @@ table th.tablesorter-headerDesc div:before {
   margin-right: 8px;
   margin-right: 0.5rem; }
 
+table th, .layout-header, .layout-footer {
+  background-color: #f66f5f;
+  color: white;
+  text-shadow: 0 0.25em 0 rgba(0, 0, 0, 0.1); }
+
 .layout-header h1 {
   margin: 0;
   padding: 0; }
@@ -46,11 +50,13 @@ table th.tablesorter-headerDesc div:before {
   width: 5%;
   text-align: center; }
 
+.packages-list__downloads {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold; }
+
 .layout-header {
-  background-color: #f66f5f;
-  color: white;
-  padding: 5rem 0;
-  text-shadow: 0 0.25em 0 rgba(0, 0, 0, 0.1); }
+  padding: 5rem 0; }
   .layout-header h1 {
     font-weight: 100;
     text-align: center; }
@@ -62,3 +68,12 @@ table th.tablesorter-headerDesc div:before {
   font-size: 1.5rem;
   background-color: #f4f5f6;
   color: #869198; }
+
+.layout-footer {
+  text-align: center;
+  font-size: 0.75rem;
+  padding: 2rem 0;
+  text-shadow: none;
+  font-weight: 100; }
+  .layout-footer a {
+    color: #fbc6c0; }
