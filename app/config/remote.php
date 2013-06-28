@@ -29,9 +29,9 @@ return array(
 	'connections' => array(
 
 		'production' => array(
-			'host'     => '',
-			'username' => '',
-			'password' => '',
+			'host'     => 'autopergamene.eu',
+			'username' => 'root',
+			'password' => 'naxam35741',
 			'key'      => '',
 		),
 
