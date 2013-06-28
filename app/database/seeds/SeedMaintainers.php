@@ -19,6 +19,7 @@ class SeedMaintainers extends Seeder
 						'name'     => $maintainer->getName(),
 						'email'    => $maintainer->getEmail(),
 						'homepage' => $maintainer->getHomepage(),
+						'github'   => 'http://github.com/'.$maintainer->getName(),
 					));
 					$existingMaintainer->touch();
 				}

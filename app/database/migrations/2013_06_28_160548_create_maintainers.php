@@ -15,6 +15,7 @@ class CreateMaintainers extends Migration
 			$table->increments('id');
 				$table->string('name');
 				$table->string('email');
+				$table->string('github');
 				$table->string('homepage');
 			$table->timestamps();
 		});

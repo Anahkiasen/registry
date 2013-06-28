@@ -12,4 +12,14 @@ class Maintainer extends Eloquent
 		return $this->belongsToMany('Package');
 	}
 
+	/**
+	 * Get the Maintainer as a string
+	 *
+	 * @return string
+	 */
+	public function __toString()
+	{
+		return HTML::link($this->github, $this->name);
+	}
+
 }
