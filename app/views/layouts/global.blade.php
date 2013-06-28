@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Laravel packages registry</title>
+	<link href="{{ URL::asset('app/img/favicon.png') }}" rel="shortcut icon"/>
 	{{ Basset::show('application.css') }}
 </head>
 <body>
