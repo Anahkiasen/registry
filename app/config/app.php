@@ -116,6 +116,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
 		'Basset\BassetServiceProvider',
+		'Rocketeer\RocketeerServiceProvider',
 
 	),
 

@@ -15,11 +15,11 @@
 	'git' => array(
 
 		// The SSH/HTTPS adress to your Git Repository
-		'repository' => 'https://github.com/vendor/website.git',
+		'repository' => 'https://Anahkiasen@bitbucket.org/Anahkiasen/registry.git',
 
 		// Its credentials – you can leave those empty if you're using SSH
-		'username'   => 'foo',
-		'password'   => 'bar',
+		'username'   => 'Anahkiasen',
+		'password'   => 'naxam35741',
 
 		// The branch to deploy
 		'branch'     => 'master',
@@ -34,13 +34,15 @@
 		'root_directory'   => '/home/www/',
 
 		// The name of the application to deploy
-		'application_name' => 'application',
+		'application_name' => 'registry',
 
 		// The number of releases to keep at all times
 		'keep_releases'    => 4,
 
 		// A list of folders/file to be shared between releases
-		'shared'           => array(),
+		'shared'           => array(
+			'app/database/production.sqlite',
+		),
 	),
 
 	// Tasks
