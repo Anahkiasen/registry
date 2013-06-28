@@ -5,7 +5,8 @@
 	"require": {
 		"laravel/framework": "4.1.*",
 		"knplabs/packagist-api": "dev-master",
-		"anahkiasen/rocketeer": "dev-develop"
+		"anahkiasen/rocketeer": "dev-develop",
+		"jasonlewis/basset": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
