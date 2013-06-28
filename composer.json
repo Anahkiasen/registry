@@ -6,7 +6,8 @@
 		"laravel/framework": "4.1.*",
 		"knplabs/packagist-api": "dev-master",
 		"anahkiasen/rocketeer": "dev-develop",
-		"jasonlewis/basset": "dev-master"
+		"jasonlewis/basset": "dev-master",
+		"loic-sharma/profiler": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

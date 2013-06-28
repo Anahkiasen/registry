@@ -11,7 +11,7 @@ class PackagesController extends BaseController
 	 */
 	public function getIndex($type = 'package')
 	{
-		$packages = Package::whereType($type)->get();
+		$packages = Package::with('maintainers', 'versions')->whereType($type)->get();
 		$packages = array_sort($packages, function($package) {
 			return -1 * $package->downloads;
 		});
@@ -29,7 +29,7 @@ class PackagesController extends BaseController
 	 */
 	public function getPackage($id)
 	{
-		$package = Package::findOrFail($id);
+		$package = Package::with('maintainers', 'versions')->findOrFail($id);
 
 		return View::make('package', compact('package'));
 	}
