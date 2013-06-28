@@ -1,0 +1,25 @@
+// Header
+//
+//////////////////////////////////////////////////////////////////////
+
+.layout-header {
+	background-color: $color-base;
+	color: white;
+	padding: 5rem 0;
+	text-shadow: 0 0.25em 0 rgba(black, .1);
+
+	h1 {
+		@extend %reset-margins;
+		font-weight: 100;
+		text-align: center;
+	}
+}
+
+.layout-search {
+	width: 100%;
+	border: none;
+	padding: 1rem;
+	font-size: 1.5rem;
+	background-color: lighten($color-silver, 20);
+	color: darken($color-silver, 20);
+}

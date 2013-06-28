@@ -1,0 +1,50 @@
+// Tables
+//
+//////////////////////////////////////////////////////////////////////
+
+table {
+	width: 100%;
+
+	th {
+		background-color: $color-base;
+		color: white;
+		font-weight: bold;
+		&:hover {
+			background-color: darken($color-base, 5);
+			cursor: pointer;
+		}
+	}
+
+	tr:nth-child(odd) {
+		background-color: grey(98);
+	}
+
+	td {
+		padding: 0.5rem;
+	}
+	tr:hover td {
+		background-color: grey(96);
+	}
+}
+
+table th {
+	$table-color: darken($color-base, 5);
+
+	&.tablesorter-headerAsc,
+	&.tablesorter-headerDesc, {
+		background-color: $table-color;
+		color: white;
+		&:hover {
+			background-color: darken($table-color, 5);
+		}
+	}
+
+	&.tablesorter-headerAsc div:before {
+		content: "\25B2";
+		@include rem(margin-right, 0.5rem);
+	}
+	&.tablesorter-headerDesc div:before {
+		content: "\25BC";
+		@include rem(margin-right, 0.5rem);
+	}
+}

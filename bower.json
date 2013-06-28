@@ -1,7 +1,8 @@
 {
   "name": "registry",
   "dependencies": {
-  	"jquery": "1.10.1",
-    "jquery.tablesorter": "latest"
+    "jquery": "1.10.1",
+    "jquery.tablesorter": "latest",
+    "normalize-css": "~2.1.2"
   }
 }
