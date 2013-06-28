@@ -75,7 +75,7 @@ document.getElementById('search').addEventListener('submit', function(event) {
 		}
 	}
 
-	window.location = 'packages/package/' + package.dataset['id'];
+	window.location = 'package/' + package.dataset['id'];
 });
 
 [].forEach.call(document.querySelectorAll('.tag'), function(tag) {

@@ -239,6 +239,7 @@ table th, .tag, .package__tags li, .layout-header, .layout-footer {
   width: 100%;
   border: none;
   padding: 1rem;
+  padding-right: 0;
   font-size: 1.5rem;
   background-color: #f4f5f6;
   color: #869198;
