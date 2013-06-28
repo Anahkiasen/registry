@@ -39,15 +39,32 @@ class Package extends Eloquent
 	////////////////////////////////////////////////////////////////////
 
 	/**
+	 * Get the total number of downloads
+	 *
+	 * @return integer
+	 */
+	public function getDownloadsAttribute()
+	{
+		return (int) $this->getInformations()->getDownloads()->getTotal();
+	}
+
+	/**
 	 * Get tags as an array
 	 *
 	 * @return array
 	 */
 	public function getTagsAttribute()
 	{
-		return (array) json_decode($this->getOriginal('tags'), true);
+		if ($this->versions->isEmpty()) return array();
+
+		return $this->versions[0]->keywords;
 	}
 
+	/**
+	 * Get Maintainers as a string list
+	 *
+	 * @return string
+	 */
 	public function getMaintainersListAttribute()
 	{
 		$list = array();

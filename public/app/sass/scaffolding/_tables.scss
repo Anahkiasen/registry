@@ -47,3 +47,50 @@ table th {
 		@include rem(margin-right, 0.5rem);
 	}
 }
+
+// Responsive
+//////////////////////////////////////////////////////////////////////
+
+table {
+	@include at-breakpoint(0 $tablet) {
+		thead, tbody, th, tr, td {
+			display: block;
+			width: 100%;
+		}
+		thead {
+			display: none;
+		}
+		td:before {
+			position: absolute;
+			top: 3px;
+			left: 10px;
+			width: 35%;
+			padding-right: 10px;
+			white-space: nowrap;
+			text-align: left;
+			font-weight: 700;
+			content: attr(data-title);
+		}
+		th, td {
+			width: 70%;
+			position: relative;
+			padding-left: 30%;
+			text-align: left;
+		}
+		tr {
+			padding: 1rem 0;
+		}
+		td {
+			@include box-sizing(border-box);
+			width: 100%;
+			text-align: left;
+			&.packages-list__key {
+				width: 100%;
+				text-align: left;
+			}
+			&.packages-list__downloads {
+				text-align: left;
+			}
+		}
+	}
+}

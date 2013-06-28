@@ -10,8 +10,56 @@
 
 		small {
 			color: $color-silver;
-			font-size: 0.5em;
+			font-size: 0.75em;
 		}
+	}
+}
+
+.package__informations {
+	@include container;
+	max-width: 100%;
+	padding: 0;
+
+	.package__informations__informations {
+		@include span-columns(9);
+	}
+	.package__informations__downloads {
+		@include span-columns(3 omega);
+	}
+
+	@include at-breakpoint(0 $desktop) {
+		.package__informations__downloads,
+		.package__informations__informations {
+			@include reset-columns;
+			width: 100%;
+			display: block;
+		}
+	}
+}
+
+.package__informations__downloads {
+	$offset: 9rem;
+	@extend %border-box;
+	@extend pre;
+	margin-top: 1rem;
+
+	dl {
+		@extend %reset-margins;
+		@include pie-clearfix;
+		padding-left: 1rem;
+	}
+	dt, dd {
+		display: block;
+	}
+	dt {
+		width: $offset;
+		float: left;
+		clear: left;
+		text-align: right;
+		font-weight: bold;
+	}
+	dd {
+		margin-left: $offset + 1rem;
 	}
 }
 

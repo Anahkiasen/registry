@@ -11,7 +11,10 @@ class PackagesController extends BaseController
 	 */
 	public function getIndex($type = 'package')
 	{
-		$packages = Package::orderBy('downloads', 'DESC')->whereType($type)->get();
+		$packages = Package::whereType($type)->get();
+		$packages = array_sort($packages, function($package) {
+			return -1 * $package->downloads;
+		});
 
 		return View::make('home')
 			->with('packages', $packages);

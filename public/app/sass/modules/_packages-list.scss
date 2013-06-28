@@ -5,7 +5,7 @@
 .packages-list {
 
 	thead th {
-		padding: 1rem 0;
+		padding: 1rem;
 	}
 }
 
@@ -22,4 +22,26 @@
 
 .packages-list__description {
 	color: $color-silver--dark ;
+}
+
+.packages-list__empty {
+	color: $color-silver--dark;
+	text-align: center;
+	display: none;
+
+	td {
+		padding: 2rem 0;
+	}
+}
+
+.packages-list thead .packages-list__types th {
+	background-color: $color-silver;
+	color: $color-silver--dark;
+	text-shadow: none;
+	font-size: 0.75rem;
+	padding: 0.75rem 0;
+
+	&:hover {
+		background-color: lighten($color-silver, 10);
+	}
 }

@@ -35,7 +35,6 @@ class SeedPackages extends Seeder
 				'name'        => $package->getName(),
 				'description' => $package->getDescription(),
 				'packagist'   => $package->getUrl(),
-				'downloads'   => $package->getDownloads(),
 				'favorites'   => $package->getFavers(),
 				'type'        => $type,
 			));
@@ -52,7 +51,6 @@ class SeedPackages extends Seeder
 			unset($keywords[array_search('laravel', $keywords)]);
 
 			$package->tags   = json_encode(array_values($keywords));
-			$package->github = $package->getInformations()->getRepository();
 			$package->touch();
 		}
 	}

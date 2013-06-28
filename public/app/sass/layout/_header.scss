@@ -5,11 +5,22 @@
 .layout-header {
 	@extend %background-base;
 	padding: 5rem 0;
+	background-image: image-url('box.png');
+	background-repeat: no-repeat;
+	background-size: 16rem;
+	background-position: 20% 2rem;
 
 	h1 {
 		@extend %reset-margins;
 		font-weight: 100;
 		text-align: center;
+	}
+
+	@include at-breakpoint(0 $desktop) {
+		padding: 2rem 0;
+		h1 {
+			font-size: 1rem;
+		}
 	}
 }
 

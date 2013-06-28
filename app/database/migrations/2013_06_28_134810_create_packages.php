@@ -15,13 +15,11 @@ class CreatePackages extends Migration
 			$table->increments('id');
 				$table->string('name');
 				$table->string('description');
-				$table->integer('downloads');
 				$table->integer('favorites');
 				$table->string('type');
 				$table->string('tags');
 
 				$table->string('packagist');
-				$table->string('github');
 			$table->timestamps();
 		});
 	}

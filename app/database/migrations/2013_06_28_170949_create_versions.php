@@ -19,15 +19,6 @@ class CreateVersions extends Migration
 				$table->string('homepage');
 				$table->string('version');
 				$table->string('versionNormalized');
-				$table->string('license');
-				$table->string('authors');
-				$table->string('source');
-				$table->string('dist');
-				$table->string('autoload');
-				$table->string('extra');
-				$table->string('require');
-				$table->string('requireDev');
-				$table->string('bin');
 
 				$table->integer('package_id');
 			$table->timestamps();

@@ -5,7 +5,7 @@ a {
   color: #f66f5f;
   text-decoration: none; }
 
-code pre {
+pre, .package__informations__downloads {
   background-color: #f4f5f6;
   color: #869198;
   padding: 1rem; }
@@ -43,6 +43,41 @@ table th.tablesorter-headerDesc div:before {
   margin-right: 8px;
   margin-right: 0.5rem; }
 
+@media (max-width: 50em) {
+  table thead, table tbody, table th, table tr, table td {
+    display: block;
+    width: 100%; }
+  table thead {
+    display: none; }
+  table td:before {
+    position: absolute;
+    top: 3px;
+    left: 10px;
+    width: 35%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: 700;
+    content: attr(data-title); }
+  table th, table td {
+    width: 70%;
+    position: relative;
+    padding-left: 30%;
+    text-align: left; }
+  table tr {
+    padding: 1rem 0; }
+  table td {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left; }
+    table td.packages-list__key {
+      width: 100%;
+      text-align: left; }
+    table td.packages-list__downloads {
+      text-align: left; } }
+
 table th, .package__tags li, .layout-header, .layout-footer {
   background-color: #f66f5f;
   color: white;
@@ -50,9 +85,14 @@ table th, .package__tags li, .layout-header, .layout-footer {
   table th a, .package__tags li a, .layout-header a, .layout-footer a {
     color: white; }
 
-.package__tags, .layout-header h1 {
+.package__informations__downloads dl, .package__tags, .layout-header h1 {
   margin: 0;
   padding: 0; }
+
+.package__informations__downloads, .layout-content {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
 
 .package {
   color: #869198; }
@@ -60,7 +100,61 @@ table th, .package__tags li, .layout-header, .layout-footer {
     font-weight: 100; }
     .package h1 small, .package h2 small, .package h3 small {
       color: #bdc3c7;
-      font-size: 0.5em; }
+      font-size: 0.75em; }
+
+.package__informations {
+  *zoom: 1;
+  max-width: 59em;
+  _width: 59em;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  padding: 0; }
+  .package__informations:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .package__informations .package__informations__informations {
+    width: 74.57627%;
+    float: left;
+    margin-right: 1.69492%;
+    display: inline; }
+  .package__informations .package__informations__downloads {
+    width: 23.72881%;
+    float: right;
+    margin-right: 0;
+    *margin-left: -1em;
+    display: inline; }
+  @media (max-width: 60em) {
+    .package__informations .package__informations__downloads,
+    .package__informations .package__informations__informations {
+      float: none;
+      width: auto;
+      margin-right: auto;
+      width: 100%;
+      display: block; } }
+
+.package__informations__downloads {
+  margin-top: 1rem; }
+  .package__informations__downloads dl {
+    *zoom: 1;
+    padding-left: 1rem; }
+    .package__informations__downloads dl:after {
+      content: "";
+      display: table;
+      clear: both; }
+  .package__informations__downloads dt, .package__informations__downloads dd {
+    display: block; }
+  .package__informations__downloads dt {
+    width: 9rem;
+    float: left;
+    clear: left;
+    text-align: right;
+    font-weight: bold; }
+  .package__informations__downloads dd {
+    margin-left: 10rem; }
 
 .package__description {
   font-size: 1rem;
@@ -76,7 +170,7 @@ table th, .package__tags li, .layout-header, .layout-footer {
   padding: 0.25rem; }
 
 .packages-list thead th {
-  padding: 1rem 0; }
+  padding: 1rem; }
 
 .packages-list__key {
   width: 5%;
@@ -90,11 +184,36 @@ table th, .package__tags li, .layout-header, .layout-footer {
 .packages-list__description {
   color: #869198; }
 
+.packages-list__empty {
+  color: #869198;
+  text-align: center;
+  display: none; }
+  .packages-list__empty td {
+    padding: 2rem 0; }
+
+.packages-list thead .packages-list__types th {
+  background-color: #bdc3c7;
+  color: #869198;
+  text-shadow: none;
+  font-size: 0.75rem;
+  padding: 0.75rem 0; }
+  .packages-list thead .packages-list__types th:hover {
+    background-color: #d9dcde; }
+
 .layout-header {
-  padding: 5rem 0; }
+  padding: 5rem 0;
+  background-image: url('../img/box.png?1372445628');
+  background-repeat: no-repeat;
+  background-size: 16rem;
+  background-position: 20% 2rem; }
   .layout-header h1 {
     font-weight: 100;
     text-align: center; }
+  @media (max-width: 60em) {
+    .layout-header {
+      padding: 2rem 0; }
+      .layout-header h1 {
+        font-size: 1rem; } }
 
 .layout-search {
   -webkit-transition: background 0.3s;
@@ -113,8 +232,13 @@ table th, .package__tags li, .layout-header, .layout-footer {
 
 .layout-content {
   width: 100%;
-  max-width: 130rem;
-  margin: auto; }
+  max-width: 150rem;
+  margin: auto;
+  padding: 0 2rem; }
+  @media (max-width: 90em) {
+    .layout-content {
+      max-width: 100%;
+      padding: 0 1rem; } }
 
 .layout-footer {
   text-align: center;

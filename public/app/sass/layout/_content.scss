@@ -3,7 +3,14 @@
 //////////////////////////////////////////////////////////////////////
 
 .layout-content {
+	@extend %border-box;
 	width: 100%;
-	max-width: 130rem;
+	max-width: 150rem;
 	margin: auto;
+	padding: 0 2rem;
+
+	@include at-breakpoint(0 $wider) {
+		max-width: 100%;
+		padding: 0 1rem;
+	}
 }
