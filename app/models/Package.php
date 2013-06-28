@@ -68,7 +68,12 @@ class Package extends Eloquent
 	{
 		if ($this->versions->isEmpty()) return array();
 
-		return $this->versions[0]->keywords;
+		$tags = $this->versions[0]->keywords;
+		$tags = array_filter($tags, function($value) {
+			return !in_array($value, array('laravel', 'illuminate', 'L4', 'Laravel 4', 'laravel4', 'laravel-4'));
+		});
+
+		return $tags;
 	}
 
 	/**

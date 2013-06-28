@@ -7,6 +7,16 @@
 	thead th {
 		padding: 1rem;
 	}
+
+	.tag {
+		background-color: rgba($color-base, .5);
+		font-size: 0.75rem;
+		margin-left: 0.1rem;
+
+		&:hover {
+			background-color: $color-base;
+		}
+	}
 }
 
 .packages-list__key {

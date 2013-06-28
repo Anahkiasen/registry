@@ -1,19 +1,15 @@
 var packages      = document.querySelectorAll('.packages-list__package'),
-		packagesInfos = [],
 		empty         = document.querySelector('.packages-list__empty'),
 		search        = document.querySelector('.layout-search'),
-		nbPackages    = packages.length;
+		tags          = document.querySelectorAll('tags'),
+		nbPackages    = packages.length,
+		packagesInfos = [];
 
 /**
- * Listens as the User types into the search field
- *
- * @param  {event} event
- *
- * @return {void}
+ * Refreshes the results of the table
  */
-search.addEventListener('keyup', function(event) {
-	var query      = this.value,
-			visible    = 0;
+var refreshResults = function(query) {
+	var visible = 0;
 
 	for (key = 0; key < nbPackages; key++) {
 		var package = packages[key];
@@ -46,8 +42,26 @@ search.addEventListener('keyup', function(event) {
 	} else {
 		empty.classList.add('hidden');
 	}
+};
+
+/**
+ * Listens as the User types into the search field
+ *
+ * @param  {event} event
+ *
+ * @return {void}
+ */
+search.addEventListener('input', function(event) {
+	refreshResults(this.value);
 });
 
+/**
+ * Redirect to the first result on submit
+ *
+ * @param  {event} event
+ *
+ * @return {void}
+ */
 document.getElementById('search').addEventListener('submit', function(event) {
 	event.preventDefault();
 
@@ -62,4 +76,11 @@ document.getElementById('search').addEventListener('submit', function(event) {
 	}
 
 	window.location = 'packages/package/' + package.dataset['id'];
+});
+
+[].forEach.call(document.querySelectorAll('.tag'), function(tag) {
+	tag.addEventListener('click', function(event) {
+		search.value = this.innerHTML;
+		refreshResults(this.innerHTML);
+	});
 });

@@ -1,0 +1,11 @@
+// Tag
+//
+//////////////////////////////////////////////////////////////////////
+
+.tag {
+	@extend %background-base;
+	@include border-radius(0.25em);
+	display: inline-block;
+	margin-left: 0.25rem;
+	padding: 0.25rem;
+}
