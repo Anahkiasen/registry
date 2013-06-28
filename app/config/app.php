@@ -117,7 +117,7 @@ return array(
 
 		'Basset\BassetServiceProvider',
 		'Rocketeer\RocketeerServiceProvider',
-		'Profiler\ProfilerServiceProvider',
+		// 'Profiler\ProfilerServiceProvider',
 
 	),
 

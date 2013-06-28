@@ -1,12 +1,15 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Register The Artisan Commands
-|--------------------------------------------------------------------------
-|
-| Each available Artisan command must be registered with the console so
-| that it is available to be called. We'll register every command so
-| the console gets access to each of the command object instances.
-|
-*/
+//////////////////////////////////////////////////////////////////////
+///////////////////////////// DEPLOYMENT /////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+Rocketeer::after('deploy', function($task) {
+	$task->command->comment('Installing Bower components');
+	$task->runForCurrentRelease('bower install');
+
+	$task->command->comment('Building Basset containers');
+	$task->runForCurrentRelease('php artisan basset:build -f -p');
+
+	$task->setPermissions('app');
+});

@@ -5,7 +5,7 @@ class Package extends Eloquent
 	/**
 	 * The raw informations
 	 *
-	 * @var Packagist\Package
+	 * @var Packagist\Api\Result\Package
 	 */
 	protected $informations;
 
