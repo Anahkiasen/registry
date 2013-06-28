@@ -17,7 +17,7 @@ class PackagesController extends BaseController
 		});
 
 		return View::make('home', array(
-			'packages' => $packages,
+			'packages' => array_values($packages),
 		));
 	}
 
