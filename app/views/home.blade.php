@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-	<form method="POST">
+	<form method="POST" id="search">
 		<input type="text" autocomplete="off" name="search" placeholder="Type to search..." class="layout-search">
 	</form>
 	<table class="packages-list">
@@ -20,7 +20,7 @@
 				<td colspan="50">No results match your query</td>
 			</tr>
 			@foreach ($packages as $key => $package)
-				<tr class="packages-list__package">
+				<tr class="packages-list__package" data-id="{{ $package->id }}">
 					<td data-title="#" class="packages-list__key">{{ $key + 1 }}</td>
 					<td data-title="Name">{{ HTML::linkAction('PackagesController@getPackage', $package->name, $package->id) }}</td>
 					<td data-title="Description" class="packages-list__description">{{ Str::words($package->description, 15) }}</td>
@@ -31,4 +31,11 @@
 			@endforeach
 		</tbody>
 	</table>
+@stop
+
+@section('js')
+	{{ Basset::show('home.js') }}
+	<script>
+		$('table').tablesorter();
+	</script>
 @stop

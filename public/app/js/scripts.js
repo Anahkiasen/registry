@@ -1,10 +1,18 @@
 var packages      = document.querySelectorAll('.packages-list__package'),
 		packagesInfos = [],
-		empty         = document.querySelector('.packages-list__empty');
+		empty         = document.querySelector('.packages-list__empty'),
+		search        = document.querySelector('.layout-search'),
+		nbPackages    = packages.length;
 
-document.querySelector('.layout-search').addEventListener('keyup', function(event) {
+/**
+ * Listens as the User types into the search field
+ *
+ * @param  {event} event
+ *
+ * @return {void}
+ */
+search.addEventListener('keyup', function(event) {
 	var query      = this.value,
-			nbPackages = packages.length
 			visible    = 0;
 
 	for (key = 0; key < nbPackages; key++) {
@@ -38,5 +46,20 @@ document.querySelector('.layout-search').addEventListener('keyup', function(even
 	} else {
 		empty.classList.add('hidden');
 	}
+});
 
+document.getElementById('search').addEventListener('submit', function(event) {
+	event.preventDefault();
+
+	// Get first results
+	for (key = 0; key < nbPackages; key++) {
+		var package = packages[key];
+
+		if (package.classList.contains('hidden')) continue;
+		else {
+			break;
+		}
+	}
+
+	window.location = 'packages/package/' + package.dataset['id'];
 });

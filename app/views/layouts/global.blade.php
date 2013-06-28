@@ -8,8 +8,6 @@
 <body>
 	@yield('layout')
 	{{ Basset::show('application.js') }}
-	<script>
-		$('table').tablesorter();
-	</script>
+	@yield('js')
 </body>
 </html>

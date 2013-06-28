@@ -3,6 +3,13 @@ class Package extends Eloquent
 {
 
 	/**
+	 * The raw informations
+	 *
+	 * @var Packagist\Package
+	 */
+	protected $informations;
+
+	/**
 	 * Get all of the Package's Maintainers
 	 *
 	 * @return Collection
@@ -29,9 +36,13 @@ class Package extends Eloquent
 	 */
 	public function getInformations()
 	{
-		return Cache::remember($this->name, 1440, function() {
-			return App::make('packagist')->get($this->name);
-		});
+		if (!$this->informations) {
+			$this->informations = Cache::remember($this->name, 1440, function() {
+				return App::make('packagist')->get($this->name);
+			});
+		}
+
+		return $this->informations;
 	}
 
 	////////////////////////////////////////////////////////////////////
@@ -69,8 +80,8 @@ class Package extends Eloquent
 	{
 		$list = array();
 		$maintainers = $this->maintainers;
-		foreach ($maintainers as $maintainer) {
-			$list[] = $maintainer->__toString();
+		foreach ($maintainers as &$maintainer) {
+			$maintainer = $maintainer->__toString();
 		}
 
 		return implode(', ', $list);
