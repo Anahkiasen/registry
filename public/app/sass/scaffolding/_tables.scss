@@ -52,6 +52,12 @@ table th {
 //////////////////////////////////////////////////////////////////////
 
 table {
+	@include at-breakpoint($tablet $wide) {
+		.packages-list__tags {
+			display: none;
+		}
+	}
+
 	@include at-breakpoint(0 $tablet) {
 		thead, tbody, th, tr, td {
 			display: block;

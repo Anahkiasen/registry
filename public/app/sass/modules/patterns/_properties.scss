@@ -1,8 +1,22 @@
+// Properties patterns
+//
+//////////////////////////////////////////////////////////////////////
+
+// Resets the margins of a block
 %reset-margins {
 	margin: 0;
 	padding: 0;
 }
 
+// Sets a block in border-box mode
 %border-box {
 	@include box-sizing(border-box);
+}
+
+.hidden {
+	display: none;
+}
+
+.visible {
+	display: block
 }
