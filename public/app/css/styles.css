@@ -15,6 +15,14 @@ hr {
   border-width: 1px 0 0 0;
   margin: 2rem 0; }
 
+::-moz-selection {
+  background-color: #f66f5f;
+  color: white; }
+
+::selection {
+  background-color: #f66f5f;
+  color: white; }
+
 table {
   width: 100%; }
   table th {
@@ -261,6 +269,15 @@ table th, .tag, .packages-list__pagination ul li, .layout-header, .layout-footer
   outline: 0;
   color: #869198;
   font-size: 1.5rem; }
+  .layout-search::-webkit-input-placeholder {
+    font-style: italic;
+    color: #bdc3c7; }
+  .layout-search:-moz-placeholder {
+    font-style: italic;
+    color: #bdc3c7; }
+  .layout-search:-ms-input-placeholder {
+    font-style: italic;
+    color: #bdc3c7; }
   .layout-search:focus {
     background-color: white; }
 

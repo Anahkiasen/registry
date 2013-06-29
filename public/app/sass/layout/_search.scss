@@ -21,6 +21,10 @@
 	background-color: lighten($color-silver, 20);
 	border: none;
 	outline: 0;
+	@include input-placeholder {
+		font-style: italic;
+		color: lighten($color-silver--dark, 20);
+	}
 
 	// Text
 	color: $color-silver--dark;

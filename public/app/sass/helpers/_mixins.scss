@@ -1,0 +1,42 @@
+// Mixins
+//
+//////////////////////////////////////////////////////////////////////
+
+// @selection
+//
+// Apply styling to the user's selection
+//
+// Styleguide 1.2.5
+
+@mixin selection {
+	::-moz-selection {
+		@content;
+	}
+	::selection {
+		@content;
+	}
+}
+
+// @placeholder-text
+//
+// Apply styling to form inputs placeholder text
+//
+// Styleguide 1.2.6
+
+@mixin input-placeholder {
+	@if $experimental-support-for-webkit {
+		&::-webkit-input-placeholder {
+			@content;
+		}
+	}
+	@if $experimental-support-for-mozilla {
+		&:-moz-placeholder {
+			@content;
+		}
+	}
+	@if $experimental-support-for-microsoft {
+		&:-ms-input-placeholder {
+			@content;
+		}
+	}
+}
