@@ -261,7 +261,7 @@ table th, .tag, .layout-header, .layout-footer {
 
 .layout-footer {
   text-align: center;
-  font-size: 0.75rem;
+  font-size: 1rem;
   padding: 2rem 0;
   text-shadow: none;
   font-weight: 100; }
