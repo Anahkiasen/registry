@@ -7,7 +7,9 @@
 		"knplabs/packagist-api": "dev-master",
 		"anahkiasen/rocketeer": "dev-develop",
 		"jasonlewis/basset": "dev-master",
-		"loic-sharma/profiler": "dev-master"
+		"loic-sharma/profiler": "dev-master",
+		"lmammino/jsmin4assetic": "dev-master",
+		"natxet/CssMin": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
