@@ -57,7 +57,7 @@ class Maintainer extends Eloquent
 	public function getGravatarAttribute()
 	{
 		$hash    = md5(strtolower(trim($this->email)));
-		$default = 'http://registry.autopergamene.eu/app/img/avatar.png';
+		$default = 'http://registry.autopergamene.eu/app/img/placeholder.png';
 		$size    = 160;
 
 		return sprintf('http://www.gravatar.com/avatar/%s?d=%s&s=%s', $hash, $default, $size);
