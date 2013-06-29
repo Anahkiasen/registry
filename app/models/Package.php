@@ -5,9 +5,9 @@ class Package extends Eloquent
 	/**
 	 * The raw informations
 	 *
-	 * @var Packagist\Api\Result\Package
+	 * @var array
 	 */
-	protected $informations;
+	protected $informations = array();
 
 	/**
 	 * Get all of the Package's Maintainers
@@ -29,22 +29,62 @@ class Package extends Eloquent
 		return $this->hasMany('Version');
 	}
 
+	////////////////////////////////////////////////////////////////////
+	////////////////////////// RAW INFORMATIONS ////////////////////////
+	////////////////////////////////////////////////////////////////////
+
 	/**
-	 * Get the informations of a package
+	 * Get raw informations
+	 *
+	 * @return array
+	 */
+	protected function getInformations($source)
+	{
+		if (!array_key_exists($source, $this->informations)) {
+			if ($source == 'packagist') {
+				$this->informations['packagist'] = Cache::rememberForever($this->name.'-packagist', function() {
+					$informations = App::make('guzzle')->get('/packages/'.$this->name.'.json')->send()->json();
+					return (object) $informations['package'];
+				});
+			} else {
+				$this->informations['repository'] = Cache::rememberForever($this->name.'-repository', function() {
+					$source = str_contains($this->repository, 'github') ? 'github' : 'bitbucket';
+					$name   = explode('/', $this->repository);
+					$name   = $name[3].'/'.$name[4];
+
+					try {
+						$informations = App::make($source)->get($name.'?client_id=376e127206f9a567e4c2&client_secret=cc9b32c88bf79ffbe84d72e996b85f78eb8b89f5')->send()->json();
+					}
+					catch (Exception $e) {
+						$informations = array();
+					}
+
+					return $informations;
+				});
+			}
+		}
+
+		return $this->informations[$source];
+	}
+
+	/**
+	 * Get the Packagist informations of a package
 	 *
 	 * @return object
 	 */
-	public function getInformations()
+	public function getPackagist()
 	{
-		if (!$this->informations) {
-			$this->informations = Cache::rememberForever($this->name, function() {
-				$informations = App::make('guzzle')->get('/packages/'.$this->name.'.json')->send()->json();
+		return $this->getInformations('packagist');
+	}
 
-				return (object) $informations['package'];
-			});
-		}
-
-		return $this->informations;
+	/**
+	 * Get the Github informations of a package
+	 *
+	 * @return object
+	 */
+	public function getRepository()
+	{
+		return $this->getInformations('repository');
 	}
 
 	////////////////////////////////////////////////////////////////////

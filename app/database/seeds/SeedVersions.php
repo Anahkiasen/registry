@@ -11,20 +11,22 @@ class SeedVersions extends Seeder
 	{
 		$packages = Package::all();
 		foreach ($packages as $package) {
-			$versions = $package->getInformations()->versions;
-			foreach ($versions as $version) {
-				Version::create(array(
+			$versions = $package->getPackagist()->versions;
+			foreach ($versions as &$version) {
+				$time = new Carbon\Carbon($version['time']);
+				$version = array(
 					'name'              => $version['name'],
 					'description'       => $version['description'],
 					'keywords'          => json_encode($version['keywords']),
 					'homepage'          => $version['homepage'],
 					'version'           => $version['version'],
 
-					'created_at' => new DateTime($version['time']),
-					'updated_at' => new DateTime($version['time']),
+					'created_at' => $time->toDateTimeString(),
+					'updated_at' => $time->toDateTimeString(),
 					'package_id' => $package->id,
-				))->touch();
+				);
 			}
+			DB::table('versions')->insert(array_values($versions));
 		}
 	}
 

@@ -23,9 +23,13 @@ class CreatePackages extends Migration
 				$table->integer('downloads_total');
 				$table->integer('downloads_monthly');
 				$table->integer('downloads_daily');
+				$table->integer('watchers');
+				$table->integer('forks');
+
+				$table->integer('popularity');
 
 				$table->string('packagist');
-				$table->string('github');
+				$table->string('repository');
 			$table->timestamps();
 		});
 	}

@@ -11,7 +11,7 @@ class SeedMaintainers extends Seeder
 	{
 		$packages = Package::all();
 		foreach ($packages as $package) {
-			$maintainers = $package->getInformations()->maintainers;
+			$maintainers = $package->getPackagist()->maintainers;
 			foreach ($maintainers as &$maintainer) {
 				$maintainer = $this->getExisting($maintainer)->id;
 			}

@@ -43,15 +43,41 @@ class SeedPackages extends Seeder
 
 			// Skip non-library
 			print 'Fetching informations for ['.($key + 1).'/'.sizeof($packages).'] ' .$package->name.PHP_EOL;
-			if ($package->getInformations()->type != 'library') {
+			if ($package->getPackagist()->type != 'library') {
 				continue;
 			}
 
-			// Save
-			$package->downloads_total   = $package->getInformations()->downloads['total'];
-			$package->downloads_monthly = $package->getInformations()->downloads['monthly'];
-			$package->downloads_daily   = $package->getInformations()->downloads['daily'];
-			$package->github            = $package->getInformations()->repository;
+			// Unify Git repository URL
+			$basePattern         = '([a-zA-Z0-9\-]+)';
+			$repository          = $package->getPackagist()->repository;
+			$package->repository = preg_replace('#((https|http|git)://|git@)(github.com|bitbucket.org)(:|/)' .$basePattern. '/' .$basePattern. '(.git)?#', 'http://$3/$5/$6', $repository);
+
+			// Get watchers and forks
+			$repository = $package->getRepository();
+			$watchers = array_get($repository, 'watchers', array_get($repository, 'followers_count'));
+			$forks    = array_get($repository, 'forks', array_get($repository, 'forks_count'));
+
+			// Save additional informations
+			$package->downloads_total   = $package->getPackagist()->downloads['total'];
+			$package->downloads_monthly = $package->getPackagist()->downloads['monthly'];
+			$package->downloads_daily   = $package->getPackagist()->downloads['daily'];
+			$package->watchers          = $watchers;
+			$package->forks             = $forks;
+			$package->touch();
+		}
+
+		// Compute popularity of packages
+		$packages               = Package::all();
+		$max['downloads_total'] = DB::table('packages')->max('downloads_total');
+		$max['watchers']        = DB::table('packages')->max('watchers');
+		$max['forks']           = DB::table('packages')->max('forks');
+
+		foreach ($packages as $package) {
+			foreach ($max as $index => $value) {
+				$indexes[$index] = $package->$index * 100 / $value;
+			}
+
+			$package->popularity = round(array_sum($indexes) / 3, 2);
 			$package->touch();
 		}
 	}

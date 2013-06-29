@@ -25,7 +25,9 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function seed($class)
 	{
-		print 'Seeding '.$class.PHP_EOL;
+		$name = str_replace('Seed', null, $class);
+		print 'Seeding '.$name.PHP_EOL;
+
 		$this->call($class);
 	}
 
