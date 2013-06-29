@@ -2,8 +2,34 @@ var packages      = document.querySelectorAll('.packages-list__package'),
 		empty         = document.querySelector('.packages-list__empty'),
 		search        = document.querySelector('.layout-search'),
 		tags          = document.querySelectorAll('tags'),
+		form          = document.getElementById('search'),
 		nbPackages    = packages.length,
 		packagesInfos = [];
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////// HELPERS /////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+var addEventListener = function(handlers, selector, fn) {
+	handlers = handlers.split(' ').forEach(function(handler) {
+
+		// Build selector
+		if (typeof(selector) == 'string') {
+			selector = document.querySelectorAll(selector);
+		}
+
+		// Bind event handler
+		if (selector instanceof NodeList) {
+			[].forEach.call(selector, function(element) {
+				element.addEventListener(handler, fn, false);
+			});
+		} else {
+			selector.addEventListener(handler, fn, false);
+		}
+
+
+	});
+};
 
 /**
  * Refreshes the results of the table
@@ -44,25 +70,27 @@ var refreshResults = function(query) {
 	}
 };
 
+//////////////////////////////////////////////////////////////////////
+///////////////////////////////// EVENTS /////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+
+
 /**
  * Listens as the User types into the search field
- *
- * @param  {event} event
- *
- * @return {void}
  */
-search.addEventListener('input', function(event) {
+addEventListener('keyup', search, function(event) {
 	refreshResults(this.value);
+});
+
+addEventListener('reset', form, function(event) {
+	refreshResults('');
 });
 
 /**
  * Redirect to the first result on submit
- *
- * @param  {event} event
- *
- * @return {void}
  */
-document.getElementById('search').addEventListener('submit', function(event) {
+form.addEventListener('submit', function(event) {
 	event.preventDefault();
 
 	// Get first results
@@ -78,9 +106,10 @@ document.getElementById('search').addEventListener('submit', function(event) {
 	window.location = 'package/' + package.dataset['id'];
 });
 
-[].forEach.call(document.querySelectorAll('.tag'), function(tag) {
-	tag.addEventListener('click', function(event) {
-		search.value = this.innerHTML;
-		refreshResults(this.innerHTML);
-	});
+/**
+ * Make Tag act like categories
+ */
+addEventListener('click', '.tag', function(tag) {
+	search.value = this.innerHTML;
+	refreshResults(this.innerHTML);
 });

@@ -43,3 +43,19 @@
 		background-color: lighten($color-silver, 25);
 	}
 }
+
+#search {
+	position: relative;
+}
+
+.layout-search__reset {
+	$offset: 0.75rem;
+	border: none;
+	background: none;
+	position: absolute;
+	top: $offset;
+	right: $offset;
+	color: $color-silver--dark;
+	font-size: 2rem;
+
+}

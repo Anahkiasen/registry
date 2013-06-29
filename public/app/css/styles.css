@@ -246,6 +246,18 @@ table th, .tag, .package__tags li, .layout-header, .layout-footer {
   .layout-search:focus {
     background-color: white; }
 
+#search {
+  position: relative; }
+
+.layout-search__reset {
+  border: none;
+  background: none;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  color: #869198;
+  font-size: 2rem; }
+
 .layout-content {
   width: 100%;
   max-width: 150rem;
