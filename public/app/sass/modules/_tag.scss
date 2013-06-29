@@ -8,4 +8,8 @@
 	display: inline-block;
 	margin-left: 0.25rem;
 	padding: 0.25rem;
+
+	&:first-child {
+		margin-left: 0;
+	}
 }

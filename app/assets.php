@@ -6,6 +6,7 @@
 
 Basset::collection('application', function($collection) {
 	$collection->stylesheet('components/normalize-css/normalize.css');
+	$collection->stylesheet('components/icomoon/style.css');
 	$collection->stylesheet('app/css/styles.css');
 })->apply('UriRewriteFilter')->rawOnEnvironment('local');
 

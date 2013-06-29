@@ -5,7 +5,7 @@ a {
   color: #f66f5f;
   text-decoration: none; }
 
-pre, .package__informations__downloads {
+pre, .package__summary {
   background-color: #f4f5f6;
   color: #869198;
   padding: 1rem; }
@@ -81,18 +81,18 @@ table th.tablesorter-headerDesc div:before {
     table td.packages-list__downloads {
       text-align: left; } }
 
-table th, .tag, .package__tags li, .layout-header, .layout-footer {
+table th, .tag, .layout-header, .layout-footer {
   background-color: #f66f5f;
   color: white;
   text-shadow: 0 0.25em 0 rgba(0, 0, 0, 0.1); }
-  table th a, .tag a, .package__tags li a, .layout-header a, .layout-footer a {
+  table th a, .tag a, .layout-header a, .layout-footer a {
     color: white; }
 
-.package__informations__downloads dl, .package__tags, .layout-header h1 {
+.package__summary dl, .layout-header h1 {
   margin: 0;
   padding: 0; }
 
-.package__informations__downloads, .layout-search, .layout-content {
+.package__summary, .layout-search, .layout-content {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -103,13 +103,15 @@ table th, .tag, .package__tags li, .layout-header, .layout-footer {
 .visible {
   display: block; }
 
-.tag, .package__tags li {
+.tag {
   -webkit-border-radius: 0.25em;
   -moz-border-radius: 0.25em;
   border-radius: 0.25em;
   display: inline-block;
   margin-left: 0.25rem;
   padding: 0.25rem; }
+  .tag:first-child {
+    margin-left: 0; }
 
 .package {
   color: #869198; }
@@ -133,60 +135,49 @@ table th, .tag, .package__tags li, .layout-header, .layout-footer {
     content: "";
     display: table;
     clear: both; }
-  .package__informations .package__informations__informations {
-    width: 74.57627%;
-    float: left;
-    margin-right: 1.69492%;
-    display: inline; }
-  .package__informations .package__informations__downloads {
-    width: 23.72881%;
-    float: right;
-    margin-right: 0;
-    *margin-left: -1em;
-    display: inline; }
-  @media (max-width: 60em) {
-    .package__informations .package__informations__downloads,
-    .package__informations .package__informations__informations {
-      float: none;
-      width: auto;
-      margin-right: auto;
-      width: 100%;
-      display: block; } }
 
-.package__informations__downloads {
+.package__summary {
   margin-top: 1rem; }
-  .package__informations__downloads dl {
-    *zoom: 1;
-    padding-left: 1rem; }
-    .package__informations__downloads dl:after {
+  .package__summary dl {
+    *zoom: 1; }
+    .package__summary dl:after {
       content: "";
       display: table;
       clear: both; }
-  .package__informations__downloads dt, .package__informations__downloads dd {
-    display: block; }
-  .package__informations__downloads dt {
-    width: 9rem;
+  .package__summary dt, .package__summary dd {
+    display: block;
+    margin-bottom: 1rem; }
+  .package__summary dt {
+    width: 7rem;
     float: left;
     clear: left;
-    text-align: right;
     font-weight: bold; }
-  .package__informations__downloads dd {
-    margin-left: 10rem; }
+  .package__summary dd {
+    margin-left: 8rem; }
+    .package__summary dd:last-child {
+      margin-bottom: 0; }
 
-.package__description {
-  font-size: 1rem;
-  font-style: italic;
-  margin: 1rem 0; }
+.package__links a {
+  display: inline-block;
+  margin-right: 1rem; }
+  .package__links a:hover {
+    color: #f99a8f; }
+.package__links i {
+  position: relative;
+  top: 1px; }
+.package__links .icon-github {
+  top: 2px;
+  font-size: 1.2em; }
 
 .packages-list {
   color: #869198; }
   .packages-list thead th {
     padding: 1rem; }
-  .packages-list .tag, .packages-list .package__tags li, .package__tags .packages-list li {
+  .packages-list .tag {
     background-color: rgba(246, 111, 95, 0.5);
     font-size: 0.75rem;
     margin-left: 0.1rem; }
-    .packages-list .tag:hover, .packages-list .package__tags li:hover, .package__tags .packages-list li:hover {
+    .packages-list .tag:hover {
       background-color: #f66f5f; }
 
 .packages-list__key {

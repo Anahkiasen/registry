@@ -1,25 +1,36 @@
 @extends('layouts.layout')
 
+@section('title')
+	{{ $package->name }} -
+@stop
+
 @section('content')
 	<section class="package">
 		<section class="package__informations">
-			<div class="package__informations__informations">
 				<h1>{{ $package->name }} <small>by {{ $package->maintainersList }}</small></h1>
-				<p class="package__description">{{ $package->description }}</p>
-				<ul class="package__tags">
-					<strong>Tags :</strong>
-					@foreach ($package->tags as $tag)
-						<li>{{ $tag }}</li>
-					@endforeach
-				</ul>
-			</div>
-			<div class="package__informations__downloads">
-				<dl>
-					<dt>Total Downloads</dt><dd>{{ $package->getInformations()->getDownloads()->getTotal() }}</dd>
-					<dt>Monthly Downloads</dt><dd>{{ $package->getInformations()->getDownloads()->getMonthly() }}</dd>
-					<dt>Daily Downloads</dt><dd>{{ $package->getInformations()->getDownloads()->getDaily() }}</dd>
-				</dl>
-			</div>
+				<section class="package__summary">
+					<dl>
+						<dt>Description</dt>
+						<dd>{{ $package->description }}</dd>
+						<dt>Tags</dt>
+						<dd>
+							@foreach ($package->tags as $tag)
+								<li class="tag">{{ $tag }}</li>
+							@endforeach
+						</dd>
+						<dt>See on</dt>
+						<dd class="package__links">
+							<a target="_blank" href="{{ $package->packagist }}"><i class="icon-box"></i> Packagist</a>
+							<a target="_blank" href="{{ $package->getInformations()->getRepository() }}"><i class="icon-github"></i> Github</a>
+						</dd>
+						<dt>Downloads</dt>
+						<dd>
+							<strong>Total Downloads</strong> : {{ $package->getInformations()->getDownloads()->getTotal() }}<br>
+							<strong>Monthly Downloads</strong> : {{ $package->getInformations()->getDownloads()->getMonthly() }}<br>
+							<strong>Daily Downloads</strong> : {{ $package->getInformations()->getDownloads()->getDaily() }}
+						</dd>
+					</dl>
+				</section>
 		</section>
 		<hr>
 		<h2>Versions</h2>
