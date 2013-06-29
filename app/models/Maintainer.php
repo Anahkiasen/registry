@@ -7,9 +7,9 @@ class Maintainer extends Eloquent
 	 *
 	 * @return Collection
 	 */
-	public function repositories()
+	public function packages()
 	{
-		return $this->belongsToMany('Package');
+		return $this->belongsToMany('Package')->orderBy('downloads_total', 'DESC');
 	}
 
 	/**
@@ -19,7 +19,7 @@ class Maintainer extends Eloquent
 	 */
 	public function __toString()
 	{
-		return HTML::link($this->github, $this->name, array('target' => '_blank'));
+		return HTML::link('maintainer/'.$this->id, $this->name);
 	}
 
 }

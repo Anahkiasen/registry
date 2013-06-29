@@ -34,6 +34,9 @@
 	dt, dd {
 		display: block;
 		margin-bottom: 1rem;
+		&:last-of-type {
+			margin-bottom: 0;
+		}
 	}
 	dt {
 		width: $offset;
@@ -43,9 +46,6 @@
 	}
 	dd {
 		margin-left: $offset + 1rem;
-		&:last-child {
-			margin-bottom: 0;
-		}
 	}
 }
 

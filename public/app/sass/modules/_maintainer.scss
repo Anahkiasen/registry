@@ -1,0 +1,15 @@
+// Maintainer
+//
+//////////////////////////////////////////////////////////////////////
+
+.maintainer {
+	@extend .package;
+}
+
+.maintainer__summary {
+	@extend .package__summary;
+}
+
+.maintainer__package {
+	margin-bottom: 1rem;
+}

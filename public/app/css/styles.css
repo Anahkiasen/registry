@@ -5,7 +5,7 @@ a {
   color: #f66f5f;
   text-decoration: none; }
 
-pre, .package__summary {
+pre, .package__summary, .maintainer__summary {
   background-color: #f4f5f6;
   color: #869198;
   padding: 1rem; }
@@ -101,11 +101,11 @@ table th, .tag, .packages-list__pagination ul li, .layout-header, .layout-footer
   .packages-list__pagination ul li {
     display: inline-block; }
 
-.packages-list__pagination ul, .package__summary dl, .layout-header h1 {
+.packages-list__pagination ul, .package__summary dl, .maintainer__summary dl, .layout-header h1 {
   margin: 0;
   padding: 0; }
 
-.package__summary, .layout-search, .layout-content {
+.package__summary, .maintainer__summary, .layout-search, .layout-content {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -126,11 +126,11 @@ table th, .tag, .packages-list__pagination ul li, .layout-header, .layout-footer
   .tag:first-child, .packages-list__pagination ul li:first-child {
     margin-left: 0; }
 
-.package {
+.package, .maintainer {
   color: #869198; }
-  .package h1, .package h2, .package h3 {
+  .package h1, .maintainer h1, .package h2, .maintainer h2, .package h3, .maintainer h3 {
     font-weight: 100; }
-    .package h1 small, .package h2 small, .package h3 small {
+    .package h1 small, .maintainer h1 small, .package h2 small, .maintainer h2 small, .package h3 small, .maintainer h3 small {
       color: #bdc3c7;
       font-size: 0.75em; }
 
@@ -149,26 +149,26 @@ table th, .tag, .packages-list__pagination ul li, .layout-header, .layout-footer
     display: table;
     clear: both; }
 
-.package__summary {
+.package__summary, .maintainer__summary {
   margin-top: 1rem; }
-  .package__summary dl {
+  .package__summary dl, .maintainer__summary dl {
     *zoom: 1; }
-    .package__summary dl:after {
+    .package__summary dl:after, .maintainer__summary dl:after {
       content: "";
       display: table;
       clear: both; }
-  .package__summary dt, .package__summary dd {
+  .package__summary dt, .maintainer__summary dt, .package__summary dd, .maintainer__summary dd {
     display: block;
     margin-bottom: 1rem; }
-  .package__summary dt {
+    .package__summary dt:last-of-type, .maintainer__summary dt:last-of-type, .package__summary dd:last-of-type, .maintainer__summary dd:last-of-type {
+      margin-bottom: 0; }
+  .package__summary dt, .maintainer__summary dt {
     width: 7rem;
     float: left;
     clear: left;
     font-weight: bold; }
-  .package__summary dd {
+  .package__summary dd, .maintainer__summary dd {
     margin-left: 8rem; }
-    .package__summary dd:last-child {
-      margin-bottom: 0; }
 
 .package__links a {
   display: inline-block;
@@ -238,6 +238,9 @@ table th, .tag, .packages-list__pagination ul li, .layout-header, .layout-footer
       color: white; }
     .packages-list__pagination ul li.active {
       background-color: #f66f5f; }
+
+.maintainer__package {
+  margin-bottom: 1rem; }
 
 .layout-header {
   padding: 5rem 0;

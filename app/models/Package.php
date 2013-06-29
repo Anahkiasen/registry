@@ -52,6 +52,29 @@ class Package extends Eloquent
 	////////////////////////////////////////////////////////////////////
 
 	/**
+	 * Get Travis badge
+	 *
+	 * @return string
+	 */
+	public function getTravisAttribute()
+	{
+		$github = explode('/', $this->github);
+		$travis = $github[3].'/'.str_replace('.git', null, $github[4]);
+
+		return HTML::image('https://secure.travis-ci.org/' .$travis. '.png');
+	}
+
+	/**
+	 * Get relative date
+	 *
+	 * @return Carbon
+	 */
+	public function getRelativeDateAttribute()
+	{
+		return $this->versions[0]->created_at->diffForHumans(Carbon\Carbon::now());
+	}
+
+	/**
 	 * Get tags as an array
 	 *
 	 * @return array

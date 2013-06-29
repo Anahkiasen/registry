@@ -18,3 +18,10 @@ Route::get('{type?}', 'PackagesController@index');
 
 Route::get('package/{package}', 'PackagesController@package')
 	->where('package', '[0-9]{1,3}');
+
+Route::get('maintainer/{id}', function($id) {
+	$maintainer = Maintainer::findOrFail($id);
+
+	return View::make('maintainer')
+		->with('maintainer', $maintainer);
+});
