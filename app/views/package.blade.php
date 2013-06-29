@@ -21,13 +21,13 @@
 						<dt>See on</dt>
 						<dd class="package__links">
 							<a target="_blank" href="{{ $package->packagist }}"><i class="icon-box"></i> Packagist</a>
-							<a target="_blank" href="{{ $package->getInformations()->getRepository() }}"><i class="icon-github"></i> Github</a>
+							<a target="_blank" href="{{ $package->getInformations()->repository }}"><i class="icon-github"></i> Github</a>
 						</dd>
 						<dt>Downloads</dt>
 						<dd>
-							<strong>Total Downloads</strong> : {{ $package->getInformations()->getDownloads()->getTotal() }}<br>
-							<strong>Monthly Downloads</strong> : {{ $package->getInformations()->getDownloads()->getMonthly() }}<br>
-							<strong>Daily Downloads</strong> : {{ $package->getInformations()->getDownloads()->getDaily() }}
+							<strong>Total Downloads</strong> : {{ $package->getInformations()->downloads['total'] }}<br>
+							<strong>Monthly Downloads</strong> : {{ $package->getInformations()->downloads['monthly'] }}<br>
+							<strong>Daily Downloads</strong> : {{ $package->getInformations()->downloads['daily'] }}
 						</dd>
 					</dl>
 				</section>

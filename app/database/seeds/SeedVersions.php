@@ -5,18 +5,17 @@ class SeedVersions extends Seeder
 	{
 		$packages = Package::all();
 		foreach ($packages as $package) {
-			$versions = $package->getInformations()->getVersions();
+			$versions = $package->getInformations()->versions;
 			foreach ($versions as $version) {
 				Version::create(array(
-					'name'              => $version->getName(),
-					'description'       => $version->getDescription(),
-					'keywords'          => json_encode($version->getKeywords()),
-					'homepage'          => $version->getHomepage(),
-					'version'           => $version->getVersion(),
-					'versionNormalized' => $version->getVersionNormalized(),
+					'name'              => $version['name'],
+					'description'       => $version['description'],
+					'keywords'          => json_encode($version['keywords']),
+					'homepage'          => $version['homepage'],
+					'version'           => $version['version'],
 
-					'created_at' => new DateTime($version->getTime()),
-					'updated_at' => new DateTime($version->getTime()),
+					'created_at' => new DateTime($version['time']),
+					'updated_at' => new DateTime($version['time']),
 					'package_id' => $package->id,
 				))->touch();
 			}

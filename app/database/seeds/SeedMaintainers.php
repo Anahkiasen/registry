@@ -5,29 +5,44 @@ class SeedMaintainers extends Seeder
 	/**
 	 * Seed the packages
 	 *
-	 * @return [type] [description]
+	 * @return void
 	 */
 	public function run()
 	{
 		$packages = Package::all();
 		foreach ($packages as $package) {
-			$maintainers = $package->getInformations()->getMaintainers();
+			$maintainers = $package->getInformations()->maintainers;
 			foreach ($maintainers as &$maintainer) {
-				$existingMaintainer = Maintainer::whereName($maintainer->getName())->first();
-				if (!$existingMaintainer) {
-					$existingMaintainer = Maintainer::create(array(
-						'name'     => $maintainer->getName(),
-						'email'    => $maintainer->getEmail(),
-						'homepage' => $maintainer->getHomepage(),
-						'github'   => 'http://github.com/'.$maintainer->getName(),
-					));
-					$existingMaintainer->touch();
-				}
-				$maintainer = $existingMaintainer->id;
+				$maintainer = $this->getExisting($maintainer)->id;
 			}
+
 			$package->maintainers()->sync($maintainers);
 		}
+	}
 
+	/**
+	 * Get the Maintainer model
+	 *
+	 * @param  array $maintainer
+	 *
+	 * @return Maintainer
+	 */
+	protected function getExisting($maintainer)
+	{
+		$name = array_get($maintainer, 'name');
+		$existingMaintainer = Maintainer::whereName($name)->first();
+
+		if (!$existingMaintainer) {
+			$existingMaintainer = Maintainer::create(array(
+				'name'     => $name,
+				'email'    => array_get($maintainer, 'email'),
+				'homepage' => array_get($maintainer, 'homepage'),
+				'github'   => 'http://github.com/'.$name,
+			));
+			$existingMaintainer->touch();
+		}
+
+		return $existingMaintainer;
 	}
 
 }

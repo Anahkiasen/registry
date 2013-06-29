@@ -37,8 +37,10 @@ class Package extends Eloquent
 	public function getInformations()
 	{
 		if (!$this->informations) {
-			$this->informations = Cache::remember($this->name, 1440, function() {
-				return App::make('packagist')->get($this->name);
+			$this->informations = Cache::rememberForever($this->name, function() {
+				$informations = App::make('guzzle')->get('/packages/'.$this->name.'.json')->send()->json();
+
+				return (object) $informations['package'];
 			});
 		}
 
@@ -56,7 +58,7 @@ class Package extends Eloquent
 	 */
 	public function getDownloadsAttribute()
 	{
-		return (int) $this->getInformations()->getDownloads()->getTotal();
+		return (int) $this->getInformations()->downloads['total'];
 	}
 
 	/**

@@ -13,3 +13,5 @@ Rocketeer::after(array('deploy', 'update'), function($task) {
 
 	$task->setPermissions('app');
 });
+
+Artisan::add(new Refresh);

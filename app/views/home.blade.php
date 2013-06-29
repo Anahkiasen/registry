@@ -2,7 +2,7 @@
 
 @section('content')
 	<form method="POST" id="search">
-		<input type="text" autocomplete="off" name="search" placeholder="Type to search..." class="layout-search">
+		<input type="text" autocomplete="off" name="search" placeholder="Type to search in the {{ $packages->count() }} packages available..." class="layout-search">
 		<input type="reset" value="X" class="layout-search__reset">
 	</form>
 	<table class="packages-list">

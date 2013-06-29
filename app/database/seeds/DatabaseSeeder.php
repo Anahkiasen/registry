@@ -11,9 +11,22 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		$this->call('SeedPackages');
-		$this->call('SeedVersions');
-		$this->call('SeedMaintainers');
+		$this->seed('SeedPackages');
+		$this->seed('SeedVersions');
+		$this->seed('SeedMaintainers');
+	}
+
+	/**
+	 * Run a seed
+	 *
+	 * @param  string $class
+	 *
+	 * @return void
+	 */
+	public function seed($class)
+	{
+		print 'Seeding '.$class.PHP_EOL;
+		$this->call($class);
 	}
 
 }

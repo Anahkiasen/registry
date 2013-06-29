@@ -19,11 +19,12 @@ class SeedPackages extends Seeder
 	 */
 	public function run()
 	{
-		$packages = Cache::remember('packages', 1440, function() {
+		print 'Fetching list of packages'.PHP_EOL;
+		$packages = Cache::remember('packages', Config::get('registry.cache'), function() {
 			return App::make('packagist')->search('laravel');
 		});
 
-		foreach ($packages as $package) {
+		foreach ($packages as $key => $package) {
 			if (in_array($package->getName(), $this->ignore)) continue;
 
 			// Get type of package
@@ -36,21 +37,17 @@ class SeedPackages extends Seeder
 				'description' => $package->getDescription(),
 				'packagist'   => $package->getUrl(),
 				'favorites'   => $package->getFavers(),
+				'downloads'   => $package->getDownloads(),
 				'type'        => $type,
 			));
 
 			// Skip non-library
-			if ($package->getInformations()->getType() != 'library') {
+			print 'Fetching informations for ['.$key.'/'.sizeof($packages).'] ' .$package->name.PHP_EOL;
+			if ($package->getInformations()->type != 'library') {
 				continue;
 			}
 
-			// Get tags
-			$versions = $package->getInformations()->getVersions();
-			$first    = array_keys($versions)[0];
-			$keywords = $versions[$first]->getKeywords();
-			unset($keywords[array_search('laravel', $keywords)]);
-
-			$package->tags   = json_encode(array_values($keywords));
+			// Save
 			$package->touch();
 		}
 	}
