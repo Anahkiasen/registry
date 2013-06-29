@@ -3,7 +3,8 @@ var packages      = document.querySelectorAll('.packages-list__package'),
 		search        = document.querySelector('.layout-search'),
 		form          = document.getElementById('search'),
 		nbPackages    = packages.length,
-		packagesInfos = [];
+		packagesInfos = [],
+		lastQuery     = null;
 
 // $('table').tablesorter();
 
@@ -37,8 +38,14 @@ var handleEvent = function(handlers, selector, fn) {
  * Refreshes the results of the table
  */
 var refreshResults = function(query) {
-	var visible = 0,
-			key;
+	var visible = 0, key;
+
+	// Cache last query
+	if (query === lastQuery) {
+		return false;
+	} else {
+		lastQuery = query;
+	}
 
 	for (key = 0; key < nbPackages; key++) {
 		var package = packages[key];
