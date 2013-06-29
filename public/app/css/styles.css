@@ -92,7 +92,7 @@ table th, .tag, .package__tags li, .layout-header, .layout-footer {
   margin: 0;
   padding: 0; }
 
-.package__informations__downloads, .layout-content {
+.package__informations__downloads, .layout-search, .layout-content {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -236,14 +236,13 @@ table th, .tag, .package__tags li, .layout-header, .layout-footer {
   -moz-transition: background 0.3s;
   -o-transition: background 0.3s;
   transition: background 0.3s;
-  width: 100%;
-  border: none;
-  padding: 1rem;
-  padding-right: 0;
-  font-size: 1.5rem;
   background-color: #f4f5f6;
+  border: none;
   color: #869198;
-  outline: 0; }
+  font-size: 1.5rem;
+  outline: 0;
+  padding: 1rem;
+  width: 100%; }
   .layout-search:focus {
     background-color: white; }
 

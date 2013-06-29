@@ -24,16 +24,20 @@
 	}
 }
 
+// Search
+//
+//////////////////////////////////////////////////////////////////////
+
 .layout-search {
+	@extend %border-box;
 	@include transition(background .3s);
-	width: 100%;
-	border: none;
-	padding: 1rem;
-	padding-right: 0;
-	font-size: 1.5rem;
 	background-color: lighten($color-silver, 20);
+	border: none;
 	color: $color-silver--dark;
+	font-size: 1.5rem;
 	outline: 0;
+	padding: 1rem;
+	width: 100%;
 
 	&:focus {
 		background-color: lighten($color-silver, 25);
