@@ -2,6 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+// A block with the base background
 %background-base {
 	background-color: $color-base;
 	color: white;
@@ -9,5 +10,15 @@
 
 	a {
 		color: white;
+	}
+}
+
+// An inline list
+%inline-list {
+	@extend %reset-margins;
+	list-style-type: none;
+
+	li {
+		display: inline-block;
 	}
 }

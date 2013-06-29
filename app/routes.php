@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', 'PackagesController@getIndex');
+Route::get('/', 'PackagesController@index');
 
-Route::get('{type?}', 'PackagesController@getIndex');
+Route::get('search',  'PackagesController@search');
+Route::get('{type?}', 'PackagesController@index');
 
-Route::get('package/{package}', 'PackagesController@getPackage')
+Route::get('package/{package}', 'PackagesController@package')
 	->where('package', '[0-9]{1,3}');

@@ -81,14 +81,19 @@ table th.tablesorter-headerDesc div:before {
     table td.packages-list__downloads {
       text-align: left; } }
 
-table th, .tag, .layout-header, .layout-footer {
+table th, .tag, .packages-list__pagination ul li, .layout-header, .layout-footer {
   background-color: #f66f5f;
   color: white;
   text-shadow: 0 0.25em 0 rgba(0, 0, 0, 0.1); }
-  table th a, .tag a, .layout-header a, .layout-footer a {
+  table th a, .tag a, .packages-list__pagination ul li a, .layout-header a, .layout-footer a {
     color: white; }
 
-.package__summary dl, .layout-header h1 {
+.packages-list__pagination ul {
+  list-style-type: none; }
+  .packages-list__pagination ul li {
+    display: inline-block; }
+
+.packages-list__pagination ul, .package__summary dl, .layout-header h1 {
   margin: 0;
   padding: 0; }
 
@@ -103,14 +108,14 @@ table th, .tag, .layout-header, .layout-footer {
 .visible {
   display: block; }
 
-.tag {
+.tag, .packages-list__pagination ul li {
   -webkit-border-radius: 0.25em;
   -moz-border-radius: 0.25em;
   border-radius: 0.25em;
   display: inline-block;
   margin-left: 0.25rem;
   padding: 0.25rem; }
-  .tag:first-child {
+  .tag:first-child, .packages-list__pagination ul li:first-child {
     margin-left: 0; }
 
 .package {
@@ -173,24 +178,12 @@ table th, .tag, .layout-header, .layout-footer {
   color: #869198; }
   .packages-list thead th {
     padding: 1rem; }
-  .packages-list .tag {
+  .packages-list .tag, .packages-list .packages-list__pagination ul li, .packages-list__pagination ul .packages-list li {
     background-color: rgba(246, 111, 95, 0.5);
     font-size: 0.75rem;
     margin-left: 0.1rem; }
-    .packages-list .tag:hover {
+    .packages-list .tag:hover, .packages-list .packages-list__pagination ul li:hover, .packages-list__pagination ul .packages-list li:hover {
       background-color: #f66f5f; }
-
-.packages-list__key {
-  width: 5%;
-  text-align: center; }
-
-.packages-list__downloads {
-  text-align: center;
-  font-size: 1rem;
-  font-weight: bold; }
-
-.packages-list__description {
-  color: #869198; }
 
 .packages-list__empty {
   color: #869198;
@@ -206,6 +199,37 @@ table th, .tag, .layout-header, .layout-footer {
   padding: 0.75rem 0; }
   .packages-list thead .packages-list__types th:hover {
     background-color: #d9dcde; }
+
+.packages-list__key {
+  width: 5%;
+  text-align: center; }
+
+.packages-list__downloads {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold; }
+
+.packages-list__description {
+  color: #869198; }
+
+.packages-list__pagination td, .packages-list__pagination td:hover {
+  padding: 0;
+  background-color: #fbc6c0; }
+.packages-list__pagination ul {
+  text-align: center; }
+  .packages-list__pagination ul li {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    margin-right: -0.1rem;
+    padding: 0.5rem 1rem; }
+    .packages-list__pagination ul li a, .packages-list__pagination ul li span {
+      font-size: 1.5rem; }
+    .packages-list__pagination ul li.disabled, .packages-list__pagination ul li.disabled:hover {
+      background-color: #bdc3c7;
+      color: white; }
+    .packages-list__pagination ul li.active {
+      background-color: #f66f5f; }
 
 .layout-header {
   padding: 5rem 0;

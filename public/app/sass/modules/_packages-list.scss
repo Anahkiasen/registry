@@ -20,20 +20,8 @@
 	}
 }
 
-.packages-list__key {
-	width: 5%;
-	text-align: center;
-}
-
-.packages-list__downloads {
-	text-align: center;
-	font-size: 1rem;
-	font-weight: bold;
-}
-
-.packages-list__description {
-	color: $color-silver--dark ;
-}
+// Header
+//////////////////////////////////////////////////////////////////////
 
 .packages-list__empty {
 	color: $color-silver--dark;
@@ -53,5 +41,57 @@
 
 	&:hover {
 		background-color: lighten($color-silver, 10);
+	}
+}
+
+// Packages
+//////////////////////////////////////////////////////////////////////
+
+.packages-list__key {
+	width: 5%;
+	text-align: center;
+}
+
+.packages-list__downloads {
+	text-align: center;
+	font-size: 1rem;
+	font-weight: bold;
+}
+
+.packages-list__description {
+	color: $color-silver--dark ;
+}
+
+// Pagination
+//////////////////////////////////////////////////////////////////////
+
+.packages-list__pagination {
+	td, td:hover {
+		padding: 0;
+		background-color: lighten($color-base, 20);
+	}
+
+	ul {
+		text-align: center;
+		@extend %inline-list;
+
+		li {
+			@extend .tag;
+			@include border-radius(0);
+			margin-right: -0.1rem;
+			padding: 0.5rem 1rem;
+
+			a, span {
+				font-size: 1.5rem;
+			}
+
+			&.disabled, &.disabled:hover {
+				background-color: $color-silver;
+				color: white;
+			}
+			&.active {
+				background-color: $color-base;
+			}
+		}
 	}
 }
