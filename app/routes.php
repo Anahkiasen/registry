@@ -12,7 +12,9 @@
 */
 
 Route::get('/',                 'PackagesController@index');
-Route::get('search',            'PackagesController@search');
+
+Route::get('maintainers',       'MaintainersController@index');
+Route::get('maintainer/{slug}', 'MaintainersController@maintainer');
+
 Route::get('{type?}',           'PackagesController@index');
 Route::get('package/{package}', 'PackagesController@package');
-Route::get('maintainer/{slug}', 'PackagesController@maintainer');

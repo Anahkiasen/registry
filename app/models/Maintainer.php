@@ -21,6 +21,35 @@ class Maintainer extends Eloquent
 	////////////////////////////////////////////////////////////////////
 
 	/**
+	 * Get the Maintainer's popularity
+	 *
+	 * @return integer
+	 */
+	public function getPopularityAttribute()
+	{
+		$popularity = array_pluck($this->packages->toArray(), 'popularity');
+		$popularity = array_filter($popularity, function($package) {
+			return $package > 0.5;
+		});
+
+		if (empty($popularity)) return 0;
+		$popularity = array_sum($popularity) / sizeof($popularity);
+		$popularity = round($popularity, 2);
+
+		return $popularity;
+	}
+
+	/**
+	 * Get number of packages
+	 *
+	 * @return integer
+	 */
+	public function getPackagesNumberAttribute()
+	{
+		return sizeof($this->packages);
+	}
+
+	/**
 	 * Get the Maintainer's Gravatar
 	 *
 	 * @return string
@@ -28,7 +57,7 @@ class Maintainer extends Eloquent
 	public function getGravatarAttribute()
 	{
 		$hash    = md5(strtolower(trim($this->email)));
-		$default = URL::asset('app/img/box.svg');
+		$default = 'http://registry.autopergamene.eu/app/img/avatar.png';
 		$size    = 160;
 
 		return sprintf('http://www.gravatar.com/avatar/%s?d=%s&s=%s', $hash, $default, $size);
@@ -41,7 +70,7 @@ class Maintainer extends Eloquent
 	 */
 	public function __toString()
 	{
-		return HTML::linkAction('PackagesController@maintainer', $this->name, $this->slug);
+		return HTML::linkAction('MaintainersController@maintainer', $this->name, $this->slug);
 	}
 
 }

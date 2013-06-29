@@ -23,6 +23,12 @@ hr {
   background-color: #f66f5f;
   color: white; }
 
+h1, h2, h3 {
+  font-weight: 100; }
+  h1 small, h2 small, h3 small {
+    color: #bdc3c7;
+    font-size: 0.75em; }
+
 table {
   width: 100%; }
   table th {
@@ -101,7 +107,7 @@ table th, .tag, .packages-list__pagination ul li, .layout-header, .layout-footer
   .packages-list__pagination ul li {
     display: inline-block; }
 
-.packages-list__pagination ul, .package__summary dl, .maintainer__summary dl, .layout-header h1 {
+.packages-list__pagination ul, .package__summary dl, .maintainer__summary dl, .maintainers-list, .layout-header h1 {
   margin: 0;
   padding: 0; }
 
@@ -128,11 +134,6 @@ table th, .tag, .packages-list__pagination ul li, .layout-header, .layout-footer
 
 .package, .maintainer {
   color: #869198; }
-  .package h1, .maintainer h1, .package h2, .maintainer h2, .package h3, .maintainer h3 {
-    font-weight: 100; }
-    .package h1 small, .maintainer h1 small, .package h2 small, .maintainer h2 small, .package h3 small, .maintainer h3 small {
-      color: #bdc3c7;
-      font-size: 0.75em; }
 
 .package__informations {
   *zoom: 1;
@@ -266,6 +267,9 @@ table th, .tag, .packages-list__pagination ul li, .layout-header, .layout-footer
 
 .maintainer__package {
   margin-bottom: 1rem; }
+
+.maintainers-list {
+  list-style-type: none; }
 
 .layout-header {
   padding: 5rem 0;

@@ -37,21 +37,6 @@ class PackagesController extends BaseController
 	}
 
 	/**
-	 * Display a Maintainer
-	 *
-	 * @param  string $slug
-	 *
-	 * @return View
-	 */
-	public function maintainer($slug)
-	{
-		$maintainer = Maintainer::with('packages')->whereSlug($slug)->firstOrFail();
-
-		return View::make('maintainer')
-			->with('maintainer', $maintainer);
-	}
-
-	/**
 	 * Search for packages
 	 *
 	 * @return string
