@@ -32,6 +32,7 @@ class SeedMaintainers extends Seeder
 		$name = array_get($maintainer, 'name');
 		$existingMaintainer = Maintainer::whereName($name)->first();
 
+		// Create model if it doesn't already
 		if (!$existingMaintainer) {
 			$existingMaintainer = Maintainer::create(array(
 				'name'     => $name,
