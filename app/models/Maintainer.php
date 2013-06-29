@@ -19,7 +19,7 @@ class Maintainer extends Eloquent
 	 */
 	public function __toString()
 	{
-		return HTML::link('maintainer/'.$this->id, $this->name);
+		return HTML::linkAction('PackagesController@maintainer', $this->name, $this->slug);
 	}
 
 }

@@ -14,6 +14,7 @@ class CreatePackages extends Migration
 		Schema::create('packages', function($table) {
 			$table->increments('id');
 				$table->string('name');
+				$table->string('slug');
 				$table->string('description');
 				$table->integer('favorites');
 				$table->string('type');

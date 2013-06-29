@@ -35,6 +35,7 @@ class SeedMaintainers extends Seeder
 		if (!$existingMaintainer) {
 			$existingMaintainer = Maintainer::create(array(
 				'name'     => $name,
+				'slug'     => Str::slug($name),
 				'email'    => array_get($maintainer, 'email'),
 				'homepage' => array_get($maintainer, 'homepage'),
 				'github'   => 'http://github.com/'.$name,

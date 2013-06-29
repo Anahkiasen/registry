@@ -28,11 +28,27 @@ class PackagesController extends BaseController
 	 *
 	 * @return View
 	 */
-	public function package($id)
+	public function package($slug)
 	{
-		$package = Package::with('maintainers', 'versions')->findOrFail($id);
+		$package = Package::with('maintainers', 'versions')->whereSlug($slug)->firstOrFail();
 
-		return View::make('package', compact('package'));
+		return View::make('package')
+			->with('package', $package);
+	}
+
+	/**
+	 * Display a Maintainer
+	 *
+	 * @param  string $slug
+	 *
+	 * @return View
+	 */
+	public function maintainer($slug)
+	{
+		$maintainer = Maintainer::with('packages')->whereSlug($slug)->firstOrFail();
+
+		return View::make('maintainer')
+			->with('maintainer', $maintainer);
 	}
 
 	/**

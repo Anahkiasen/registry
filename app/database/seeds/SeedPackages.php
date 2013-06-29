@@ -34,6 +34,7 @@ class SeedPackages extends Seeder
 			// Create model
 			$package = Package::create(array(
 				'name'        => $package->getName(),
+				'slug'        => Str::slug(str_replace('/', '-', $package->getName())),
 				'description' => $package->getDescription(),
 				'packagist'   => $package->getUrl(),
 				'favorites'   => $package->getFavers(),
