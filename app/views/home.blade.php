@@ -13,7 +13,7 @@
 				<th>Description</th>
 				<th class="packages-list__tags">Tag(s)</th>
 				<th>Author(s)</th>
-				<th>Downloads</th>
+				<th>Popularity</th>
 			</tr>
 		</thead>
 		<tbody>

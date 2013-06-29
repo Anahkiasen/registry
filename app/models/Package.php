@@ -98,8 +98,8 @@ class Package extends Eloquent
 	 */
 	public function getTravisAttribute()
 	{
-		$github = explode('/', $this->github);
-		$travis = $github[3].'/'.str_replace('.git', null, $github[4]);
+		$repository = explode('/', $this->repository);
+		$travis = $repository[3].'/'.str_replace('.git', null, $repository[4]);
 
 		return HTML::image('https://secure.travis-ci.org/' .$travis. '.png');
 	}
