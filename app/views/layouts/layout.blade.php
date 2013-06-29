@@ -1,13 +1,11 @@
 @extends('layouts.global')
 
 @section('layout')
-	<header class="layout-header">
-		<h1>
-			<a href="{{ URL::to('/') }}">
-				Laravel Packages <strong>Registry</strong>
-			</a>
-		</h1>
-	</header>
+	<a href="{{ URL::to('/') }}">
+		<header class="layout-header">
+			<h1>Laravel Packages <strong>Registry</strong></h1>
+		</header>
+	</a>
 	<main class="layout-content">
 		@yield('content')
 	</main>

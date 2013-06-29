@@ -40,7 +40,4 @@
 
 @section('js')
 	{{ Basset::show('home.js') }}
-	<script>
-		$('table').tablesorter();
-	</script>
 @stop
