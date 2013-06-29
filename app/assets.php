@@ -11,7 +11,7 @@ Basset::collection('application', function($collection) {
 	$collection->stylesheet('app/css/styles.css');
 
 })
-->rawOnEnvironment('local')
+->raw()
 ->apply('CssMin')->apply('UriRewriteFilter');
 
 //////////////////////////////////////////////////////////////////////
@@ -25,5 +25,5 @@ Basset::collection('home', function($collection) {
 	$collection->javascript('app/js/scripts.js');
 
 })
-->rawOnEnvironment('local')
+->raw()
 ->apply('JsMin');
