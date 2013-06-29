@@ -11,6 +11,10 @@
 					<dt>Homepage</dt>
 					<dd>{{ $maintainer->homepage }}</dd>
 				@endif
+				<dt>See on</dt>
+				<dd class="maintainer__links">
+					<a target="_blank" href="{{ $maintainer->github }}"><i class="icon-github"></i> Github</a>
+				</dd>
 			</dl>
 		</section>
 		<hr>

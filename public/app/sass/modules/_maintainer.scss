@@ -13,3 +13,7 @@
 .maintainer__package {
 	margin-bottom: 1rem;
 }
+
+.maintainer__links {
+	@extend .package__links;
+}

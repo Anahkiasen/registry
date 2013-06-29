@@ -170,15 +170,15 @@ table th, .tag, .packages-list__pagination ul li, .layout-header, .layout-footer
   .package__summary dd, .maintainer__summary dd {
     margin-left: 8rem; }
 
-.package__links a {
+.package__links a, .maintainer__links a {
   display: inline-block;
   margin-right: 1rem; }
-  .package__links a:hover {
+  .package__links a:hover, .maintainer__links a:hover {
     color: #f99a8f; }
-.package__links i {
+.package__links i, .maintainer__links i {
   position: relative;
   top: 1px; }
-.package__links .icon-github {
+.package__links .icon-github, .maintainer__links .icon-github {
   top: 2px;
   font-size: 1.2em; }
 
