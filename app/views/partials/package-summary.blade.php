@@ -4,9 +4,13 @@
 		<dd>{{ $package->description }}</dd>
 		<dt>Tags</dt>
 		<dd>
-			@foreach ($package->tags as $tag)
-				<li class="tag">{{ $tag }}</li>
-			@endforeach
+			@if ($package->tags)
+				@foreach ($package->tags as $tag)
+					<li class="tag">{{ $tag }}</li>
+				@endforeach
+			@else
+				No tags
+			@endif
 		</dd>
 		<dt>Travis build</dt>
 		<dd>{{ $package->travis }}</dd>

@@ -88,7 +88,7 @@ class Package extends Eloquent
 			return !in_array($value, array('laravel', 'illuminate', 'L4', 'Laravel 4', 'laravel4', 'laravel-4'));
 		});
 
-		return $tags;
+		return (array) $tags;
 	}
 
 	/**
