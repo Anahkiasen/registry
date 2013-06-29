@@ -1,7 +1,6 @@
 var packages      = document.querySelectorAll('.packages-list__package'),
 		empty         = document.querySelector('.packages-list__empty'),
 		search        = document.querySelector('.layout-search'),
-		tags          = document.querySelectorAll('tags'),
 		form          = document.getElementById('search'),
 		nbPackages    = packages.length,
 		packagesInfos = [];
@@ -10,23 +9,24 @@ var packages      = document.querySelectorAll('.packages-list__package'),
 //////////////////////////////// HELPERS /////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-var addEventListener = function(handlers, selector, fn) {
+var handleEvent = function(handlers, selector, fn) {
 	handlers = handlers.split(' ').forEach(function(handler) {
 
 		// Build selector
-		if (typeof(selector) == 'string') {
+		if (typeof(selector) === 'string') {
 			selector = document.querySelectorAll(selector);
 		}
 
 		// Bind event handler
 		if (selector instanceof NodeList) {
 			[].forEach.call(selector, function(element) {
-				element.addEventListener(handler, fn, false);
+				element.addEventListener(handler, fn);
 			});
+		} else if (typeof(selector) === 'object') {
+			selector.addEventListener(handler, fn);
 		} else {
-			selector.addEventListener(handler, fn, false);
+			console.log(selector);
 		}
-
 
 	});
 };
@@ -35,7 +35,8 @@ var addEventListener = function(handlers, selector, fn) {
  * Refreshes the results of the table
  */
 var refreshResults = function(query) {
-	var visible = 0;
+	var visible = 0,
+			key;
 
 	for (key = 0; key < nbPackages; key++) {
 		var package = packages[key];
@@ -46,8 +47,8 @@ var refreshResults = function(query) {
 			packagesInfos[key] = {
 				'name'        : infos[1].innerHTML,
 				'description' : infos[2].innerHTML,
-				'tags'        : infos[3].innerHTML,
-			}
+				'tags'        : infos[3].innerHTML
+			};
 		}
 
 		// Show matching results
@@ -63,7 +64,7 @@ var refreshResults = function(query) {
 	}
 
 	// Show "No results" row
-	if (visible == 0) {
+	if (visible === 0) {
 		empty.classList.remove('hidden');
 	} else {
 		empty.classList.add('hidden');
@@ -74,16 +75,14 @@ var refreshResults = function(query) {
 ///////////////////////////////// EVENTS /////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-
-
 /**
  * Listens as the User types into the search field
  */
-addEventListener('keyup', search, function(event) {
+handleEvent('keyup', search, function() {
 	refreshResults(this.value);
 });
 
-addEventListener('reset', form, function(event) {
+handleEvent('reset', form, function() {
 	refreshResults('');
 });
 
@@ -92,24 +91,27 @@ addEventListener('reset', form, function(event) {
  */
 form.addEventListener('submit', function(event) {
 	event.preventDefault();
+	var firstPackage, key;
 
 	// Get first results
 	for (key = 0; key < nbPackages; key++) {
 		var package = packages[key];
 
-		if (package.classList.contains('hidden')) continue;
-		else {
+		if (package.classList.contains('hidden')) {
+			continue;
+		} else {
+			firstPackage = package;
 			break;
 		}
 	}
 
-	window.location = 'package/' + package.dataset['id'];
+	window.location = 'package/' + firstPackage.dataset.id;
 });
 
 /**
  * Make Tag act like categories
  */
-addEventListener('click', '.tag', function(tag) {
+handleEvent('click', '.tag', function() {
 	search.value = this.innerHTML;
 	refreshResults(this.innerHTML);
 });
