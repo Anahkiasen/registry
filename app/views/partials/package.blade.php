@@ -8,5 +8,5 @@
 		@endforeach
 	</td>
 	<td data-title="Authors">{{ $package->maintainersList }}</td>
-	<td data-title="Downloads" class="packages-list__downloads">{{ $package->downloads }}</td>
+	<td data-title="Downloads" class="packages-list__downloads">{{ $package->downloads_total }}</td>
 </tr>

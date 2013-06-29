@@ -1,6 +1,12 @@
 <?php
 class SeedVersions extends Seeder
 {
+
+	/**
+	 * Seed versions
+	 *
+	 * @return void
+	 */
 	public function run()
 	{
 		$packages = Package::all();
@@ -21,4 +27,5 @@ class SeedVersions extends Seeder
 			}
 		}
 	}
+
 }

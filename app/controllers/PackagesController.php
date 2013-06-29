@@ -12,7 +12,7 @@ class PackagesController extends BaseController
 	public function index($type = 'package')
 	{
 		// Fetch packages, paginated
-		$packages       = Package::with('maintainers', 'versions')->whereType($type)->orderBy('downloads', 'DESC')->get();
+		$packages       = Package::with('maintainers', 'versions')->whereType($type)->orderBy('downloads_total', 'DESC')->get();
 		$positionOffset = 1;
 
 		return View::make('home', array(

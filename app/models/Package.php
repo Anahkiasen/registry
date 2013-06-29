@@ -52,16 +52,6 @@ class Package extends Eloquent
 	////////////////////////////////////////////////////////////////////
 
 	/**
-	 * Get the total number of downloads
-	 *
-	 * @return integer
-	 */
-	public function getDownloadsAttribute()
-	{
-		return (int) $this->getInformations()->downloads['total'];
-	}
-
-	/**
 	 * Get tags as an array
 	 *
 	 * @return array

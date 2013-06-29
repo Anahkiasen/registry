@@ -37,17 +37,20 @@ class SeedPackages extends Seeder
 				'description' => $package->getDescription(),
 				'packagist'   => $package->getUrl(),
 				'favorites'   => $package->getFavers(),
-				'downloads'   => $package->getDownloads(),
 				'type'        => $type,
 			));
 
 			// Skip non-library
-			print 'Fetching informations for ['.$key.'/'.sizeof($packages).'] ' .$package->name.PHP_EOL;
+			print 'Fetching informations for ['.($key + 1).'/'.sizeof($packages).'] ' .$package->name.PHP_EOL;
 			if ($package->getInformations()->type != 'library') {
 				continue;
 			}
 
 			// Save
+			$package->downloads_total   = $package->getInformations()->downloads['total'];
+			$package->downloads_monthly = $package->getInformations()->downloads['monthly'];
+			$package->downloads_daily   = $package->getInformations()->downloads['daily'];
+			$package->github            = $package->getInformations()->repository;
 			$package->touch();
 		}
 	}
