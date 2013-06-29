@@ -1,4 +1,6 @@
 <?php
+use Carbon\Carbon;
+
 class Package extends Eloquent
 {
 
@@ -26,7 +28,7 @@ class Package extends Eloquent
 	 */
 	public function versions()
 	{
-		return $this->hasMany('Version');
+		return $this->hasMany('Version')->orderBy('created_at', 'DESC');
 	}
 
 	////////////////////////////////////////////////////////////////////
@@ -40,27 +42,34 @@ class Package extends Eloquent
 	 */
 	protected function getInformations($source)
 	{
+		// Check if we have the informations in cache
 		if (!array_key_exists($source, $this->informations)) {
-			if ($source == 'packagist') {
-				$this->informations['packagist'] = Cache::rememberForever($this->name.'-packagist', function() {
-					$informations = App::make('guzzle')->get('/packages/'.$this->name.'.json')->send()->json();
-					return (object) $informations['package'];
-				});
-			} else {
-				$this->informations['repository'] = Cache::rememberForever($this->name.'-repository', function() {
-					$source = str_contains($this->repository, 'github') ? 'github' : 'bitbucket';
-					$name   = explode('/', $this->repository);
-					$name   = $name[3].'/'.$name[4];
 
-					try {
-						$informations = App::make($source)->get($name.'?client_id=376e127206f9a567e4c2&client_secret=cc9b32c88bf79ffbe84d72e996b85f78eb8b89f5')->send()->json();
-					}
-					catch (Exception $e) {
-						$informations = array();
-					}
+			// Otherwise fetch them
+			switch ($source) {
+				case 'packagist':
+					$this->informations['packagist'] = Cache::rememberForever($this->name.'-packagist', function() {
+						$informations = App::make('guzzle')->get('/packages/'.$this->name.'.json')->send()->json();
+						return (object) $informations['package'];
+					});
+					break;
 
-					return $informations;
-				});
+				case 'repository':
+					$this->informations['repository'] = Cache::rememberForever($this->name.'-repository', function() {
+						$source = str_contains($this->repository, 'github') ? 'github' : 'bitbucket';
+						$name   = explode('/', $this->repository);
+						$name   = $name[3].'/'.$name[4];
+
+						try {
+							$informations = App::make($source)->get($name.'?client_id=376e127206f9a567e4c2&client_secret=cc9b32c88bf79ffbe84d72e996b85f78eb8b89f5')->send()->json();
+						}
+						catch (Exception $e) {
+							$informations = array();
+						}
+
+						return $informations;
+					});
+					break;
 			}
 		}
 
@@ -111,7 +120,7 @@ class Package extends Eloquent
 	 */
 	public function getRelativeDateAttribute()
 	{
-		return $this->versions[0]->created_at->diffForHumans(Carbon\Carbon::now());
+		return $this->versions[0]->created_at->diffForHumans(Carbon::now());
 	}
 
 	/**
