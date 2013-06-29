@@ -6,8 +6,31 @@
 	@extend .package;
 }
 
+// Informations
+//////////////////////////////////////////////////////////////////////
+
+$image-size: 10rem;
+
+.maintainer__informations {
+	@include container;
+	max-width: 100%;
+	padding: 0;
+}
+
 .maintainer__summary {
 	@extend .package__summary;
+	width: 100%;
+	margin-left: $image-size + 1rem;
+	height: $image-size;
+}
+
+.maintainer__avatar {
+	float: left;
+	width: $image-size;
+
+	img {
+		width: 100%;
+	}
 }
 
 .maintainer__package {

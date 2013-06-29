@@ -165,7 +165,6 @@ table th, .tag, .packages-list__pagination ul li, .layout-header, .layout-footer
   .package__summary dt, .maintainer__summary dt {
     width: 7rem;
     float: left;
-    clear: left;
     font-weight: bold; }
   .package__summary dd, .maintainer__summary dd {
     margin-left: 8rem; }
@@ -238,6 +237,32 @@ table th, .tag, .packages-list__pagination ul li, .layout-header, .layout-footer
       color: white; }
     .packages-list__pagination ul li.active {
       background-color: #f66f5f; }
+
+.maintainer__informations {
+  *zoom: 1;
+  max-width: 59em;
+  _width: 59em;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  padding: 0; }
+  .maintainer__informations:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.maintainer__summary {
+  width: 100%;
+  margin-left: 11rem;
+  height: 10rem; }
+
+.maintainer__avatar {
+  float: left;
+  width: 10rem; }
+  .maintainer__avatar img {
+    width: 100%; }
 
 .maintainer__package {
   margin-bottom: 1rem; }

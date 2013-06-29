@@ -3,19 +3,24 @@
 @section('content')
 	<section class="maintainer">
 		<h1>{{ $maintainer->name }} <small>{{ sizeof($maintainer->packages) }} packages</small></h1>
-		<section class="maintainer__summary">
-			<dl>
-				<dt>Mail</dt>
-				<dd>{{ HTML::mailto($maintainer->email) }}</dd>
-				@if ($maintainer->homepage)
-					<dt>Homepage</dt>
-					<dd>{{ $maintainer->homepage }}</dd>
-				@endif
-				<dt>See on</dt>
-				<dd class="maintainer__links">
-					<a target="_blank" href="{{ $maintainer->github }}"><i class="icon-github"></i> Github</a>
-				</dd>
-			</dl>
+		<section class="maintainer__informations">
+			<figure class="maintainer__avatar">
+				{{ HTML::image($maintainer->gravatar) }}
+			</figure>
+			<section class="maintainer__summary">
+				<dl>
+					<dt>Mail</dt>
+					<dd>{{ HTML::mailto($maintainer->email) }}</dd>
+					@if ($maintainer->homepage)
+						<dt>Homepage</dt>
+						<dd>{{ $maintainer->homepage }}</dd>
+					@endif
+					<dt>See on</dt>
+					<dd class="maintainer__links">
+						<a target="_blank" href="{{ $maintainer->github }}"><i class="icon-github"></i> Github</a>
+					</dd>
+				</dl>
+			</section>
 		</section>
 		<hr>
 		<h2>Packages</h2>
