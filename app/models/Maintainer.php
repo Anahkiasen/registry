@@ -9,7 +9,7 @@ class Maintainer extends Eloquent
 	 */
 	public function packages()
 	{
-		return $this->belongsToMany('Package')->orderBy('downloads_total', 'DESC');
+		return $this->belongsToMany('Package')->orderBy('popularity', 'DESC');
 	}
 
 	/**
