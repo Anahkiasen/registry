@@ -14,9 +14,11 @@ Rocketeer::after(array('deploy', 'update'), function($task) {
 	$task->setPermissions('app');
 });
 
-Rocketeer::after('update', function($task) {
-	$task->command->info('Updating database and clearing cache');
+Rocketeer::after(array('deploy', 'update'), function($task) {
+	$task->command->info('Updating database');
 	$task->remote->put(App::make('path').'/database/production.sqlite', $task->rocketeer->getFolder('shared/app/database/production.sqlite'));
+
+	$task->command->info('Clearing cache');
 	$task->runForCurrentRelease('php artisan cache:clear');
 });
 
