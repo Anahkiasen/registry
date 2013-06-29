@@ -4,6 +4,9 @@
 	<meta charset="UTF-8">
 	<title>@yield('title')Laravel Packages Registry</title>
 	<link href="{{ URL::asset('app/img/favicon.png') }}" rel="shortcut icon"/>
+  <meta name='apple-mobile-web-app-capable' content='yes' />
+  <meta name='apple-touch-fullscreen' content='yes' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
 	{{ Basset::show('application.css') }}
 </head>
 <body>

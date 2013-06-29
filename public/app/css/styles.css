@@ -222,32 +222,33 @@ table th, .tag, .layout-header, .layout-footer {
       .layout-header h1 {
         font-size: 1rem; } }
 
+#search {
+  position: relative; }
+
 .layout-search {
+  padding: 1rem;
+  width: 100%;
   -webkit-transition: background 0.3s;
   -moz-transition: background 0.3s;
   -o-transition: background 0.3s;
   transition: background 0.3s;
   background-color: #f4f5f6;
   border: none;
-  color: #869198;
-  font-size: 1.5rem;
   outline: 0;
-  padding: 1rem;
-  width: 100%; }
+  color: #869198;
+  font-size: 1.5rem; }
   .layout-search:focus {
     background-color: white; }
 
-#search {
-  position: relative; }
-
 .layout-search__reset {
-  border: none;
-  background: none;
   position: absolute;
-  top: 0.75rem;
   right: 0.75rem;
+  top: 0.75rem;
+  background: none;
+  border: none;
   color: #869198;
-  font-size: 2rem; }
+  font-size: 2rem;
+  font-weight: 100; }
 
 .layout-content {
   width: 100%;

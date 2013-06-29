@@ -23,39 +23,3 @@
 		}
 	}
 }
-
-// Search
-//
-//////////////////////////////////////////////////////////////////////
-
-.layout-search {
-	@extend %border-box;
-	@include transition(background .3s);
-	background-color: lighten($color-silver, 20);
-	border: none;
-	color: $color-silver--dark;
-	font-size: 1.5rem;
-	outline: 0;
-	padding: 1rem;
-	width: 100%;
-
-	&:focus {
-		background-color: lighten($color-silver, 25);
-	}
-}
-
-#search {
-	position: relative;
-}
-
-.layout-search__reset {
-	$offset: 0.75rem;
-	border: none;
-	background: none;
-	position: absolute;
-	top: $offset;
-	right: $offset;
-	color: $color-silver--dark;
-	font-size: 2rem;
-
-}

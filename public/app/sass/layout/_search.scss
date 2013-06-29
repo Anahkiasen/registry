@@ -1,0 +1,55 @@
+// Search
+//
+//////////////////////////////////////////////////////////////////////
+
+#search {
+	position: relative;
+}
+
+// Input
+//////////////////////////////////////////////////////////////////////
+
+.layout-search {
+
+	// Structure
+	@extend %border-box;
+	padding: 1rem;
+	width: 100%;
+
+	// Appearance
+	@include transition(background .3s);
+	background-color: lighten($color-silver, 20);
+	border: none;
+	outline: 0;
+
+	// Text
+	color: $color-silver--dark;
+	font-size: 1.5rem;
+
+	// States
+	&:focus {
+		background-color: lighten($color-silver, 25);
+	}
+}
+
+// Close button
+//////////////////////////////////////////////////////////////////////
+
+.layout-search__reset {
+
+	// Structure
+	$offset: 0.75rem;
+	position: absolute;
+	right: $offset;
+	top: $offset;
+
+	// Appearance
+	background: none;
+	border: none;
+
+	// Text
+	color: $color-silver--dark;
+	font-size: 2rem;
+	font-weight: 100;
+
+}
