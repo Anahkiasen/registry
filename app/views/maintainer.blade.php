@@ -6,7 +6,7 @@
 		<section class="maintainer__summary">
 			<dl>
 				<dt>Mail</dt>
-				<dd>{{ $maintainer->email }}</dd>
+				<dd>{{ HTML::mailto($maintainer->email) }}</dd>
 				@if ($maintainer->homepage)
 					<dt>Homepage</dt>
 					<dd>{{ $maintainer->homepage }}</dd>
