@@ -1813,12 +1813,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "35da735fae40d43a199ed51b30ac3f073404d1c6"
+                "reference": "911cdac93e13f42a749a00787abcbeea1aac9404"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/35da735fae40d43a199ed51b30ac3f073404d1c6",
-                "reference": "35da735fae40d43a199ed51b30ac3f073404d1c6",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/911cdac93e13f42a749a00787abcbeea1aac9404",
+                "reference": "911cdac93e13f42a749a00787abcbeea1aac9404",
                 "shasum": ""
             },
             "require": {
@@ -1857,7 +1857,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2013-06-15 17:55:04"
+            "time": "2013-06-30 18:29:21"
         },
         {
             "name": "symfony/css-selector",

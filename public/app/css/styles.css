@@ -128,7 +128,8 @@ table th, .tag, .packages-list__pagination ul li, .layout-header, .layout-footer
   border-radius: 0.25em;
   display: inline-block;
   margin-left: 0.25rem;
-  padding: 0.25rem; }
+  padding: 0.25rem;
+  cursor: pointer; }
   .tag:first-child, .packages-list__pagination ul li:first-child {
     margin-left: 0; }
 

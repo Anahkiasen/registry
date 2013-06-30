@@ -6,7 +6,9 @@
 		<dd>
 			@if ($package->keywords)
 				@foreach ($package->keywords as $keyword)
-					<li class="tag">{{ $keyword }}</li>
+					<li class="tag">
+						<a href="{{ URL::action('PackagesController@index') }}?q={{ $keyword }}">{{ $keyword }}</a>
+					</li>
 				@endforeach
 			@else
 				No tags

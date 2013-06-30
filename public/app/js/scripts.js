@@ -6,8 +6,6 @@ var packages      = document.querySelectorAll('.packages-list__package'),
 		packagesInfos = [],
 		lastQuery     = null;
 
-// $('table').tablesorter();
-
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////// HELPERS /////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -52,11 +50,10 @@ var refreshResults = function(query) {
 
 		// Get packages informations
 		if (packagesInfos[key] === undefined) {
-			var infos = package.children;
 			packagesInfos[key] = {
-				'name'        : infos[1].innerHTML,
-				'description' : infos[2].innerHTML,
-				'tags'        : infos[3].innerHTML
+				'name'        : package.children[1].innerHTML,
+				'description' : package.children[2].innerHTML,
+				'tags'        : package.children[3].innerHTML
 			};
 		}
 
@@ -83,6 +80,13 @@ var refreshResults = function(query) {
 //////////////////////////////////////////////////////////////////////
 ///////////////////////////////// EVENTS /////////////////////////////
 //////////////////////////////////////////////////////////////////////
+
+/**
+ * URL queries
+ */
+if (search.value.length !== 0) {
+	refreshResults(search.value);
+}
 
 /**
  * Listens as the User types into the search field
