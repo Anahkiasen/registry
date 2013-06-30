@@ -12,7 +12,7 @@
 				<th>Name</th>
 				<th>Description</th>
 				<th class="packages-list__tags">Tag(s)</th>
-				<th>Author(s)</th>
+				<th>Maintainer(s)</th>
 				<th>Popularity</th>
 			</tr>
 		</thead>

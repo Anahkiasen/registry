@@ -107,6 +107,10 @@ class Package extends Eloquent
 	 */
 	public function getTravisAttribute()
 	{
+		if (!$this->repository) {
+			return null;
+		}
+
 		$repository = explode('/', $this->repository);
 		$travis = $repository[3].'/'.str_replace('.git', null, $repository[4]);
 
@@ -128,16 +132,14 @@ class Package extends Eloquent
 	 *
 	 * @return array
 	 */
-	public function getTagsAttribute()
+	public function getKeywordsAttribute()
 	{
-		if ($this->versions->isEmpty()) return array();
-
-		$tags = $this->versions[0]->keywords;
-		$tags = array_filter($tags, function($value) {
+		$keywords = (array) json_decode($this->getOriginal('keywords'), true);
+		$keywords = array_filter($keywords, function($value) {
 			return !in_array($value, array('laravel', 'illuminate', 'L4', 'Laravel 4', 'laravel4', 'laravel-4'));
 		});
 
-		return (array) $tags;
+		return $keywords;
 	}
 
 	/**
@@ -154,6 +156,22 @@ class Package extends Eloquent
 		}
 
 		return implode(', ', $list);
+	}
+
+	////////////////////////////////////////////////////////////////////
+	///////////////////////////// QUERY SCOPES /////////////////////////
+	////////////////////////////////////////////////////////////////////
+
+	/**
+	 * Get packages by most popular
+	 *
+	 * @param  Query $query
+	 *
+	 * @return Query
+	 */
+	public function scopePopular($query)
+	{
+		return $query->orderBy('popularity', 'DESC');
 	}
 
 }

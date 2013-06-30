@@ -10,6 +10,7 @@ class SeedPackages extends Seeder
 	protected $ignore = array(
 		'composer/installers',
 		'typo3/flow-composer-installers',
+		'iyoworks/former',
 	);
 
 	/**

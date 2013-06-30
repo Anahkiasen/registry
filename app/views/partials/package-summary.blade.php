@@ -4,9 +4,9 @@
 		<dd>{{ $package->description }}</dd>
 		<dt>Tags</dt>
 		<dd>
-			@if ($package->tags)
-				@foreach ($package->tags as $tag)
-					<li class="tag">{{ $tag }}</li>
+			@if ($package->keywords)
+				@foreach ($package->keywords as $keyword)
+					<li class="tag">{{ $keyword }}</li>
 				@endforeach
 			@else
 				No tags

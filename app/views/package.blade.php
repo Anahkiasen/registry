@@ -20,5 +20,15 @@
 				</code>
 			</article>
 		@endforeach
+		@if (!$similar->isEmpty())
+			<hr>
+			<h2>Similar packages</h2>
+			@foreach ($similar as $package)
+				<article class="maintainer__package">
+					<h3>{{ HTML::linkAction('PackagesController@package', $package->name, $package->slug) }} <small>last updated {{ $package->relativeDate }}</small></h3>
+					@include('partials.package-summary')
+				</article>
+			@endforeach
+		@endif
 	</section>
 @stop

@@ -32,7 +32,20 @@ class PackagesController extends BaseController
 	{
 		$package = Package::with('maintainers', 'versions')->whereSlug($slug)->firstOrFail();
 
+		// Get similar packages
+		$similar = Package::where('name', '!=', $package->name)->where(function($query) use ($package) {
+			foreach ($package->keywords as $keyword) {
+				$query->orWhere('keywords', 'LIKE', '%"' .$keyword. '"%');
+			}
+		})->popular()->get();
+
+		// Sort by number of tags in common
+		$similar->sortBy(function($similarPackage) use($package) {
+			return $similarPackage->popularity + sizeof(array_intersect($similarPackage->keywords, $package->keywords)) * -1;
+		});
+
 		return View::make('package')
+			->with('similar', $similar)
 			->with('package', $package);
 	}
 
