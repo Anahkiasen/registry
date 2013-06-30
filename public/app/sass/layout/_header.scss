@@ -5,7 +5,7 @@
 .layout-header {
 	@extend %background-base;
 	padding: 5rem 0;
-	background-image: image-url('box.png');
+	background-image: inline-image('box.png');
 	background-repeat: no-repeat;
 	background-size: 16rem;
 	background-position: 20% 2rem;
