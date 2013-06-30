@@ -56,4 +56,8 @@
 	font-size: 2rem;
 	font-weight: 100;
 
+	@include at-breakpoint(0 $tablet) {
+		display: none;
+	}
+
 }
