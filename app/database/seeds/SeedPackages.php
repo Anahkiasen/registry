@@ -74,7 +74,6 @@ class SeedPackages extends Seeder
 			'slug'        => Str::slug($slug),
 			'description' => $package->getDescription(),
 			'packagist'   => $package->getUrl(),
-			'favorites'   => $package->getFavers(),
 			'type'        => $type,
 		));
 	}
@@ -105,6 +104,7 @@ class SeedPackages extends Seeder
 			'downloads_daily'   => $package->getPackagist()->downloads['daily'],
 			'watchers'          => $watchers,
 			'forks'             => $forks,
+			'favorites'         => $package->getPackagist()->favers,
 		))->touch();
 	}
 
@@ -116,17 +116,28 @@ class SeedPackages extends Seeder
 	protected function computePopularity()
 	{
 		// Compute popularity of packages
-		$packages               = Package::all();
-		$max['downloads_total'] = DB::table('packages')->max('downloads_total');
-		$max['watchers']        = DB::table('packages')->max('watchers');
-		$max['forks']           = DB::table('packages')->max('forks');
+		$packages = Package::all();
+		$weight   = array(
+			'downloads_total' => 1.5,
+			'watchers'        => 2,
+			'forks'           => 1,
+			'favorites'       => 0.25
+		);
+
+		// Get maximum value
+		$max = array(
+			'downloads_total' => DB::table('packages')->whereType('package')->max('downloads_total'),
+			'watchers'        => DB::table('packages')->whereType('package')->max('watchers'),
+			'forks'           => DB::table('packages')->whereType('package')->max('forks'),
+			'favorites'       => DB::table('packages')->whereType('package')->max('favorites'),
+		);
 
 		foreach ($packages as $package) {
 			foreach ($max as $index => $value) {
-				$indexes[$index] = $package->$index * 100 / $value;
+				$indexes[$index] = ($package->$index * 100 / $value) * $weight[$index];
 			}
 
-			$package->popularity = round(array_sum($indexes) / 3, 2);
+			$package->popularity = round(array_sum($indexes) / array_sum($weight), 2);
 			$package->touch();
 		}
 	}

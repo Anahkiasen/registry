@@ -22,7 +22,8 @@
 		<dt>Popularity</dt>
 		<dd>
 			<strong>Stars</strong> : {{ $package->watchers }}<br>
-			<strong>Forks</strong> : {{ $package->forks }}
+			<strong>Forks</strong> : {{ $package->forks }}<br>
+			<strong>Favorites</strong> : {{ $package->favorites }}
 		</dd>
 		<dt>Downloads</dt>
 		<dd>
