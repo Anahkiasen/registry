@@ -1,4 +1,4 @@
-<tr class="packages-list__package" data-id="{{ $package->id }}">
+<tr class="packages-list__package" data-id="{{ $package->slug }}">
 	<td data-title="#" class="packages-list__key">{{ $key + $positionOffset }}</td>
 	<td data-title="Name">{{ HTML::linkAction('PackagesController@package', $package->name, $package->slug) }}</td>
 	<td data-title="Description" class="packages-list__description">{{ Str::words($package->description, 15) }}</td>
