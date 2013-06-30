@@ -10,7 +10,7 @@
 		"loic-sharma/profiler": "dev-master",
 		"lmammino/jsmin4assetic": "dev-master",
 		"natxet/CssMin": "dev-master",
-		"anahkiasen/flatten": "dev-develop"
+		"anahkiasen/flatten": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
