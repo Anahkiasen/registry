@@ -12,7 +12,7 @@ class PackagesController extends BaseController
 	public function index($type = 'package')
 	{
 		// Fetch packages, paginated
-		$packages       = Package::with('maintainers', 'versions')->whereType($type)->orderBy('popularity', 'DESC')->get();
+		$packages       = Package::with('maintainers')->whereType($type)->orderBy('popularity', 'DESC')->get();
 		$positionOffset = 1;
 
 		return View::make('home', array(
@@ -30,10 +30,10 @@ class PackagesController extends BaseController
 	 */
 	public function package($slug)
 	{
-		$package = Package::with('maintainers', 'versions')->whereSlug($slug)->firstOrFail();
+		$package = Package::with('versions')->whereSlug($slug)->firstOrFail();
 
 		// Get similar packages
-		$similar = Package::where('name', '!=', $package->name)->where(function($query) use ($package) {
+		$similar = Package::with('versions')->where('name', '!=', $package->name)->where(function($query) use ($package) {
 			foreach ($package->keywords as $keyword) {
 				$query->orWhere('keywords', 'LIKE', '%"' .$keyword. '"%');
 			}
