@@ -5,7 +5,7 @@
 	<section class="maintainer__summary">
 		<dl>
 			<dt>Name</dt>
-			<dd>{{ $maintainer->name }}</dd>
+			<dd>{{ HTML::linkAction('MaintainersController@maintainer', $maintainer->name, $maintainer->slug) }}</dd>
 			<dt>Packages</dt>
 			<dd>{{ $maintainer->packagesNumber }} {{ Str::plural('package', $maintainer->packagesNumber) }} ({{ $maintainer->popularity }} popularity)</dd>
 			<dt>Mail</dt>
