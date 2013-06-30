@@ -26,7 +26,7 @@ class MaintainersController extends BaseController
 	 */
 	public function maintainer($slug)
 	{
-		$maintainer = Maintainer::with('packages')->whereSlug($slug)->firstOrFail();
+		$maintainer = Maintainer::with('packages', 'packages.versions')->whereSlug($slug)->firstOrFail();
 
 		return View::make('maintainer')
 			->with('maintainer', $maintainer);
