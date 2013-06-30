@@ -124,7 +124,7 @@ class Package extends Eloquent
 	 */
 	public function getRelativeDateAttribute()
 	{
-		return $this->versions[0]->created_at->diffForHumans(Carbon::now());
+		return $this->versions[0]->relativeDate;
 	}
 
 	/**

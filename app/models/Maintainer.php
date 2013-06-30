@@ -13,7 +13,7 @@ class Maintainer extends Eloquent
 	 */
 	public function packages()
 	{
-		return $this->belongsToMany('Package')->orderBy('popularity', 'DESC');
+		return $this->belongsToMany('Package')->popular();
 	}
 
 	////////////////////////////////////////////////////////////////////
@@ -27,11 +27,13 @@ class Maintainer extends Eloquent
 	 */
 	public function getPopularityAttribute()
 	{
+		// Get all packages with a decent popularity
 		$popularity = array_pluck($this->packages->toArray(), 'popularity');
 		$popularity = array_filter($popularity, function($package) {
 			return $package > 0.5;
 		});
 
+		// Compute average popularity
 		if (empty($popularity)) return 0;
 		$popularity = array_sum($popularity) / sizeof($popularity);
 		$popularity = round($popularity, 2);

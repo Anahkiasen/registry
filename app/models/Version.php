@@ -25,7 +25,7 @@ class Version extends Eloquent
 	 */
 	public function getRelativeDateAttribute()
 	{
-		return $this->created_at->diffForHumans(Carbon::now());
+		return $this->created_at->diffForHumans();
 	}
 
 }
