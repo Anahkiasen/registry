@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://registry.autopergamene.eu',
+	'url' => 'http://registry.dev',
 
 	/*
 	|--------------------------------------------------------------------------

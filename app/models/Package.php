@@ -62,8 +62,7 @@ class Package extends Eloquent
 
 						try {
 							$informations = App::make($source)->get($name.'?client_id=376e127206f9a567e4c2&client_secret=cc9b32c88bf79ffbe84d72e996b85f78eb8b89f5')->send()->json();
-						}
-						catch (Exception $e) {
+						} catch (Exception $e) {
 							$informations = array();
 						}
 

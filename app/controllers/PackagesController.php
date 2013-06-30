@@ -40,7 +40,7 @@ class PackagesController extends BaseController
 		})->get();
 
 		// Sort by popularity and number of tags in common
-		$similar->sortBy(function($similarPackage) use($package) {
+		$similar->sortBy(function($similarPackage) use ($package) {
 			return $similarPackage->popularity + sizeof(array_intersect($similarPackage->keywords, $package->keywords)) * -1;
 		});
 
