@@ -2,14 +2,14 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-$footer-height: 8rem;
+$footer-height: 5rem;
 
 .layout-footer__wrapper {
 	min-height: 100%;
 	position: relative;
 
-	.layout-container {
-		padding-bottom: $footer-height + 5rem;
+	.layout-content {
+		padding-bottom: $footer-height + 2rem;
 		height: 100%;
 	}
 }
@@ -19,7 +19,7 @@ $footer-height: 8rem;
 	@extend %background-base;
 	text-align: center;
 	font-size: 1rem;
-	padding: 2rem 0;
+	padding: 1rem 0;
 	text-shadow: none;
 	font-weight: 100;
 	width: 100%;

@@ -346,15 +346,15 @@ table th, .tag, .packages-list__pagination ul li, .layout-header, .layout-footer
 .layout-footer__wrapper {
   min-height: 100%;
   position: relative; }
-  .layout-footer__wrapper .layout-container {
-    padding-bottom: 13rem;
+  .layout-footer__wrapper .layout-content {
+    padding-bottom: 7rem;
     height: 100%; }
 
 .layout-footer {
-  height: 8rem;
+  height: 5rem;
   text-align: center;
   font-size: 1rem;
-  padding: 2rem 0;
+  padding: 1rem 0;
   text-shadow: none;
   font-weight: 100;
   width: 100%;
