@@ -37,9 +37,9 @@ class PackagesController extends BaseController
 			foreach ($package->keywords as $keyword) {
 				$query->orWhere('keywords', 'LIKE', '%"' .$keyword. '"%');
 			}
-		})->popular()->get();
+		})->get();
 
-		// Sort by number of tags in common
+		// Sort by popularity and number of tags in common
 		$similar->sortBy(function($similarPackage) use($package) {
 			return $similarPackage->popularity + sizeof(array_intersect($similarPackage->keywords, $package->keywords)) * -1;
 		});
@@ -47,28 +47,6 @@ class PackagesController extends BaseController
 		return View::make('package')
 			->with('similar', $similar)
 			->with('package', $package);
-	}
-
-	/**
-	 * Search for packages
-	 *
-	 * @return string
-	 */
-	public function search()
-	{
-		$query = Input::get('q');
-		$html  = null;
-
-		$packages = Package::whereType('package')
-			->where('name', 'LIKE', "%$query%")
-			->where('description', 'LIKE', "%$query%")
-			->get();
-
-		foreach ($packages as $key => $package) {
-			$html .= View::make('partials.package', array('package' => $package, 'key' => $key, 'positionOffset' => 0));
-		}
-
-		return $html;
 	}
 
 }
