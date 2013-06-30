@@ -37,9 +37,15 @@ class Refresh extends Command
 	 */
 	public function fire()
 	{
+		// Clear cache
 		$this->call('cache:clear');
+
+		// Rebuild database
 		$this->call('migrate:refresh');
 		$this->call('db:seed');
+
+		// Send it over
+		$this->call('deploy:update');
 	}
 
 	/**
