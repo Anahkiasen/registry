@@ -2,13 +2,30 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+$footer-height: 8rem;
+
+.layout-footer__wrapper {
+	min-height: 100%;
+	position: relative;
+
+	.layout-container {
+		padding-bottom: $footer-height + 5rem;
+		height: 100%;
+	}
+}
+
 .layout-footer {
+	height: $footer-height;
 	@extend %background-base;
 	text-align: center;
 	font-size: 1rem;
 	padding: 2rem 0;
 	text-shadow: none;
 	font-weight: 100;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
 
 	a {
 		color: lighten($color-base, 20);

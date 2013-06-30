@@ -10,7 +10,11 @@
 	{{ Basset::show('application.css') }}
 </head>
 <body>
-	@yield('layout')
+
+	<div class="layout-footer__wrapper">
+		@yield('layout')
+	</div>
+
 	{{ Basset::show('application.js') }}
 	@yield('js')
 	<script type="text/javascript">

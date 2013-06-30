@@ -1,3 +1,9 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%; }
+
 body {
   font-family: "Proxima Nova", "proxima-nova", "Open Sans", Helvetica, Arial, sans-serif; }
 
@@ -337,11 +343,23 @@ table th, .tag, .packages-list__pagination ul li, .layout-header, .layout-footer
       max-width: 100%;
       padding: 0 1rem; } }
 
+.layout-footer__wrapper {
+  min-height: 100%;
+  position: relative; }
+  .layout-footer__wrapper .layout-container {
+    padding-bottom: 13rem;
+    height: 100%; }
+
 .layout-footer {
+  height: 8rem;
   text-align: center;
   font-size: 1rem;
   padding: 2rem 0;
   text-shadow: none;
-  font-weight: 100; }
+  font-weight: 100;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0; }
   .layout-footer a {
     color: #fbc6c0; }
