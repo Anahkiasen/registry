@@ -105,12 +105,26 @@ class SeedPackages extends Seeder
 		$repository          = $package->getPackagist()->repository;
 		$package->repository = preg_replace('#((https|http|git)://|git@)(github.com|bitbucket.org)(:|/)' .$basePattern. '/' .$basePattern. '(.git)?#', 'http://$3/$5/$6', $repository);
 
+		// Add Travis URL
+		$travis          = explode('/', $package->repository);
+		$package->travis = $package->repository ? $travis[3].'/'.$travis[4] : null;
+		dd($package->travis);
+		// Get Travis builds
+		$builds = Cache::rememberForever($package->travis.'-travis-builds', function() use ($package) {
+			return App::make('travis')->get($package->travis.'/builds')->send()->json();
+		});
+		if ($package->travis == 'Anahkiasen/rocketeer') {
+			dd($builds);
+		}
+
 		// Get watchers and forks
-		$repository = $package->getRepository();
-		$watchers   = array_get($repository, 'watchers', array_get($repository, 'followers_count'));
-		$forks      = array_get($repository, 'forks', array_get($repository, 'forks_count'));
-		$created_at = new Carbon\Carbon(array_get($repository, 'created_at', array_get($repository, 'utc_created_on')));
-		$pushed_at  = new Carbon\Carbon(array_get($repository, 'updated_at', array_get($repository, 'utc_last_updated')));
+		$repository  = $package->getRepository();
+		$watchers    = array_get($repository, 'watchers', array_get($repository, 'followers_count'));
+		$forks       = array_get($repository, 'forks', array_get($repository, 'forks_count'));
+		$created_at  = new Carbon\Carbon(array_get($repository, 'created_at', array_get($repository, 'utc_created_on')));
+		$pushed_at   = new Carbon\Carbon(array_get($repository, 'updated_at', array_get($repository, 'utc_last_updated')));
+		$consistency = abs(array_sum(array_pluck($builds, 'result')) - sizeof($builds));
+		$consistency = $builds ? round($consistency * 100 / sizeof($builds)) : 0;
 
 		// Save additional informations
 		$package->fill(array(
@@ -123,6 +137,7 @@ class SeedPackages extends Seeder
 			'watchers'          => $watchers,
 			'forks'             => $forks,
 			'favorites'         => $package->getPackagist()->favers,
+			'consistency'       => $consistency,
 
 			// Date-related statistics
 			'created_at'        => $created_at->toDateTimeString(),
@@ -167,10 +182,12 @@ class SeedPackages extends Seeder
 			'travisStatus' => 1,
 			'seniority'    => 0.5,
 			'freshness'    => 1,
+			'consistency'  => 1,
 		), array(
 			'travisStatus' => 2,
 			'seniority'    => Package::whereType('package')->max('seniority'),
 			'freshness'    => Package::whereType('package')->max('freshness'),
+			'consistency'  => Package::whereType('package')->max('consistency'),
 		), 0);
 	}
 
@@ -221,7 +238,7 @@ class SeedPackages extends Seeder
 		$total   = sizeof($total);
 		$package = ($package instanceof Package) ? $package->name : $package->getName();
 
-		print sprintf('Fetching %s informations for [%s/%s] %s', $message, $key, $total, $package).PHP_EOL;
+		print sprintf("\033[0;34mFetching %s informations for [%s/%s] %s\033[0m", $message, $key, $total, $package).PHP_EOL;
 	}
 
 }

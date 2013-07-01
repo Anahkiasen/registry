@@ -91,15 +91,12 @@ class Package extends Eloquent
 	 */
 	public function getTravisStatusAttribute()
 	{
-		if (!$this->repository) {
+		if (!$this->travis) {
 			return null;
 		}
 
 		// Get build status
-		$status = Cache::rememberForever($this->name.'-travis', function() {
-			$repository = explode('/', $this->repository);
-			$travis     = $repository[3].'/'.$repository[4];
-
+		$status = Cache::rememberForever($this->travis.'-travis', function() {
 			try {
 				return App::make('travis')->get($travis)->send()->json();
 			}	catch(ClientErrorResponseException $e) {

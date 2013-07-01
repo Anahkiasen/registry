@@ -28,6 +28,7 @@ class CreatePackages extends Migration
 				$table->integer('downloads_daily');
 				$table->integer('watchers');
 				$table->integer('forks');
+				$table->integer('consistency');
 				$table->integer('seniority');
 				$table->integer('freshness');
 
@@ -36,6 +37,7 @@ class CreatePackages extends Migration
 				$table->integer('trust');
 
 				// Endpoints
+				$table->string('travis');
 				$table->string('packagist');
 				$table->string('repository');
 
