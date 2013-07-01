@@ -11,6 +11,8 @@ body {
 
 body {
 	font-family: $font-sans;
+	color: darken($color-silver--dark, 10);
+	line-height: 1.2;
 }
 
 a {

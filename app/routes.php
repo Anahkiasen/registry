@@ -12,6 +12,9 @@
 */
 
 Route::get('/',                 'PackagesController@index');
+Route::get('about', function() {
+	return View::make('about');
+});
 
 // Maintainers
 Route::get('maintainers',       'MaintainersController@index');

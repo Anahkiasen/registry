@@ -5,7 +5,9 @@ body {
   height: 100%; }
 
 body {
-  font-family: "Proxima Nova", "proxima-nova", "Open Sans", Helvetica, Arial, sans-serif; }
+  font-family: "Proxima Nova", "proxima-nova", "Open Sans", Helvetica, Arial, sans-serif;
+  color: #6c777f;
+  line-height: 1.2; }
 
 a {
   color: #f66f5f;
@@ -138,9 +140,6 @@ table th, .tag, .package__status, .packages-list__pagination ul li, .layout-head
   cursor: pointer; }
   .tag:first-child, .package__status:first-child, .packages-list__pagination ul li:first-child {
     margin-left: 0; }
-
-.package, .maintainer {
-  color: #869198; }
 
 .package__informations {
   *zoom: 1;
