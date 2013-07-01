@@ -18,7 +18,7 @@
 		</dd>
 		<dt>Build status</dt>
 		<dd>
-			<span class="package__status package__status--{{ $package->travis }}">{{ $package->travis }}</span>
+			<span class="package__status package__status--{{ $package->travisBuild }}">{{ $package->travisBuild }}</span>
 		</dd>
 		<dt>See on</dt>
 		<dd class="package__links">
