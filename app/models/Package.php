@@ -96,7 +96,7 @@ class Package extends Eloquent
 		}
 
 		// Get build status
-		$status = Cache::remember($this->name.'-travis', 60, function() {
+		$status = Cache::rememberForever($this->name.'-travis', function() {
 			$repository = explode('/', $this->repository);
 			$travis     = $repository[3].'/'.$repository[4];
 
@@ -107,7 +107,11 @@ class Package extends Eloquent
 			}
 		});
 
-		return (int) array_get($status, 'last_build_status', 2);
+		// Invert scale
+		$status = array_get($status, 'last_build_status', 2);
+		$status = (int) abs($status - 2);
+
+		return $status;
 	}
 
 	/**
@@ -117,7 +121,7 @@ class Package extends Eloquent
 	 */
 	public function getTravisAttribute()
 	{
-		$status = array('failing', 'success', 'unknown');
+		$status = array('unknown', 'failing', 'success');
 
 		return $status[$this->travisStatus];
 	}

@@ -23,7 +23,7 @@ class SeedPackages extends Seeder
 		$packages = $this->getPackages();
 		foreach ($packages as $key => $package) {
 			if (in_array($package->getName(), $this->ignore)) continue;
-			print 'Fetching informations for ['.($key + 1).'/'.sizeof($packages).'] ' .$package->getName().PHP_EOL;
+			$this->printProgress($key, $package, $packages, 'informations');
 
 			// Create model
 			$package = $this->createPackageModel($package);
@@ -37,7 +37,16 @@ class SeedPackages extends Seeder
 			$this->hydrateStatistics($package);
 		}
 
+		// Invert freshness scale
+		$fresh = Package::min('freshness');
+		foreach (Package::all() as $package) {
+			$package->freshness = abs($package->freshness - $fresh);
+			$package->save();
+		}
+
+		// Compute indexes
 		$this->computePopularity();
+		$this->computeTrust();
 	}
 
 	/**
@@ -53,6 +62,10 @@ class SeedPackages extends Seeder
 			return App::make('packagist')->search('laravel');
 		});
 	}
+
+	////////////////////////////////////////////////////////////////////
+	/////////////////////////// PACKAGE CREATION ///////////////////////
+	////////////////////////////////////////////////////////////////////
 
 	/**
 	 * Create the Package model from raw informations
@@ -96,17 +109,32 @@ class SeedPackages extends Seeder
 		$repository = $package->getRepository();
 		$watchers   = array_get($repository, 'watchers', array_get($repository, 'followers_count'));
 		$forks      = array_get($repository, 'forks', array_get($repository, 'forks_count'));
+		$created_at = new Carbon\Carbon(array_get($repository, 'created_at', array_get($repository, 'utc_created_on')));
+		$pushed_at  = new Carbon\Carbon(array_get($repository, 'updated_at', array_get($repository, 'utc_last_updated')));
 
 		// Save additional informations
 		$package->fill(array(
+			// Downloads
 			'downloads_total'   => $package->getPackagist()->downloads['total'],
 			'downloads_monthly' => $package->getPackagist()->downloads['monthly'],
 			'downloads_daily'   => $package->getPackagist()->downloads['daily'],
+
+			// Repository statistics
 			'watchers'          => $watchers,
 			'forks'             => $forks,
 			'favorites'         => $package->getPackagist()->favers,
-		))->touch();
+
+			// Date-related statistics
+			'created_at'        => $created_at->toDateTimeString(),
+			'pushed_at'         => $pushed_at->toDateTimeString(),
+			'seniority'         => $created_at->diffInDays(),
+			'freshness'         => $pushed_at->diffInDays() * -1,
+		))->save();
 	}
+
+	////////////////////////////////////////////////////////////////////
+	/////////////////////////////// INDEXES ////////////////////////////
+	////////////////////////////////////////////////////////////////////
 
 	/**
 	 * Compute every package's popularity
@@ -115,31 +143,85 @@ class SeedPackages extends Seeder
 	 */
 	protected function computePopularity()
 	{
-		// Compute popularity of packages
-		$packages = Package::all();
-		$weight   = array(
+		$this->computeIndexes('popularity', array(
 			'downloads_total' => 1.5,
 			'watchers'        => 2,
 			'forks'           => 1,
 			'favorites'       => 0.25
-		);
+		), array(
+			'downloads_total' => Package::whereType('package')->max('downloads_total'),
+			'watchers'        => Package::whereType('package')->max('watchers'),
+			'forks'           => Package::whereType('package')->max('forks'),
+			'favorites'       => Package::whereType('package')->max('favorites'),
+		));
+	}
 
-		// Get maximum value
-		$max = array(
-			'downloads_total' => DB::table('packages')->whereType('package')->max('downloads_total'),
-			'watchers'        => DB::table('packages')->whereType('package')->max('watchers'),
-			'forks'           => DB::table('packages')->whereType('package')->max('forks'),
-			'favorites'       => DB::table('packages')->whereType('package')->max('favorites'),
-		);
+	/**
+	 * Compute every package's trust index
+	 *
+	 * @return void
+	 */
+	protected function computeTrust()
+	{
+		$this->computeIndexes('trust', array(
+			'travisStatus' => 1,
+			'seniority'    => 0.5,
+			'freshness'    => 1,
+		), array(
+			'travisStatus' => 2,
+			'seniority'    => Package::whereType('package')->max('seniority'),
+			'freshness'    => Package::whereType('package')->max('freshness'),
+		), 0);
+	}
 
-		foreach ($packages as $package) {
-			foreach ($max as $index => $value) {
-				$indexes[$index] = ($package->$index * 100 / $value) * $weight[$index];
+	/**
+	 * Compute an index
+	 *
+	 * @param  string $attribute
+	 * @param  array  $weights
+	 * @param  array  $ceilings
+	 * @param integer $rounding
+	 *
+	 * @return void
+	 */
+	protected function computeIndexes($attribute, $weights, $ceilings, $rounding = 2)
+	{
+		print '-- Computing ' .$attribute. ' indexes'.PHP_EOL;
+
+		$packages = Package::all();
+
+		foreach ($packages as $key => $package) {
+			if ($attribute == 'trust') $this->printProgress($key, $package, $packages, 'Travis');
+			foreach ($ceilings as $index => $value) {
+				$indexes[$index] = ($package->$index * 100 / $value) * $weights[$index];
 			}
 
-			$package->popularity = round(array_sum($indexes) / array_sum($weight), 2);
-			$package->touch();
+			$package->$attribute = round(array_sum($indexes) / array_sum($weights), $rounding);
+			$package->save();
 		}
+	}
+
+	////////////////////////////////////////////////////////////////////
+	/////////////////////////////// HELPERS ////////////////////////////
+	////////////////////////////////////////////////////////////////////
+
+	/**
+	 * Print progress
+	 *
+	 * @param  integer    $key
+	 * @param  Package    $package
+	 * @param  Collection $total
+	 * @param  string     $message
+	 *
+	 * @return string
+	 */
+	protected function printProgress($key, $package, $total, $message)
+	{
+		$key     = $key + 1;
+		$total   = sizeof($total);
+		$package = ($package instanceof Package) ? $package->name : $package->getName();
+
+		print sprintf('Fetching %s informations for [%s/%s] %s', $message, $key, $total, $package).PHP_EOL;
 	}
 
 }

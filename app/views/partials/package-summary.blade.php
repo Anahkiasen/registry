@@ -25,6 +25,8 @@
 			<a target="_blank" href="{{ $package->packagist }}"><i class="icon-box"></i> Packagist</a>
 			<a target="_blank" href="{{ $package->repository }}"><i class="icon-github"></i> Github</a>
 		</dd>
+		<dt>Trust index</dt>
+		<dd>{{ $package->trust }}</dd>
 		<dt>Popularity</dt>
 		<dd>
 			<strong>Stars</strong> : {{ $package->watchers }}<br>

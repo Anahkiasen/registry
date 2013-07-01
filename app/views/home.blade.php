@@ -13,6 +13,7 @@
 				<th>Description</th>
 				<th class="packages-list__tags">Tag(s)</th>
 				<th>Maintainer(s)</th>
+				<th>Trust</th>
 				<th>Popularity</th>
 			</tr>
 		</thead>
