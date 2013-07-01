@@ -136,24 +136,6 @@ class Package extends Eloquent
 	}
 
 	/**
-	 * Get Travis status
-	 *
-	 * @return integer
-	 */
-	public function getTravisStatusAttribute()
-	{
-		if (!$this->travis) {
-			return null;
-		}
-
-		// Invert scale
-		$status = array_get($this->getTravis(), 'last_build_status', 2);
-		$status = (int) abs($status - 2);
-
-		return $status;
-	}
-
-	/**
 	 * Get travis badge
 	 *
 	 * @return string

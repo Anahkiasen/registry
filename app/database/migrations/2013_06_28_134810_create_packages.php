@@ -22,6 +22,10 @@ class CreatePackages extends Migration
 				$table->string('type');
 				$table->string('keywords');
 
+				// Unit tests
+				$table->integer('build_status');
+				$table->integer('consistency');
+
 				// Repository statistics
 				$table->integer('downloads_total');
 				$table->integer('downloads_monthly');
@@ -29,7 +33,6 @@ class CreatePackages extends Migration
 				$table->integer('watchers');
 				$table->integer('forks');
 				$table->integer('issues');
-				$table->integer('consistency');
 				$table->integer('seniority');
 				$table->integer('freshness');
 

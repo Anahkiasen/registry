@@ -143,9 +143,11 @@ class SeedPackages extends DatabaseSeeder
 		$pushed_at   = new Carbon(array_get($repository, 'updated_at', array_get($repository, 'utc_last_updated')));
 
 		// Tests consistency
-		$builds      = $package->getTravisBuilds();
-		$consistency = abs(array_sum(array_pluck($builds, 'result')) - sizeof($builds));
-		$consistency = $builds ? round($consistency * 100 / sizeof($builds)) : 0;
+		$builds       = $package->getTravisBuilds();
+		$consistency  = abs(array_sum(array_pluck($builds, 'result')) - sizeof($builds));
+		$consistency  = $builds ? round($consistency * 100 / sizeof($builds)) : 0;
+		$buildStatus = array_get($package->getTravis(), 'last_build_status', 2);
+		$buildStatus = (int) abs($buildStatus - 2);
 
 		// Ratio of open issues
 		$openIssues   = array_get($repository, 'open_issues_count', 0);
@@ -169,8 +171,11 @@ class SeedPackages extends DatabaseSeeder
 			'watchers'          => $watchers,
 			'forks'             => $forks,
 			'favorites'         => $package->getPackagist()->favers,
-			'consistency'       => $consistency,
 			'issues'            => round($issues),
+
+			// Unit testing
+			'build_status'      => $buildStatus,
+			'consistency'       => $consistency,
 
 			// Date-related statistics
 			'created_at'        => $created_at->toDateTimeString(),
