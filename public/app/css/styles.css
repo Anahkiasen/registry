@@ -180,12 +180,14 @@ table th, .tag, .package__status, .packages-list__pagination ul li, .layout-head
   .package__summary dd, .maintainer__summary dd {
     margin-left: 8rem; }
 
-.package__status.package__status--passing {
-  background-color: #2ECC71; }
-.package__status.package__status--failing {
-  background-color: #C0392B; }
-.package__status.package__status--unknown {
-  background-color: #7F8C8D; }
+.package__status {
+  cursor: initial; }
+  .package__status.package__status--passing {
+    background-color: #2ECC71; }
+  .package__status.package__status--failing {
+    background-color: #C0392B; }
+  .package__status.package__status--unknown {
+    background-color: #7F8C8D; }
 
 .package__links a, .maintainer__links a {
   display: inline-block;

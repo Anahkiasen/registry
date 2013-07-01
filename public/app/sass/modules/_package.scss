@@ -43,6 +43,7 @@
 
 .package__status {
 	@extend .tag;
+	cursor: initial;
 
 	&.package__status--passing {
 		background-color: #2ECC71;
