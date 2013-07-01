@@ -41,6 +41,7 @@ class Refresh extends Command
 		// Rebuild database
 		$this->call('migrate:refresh');
 		$this->call('db:seed');
+		system('git commit -am "Rebuild database"');
 
 		// Send it over
 		$this->call('deploy:update');
