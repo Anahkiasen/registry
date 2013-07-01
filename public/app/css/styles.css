@@ -274,7 +274,7 @@ table th, .tag, .package__status, .packages-list__pagination ul li, .layout-head
     clear: both; }
 
 .maintainer__summary {
-  width: 100%;
+  max-width: 100%;
   margin-left: 11rem;
   height: 10rem; }
 

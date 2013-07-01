@@ -19,7 +19,7 @@ $image-size: 10rem;
 
 .maintainer__summary {
 	@extend .package__summary;
-	width: 100%;
+	max-width: 100%;
 	margin-left: $image-size + 1rem;
 	height: $image-size;
 }
