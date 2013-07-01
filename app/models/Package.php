@@ -144,7 +144,7 @@ class Package extends Eloquent
 	{
 		$status = array('unknown', 'failing', 'passing');
 
-		return $status[$this->travisStatus];
+		return $status[(int) $this->build_status];
 	}
 
 	/**
