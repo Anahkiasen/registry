@@ -10,7 +10,6 @@
 			<h1>{{ $package->name }} <small>by {{ $package->maintainersList }}</small></h1>
 			@include('partials.package-summary')
 		</section>
-		<hr>
 		<h2>Versions</h2>
 		@foreach ($package->versions as $version)
 			<article class="package__version">
@@ -21,7 +20,6 @@
 			</article>
 		@endforeach
 		@if (!$similar->isEmpty())
-			<hr>
 			<h2>Similar packages</h2>
 			@foreach ($similar as $package)
 				<article class="maintainer__package">
