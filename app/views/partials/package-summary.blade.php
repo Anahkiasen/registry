@@ -1,7 +1,9 @@
 <section class="package__summary">
 	<dl>
-		<dt>Description</dt>
-		<dd>{{ $package->description }}</dd>
+		@if ($package->description)
+			<dt>Description</dt>
+			<dd>{{ $package->description }}</dd>
+		@endif
 		<dt>Tags</dt>
 		<dd>
 			@if ($package->keywords)
