@@ -42,9 +42,21 @@ class DatabaseSeeder extends Seeder
 	 *
 	 * @return string
 	 */
+	public function line($message)
+	{
+		print $message.PHP_EOL;
+	}
+
+	/**
+	 * Print an info
+	 *
+	 * @param  string $message
+	 *
+	 * @return string
+	 */
 	public function info($message)
 	{
-		print "\033[0;34m" .$message. "\033[0m".PHP_EOL;
+		$this->line("\033[0;34m" .$message. "\033[0m");
 	}
 
 	/**
@@ -56,7 +68,7 @@ class DatabaseSeeder extends Seeder
 	 */
 	public function comment($message)
 	{
-		print "\033[0;35m" .$message. "\033[0m".PHP_EOL;
+		$this->line("\033[0;35m" .$message. "\033[0m");
 	}
 
 }

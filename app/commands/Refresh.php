@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Console\Command;
+use Symfony\Component\Console\Input\InputArgument;
 
 class Refresh extends Command
 {
@@ -35,6 +36,10 @@ class Refresh extends Command
 	 */
 	public function fire()
 	{
+		if ($this->argument('package')) {
+			return $this->refreshPackage($this->argument('package'));
+		}
+
 		// Clear cache
 		$this->call('cache:clear');
 
@@ -55,6 +60,7 @@ class Refresh extends Command
 	protected function getArguments()
 	{
 		return array(
+			array('package', InputArgument::OPTIONAL, 'A package to refresh'),
 		);
 	}
 
@@ -67,6 +73,33 @@ class Refresh extends Command
 	{
 		return array(
 		);
+	}
+
+	////////////////////////////////////////////////////////////////////
+	///////////////////////////// CORE METHODS /////////////////////////
+	////////////////////////////////////////////////////////////////////
+
+	/**
+	 * Refresh a package in particular
+	 *
+	 * @param  string $package
+	 *
+	 * @return void
+	 */
+	protected function refreshPackage($package)
+	{
+		$package = Package::whereName($package)->first();
+		Eloquent::unguard();
+
+		Cache::forget($package->name.'-packagist');
+		Cache::forget($package->name.'-repository');
+		Cache::forget($package->name.'-repository-issues');
+		Cache::forget($package->travis.'-travis');
+		Cache::forget($package->travis.'-travis-builds');
+
+		$seeder = new SeedPackages;
+		$seeder->hydrateStatistics($package);
+		$seeder->computeAllIndexes();
 	}
 
 }

@@ -1,6 +1,15 @@
 <?php
+use Carbon\Carbon;
+
 class SeedPackages extends DatabaseSeeder
 {
+
+	/**
+	 * An array of timers
+	 *
+	 * @var array
+	 */
+	protected $timers;
 
 	/**
 	 * A list of packages to ignore
@@ -45,6 +54,16 @@ class SeedPackages extends DatabaseSeeder
 		}
 
 		// Compute indexes
+		$this->computeAllIndexes();
+	}
+
+	/**
+	 * Compute indexes
+	 *
+	 * @return void
+	 */
+	public function computeAllIndexes()
+	{
 		$this->computePopularity();
 		$this->computeTrust();
 	}
@@ -110,20 +129,25 @@ class SeedPackages extends DatabaseSeeder
 	 *
 	 * @return void
 	 */
-	protected function hydrateStatistics(Package $package)
+	public function hydrateStatistics(Package $package)
 	{
 		// Get and compute statistics ---------------------------------- /
 
+		// Favorites
 		$repository  = $package->getRepository();
 		$watchers    = array_get($repository, 'watchers', array_get($repository, 'followers_count'));
 		$forks       = array_get($repository, 'forks', array_get($repository, 'forks_count'));
 
-		$created_at  = new Carbon\Carbon(array_get($repository, 'created_at', array_get($repository, 'utc_created_on')));
-		$pushed_at   = new Carbon\Carbon(array_get($repository, 'updated_at', array_get($repository, 'utc_last_updated')));
+		// Seniority and freshness
+		$created_at  = new Carbon(array_get($repository, 'created_at', array_get($repository, 'utc_created_on')));
+		$pushed_at   = new Carbon(array_get($repository, 'updated_at', array_get($repository, 'utc_last_updated')));
 
-		$consistency = abs(array_sum(array_pluck($package->getTravisBuilds(), 'result')) - sizeof($package->getTravisBuilds()));
-		$consistency = $package->getTravisBuilds() ? round($consistency * 100 / sizeof($package->getTravisBuilds())) : 0;
+		// Tests consistency
+		$builds      = $package->getTravisBuilds();
+		$consistency = abs(array_sum(array_pluck($builds, 'result')) - sizeof($builds));
+		$consistency = $builds ? round($consistency * 100 / sizeof($builds)) : 0;
 
+		// Ratio of open issues
 		$openIssues   = array_get($repository, 'open_issues_count', 0);
 		$totalIssues  = $package->getRepositoryIssues();
 		$totalIssues = array_get($totalIssues, '0.number', array_get($totalIssues, 'count'));
@@ -247,7 +271,9 @@ class SeedPackages extends DatabaseSeeder
 		$key   = $key + 1;
 		$total = sizeof($total);
 		$name  = ($package instanceof Package) ? $package->name : $package->getName();
+		$timer = microtime(true);
 
+		// Global message
 		$this->info(sprintf("Fetching informations for [%s/%s] %s", $key, $total, $name));
 		$this->comment("-- Repository");
 		$package->getRepository();
@@ -259,6 +285,21 @@ class SeedPackages extends DatabaseSeeder
 		$package->getTravis();
 		$this->comment('-- Travis builds');
 		$package->getTravisBuilds();
+
+		$timer = round(microtime(true) - $timer, 4);
+		$final = '--- Total time : '.$timer.'s';
+
+		// Remaining time
+		$this->timers[] = $timer;
+		if (!empty($this->timers)) {
+			$remaining = array_sum($this->timers) / sizeof($this->timers);
+			$remaining = $remaining * ($total - $key);
+			$remaining = Carbon::now()->addSeconds($remaining);
+			$remaining = $remaining->diff(Carbon::now());
+			$final .= ', remaining : '.$remaining->format('%H:%I:%S');
+		}
+
+		$this->line($final);
 	}
 
 }
