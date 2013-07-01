@@ -16,10 +16,10 @@
 				No tags
 			@endif
 		</dd>
-		@if ($package->travis)
-			<dt>Travis build</dt>
-			<dd>{{ $package->travis }}</dd>
-		@endif
+		<dt>Build status</dt>
+		<dd>
+			<span class="package__status package__status--{{ $package->travis }}">{{ $package->travis }}</span>
+		</dd>
 		<dt>See on</dt>
 		<dd class="package__links">
 			<a target="_blank" href="{{ $package->packagist }}"><i class="icon-box"></i> Packagist</a>

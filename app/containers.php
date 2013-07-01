@@ -17,3 +17,7 @@ App::bind('github', function() {
 App::bind('bitbucket', function() {
 	return new Guzzle('https://bitbucket.org/api/1.0/repositories/');
 });
+
+App::bind('travis', function() {
+	return new Guzzle('https://api.travis-ci.org/repos/');
+});

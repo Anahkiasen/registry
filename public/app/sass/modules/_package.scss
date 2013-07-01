@@ -6,6 +6,9 @@
 	color: $color-silver--dark;
 }
 
+// Informations
+//////////////////////////////////////////////////////////////////////
+
 .package__informations {
 	@include container;
 	max-width: 100%;
@@ -38,6 +41,23 @@
 		margin-left: $offset + 1rem;
 	}
 }
+
+.package__status {
+	@extend .tag;
+
+	&.package__status--success {
+		background-color: #2ECC71;
+	}
+	&.package__status--failing {
+		background-color: #C0392B;
+	}
+	&.package__status--unknown {
+		background-color: #7F8C8D;
+	}
+}
+
+// External links
+//////////////////////////////////////////////////////////////////////
 
 .package__links {
 	a {

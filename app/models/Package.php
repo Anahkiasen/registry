@@ -1,5 +1,6 @@
 <?php
 use Carbon\Carbon;
+use Guzzle\Http\Exception\ClientErrorResponseException;
 
 class Package extends Eloquent
 {
@@ -36,53 +37,20 @@ class Package extends Eloquent
 	////////////////////////////////////////////////////////////////////
 
 	/**
-	 * Get raw informations
-	 *
-	 * @return array
-	 */
-	protected function getInformations($source)
-	{
-		// Check if we have the informations in cache
-		if (!array_key_exists($source, $this->informations)) {
-
-			// Otherwise fetch them
-			switch ($source) {
-				case 'packagist':
-					$this->informations['packagist'] = Cache::rememberForever($this->name.'-packagist', function() {
-						$informations = App::make('guzzle')->get('/packages/'.$this->name.'.json')->send()->json();
-						return (object) $informations['package'];
-					});
-					break;
-
-				case 'repository':
-					$this->informations['repository'] = Cache::rememberForever($this->name.'-repository', function() {
-						$source = str_contains($this->repository, 'github') ? 'github' : 'bitbucket';
-						$name   = explode('/', $this->repository);
-						$name   = $name[3].'/'.$name[4];
-
-						try {
-							$informations = App::make($source)->get($name.'?client_id=376e127206f9a567e4c2&client_secret=cc9b32c88bf79ffbe84d72e996b85f78eb8b89f5')->send()->json();
-						} catch (Exception $e) {
-							$informations = array();
-						}
-
-						return $informations;
-					});
-					break;
-			}
-		}
-
-		return $this->informations[$source];
-	}
-
-	/**
 	 * Get the Packagist informations of a package
 	 *
 	 * @return object
 	 */
 	public function getPackagist()
 	{
-		return $this->getInformations('packagist');
+		if (!array_key_exists('packagist', $this->informations)) {
+			$this->informations['packagist'] = Cache::rememberForever($this->name.'-packagist', function() {
+				$informations = App::make('guzzle')->get('/packages/'.$this->name.'.json')->send()->json();
+				return (object) $informations['package'];
+			});
+		}
+
+		return $this->informations['packagist'];
 	}
 
 	/**
@@ -92,7 +60,24 @@ class Package extends Eloquent
 	 */
 	public function getRepository()
 	{
-		return $this->getInformations('repository');
+		if (!array_key_exists('repository', $this->informations)) {
+			$this->informations['repository'] = Cache::rememberForever($this->name.'-repository', function() {
+				$source = str_contains($this->repository, 'github') ? 'github' : 'bitbucket';
+				$name   = explode('/', $this->repository);
+				$name   = $name[3].'/'.$name[4];
+
+				try {
+					$credentials  = Config::get('registry.api.github');
+					$informations = App::make($source)->get($name.'?client_id=' .$credentials['id']. '&client_secret='.$credentials['secret'])->send()->json();
+				} catch (Exception $e) {
+					$informations = array();
+				}
+
+				return $informations;
+			});
+		}
+
+		return $this->informations['repository'];
 	}
 
 	////////////////////////////////////////////////////////////////////
@@ -100,20 +85,41 @@ class Package extends Eloquent
 	////////////////////////////////////////////////////////////////////
 
 	/**
-	 * Get Travis badge
+	 * Get Travis status
 	 *
-	 * @return string
+	 * @return integer
 	 */
-	public function getTravisAttribute()
+	public function getTravisStatusAttribute()
 	{
 		if (!$this->repository) {
 			return null;
 		}
 
-		$repository = explode('/', $this->repository);
-		$travis = $repository[3].'/'.str_replace('.git', null, $repository[4]);
+		// Get build status
+		$status = Cache::remember($this->name.'-travis', 60, function() {
+			$repository = explode('/', $this->repository);
+			$travis     = $repository[3].'/'.$repository[4];
 
-		return HTML::image('https://secure.travis-ci.org/' .$travis. '.png');
+			try {
+				return App::make('travis')->get($travis)->send()->json();
+			}	catch(ClientErrorResponseException $e) {
+				return array();
+			}
+		});
+
+		return (int) array_get($status, 'last_build_status', 2);
+	}
+
+	/**
+	 * Get travis badge
+	 *
+	 * @return string
+	 */
+	public function getTravisAttribute()
+	{
+		$status = array('failing', 'success', 'unknown');
+
+		return $status[$this->travisStatus];
 	}
 
 	/**
