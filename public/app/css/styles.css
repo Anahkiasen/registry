@@ -37,6 +37,10 @@ h1, h2, h3 {
     color: #bdc3c7;
     font-size: 0.75em; }
 
+h2 {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #d9dcde; }
+
 table {
   width: 100%; }
   table th {

@@ -45,3 +45,8 @@ h1, h2, h3 {
 		font-size: 0.75em;
 	}
 }
+
+h2 {
+	padding-bottom: 0.5rem;
+	border-bottom: 1px solid lighten($color-silver, 10);
+}
