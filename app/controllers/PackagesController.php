@@ -37,7 +37,7 @@ class PackagesController extends BaseController
 			foreach ($package->keywords as $keyword) {
 				$query->orWhere('keywords', 'LIKE', '%"' .$keyword. '"%');
 			}
-		})->get();
+		})->take(5)->get();
 
 		// Sort by popularity and number of tags in common
 		$similar->sortBy(function($similarPackage) use ($package) {
