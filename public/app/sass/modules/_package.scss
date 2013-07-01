@@ -44,7 +44,7 @@
 .package__status {
 	@extend .tag;
 
-	&.package__status--success {
+	&.package__status--passing {
 		background-color: #2ECC71;
 	}
 	&.package__status--failing {

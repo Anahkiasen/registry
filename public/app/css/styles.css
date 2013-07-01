@@ -180,7 +180,7 @@ table th, .tag, .package__status, .packages-list__pagination ul li, .layout-head
   .package__summary dd, .maintainer__summary dd {
     margin-left: 8rem; }
 
-.package__status.package__status--success {
+.package__status.package__status--passing {
   background-color: #2ECC71; }
 .package__status.package__status--failing {
   background-color: #C0392B; }

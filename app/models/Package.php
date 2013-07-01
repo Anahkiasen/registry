@@ -160,7 +160,7 @@ class Package extends Eloquent
 	 */
 	public function getTravisBuildAttribute()
 	{
-		$status = array('unknown', 'failing', 'success');
+		$status = array('unknown', 'failing', 'passing');
 
 		return $status[$this->travisStatus];
 	}
