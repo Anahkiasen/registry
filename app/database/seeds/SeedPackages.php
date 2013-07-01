@@ -1,5 +1,5 @@
 <?php
-class SeedPackages extends Seeder
+class SeedPackages extends DatabaseSeeder
 {
 
 	/**
@@ -23,7 +23,6 @@ class SeedPackages extends Seeder
 		$packages = $this->getPackages();
 		foreach ($packages as $key => $package) {
 			if (in_array($package->getName(), $this->ignore)) continue;
-			$this->printProgress($key, $package, $packages, 'informations');
 
 			// Create model
 			$package = $this->createPackageModel($package);
@@ -34,6 +33,7 @@ class SeedPackages extends Seeder
 			}
 
 			// Add repository and packagist statistics
+			$this->fetchInformations($key, $package, $packages);
 			$this->hydrateStatistics($package);
 		}
 
@@ -82,13 +82,25 @@ class SeedPackages extends Seeder
 		$slug    = str_replace('/', '-', $package->getName());
 
 		// Create model
-		return Package::create(array(
+		$package = Package::create(array(
 			'name'        => $package->getName(),
 			'slug'        => Str::slug($slug),
 			'description' => $package->getDescription(),
 			'packagist'   => $package->getUrl(),
 			'type'        => $type,
 		));
+
+		// Unify Git repository URL
+		$basePattern         = '([a-zA-Z0-9\-]+)';
+		$repository          = $package->getPackagist()->repository;
+		$package->repository = preg_replace('#((https|http|git)://|git@)(github.com|bitbucket.org)(:|/)' .$basePattern. '/' .$basePattern. '(.git)?#', 'http://$3/$5/$6', $repository);
+
+		// Add Travis URL
+		$travis          = explode('/', $package->repository);
+		$package->travis = $package->repository ? $travis[3].'/'.$travis[4] : '';
+		$package->save();
+
+		return $package;
 	}
 
 	/**
@@ -100,33 +112,29 @@ class SeedPackages extends Seeder
 	 */
 	protected function hydrateStatistics(Package $package)
 	{
-		// Unify Git repository URL
-		$basePattern         = '([a-zA-Z0-9\-]+)';
-		$repository          = $package->getPackagist()->repository;
-		$package->repository = preg_replace('#((https|http|git)://|git@)(github.com|bitbucket.org)(:|/)' .$basePattern. '/' .$basePattern. '(.git)?#', 'http://$3/$5/$6', $repository);
+		// Get and compute statistics ---------------------------------- /
 
-		// Add Travis URL
-		$travis          = explode('/', $package->repository);
-		$package->travis = $package->repository ? $travis[3].'/'.$travis[4] : null;
-		dd($package->travis);
-		// Get Travis builds
-		$builds = Cache::rememberForever($package->travis.'-travis-builds', function() use ($package) {
-			return App::make('travis')->get($package->travis.'/builds')->send()->json();
-		});
-		if ($package->travis == 'Anahkiasen/rocketeer') {
-			dd($builds);
-		}
-
-		// Get watchers and forks
 		$repository  = $package->getRepository();
 		$watchers    = array_get($repository, 'watchers', array_get($repository, 'followers_count'));
 		$forks       = array_get($repository, 'forks', array_get($repository, 'forks_count'));
+
 		$created_at  = new Carbon\Carbon(array_get($repository, 'created_at', array_get($repository, 'utc_created_on')));
 		$pushed_at   = new Carbon\Carbon(array_get($repository, 'updated_at', array_get($repository, 'utc_last_updated')));
-		$consistency = abs(array_sum(array_pluck($builds, 'result')) - sizeof($builds));
-		$consistency = $builds ? round($consistency * 100 / sizeof($builds)) : 0;
 
-		// Save additional informations
+		$consistency = abs(array_sum(array_pluck($package->getTravisBuilds(), 'result')) - sizeof($package->getTravisBuilds()));
+		$consistency = $package->getTravisBuilds() ? round($consistency * 100 / sizeof($package->getTravisBuilds())) : 0;
+
+		$openIssues   = array_get($repository, 'open_issues_count', 0);
+		$totalIssues  = $package->getRepositoryIssues();
+		$totalIssues = array_get($totalIssues, '0.number', array_get($totalIssues, 'count'));
+		if ($totalIssues == 0) {
+			$issues = 100;
+		} else {
+			$issues = ($totalIssues- $openIssues) * 100 / $totalIssues;
+		}
+
+		// Save additional informations -------------------------------- /
+
 		$package->fill(array(
 			// Downloads
 			'downloads_total'   => $package->getPackagist()->downloads['total'],
@@ -138,6 +146,7 @@ class SeedPackages extends Seeder
 			'forks'             => $forks,
 			'favorites'         => $package->getPackagist()->favers,
 			'consistency'       => $consistency,
+			'issues'            => round($issues),
 
 			// Date-related statistics
 			'created_at'        => $created_at->toDateTimeString(),
@@ -183,11 +192,13 @@ class SeedPackages extends Seeder
 			'seniority'    => 0.5,
 			'freshness'    => 1,
 			'consistency'  => 1,
+			'issues'       => 0.5,
 		), array(
 			'travisStatus' => 2,
 			'seniority'    => Package::whereType('package')->max('seniority'),
 			'freshness'    => Package::whereType('package')->max('freshness'),
 			'consistency'  => Package::whereType('package')->max('consistency'),
+			'issues'       => Package::whereType('package')->max('issues'),
 		), 0);
 	}
 
@@ -203,12 +214,11 @@ class SeedPackages extends Seeder
 	 */
 	protected function computeIndexes($attribute, $weights, $ceilings, $rounding = 2)
 	{
-		print '-- Computing ' .$attribute. ' indexes'.PHP_EOL;
+		$this->info('Computing ' .$attribute. ' indexes');
 
 		$packages = Package::all();
 
 		foreach ($packages as $key => $package) {
-			if ($attribute == 'trust') $this->printProgress($key, $package, $packages, 'Travis');
 			foreach ($ceilings as $index => $value) {
 				$indexes[$index] = ($package->$index * 100 / $value) * $weights[$index];
 			}
@@ -232,13 +242,23 @@ class SeedPackages extends Seeder
 	 *
 	 * @return string
 	 */
-	protected function printProgress($key, $package, $total, $message)
+	protected function fetchInformations($key, $package, $total)
 	{
-		$key     = $key + 1;
-		$total   = sizeof($total);
-		$package = ($package instanceof Package) ? $package->name : $package->getName();
+		$key   = $key + 1;
+		$total = sizeof($total);
+		$name  = ($package instanceof Package) ? $package->name : $package->getName();
 
-		print sprintf("\033[0;34mFetching %s informations for [%s/%s] %s\033[0m", $message, $key, $total, $package).PHP_EOL;
+		$this->info(sprintf("Fetching informations for [%s/%s] %s", $key, $total, $name));
+		$this->comment("-- Repository");
+		$package->getRepository();
+		$this->comment("-- Repository issues");
+		$package->getRepositoryIssues();
+		$this->comment('-- Packagist');
+		$package->getPackagist();
+		$this->comment('-- Travis');
+		$package->getTravis();
+		$this->comment('-- Travis builds');
+		$package->getTravisBuilds();
 	}
 
 }

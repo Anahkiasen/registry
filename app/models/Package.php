@@ -6,13 +6,6 @@ class Package extends Eloquent
 {
 
 	/**
-	 * The raw informations
-	 *
-	 * @var array
-	 */
-	protected $informations = array();
-
-	/**
 	 * Get all of the Package's Maintainers
 	 *
 	 * @return Collection
@@ -43,14 +36,10 @@ class Package extends Eloquent
 	 */
 	public function getPackagist()
 	{
-		if (!array_key_exists('packagist', $this->informations)) {
-			$this->informations['packagist'] = Cache::rememberForever($this->name.'-packagist', function() {
-				$informations = App::make('guzzle')->get('/packages/'.$this->name.'.json')->send()->json();
-				return (object) $informations['package'];
-			});
-		}
-
-		return $this->informations['packagist'];
+		return Cache::rememberForever($this->name.'-packagist', function() {
+			$informations = App::make('guzzle')->get('/packages/'.$this->name.'.json')->send()->json();
+			return (object) $informations['package'];
+		});
 	}
 
 	/**
@@ -60,29 +49,91 @@ class Package extends Eloquent
 	 */
 	public function getRepository()
 	{
-		if (!array_key_exists('repository', $this->informations)) {
-			$this->informations['repository'] = Cache::rememberForever($this->name.'-repository', function() {
-				$source = str_contains($this->repository, 'github') ? 'github' : 'bitbucket';
-				$name   = explode('/', $this->repository);
-				$name   = $name[3].'/'.$name[4];
+		return Cache::rememberForever($this->name.'-repository', function() {
+			try {
+				$credentials  = Config::get('registry.api.github');
+				$informations = App::make($this->source)->get($this->repositoryName.'?client_id=' .$credentials['id']. '&client_secret='.$credentials['secret'])->send()->json();
+			} catch (Exception $e) {
+				$informations = array();
+			}
 
-				try {
-					$credentials  = Config::get('registry.api.github');
-					$informations = App::make($source)->get($name.'?client_id=' .$credentials['id']. '&client_secret='.$credentials['secret'])->send()->json();
-				} catch (Exception $e) {
-					$informations = array();
-				}
+			return $informations;
+		});
+	}
 
-				return $informations;
-			});
-		}
+	/**
+	 * Get the issues of a package
+	 *
+	 * @return array
+	 */
+	public function getRepositoryIssues()
+	{
+		return Cache::rememberForever($this->name.'-repository-issues', function() {
+			try {
+				$credentials = Config::get('registry.api.github');
+				$issues      = App::make($this->source)->get($this->repositoryName.'/issues?client_id=' .$credentials['id']. '&client_secret='.$credentials['secret'])->send()->json();
+			} catch (Exception $e) {
+				$issues = array();
+			}
 
-		return $this->informations['repository'];
+			return $issues;
+		});
+	}
+
+	/**
+	 * Get Travis informations
+	 *
+	 * @return array
+	 */
+	public function getTravis()
+	{
+		return Cache::rememberForever($this->travis.'-travis', function() {
+			try {
+				return App::make('travis')->get($this->travis)->send()->json();
+			}	catch(ClientErrorResponseException $e) {
+				return array();
+			}
+		});
+	}
+
+	/**
+	 * Get Travis builds
+	 *
+	 * @return array
+	 */
+	public function getTravisBuilds()
+	{
+		return Cache::rememberForever($this->travis.'-travis-builds', function() {
+			return App::make('travis')->get($this->travis.'/builds')->send()->json();
+		});
 	}
 
 	////////////////////////////////////////////////////////////////////
 	///////////////////////////// ATTRIBUTES ///////////////////////////
 	////////////////////////////////////////////////////////////////////
+
+	/**
+	 * Get the source name of a Package's repository
+	 *
+	 * @return string
+	 */
+	public function getSourceAttribute()
+	{
+		return str_contains($this->repository, 'github') ? 'github' : 'bitbucket';
+	}
+
+	/**
+	 * Get the Repository name
+	 *
+	 * @return string
+	 */
+	public function getRepositoryNameAttribute()
+	{
+		$name = explode('/', $this->repository);
+		$name = $name[3].'/'.$name[4];
+
+		return $name;
+	}
 
 	/**
 	 * Get Travis status
@@ -95,17 +146,8 @@ class Package extends Eloquent
 			return null;
 		}
 
-		// Get build status
-		$status = Cache::rememberForever($this->travis.'-travis', function() {
-			try {
-				return App::make('travis')->get($travis)->send()->json();
-			}	catch(ClientErrorResponseException $e) {
-				return array();
-			}
-		});
-
 		// Invert scale
-		$status = array_get($status, 'last_build_status', 2);
+		$status = array_get($this->getTravis(), 'last_build_status', 2);
 		$status = (int) abs($status - 2);
 
 		return $status;
@@ -116,7 +158,7 @@ class Package extends Eloquent
 	 *
 	 * @return string
 	 */
-	public function getTravisAttribute()
+	public function getTravisBuildAttribute()
 	{
 		$status = array('unknown', 'failing', 'success');
 
