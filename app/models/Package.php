@@ -90,7 +90,7 @@ class Package extends Eloquent
 		return Cache::rememberForever($this->travis.'-travis', function() {
 			try {
 				return App::make('travis')->get($this->travis)->send()->json();
-			}	catch(ClientErrorResponseException $e) {
+			} catch (ClientErrorResponseException $e) {
 				return array();
 			}
 		});
