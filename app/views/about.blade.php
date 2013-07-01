@@ -19,6 +19,7 @@
 	<ul>
 		<li>Number of downloads</li>
 		<li>Stars, watchers and forks for the repository</li>
+		<li>Days since last update</li>
 		<li>Favorites for the Packagist entry</li>
 	</ul>
 	<p>Each of these factors is then assigned a weight according to how important it is in the index</p>

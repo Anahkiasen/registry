@@ -140,7 +140,7 @@ class SeedPackages extends DatabaseSeeder
 
 		// Seniority and freshness
 		$created_at  = new Carbon(array_get($repository, 'created_at', array_get($repository, 'utc_created_on')));
-		$pushed_at   = new Carbon(array_get($repository, 'updated_at', array_get($repository, 'utc_last_updated')));
+		$pushed_at   = new Carbon(array_get($repository, 'pushed_at', array_get($repository, 'utc_last_updated')));
 
 		// Tests consistency
 		$builds       = $package->getTravisBuilds();
@@ -181,7 +181,7 @@ class SeedPackages extends DatabaseSeeder
 			'created_at'        => $created_at->toDateTimeString(),
 			'pushed_at'         => $pushed_at->toDateTimeString(),
 			'seniority'         => $created_at->diffInDays(),
-			'freshness'         => $pushed_at->diffInDays() * -1,
+			'freshness'         => $pushed_at->diffInDays(),
 		))->save();
 	}
 
@@ -200,12 +200,14 @@ class SeedPackages extends DatabaseSeeder
 			'downloads_total' => 1.5,
 			'watchers'        => 2,
 			'forks'           => 1,
-			'favorites'       => 0.25
+			'favorites'       => 0.25,
+			'freshness'       => 0.75,
 		), array(
 			'downloads_total' => Package::whereType('package')->max('downloads_total'),
 			'watchers'        => Package::whereType('package')->max('watchers'),
 			'forks'           => Package::whereType('package')->max('forks'),
 			'favorites'       => Package::whereType('package')->max('favorites'),
+			'freshness'       => Package::whereType('package')->max('freshness'),
 		));
 	}
 
@@ -246,10 +248,15 @@ class SeedPackages extends DatabaseSeeder
 		$this->info('Computing ' .$attribute. ' indexes');
 
 		$packages = Package::all();
+		$inverted = array('freshness');
 
 		foreach ($packages as $key => $package) {
 			foreach ($ceilings as $index => $value) {
-				$indexes[$index] = ($package->$index * 100 / $value) * $weights[$index];
+				if (in_array($index, $inverted)) {
+					$indexes[$index] = (($package->$index * 100 / -$value) + 100) * $weights[$index];
+				} else {
+					$indexes[$index] = ($package->$index * 100 / $value) * $weights[$index];
+				}
 			}
 
 			$package->$attribute = round(array_sum($indexes) / array_sum($weights), $rounding);
