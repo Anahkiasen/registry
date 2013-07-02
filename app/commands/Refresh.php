@@ -88,7 +88,7 @@ class Refresh extends Command
 	 */
 	protected function refreshPackage($package)
 	{
-		$package = Package::whereName($package)->first();
+		$package = Package::whereName($package)->firstOrFail();
 		Eloquent::unguard();
 
 		Cache::forget($package->name.'-packagist');
