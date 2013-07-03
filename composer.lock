@@ -58,12 +58,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/rocketeer.git",
-                "reference": "0637b841c8837c855f7493417fd6d600aa3ea3aa"
+                "reference": "f1177687416a1f634b0677eb075e3bb6b217a8d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/0637b841c8837c855f7493417fd6d600aa3ea3aa",
-                "reference": "0637b841c8837c855f7493417fd6d600aa3ea3aa",
+                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/f1177687416a1f634b0677eb075e3bb6b217a8d8",
+                "reference": "f1177687416a1f634b0677eb075e3bb6b217a8d8",
                 "shasum": ""
             },
             "require": {
@@ -98,7 +98,7 @@
                 "laravel",
                 "ssh"
             ],
-            "time": "2013-07-01 22:35:45"
+            "time": "2013-07-02 13:32:47"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -360,12 +360,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "2.4.0-RC4"
+                "reference": "6a39bb947b20d12a16820f2709509e41e28af005"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/2.4.0-RC4",
-                "reference": "2.4.0-RC4",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/6a39bb947b20d12a16820f2709509e41e28af005",
+                "reference": "6a39bb947b20d12a16820f2709509e41e28af005",
                 "shasum": ""
             },
             "require": {
@@ -413,7 +413,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -426,7 +426,7 @@
                 "persistence",
                 "spl"
             ],
-            "time": "2013-06-21 12:11:28"
+            "time": "2013-07-02 11:26:20"
         },
         {
             "name": "doctrine/dbal",
@@ -1375,12 +1375,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/natxet/CssMin.git",
-                "reference": "9801e2a0de7ae252ca4f2b85542d75a82047a8b4"
+                "reference": "afdcdbdb5fc332313f47a79ae60346df3e69a572"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/natxet/CssMin/zipball/9801e2a0de7ae252ca4f2b85542d75a82047a8b4",
-                "reference": "9801e2a0de7ae252ca4f2b85542d75a82047a8b4",
+                "url": "https://api.github.com/repos/natxet/CssMin/zipball/afdcdbdb5fc332313f47a79ae60346df3e69a572",
+                "reference": "afdcdbdb5fc332313f47a79ae60346df3e69a572",
                 "shasum": ""
             },
             "require": {
@@ -1388,9 +1388,9 @@
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "CssMin": "src/"
-                }
+                "classmap": [
+                    "src/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1409,7 +1409,7 @@
                 "css",
                 "minify"
             ],
-            "time": "2013-03-15 18:47:32"
+            "time": "2013-07-02 20:53:35"
         },
         {
             "name": "nesbot/carbon",
