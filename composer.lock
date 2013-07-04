@@ -58,21 +58,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/rocketeer.git",
-                "reference": "f1177687416a1f634b0677eb075e3bb6b217a8d8"
+                "reference": "14e0527942478b34698fc2e8b7b2bdb06261cc61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/f1177687416a1f634b0677eb075e3bb6b217a8d8",
-                "reference": "f1177687416a1f634b0677eb075e3bb6b217a8d8",
+                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/14e0527942478b34698fc2e8b7b2bdb06261cc61",
+                "reference": "14e0527942478b34698fc2e8b7b2bdb06261cc61",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "4.1.x",
+                "illuminate/support": "~4",
                 "php": ">=5.3.0"
             },
             "require-dev": {
-                "illuminate/container": "4.1.x",
-                "illuminate/filesystem": "4.1.x",
+                "illuminate/container": "~4",
+                "illuminate/filesystem": "~4",
                 "mockery/mockery": "dev-master",
                 "nesbot/carbon": "dev-master"
             },
@@ -98,7 +98,7 @@
                 "laravel",
                 "ssh"
             ],
-            "time": "2013-07-02 13:32:47"
+            "time": "2013-07-03 18:10:06"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -1758,21 +1758,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/BrowserKit.git",
-                "reference": "v2.3.1"
+                "reference": "9d8f14a3e5297ef41968097bb2b1012e886103e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/BrowserKit/zipball/v2.3.1",
-                "reference": "v2.3.1",
+                "url": "https://api.github.com/repos/symfony/BrowserKit/zipball/9d8f14a3e5297ef41968097bb2b1012e886103e5",
+                "reference": "9d8f14a3e5297ef41968097bb2b1012e886103e5",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
-                "symfony/dom-crawler": ">=2.0,<3.0"
+                "symfony/dom-crawler": "~2.0"
             },
             "require-dev": {
-                "symfony/css-selector": ">=2.0,<3.0",
-                "symfony/process": ">=2.0,<3.0"
+                "symfony/css-selector": "~2.0",
+                "symfony/process": "~2.0"
             },
             "suggest": {
                 "symfony/process": ""
@@ -1804,7 +1804,7 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "http://symfony.com",
-            "time": "2013-05-15 15:16:47"
+            "time": "2013-07-01 12:24:43"
         },
         {
             "name": "symfony/console",
@@ -2224,31 +2224,31 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel.git",
-                "reference": "98c849cd968571794d7cfc6edef21aa1363ce05c"
+                "reference": "c0b64cf85cf228a7107012c934b36aaa640d1a69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/98c849cd968571794d7cfc6edef21aa1363ce05c",
-                "reference": "98c849cd968571794d7cfc6edef21aa1363ce05c",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/c0b64cf85cf228a7107012c934b36aaa640d1a69",
+                "reference": "c0b64cf85cf228a7107012c934b36aaa640d1a69",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
-                "psr/log": ">=1.0,<2.0",
-                "symfony/debug": ">=2.3,<3.0",
-                "symfony/event-dispatcher": ">=2.1,<3.0",
-                "symfony/http-foundation": ">=2.2,<3.0"
+                "psr/log": "~1.0",
+                "symfony/debug": "~2.3",
+                "symfony/event-dispatcher": "~2.1",
+                "symfony/http-foundation": "~2.2"
             },
             "require-dev": {
                 "symfony/browser-kit": "2.2.*",
-                "symfony/class-loader": ">=2.1,<3.0",
-                "symfony/config": ">=2.0,<3.0",
+                "symfony/class-loader": "~2.1",
+                "symfony/config": "~2.0",
                 "symfony/console": "2.2.*",
-                "symfony/dependency-injection": ">=2.0,<3.0",
-                "symfony/finder": ">=2.0,<3.0",
-                "symfony/process": ">=2.0,<3.0",
-                "symfony/routing": ">=2.2,<3.0",
-                "symfony/stopwatch": ">=2.2,<3.0"
+                "symfony/dependency-injection": "~2.0",
+                "symfony/finder": "~2.0",
+                "symfony/process": "~2.0",
+                "symfony/routing": "~2.2",
+                "symfony/stopwatch": "~2.2"
             },
             "suggest": {
                 "symfony/browser-kit": "",
@@ -2285,7 +2285,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "http://symfony.com",
-            "time": "2013-06-11 13:34:17"
+            "time": "2013-07-01 12:24:43"
         },
         {
             "name": "symfony/process",

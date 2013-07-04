@@ -41,7 +41,9 @@ class Refresh extends Command
 		}
 
 		// Clear cache
-		$this->call('cache:clear');
+		if(DB::table('versions')->first()) {
+			$this->call('cache:clear');
+		}
 
 		// Rebuild database
 		$this->call('migrate:refresh');
