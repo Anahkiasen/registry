@@ -144,8 +144,10 @@ class SeedPackages extends DatabaseSeeder
 
 		// Tests consistency
 		$builds       = $package->getTravisBuilds();
-		$consistency  = abs(array_sum(array_pluck($builds, 'result')) - sizeof($builds));
-		$consistency  = $builds ? round($consistency * 100 / sizeof($builds)) : 0;
+		$consistency  = array_filter($builds, function($build) {
+			return $build['result'] !== 1;
+		});
+		$consistency  = $builds ? round(sizeof($consistency) * 100 / sizeof($builds)) : 0;
 		$buildStatus = array_get($package->getTravis(), 'last_build_status', 2);
 		$buildStatus = (int) abs($buildStatus - 2);
 
