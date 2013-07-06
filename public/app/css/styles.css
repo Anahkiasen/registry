@@ -55,16 +55,16 @@ table {
   table tr:hover td {
     background-color: whitesmoke; }
 
-table th.tablesorter-headerAsc, table th.tablesorter-headerDesc {
+table th.sort-asc, table th.sort-desc {
   background-color: #f55947;
   color: white; }
-  table th.tablesorter-headerAsc:hover, table th.tablesorter-headerDesc:hover {
+  table th.sort-asc:hover, table th.sort-desc:hover {
     background-color: #f3442f; }
-table th.tablesorter-headerAsc div:before {
+table th.sort-asc:before {
   content: "\25B2";
   margin-right: 8px;
   margin-right: 0.5rem; }
-table th.tablesorter-headerDesc div:before {
+table th.sort-desc:before {
   content: "\25BC";
   margin-right: 8px;
   margin-right: 0.5rem; }

@@ -29,8 +29,8 @@ table {
 table th {
 	$table-color: darken($color-base, 5);
 
-	&.tablesorter-headerAsc,
-	&.tablesorter-headerDesc, {
+	&.sort-asc,
+	&.sort-desc, {
 		background-color: $table-color;
 		color: white;
 		&:hover {
@@ -38,11 +38,11 @@ table th {
 		}
 	}
 
-	&.tablesorter-headerAsc div:before {
+	&.sort-asc:before {
 		content: "\25B2";
 		@include rem(margin-right, 0.5rem);
 	}
-	&.tablesorter-headerDesc div:before {
+	&.sort-desc:before {
 		content: "\25BC";
 		@include rem(margin-right, 0.5rem);
 	}

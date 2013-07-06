@@ -10,6 +10,34 @@ var packages      = document.querySelectorAll('.packages-list__package'),
 //////////////////////////////// HELPERS /////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+/**
+ * Executes a forEeach on a QuerySelector
+ *
+ * @param  {NodeList}   selector
+ * @param  {Function}   fn
+ *
+ * @return {void}
+ */
+var each = function(selector, fn) {
+	[].forEach.call(selector, fn);
+};
+
+/**
+ * Add leading zeros to a number
+ *
+ * @param  {Number} number
+ *
+ * @return {String}
+ */
+var pad = function(number) {
+	number = number + '';
+	while (number.length < 3) {
+		number = '0' + number;
+	}
+
+	return number;
+};
+
 var handleEvent = function(handlers, selector, fn) {
 	handlers = handlers.split(' ').forEach(function(handler) {
 
@@ -20,7 +48,7 @@ var handleEvent = function(handlers, selector, fn) {
 
 		// Bind event handler
 		if (selector instanceof NodeList) {
-			[].forEach.call(selector, function(element) {
+			each(selector, function(element) {
 				element.addEventListener(handler, fn);
 			});
 		} else if (typeof(selector) === 'object') {
@@ -36,7 +64,7 @@ var handleEvent = function(handlers, selector, fn) {
  * Refreshes the results of the table
  */
 var refreshResults = function(query) {
-	var visible = 0, key;
+	var visible = 0;
 
 	// Cache last query
 	if (query === lastQuery) {
@@ -45,29 +73,20 @@ var refreshResults = function(query) {
 		lastQuery = query;
 	}
 
-	for (key = 0; key < nbPackages; key++) {
-		var package = packages[key];
-
-		// Get packages informations
-		if (packagesInfos[key] === undefined) {
-			packagesInfos[key] = {
-				'name'        : package.children[1].innerHTML,
-				'description' : package.children[2].innerHTML,
-				'tags'        : package.children[3].innerHTML
-			};
-		}
+	each(document.querySelectorAll('.packages-list__package'), function(package) {
+		var key = package.children[0].innerHTML;
 
 		// Show matching results
 		if (
-			packagesInfos[key].name.match(query) ||
-			packagesInfos[key].description.match(query) ||
-			packagesInfos[key].tags.match(query)) {
+			packagesInfos[key][1].match(query) ||
+			packagesInfos[key][2].match(query) ||
+			packagesInfos[key][3].match(query)) {
 			package.classList.remove('hidden');
 			visible += 1;
 		} else {
 			package.classList.add('hidden');
 		}
-	}
+	});
 
 	// Show "No results" row
 	if (visible === 0) {
@@ -78,7 +97,25 @@ var refreshResults = function(query) {
 };
 
 //////////////////////////////////////////////////////////////////////
-///////////////////////////////// EVENTS /////////////////////////////
+///////////////////////// BUILD PACKAGES INDEX ///////////////////////
+//////////////////////////////////////////////////////////////////////
+
+each(packages, function(package) {
+	var key = package.children[0].innerHTML;
+
+	packagesInfos[key] = {
+		0 : pad(key),
+		1 : package.children[1].innerHTML.trim(),
+		2 : package.children[2].innerHTML.trim(),
+		3 : package.children[3].innerHTML.trim(),
+		4 : package.children[4].innerHTML,
+		5 : pad(package.children[5].innerHTML),
+		6 : pad(package.children[6].innerHTML)
+	};
+});
+
+//////////////////////////////////////////////////////////////////////
+///////////////////////////////// SEARCH /////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 /**
@@ -127,4 +164,51 @@ form.addEventListener('submit', function(event) {
 handleEvent('click', '.tag', function() {
 	search.value = this.innerHTML;
 	refreshResults(this.innerHTML);
+});
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////// SORTING /////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+handleEvent('click', 'th', function() {
+	var _this         = this,
+			index         = 0,
+			packages      = document.querySelectorAll('.packages-list__package'),
+			packagesArray = _.toArray(packages);
+
+	// Get index, clean sorting classes
+	each(this.parentNode.getElementsByTagName('th'), function(element, key) {
+		if (element === _this) {
+			index = key;
+		} else {
+			element.classList.remove('sort-asc');
+			element.classList.remove('sort-desc');
+		}
+	});
+
+	// Switch class
+	if (this.classList.contains('sort-asc')) {
+		this.classList.toggle('sort-asc');
+		this.classList.toggle('sort-desc');
+	} else {
+		this.classList.add('sort-asc');
+		this.classList.remove('sort-desc');
+	}
+
+	// Sort packages and cast to HTML
+	packagesArray = _
+		.sortBy(packagesArray, function(package) {
+			return packagesInfos[package.children[0].innerHTML][index];
+		})
+		.map(function(package) {
+			return package.outerHTML;
+		});
+
+	// Inverse if requested
+	if (this.classList.contains('sort-desc')) {
+		packagesArray = packagesArray.reverse();
+	}
+
+	// Replace table HTML
+	document.getElementsByTagName('tbody')[0].innerHTML = packagesArray.join('');
 });

@@ -58,12 +58,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/rocketeer.git",
-                "reference": "14e0527942478b34698fc2e8b7b2bdb06261cc61"
+                "reference": "0640d83fc8fd06e0081f824817311309db336ae5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/14e0527942478b34698fc2e8b7b2bdb06261cc61",
-                "reference": "14e0527942478b34698fc2e8b7b2bdb06261cc61",
+                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/0640d83fc8fd06e0081f824817311309db336ae5",
+                "reference": "0640d83fc8fd06e0081f824817311309db336ae5",
                 "shasum": ""
             },
             "require": {
@@ -98,7 +98,7 @@
                 "laravel",
                 "ssh"
             ],
-            "time": "2013-07-03 18:10:06"
+            "time": "2013-07-05 18:20:31"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -224,12 +224,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "89493d2c6e1362f581f9de1c1871cc52eb29c030"
+                "reference": "dc3438804c6303f1b5892f184a79aa8e3ce5d81d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/89493d2c6e1362f581f9de1c1871cc52eb29c030",
-                "reference": "89493d2c6e1362f581f9de1c1871cc52eb29c030",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/dc3438804c6303f1b5892f184a79aa8e3ce5d81d",
+                "reference": "dc3438804c6303f1b5892f184a79aa8e3ce5d81d",
                 "shasum": ""
             },
             "require": {
@@ -285,7 +285,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2013-06-07 14:54:47"
+            "time": "2013-07-04 15:48:06"
         },
         {
             "name": "doctrine/collections",
@@ -681,12 +681,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/common.git",
-                "reference": "v3.7.0"
+                "reference": "v3.7.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/common/zipball/v3.7.0",
-                "reference": "v3.7.0",
+                "url": "https://api.github.com/repos/guzzle/common/zipball/v3.7.1",
+                "reference": "v3.7.1",
                 "shasum": ""
             },
             "require": {
@@ -716,7 +716,7 @@
                 "event",
                 "exception"
             ],
-            "time": "2013-06-11 00:24:07"
+            "time": "2013-07-05 20:17:54"
         },
         {
             "name": "guzzle/http",
@@ -725,12 +725,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/http.git",
-                "reference": "v3.7.0"
+                "reference": "v3.7.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/http/zipball/v3.7.0",
-                "reference": "v3.7.0",
+                "url": "https://api.github.com/repos/guzzle/http/zipball/v3.7.1",
+                "reference": "v3.7.1",
                 "shasum": ""
             },
             "require": {
@@ -773,7 +773,7 @@
                 "http",
                 "http client"
             ],
-            "time": "2013-06-11 00:24:07"
+            "time": "2013-07-02 19:53:26"
         },
         {
             "name": "guzzle/parser",
@@ -782,12 +782,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/parser.git",
-                "reference": "v3.7.0"
+                "reference": "v3.7.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/parser/zipball/v3.7.0",
-                "reference": "v3.7.0",
+                "url": "https://api.github.com/repos/guzzle/parser/zipball/v3.7.1",
+                "reference": "v3.7.1",
                 "shasum": ""
             },
             "require": {
@@ -826,12 +826,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/stream.git",
-                "reference": "v3.7.0"
+                "reference": "v3.7.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/stream/zipball/v3.7.0",
-                "reference": "v3.7.0",
+                "url": "https://api.github.com/repos/guzzle/stream/zipball/v3.7.1",
+                "reference": "v3.7.1",
                 "shasum": ""
             },
             "require": {
@@ -870,7 +870,7 @@
                 "component",
                 "stream"
             ],
-            "time": "2013-06-11 00:24:07"
+            "time": "2013-06-27 00:50:43"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -995,8 +995,8 @@
                 "shasum": ""
             },
             "require": {
-                "doctrine/inflector": ">=1.0,<2.0",
-                "guzzle/http": ">=3.0,<4.0",
+                "doctrine/inflector": "~1.0",
+                "guzzle/http": "~3.0",
                 "php": ">=5.3.2"
             },
             "require-dev": {
@@ -1110,12 +1110,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "2d1fd89f89fc46493c258bf68acbc725debe1ad5"
+                "reference": "b088a2e497a890db562c4d5ed8245dfa9214782d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/2d1fd89f89fc46493c258bf68acbc725debe1ad5",
-                "reference": "2d1fd89f89fc46493c258bf68acbc725debe1ad5",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/b088a2e497a890db562c4d5ed8245dfa9214782d",
+                "reference": "b088a2e497a890db562c4d5ed8245dfa9214782d",
                 "shasum": ""
             },
             "require": {
@@ -1213,7 +1213,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-07-01 21:36:16"
+            "time": "2013-07-05 03:25:27"
         },
         {
             "name": "lmammino/jsmin4assetic",
