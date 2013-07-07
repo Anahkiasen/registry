@@ -58,12 +58,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/rocketeer.git",
-                "reference": "0640d83fc8fd06e0081f824817311309db336ae5"
+                "reference": "b79c062db102f0246faa2d9a20a49ed7ae70f208"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/0640d83fc8fd06e0081f824817311309db336ae5",
-                "reference": "0640d83fc8fd06e0081f824817311309db336ae5",
+                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/b79c062db102f0246faa2d9a20a49ed7ae70f208",
+                "reference": "b79c062db102f0246faa2d9a20a49ed7ae70f208",
                 "shasum": ""
             },
             "require": {
@@ -98,7 +98,7 @@
                 "laravel",
                 "ssh"
             ],
-            "time": "2013-07-05 18:20:31"
+            "time": "2013-07-06 16:42:03"
         },
         {
             "name": "classpreloader/classpreloader",
