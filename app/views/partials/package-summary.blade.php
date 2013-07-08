@@ -36,6 +36,12 @@
 			<strong>Forks</strong> : {{ $package->forks }}<br>
 			<strong>Favorites</strong> : {{ $package->favorites }}
 		</dd>
+		<dt>Trust</dt>
+		<dd>
+			<strong>Seniority</strong> : {{ $package->created_at->diffInDays() }} days<br>
+			<strong>Last updated:</strong> : {{ $package->updated_at->toDateString() }}<br>
+			<strong>% of closed issues</strong> : {{ $package->issues }}
+		</dd>
 		<dt>Downloads</dt>
 		<dd>
 			<strong>Total</strong> : {{ $package->downloads_total }}<br>

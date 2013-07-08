@@ -163,7 +163,22 @@ class SeedPackages extends DatabaseSeeder
 
 		// Save additional informations -------------------------------- /
 
+		$lastVersion = $package->getPackagist()->versions;
+		$lastVersion = current($lastVersion);
+		$require     = array_merge(array_get($lastVersion, 'require', array()), array_get($lastVersion, 'require-dev', array()));
+		$illuminate  = array('illuminate/support', 'laravel/framework');
+		foreach ($illuminate as $i) {
+			if (array_key_exists($i, $require)) {
+				$illuminate = true;
+				break;
+			} else {
+				$illuminate = false;
+			}
+		}
+
 		$package->fill(array(
+			'illuminate'        => $illuminate,
+
 			// Downloads
 			'downloads_total'   => $package->getPackagist()->downloads['total'],
 			'downloads_monthly' => $package->getPackagist()->downloads['monthly'],

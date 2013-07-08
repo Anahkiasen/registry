@@ -21,6 +21,7 @@ class CreatePackages extends Migration
 				$table->integer('favorites');
 				$table->string('type');
 				$table->string('keywords');
+				$table->boolean('illuminate');
 
 				// Unit tests
 				$table->integer('build_status');
