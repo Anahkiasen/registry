@@ -11,20 +11,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/flatten.git",
-                "reference": "10edf438490a487c82dd1cca22a5df4b3acf034b"
+                "reference": "69da26ad16743c63143b53df2fd5b115047ac203"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/flatten/zipball/10edf438490a487c82dd1cca22a5df4b3acf034b",
-                "reference": "10edf438490a487c82dd1cca22a5df4b3acf034b",
+                "url": "https://api.github.com/repos/Anahkiasen/flatten/zipball/69da26ad16743c63143b53df2fd5b115047ac203",
+                "reference": "69da26ad16743c63143b53df2fd5b115047ac203",
                 "shasum": ""
             },
             "require": {
-                "illuminate/cache": ">=4.0,<5.0",
-                "illuminate/config": ">=4.0,<5.0",
-                "illuminate/container": ">=4.0,<5.0",
-                "illuminate/http": ">=4.0,<5.0",
-                "illuminate/support": ">=4.0,<5.0"
+                "illuminate/cache": "~4",
+                "illuminate/config": "~4",
+                "illuminate/container": "~4",
+                "illuminate/http": "~4",
+                "illuminate/support": "~4"
             },
             "require-dev": {
                 "mockery/mockery": "dev-master"
@@ -50,7 +50,7 @@
                 "cache",
                 "laravel"
             ],
-            "time": "2013-06-30 14:00:49"
+            "time": "2013-07-01 09:03:32"
         },
         {
             "name": "anahkiasen/rocketeer",
@@ -1549,12 +1549,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "23d48c4fc5dfd66613b205863641de9fcc41c4bf"
+                "reference": "a6289036a0e03e61a151a987078d22edb0b07ada"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/23d48c4fc5dfd66613b205863641de9fcc41c4bf",
-                "reference": "23d48c4fc5dfd66613b205863641de9fcc41c4bf",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/a6289036a0e03e61a151a987078d22edb0b07ada",
+                "reference": "a6289036a0e03e61a151a987078d22edb0b07ada",
                 "shasum": ""
             },
             "require": {
@@ -1615,7 +1615,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2013-07-01 12:38:35"
+            "time": "2013-07-07 20:49:49"
         },
         {
             "name": "predis/predis",
@@ -1758,12 +1758,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/BrowserKit.git",
-                "reference": "9d8f14a3e5297ef41968097bb2b1012e886103e5"
+                "reference": "1d2e681c237841396ce51a1dffa4d8df69de74a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/BrowserKit/zipball/9d8f14a3e5297ef41968097bb2b1012e886103e5",
-                "reference": "9d8f14a3e5297ef41968097bb2b1012e886103e5",
+                "url": "https://api.github.com/repos/symfony/BrowserKit/zipball/1d2e681c237841396ce51a1dffa4d8df69de74a0",
+                "reference": "1d2e681c237841396ce51a1dffa4d8df69de74a0",
                 "shasum": ""
             },
             "require": {
@@ -1804,7 +1804,7 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "http://symfony.com",
-            "time": "2013-07-01 12:24:43"
+            "time": "2013-07-07 15:48:29"
         },
         {
             "name": "symfony/console",
