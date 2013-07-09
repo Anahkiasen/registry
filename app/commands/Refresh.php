@@ -36,12 +36,20 @@ class Refresh extends Command
 	 */
 	public function fire()
 	{
-		if ($this->argument('package')) {
-			return $this->refreshPackage($this->argument('package'));
+		if ($package = $this->argument('package')) {
+			if (Str::contains($package, '/')) {
+				return $this->refreshPackage($this->argument('package'));
+			} else {
+				$packages = Package::where('name', 'LIKE', '%' .$package. '%')->get();
+				foreach ($packages as $package) {
+					$this->refreshPackage($package);
+				}
+				return true;
+			}
 		}
 
 		// Clear cache
-		if(DB::table('versions')->first()) {
+		if (DB::table('versions')->first()) {
 			$this->call('cache:clear');
 		}
 
@@ -85,14 +93,20 @@ class Refresh extends Command
 	/**
 	 * Refresh a package in particular
 	 *
-	 * @param  string $package
+	 * @param  Package|string $package
 	 *
 	 * @return void
 	 */
 	protected function refreshPackage($package)
 	{
-		$package = Package::whereName($package)->firstOrFail();
 		Eloquent::unguard();
+
+		// Fetch package
+		if (!$package instanceof Package) {
+			$package = Package::whereName($package)->firstOrFail();
+		}
+
+		$this->info('Refreshing package '.$package->name);
 
 		Cache::forget($package->name.'-packagist');
 		Cache::forget($package->name.'-repository');
@@ -104,5 +118,4 @@ class Refresh extends Command
 		$seeder->hydrateStatistics($package);
 		$seeder->computeAllIndexes();
 	}
-
 }
