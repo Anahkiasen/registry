@@ -58,12 +58,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/rocketeer.git",
-                "reference": "b79c062db102f0246faa2d9a20a49ed7ae70f208"
+                "reference": "e59c5a16907adb77e1448c46922a89f53cf296e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/b79c062db102f0246faa2d9a20a49ed7ae70f208",
-                "reference": "b79c062db102f0246faa2d9a20a49ed7ae70f208",
+                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/e59c5a16907adb77e1448c46922a89f53cf296e2",
+                "reference": "e59c5a16907adb77e1448c46922a89f53cf296e2",
                 "shasum": ""
             },
             "require": {
@@ -98,7 +98,7 @@
                 "laravel",
                 "ssh"
             ],
-            "time": "2013-07-06 16:42:03"
+            "time": "2013-07-09 14:44:52"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -625,16 +625,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "1.0.6"
+                "reference": "1.0.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/1.0.6",
-                "reference": "1.0.6",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/1.0.7",
+                "reference": "1.0.7",
                 "shasum": ""
             },
             "require": {
@@ -672,7 +672,7 @@
                 "whoops",
                 "zf2"
             ],
-            "time": "2013-05-10 22:13:22"
+            "time": "2013-06-10 12:22:13"
         },
         {
             "name": "guzzle/common",
@@ -1049,7 +1049,7 @@
             },
             "require": {
                 "php": ">=5.3.1",
-                "symfony/process": ">=2.1,<3.0"
+                "symfony/process": "~2.1"
             },
             "require-dev": {
                 "cssmin/cssmin": "*",
@@ -1110,18 +1110,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "b088a2e497a890db562c4d5ed8245dfa9214782d"
+                "reference": "88d96a7cedc01f32065b7f6b07d5e259625b159f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/b088a2e497a890db562c4d5ed8245dfa9214782d",
-                "reference": "b088a2e497a890db562c4d5ed8245dfa9214782d",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/88d96a7cedc01f32065b7f6b07d5e259625b159f",
+                "reference": "88d96a7cedc01f32065b7f6b07d5e259625b159f",
                 "shasum": ""
             },
             "require": {
                 "classpreloader/classpreloader": "1.0.*",
                 "doctrine/dbal": "2.4.x",
-                "filp/whoops": "1.0.6",
+                "filp/whoops": "1.0.7",
                 "ircmaxell/password-compat": "1.0.*",
                 "monolog/monolog": "1.5.*",
                 "nesbot/carbon": "1.*",
@@ -1213,7 +1213,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-07-05 03:25:27"
+            "time": "2013-07-09 13:05:22"
         },
         {
             "name": "lmammino/jsmin4assetic",
@@ -2174,12 +2174,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "2ee5c0da197451c0b297908d1337c944166bcd72"
+                "reference": "b1c48bb731933100540c63720303814ebb611c59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/2ee5c0da197451c0b297908d1337c944166bcd72",
-                "reference": "2ee5c0da197451c0b297908d1337c944166bcd72",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/b1c48bb731933100540c63720303814ebb611c59",
+                "reference": "b1c48bb731933100540c63720303814ebb611c59",
                 "shasum": ""
             },
             "require": {
@@ -2215,7 +2215,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "http://symfony.com",
-            "time": "2013-07-01 12:24:43"
+            "time": "2013-07-08 13:36:15"
         },
         {
             "name": "symfony/http-kernel",
@@ -2224,12 +2224,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel.git",
-                "reference": "c0b64cf85cf228a7107012c934b36aaa640d1a69"
+                "reference": "1fc0a1d294a19948f9755ca8957cc61e7d2aab41"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/c0b64cf85cf228a7107012c934b36aaa640d1a69",
-                "reference": "c0b64cf85cf228a7107012c934b36aaa640d1a69",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/1fc0a1d294a19948f9755ca8957cc61e7d2aab41",
+                "reference": "1fc0a1d294a19948f9755ca8957cc61e7d2aab41",
                 "shasum": ""
             },
             "require": {
@@ -2285,7 +2285,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "http://symfony.com",
-            "time": "2013-07-01 12:24:43"
+            "time": "2013-07-08 13:36:15"
         },
         {
             "name": "symfony/process",
