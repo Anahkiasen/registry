@@ -19,6 +19,10 @@ var packages      = document.querySelectorAll('.packages-list__package'),
  * @return {void}
  */
 var each = function(selector, fn) {
+	if (typeof(selector) == 'string') {
+		selector = document.querySelectorAll(selector);
+	}
+
 	[].forEach.call(selector, fn);
 };
 
@@ -38,6 +42,15 @@ var pad = function(number) {
 	return number;
 };
 
+/**
+ * Bind event(s) on a selector
+ *
+ * @param  {string}            handlers
+ * @param  {string|NodeList}   selector
+ * @param  {Function}          fn
+ *
+ * @return {void}
+ */
 var handleEvent = function(handlers, selector, fn) {
 	handlers = handlers.split(' ').forEach(function(handler) {
 
@@ -73,7 +86,7 @@ var refreshResults = function(query) {
 		lastQuery = query;
 	}
 
-	each(document.querySelectorAll('.packages-list__package'), function(package) {
+	each('.packages-list__package', function(package) {
 		var key = package.children[0].innerHTML;
 
 		// Show matching results
@@ -141,19 +154,7 @@ handleEvent('reset', form, function() {
  */
 form.addEventListener('submit', function(event) {
 	event.preventDefault();
-	var firstPackage, key;
-
-	// Get first results
-	for (key = 0; key < nbPackages; key++) {
-		var package = packages[key];
-
-		if (package.classList.contains('hidden')) {
-			continue;
-		} else {
-			firstPackage = package;
-			break;
-		}
-	}
+	var firstPackage = document.querySelector('.packages-list__package:not(.hidden)');
 
 	window.location = 'package/' + firstPackage.dataset.id;
 });

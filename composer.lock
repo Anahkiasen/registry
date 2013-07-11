@@ -58,12 +58,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/rocketeer.git",
-                "reference": "3c50a9fdeaf91e5313f73dc975ebf6e733c03bd1"
+                "reference": "0efd87c1edaf77f7ad97cb8eff36596b7c88e50f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/3c50a9fdeaf91e5313f73dc975ebf6e733c03bd1",
-                "reference": "3c50a9fdeaf91e5313f73dc975ebf6e733c03bd1",
+                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/0efd87c1edaf77f7ad97cb8eff36596b7c88e50f",
+                "reference": "0efd87c1edaf77f7ad97cb8eff36596b7c88e50f",
                 "shasum": ""
             },
             "require": {
@@ -75,7 +75,8 @@
                 "illuminate/container": "~4",
                 "illuminate/filesystem": "~4",
                 "mockery/mockery": "dev-master",
-                "nesbot/carbon": "dev-master"
+                "nesbot/carbon": "dev-master",
+                "patchwork/utf8": "dev-master"
             },
             "type": "library",
             "autoload": {
@@ -99,7 +100,7 @@
                 "laravel",
                 "ssh"
             ],
-            "time": "2013-07-10 23:40:52"
+            "time": "2013-07-11 17:11:14"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -987,12 +988,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/packagist-api.git",
-                "reference": "bc31bcf9b0eaa4e1f3618565558c2d58646c7982"
+                "reference": "105f19943257f124b6fb20473dffcc5d61ba4662"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/packagist-api/zipball/bc31bcf9b0eaa4e1f3618565558c2d58646c7982",
-                "reference": "bc31bcf9b0eaa4e1f3618565558c2d58646c7982",
+                "url": "https://api.github.com/repos/KnpLabs/packagist-api/zipball/105f19943257f124b6fb20473dffcc5d61ba4662",
+                "reference": "105f19943257f124b6fb20473dffcc5d61ba4662",
                 "shasum": ""
             },
             "require": {
@@ -1032,7 +1033,7 @@
                 "composer",
                 "packagist"
             ],
-            "time": "2013-06-27 18:33:46"
+            "time": "2013-07-11 12:37:40"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -1040,12 +1041,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/assetic.git",
-                "reference": "0e18168c45df6500617ad8739f122fdf917a9293"
+                "reference": "41930af87d8182c3298cf66f49a1606fa3c1d367"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/0e18168c45df6500617ad8739f122fdf917a9293",
-                "reference": "0e18168c45df6500617ad8739f122fdf917a9293",
+                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/41930af87d8182c3298cf66f49a1606fa3c1d367",
+                "reference": "41930af87d8182c3298cf66f49a1606fa3c1d367",
                 "shasum": ""
             },
             "require": {
@@ -1060,9 +1061,9 @@
                 "leafo/scssphp": "*",
                 "leafo/scssphp-compass": "*",
                 "mrclay/minify": "*",
-                "phpunit/phpunit": ">=3.7,<4.0",
+                "phpunit/phpunit": "~3.7",
                 "ptachoire/cssembed": "*",
-                "twig/twig": ">=1.6,<2.0"
+                "twig/twig": "~1.6"
             },
             "suggest": {
                 "leafo/lessphp": "Assetic provides the integration with the lessphp LESS compiler",
@@ -1103,7 +1104,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2013-06-13 16:56:43"
+            "time": "2013-07-11 15:46:25"
         },
         {
             "name": "laravel/framework",
