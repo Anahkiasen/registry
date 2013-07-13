@@ -2,6 +2,6 @@
   "name": "registry",
   "dependencies": {
     "normalize-css": "latest",
-    "lodash": "~1.3.1"
+    "lodash": "latest"
   }
 }

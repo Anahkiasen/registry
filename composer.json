@@ -6,7 +6,7 @@
 		"laravel/framework": "4.1.*",
 		"knplabs/packagist-api": "dev-master",
 		"anahkiasen/rocketeer": "dev-develop",
-		"jasonlewis/basset": "dev-master",
+		"jasonlewis/basset": "dev-develop",
 		"loic-sharma/profiler": "dev-master",
 		"lmammino/jsmin4assetic": "dev-master",
 		"natxet/CssMin": "dev-master",
