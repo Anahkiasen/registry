@@ -58,12 +58,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/rocketeer.git",
-                "reference": "0efd87c1edaf77f7ad97cb8eff36596b7c88e50f"
+                "reference": "165288d880a4c8d5a6a75a2cb87e0af5ce130204"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/0efd87c1edaf77f7ad97cb8eff36596b7c88e50f",
-                "reference": "0efd87c1edaf77f7ad97cb8eff36596b7c88e50f",
+                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/165288d880a4c8d5a6a75a2cb87e0af5ce130204",
+                "reference": "165288d880a4c8d5a6a75a2cb87e0af5ce130204",
                 "shasum": ""
             },
             "require": {
@@ -100,7 +100,7 @@
                 "laravel",
                 "ssh"
             ],
-            "time": "2013-07-11 17:11:14"
+            "time": "2013-07-12 14:29:31"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -1112,12 +1112,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "88d96a7cedc01f32065b7f6b07d5e259625b159f"
+                "reference": "9f76dd2d3d0e850704d4b65f329a9176b0b35192"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/88d96a7cedc01f32065b7f6b07d5e259625b159f",
-                "reference": "88d96a7cedc01f32065b7f6b07d5e259625b159f",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/9f76dd2d3d0e850704d4b65f329a9176b0b35192",
+                "reference": "9f76dd2d3d0e850704d4b65f329a9176b0b35192",
                 "shasum": ""
             },
             "require": {
@@ -1215,7 +1215,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-07-09 13:05:22"
+            "time": "2013-07-12 16:31:10"
         },
         {
             "name": "lmammino/jsmin4assetic",
@@ -1462,12 +1462,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "5ccf6196d6925e66568e3b8460c262e9512e4b92"
+                "reference": "f9c3aa2a22498ff4c0db38bae40999cebe60f831"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/5ccf6196d6925e66568e3b8460c262e9512e4b92",
-                "reference": "5ccf6196d6925e66568e3b8460c262e9512e4b92",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/f9c3aa2a22498ff4c0db38bae40999cebe60f831",
+                "reference": "f9c3aa2a22498ff4c0db38bae40999cebe60f831",
                 "shasum": ""
             },
             "require": {
@@ -1498,7 +1498,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2013-05-23 13:17:59"
+            "time": "2013-07-12 23:03:57"
         },
         {
             "name": "patchwork/utf8",
