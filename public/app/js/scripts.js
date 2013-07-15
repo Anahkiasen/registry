@@ -27,22 +27,6 @@ var each = function(selector, fn) {
 };
 
 /**
- * Add leading zeros to a number
- *
- * @param  {Number} number
- *
- * @return {String}
- */
-var pad = function(number) {
-	number = number + '';
-	while (number.length < 3) {
-		number = '0' + number;
-	}
-
-	return number;
-};
-
-/**
  * Bind event(s) on a selector
  *
  * @param  {string}            handlers
@@ -117,13 +101,13 @@ each(packages, function(package) {
 	var key = package.children[0].innerHTML;
 
 	packagesInfos[key] = {
-		0 : pad(key),
+		0 : parseInt(key),
 		1 : package.children[1].innerHTML.trim(),
 		2 : package.children[2].innerHTML.trim(),
 		3 : package.children[3].innerHTML.trim(),
 		4 : package.children[4].innerHTML,
-		5 : pad(package.children[5].innerHTML),
-		6 : pad(package.children[6].innerHTML)
+		5 : parseInt(package.children[5].innerHTML),
+		6 : parseInt(package.children[6].innerHTML)
 	};
 });
 
