@@ -188,6 +188,16 @@ class Package extends Eloquent
 		return implode(', ', $list);
 	}
 
+	/**
+	 * The DateTime fields of the model
+	 *
+	 * @return array
+	 */
+	public function getDates()
+	{
+		return array_merge(parent::getDates(), array('pushed_at'));
+	}
+
 	////////////////////////////////////////////////////////////////////
 	///////////////////////////// QUERY SCOPES /////////////////////////
 	////////////////////////////////////////////////////////////////////

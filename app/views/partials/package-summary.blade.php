@@ -39,7 +39,7 @@
 		<dt>Trust</dt>
 		<dd>
 			<strong>Seniority</strong> : {{ $package->created_at->diffInDays() }} days<br>
-			<strong>Last updated:</strong> : {{ $package->updated_at->toDateString() }}<br>
+			<strong>Last updated:</strong> : {{ $package->pushed_at->toDateString() }}<br>
 			<strong>% of closed issues</strong> : {{ $package->issues }}
 		</dd>
 		<dt>Downloads</dt>

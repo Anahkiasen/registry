@@ -140,7 +140,7 @@ class SeedPackages extends DatabaseSeeder
 
 		// Seniority and freshness
 		$created_at  = new Carbon(array_get($repository, 'created_at', array_get($repository, 'utc_created_on')));
-		$pushed_at   = new Carbon(array_get($repository, 'pushed_at', array_get($repository, 'utc_last_updated')));
+		$pushed_at   = new Carbon(array_get($repository, 'pushed_at',  array_get($repository, 'utc_last_updated')));
 
 		// Tests consistency
 		$builds       = $package->getTravisBuilds();
@@ -267,7 +267,7 @@ class SeedPackages extends DatabaseSeeder
 		$packages = Package::all();
 		$inverted = array('freshness');
 
-		foreach ($packages as $key => $package) {
+		foreach ($packages as $package) {
 			foreach ($ceilings as $index => $value) {
 				if (in_array($index, $inverted)) {
 					$indexes[$index] = (($package->$index * 100 / -$value) + 100) * $weights[$index];
