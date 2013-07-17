@@ -24,8 +24,8 @@
 		// if you're using SSH or if your repository is public
 		// In other cases you can leave this empty too, and you will
 		// be prompted for the credentials on deploy
-		'username'   => 'Anahkiasen',
-		'password'   => 'naxam35741',
+		'username'   => '',
+		'password'   => '',
 
 		// The branch to deploy
 		'branch'     => 'master',
