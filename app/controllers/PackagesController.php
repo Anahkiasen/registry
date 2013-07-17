@@ -9,10 +9,10 @@ class PackagesController extends BaseController
 	 *
 	 * @return View
 	 */
-	public function index($type = 'package')
+	public function index()
 	{
 		// Fetch packages, paginated
-		$packages = Package::with('maintainers')->whereType($type)->orderBy('popularity', 'DESC')->get();
+		$packages = Package::with('maintainers')->whereType('package')->orderBy('popularity', 'DESC')->get();
 
 		return View::make('home', array(
 			'packages' => $packages,
