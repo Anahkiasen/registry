@@ -14,7 +14,8 @@ class MaintainersController extends BaseController
 			return $maintainer->popularity * -1;
 		});
 
-		return View::make('maintainers', compact('maintainers'));
+		return View::make('maintainers')
+			->with('maintainers', $maintainers);
 	}
 
 	/**
