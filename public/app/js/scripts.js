@@ -146,9 +146,11 @@ form.addEventListener('submit', function(event) {
 /**
  * Make Tag act like categories
  */
-handleEvent('click', '.tag', function() {
-	search.value = this.innerHTML;
-	refreshResults(this.innerHTML);
+document.addEventListener('click', function() {
+	if (event.target.classList.contains('tag')) {
+		search.value = event.target.innerHTML;
+		refreshResults(search.value);
+	}
 });
 
 //////////////////////////////////////////////////////////////////////
