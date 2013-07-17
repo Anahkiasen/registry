@@ -1,5 +1,9 @@
 @extends('layouts.layout')
 
+@section('title')
+	About the registry -
+@stop
+
 @section('content')
 	<h1>About</h1>
 	<h2>Packages</h2>

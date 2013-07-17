@@ -11,15 +11,16 @@
 |
 */
 
-Route::get('/',                 'PackagesController@index');
+// Common routes
 Route::get('about', function() {
 	return View::make('about');
 });
 
+// Packages
+Route::get('/',                 'PackagesController@index');
+Route::get('packages',          'PackagesController@index');
+Route::get('package/{package}', 'PackagesController@package');
+
 // Maintainers
 Route::get('maintainers',       'MaintainersController@index');
 Route::get('maintainer/{slug}', 'MaintainersController@maintainer');
-
-// Packages
-Route::get('{type?}',           'PackagesController@index');
-Route::get('package/{package}', 'PackagesController@package');
