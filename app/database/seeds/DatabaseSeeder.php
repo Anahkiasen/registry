@@ -1,7 +1,23 @@
 <?php
+use Colors\Color;
 
 class DatabaseSeeder extends Seeder
 {
+	/**
+	 * The Colorizer instance
+	 *
+	 * @var Color
+	 */
+	protected $colors;
+
+	/**
+	 * Build a new Seeder
+	 */
+	public function __construct()
+	{
+		$this->colors = new Color;
+	}
+
 	/**
 	 * Run the database seeds.
 	 *
@@ -26,7 +42,7 @@ class DatabaseSeeder extends Seeder
 	public function seed($class)
 	{
 		$name = str_replace('Seed', null, $class);
-		print 'Seeding '.$name.PHP_EOL;
+		$this->info('Seeding '.$name);
 
 		$this->call($class);
 	}
@@ -54,9 +70,39 @@ class DatabaseSeeder extends Seeder
 	 *
 	 * @return string
 	 */
+	public function success($message)
+	{
+		$colors = $this->colors;
+
+		$this->line($colors($message)->green);
+	}
+
+	/**
+	 * Print an info
+	 *
+	 * @param  string $message
+	 *
+	 * @return string
+	 */
 	public function info($message)
 	{
-		$this->line("\033[0;34m" .$message. "\033[0m");
+		$colors = $this->colors;
+
+		$this->line($colors($message)->blue);
+	}
+
+	/**
+	 * Print an error
+	 *
+	 * @param  string $message
+	 *
+	 * @return string
+	 */
+	public function error($message)
+	{
+		$colors = $this->colors;
+
+		$this->line($colors($message)->red);
 	}
 
 	/**
@@ -68,7 +114,8 @@ class DatabaseSeeder extends Seeder
 	 */
 	public function comment($message)
 	{
-		$this->line("\033[0;35m" .$message. "\033[0m");
-	}
+		$colors = $this->colors;
 
+		$this->line($colors($message)->yellow);
+	}
 }

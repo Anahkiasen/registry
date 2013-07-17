@@ -1,5 +1,5 @@
 <?php
-class SeedMaintainers extends Seeder
+class SeedMaintainers extends DatabaseSeeder
 {
 
 	/**
@@ -9,7 +9,8 @@ class SeedMaintainers extends Seeder
 	 */
 	public function run()
 	{
-		$packages = Package::all();
+		$packages = Package::with('maintainers')->get();
+
 		foreach ($packages as $package) {
 			$maintainers = $package->getPackagist()->maintainers;
 			foreach ($maintainers as &$maintainer) {

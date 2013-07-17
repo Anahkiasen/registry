@@ -1,13 +1,30 @@
 <?php
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class RoutesTest extends TestCase
 {
+	/**
+	 * The routes to test
+	 *
+	 * @var array
+	 */
+	protected $routes = array();
 
-	public function testCanDisplayAllRoutes()
+	/**
+	 * The routes that failed
+	 *
+	 * @var array
+	 */
+	protected $failed = array();
+
+	/**
+	 * Test all routes and actions
+	 *
+	 * @return void
+	 */
+	public function testCanDisplayPages()
 	{
-		// Create basic routes array
-		$routes = array(
+		// Add manual routes
+		$this->routes = array(
 			URL::action('PackagesController@index'),
 			URL::action('MaintainersController@index'),
 		);
@@ -20,17 +37,43 @@ class RoutesTest extends TestCase
 			$routes[] = URL::action('PackagesController@package', $package->slug);
 		}
 
-		// Test all routes
-		foreach ($routes as $route) {
-			try {
-				print 'Testing route '.$route.PHP_EOL;
+		foreach ($this->routes as $route) {
+			$shorthand = str_replace(Request::root(), null, $route);
 
-				$response = $this->call('GET', $route);
+			try {
+				$this->comment('Testing route '.$shorthand);
+				$this->call('GET', $route);
 				$this->assertResponseOk();
-			} catch (NotFoundHttpException $exception) {
-				$this->fail('Route "' .$route. '" was not found');
+			} catch (Exception $exception) {
+				$this->failedRoute($shorthand, $exception->getMessage());
 			}
+		}
+
+		// Print summary
+		print PHP_EOL.str_repeat('-', 75).PHP_EOL;
+		$this->success(sizeof($this->routes). ' route(s) were tested');
+		if (!empty($this->failed)) {
+			$this->info(sizeof($this->failed). ' problem(s) were encountered :');
+			foreach ($this->failed as $route => $message) {
+				$this->error($route.str_repeat(' ', 25 - strlen($route)).$message);
+			}
+
+			$this->fail();
 		}
 	}
 
+	/**
+	 * Fail a route
+	 *
+	 * @param  string $route
+	 * @param  string $message
+	 *
+	 * @return void
+	 */
+	protected function failedRoute($route, $message)
+	{
+		$this->failed[$route] = sprintf($message, $route);
+	}
 }
+
+

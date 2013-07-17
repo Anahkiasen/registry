@@ -1,6 +1,9 @@
 <?php
 use Carbon\Carbon;
 
+/**
+ * A Package's Version
+ */
 class Version extends Eloquent
 {
 

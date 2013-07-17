@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * The Maintainer of a Package
+ */
 class Maintainer extends Eloquent
 {
 
@@ -7,7 +11,7 @@ class Maintainer extends Eloquent
 	////////////////////////////////////////////////////////////////////
 
 	/**
-	 * Get all of the Maintainer's repositories
+	 * Get all of the Maintainer's packages, by most populart first
 	 *
 	 * @return Collection
 	 */
@@ -28,13 +32,17 @@ class Maintainer extends Eloquent
 	public function getPopularityAttribute()
 	{
 		// Get all packages with a decent popularity
-		$popularity = array_pluck($this->packages->toArray(), 'popularity');
-		$popularity = array_filter($popularity, function($package) {
+		$packages   = array_pluck($this->packages->toArray(), 'popularity');
+		$popularity = array_filter($packages, function($package) {
 			return $package > 0.5;
 		});
 
+		// Cancel fitler if empty
+		if (empty($popularity)) {
+			$popularity = $packages;
+		}
+
 		// Compute average popularity
-		if (empty($popularity)) return 0;
 		$popularity = array_sum($popularity) / sizeof($popularity);
 		$popularity = round($popularity, 2);
 

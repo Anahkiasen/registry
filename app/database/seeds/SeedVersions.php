@@ -1,5 +1,5 @@
 <?php
-class SeedVersions extends Seeder
+class SeedVersions extends DatabaseSeeder
 {
 
 	/**

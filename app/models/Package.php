@@ -2,8 +2,15 @@
 use Carbon\Carbon;
 use Guzzle\Http\Exception\ClientErrorResponseException;
 
+/**
+ * A Package in the registry
+ */
 class Package extends Eloquent
 {
+
+	////////////////////////////////////////////////////////////////////
+	//////////////////////////// RELATIONSHIPS /////////////////////////
+	////////////////////////////////////////////////////////////////////
 
 	/**
 	 * Get all of the Package's Maintainers
@@ -113,7 +120,7 @@ class Package extends Eloquent
 	////////////////////////////////////////////////////////////////////
 
 	/**
-	 * Get the source name of a Package's repository
+	 * Get the source of a Package's repository
 	 *
 	 * @return string
 	 */
@@ -123,9 +130,9 @@ class Package extends Eloquent
 	}
 
 	/**
-	 * Get the Repository name
+	 * Get the shorthand name for the package
 	 *
-	 * @return string
+	 * @return string  A vendor/package string
 	 */
 	public function getRepositoryNameAttribute()
 	{
@@ -136,7 +143,7 @@ class Package extends Eloquent
 	}
 
 	/**
-	 * Get travis badge
+	 * Get the Travis status of the Package
 	 *
 	 * @return string
 	 */
@@ -148,13 +155,13 @@ class Package extends Eloquent
 	}
 
 	/**
-	 * Get relative date
+	 * Get relative date of last update
 	 *
 	 * @return Carbon
 	 */
 	public function getRelativeDateAttribute()
 	{
-		return $this->versions[0]->relativeDate;
+		return $this->pushed_at->diffForHumans();
 	}
 
 	/**
@@ -164,7 +171,10 @@ class Package extends Eloquent
 	 */
 	public function getKeywordsAttribute()
 	{
-		$keywords = (array) json_decode($this->getOriginal('keywords'), true);
+		$keywords = $this->getOriginal('keywords');
+		$keywords = (array) json_decode($keywords, true);
+
+		// Filter out redundant keywords
 		$keywords = array_filter($keywords, function($value) {
 			return !in_array($value, array('laravel', 'illuminate', 'L4', 'Laravel 4', 'laravel4', 'laravel-4'));
 		});
@@ -180,8 +190,7 @@ class Package extends Eloquent
 	public function getMaintainersListAttribute()
 	{
 		$list = array();
-		$maintainers = $this->maintainers;
-		foreach ($maintainers as $maintainer) {
+		foreach ($this->maintainers as $maintainer) {
 			$list[] = $maintainer->__toString();
 		}
 

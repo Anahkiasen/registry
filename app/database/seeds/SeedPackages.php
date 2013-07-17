@@ -12,7 +12,7 @@ class SeedPackages extends DatabaseSeeder
 	protected $timers;
 
 	/**
-	 * A list of packages to ignore
+	 * A list of packages to ignore (forks or CI)
 	 *
 	 * @var array
 	 */
@@ -75,7 +75,7 @@ class SeedPackages extends DatabaseSeeder
 	 */
 	protected function getPackages()
 	{
-		print 'Fetching list of packages'.PHP_EOL;
+		$this->comment('Fetching list of packages');
 
 		return Cache::remember('packages', Config::get('registry.cache'), function() {
 			return App::make('packagist')->search('laravel');
@@ -220,11 +220,11 @@ class SeedPackages extends DatabaseSeeder
 			'favorites'       => 0.25,
 			'freshness'       => 0.75,
 		), array(
-			'downloads_total' => Package::whereType('package')->max('downloads_total'),
-			'watchers'        => Package::whereType('package')->max('watchers'),
-			'forks'           => Package::whereType('package')->max('forks'),
-			'favorites'       => Package::whereType('package')->max('favorites'),
-			'freshness'       => Package::whereType('package')->max('freshness'),
+			'downloads_total' => 'downloads_total',
+			'watchers'        => 'watchers',
+			'forks'           => 'forks',
+			'favorites'       => 'favorites',
+			'freshness'       => 'freshness',
 		));
 	}
 
@@ -243,10 +243,10 @@ class SeedPackages extends DatabaseSeeder
 			'issues'       => 0.5,
 		), array(
 			'travisStatus' => 2,
-			'seniority'    => Package::whereType('package')->max('seniority'),
-			'freshness'    => Package::whereType('package')->max('freshness'),
-			'consistency'  => Package::whereType('package')->max('consistency'),
-			'issues'       => Package::whereType('package')->max('issues'),
+			'seniority'    => 'seniority',
+			'freshness'    => 'freshness',
+			'consistency'  => 'consistency',
+			'issues'       => 'issues',
 		), 0);
 	}
 
@@ -264,11 +264,17 @@ class SeedPackages extends DatabaseSeeder
 	{
 		$this->info('Computing ' .$attribute. ' indexes');
 
+		// Get all packages
 		$packages = Package::all();
 		$inverted = array('freshness');
 
+		// Compute indexes
 		foreach ($packages as $package) {
 			foreach ($ceilings as $index => $value) {
+				if (is_string($value)) {
+					$value = Package::whereType('package')->max($value);
+				}
+
 				if (in_array($index, $inverted)) {
 					$indexes[$index] = (($package->$index * 100 / -$value) + 100) * $weights[$index];
 				} else {
@@ -276,6 +282,7 @@ class SeedPackages extends DatabaseSeeder
 				}
 			}
 
+			// Round and save
 			$package->$attribute = round(array_sum($indexes) / array_sum($weights), $rounding);
 			$package->save();
 		}
