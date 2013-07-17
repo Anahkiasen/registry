@@ -2,7 +2,10 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+// @grey($lightness)
+//
 // Generates a grayscale color
+
 @function grey($lightness) {
 	@return lighten(black, $lightness);
 }
