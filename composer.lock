@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "687d8525122e0f64753b9ed70337162d",
+    "hash": "92e5dbfc1989ff4bddc6500593abd767",
     "packages": [
         {
             "name": "anahkiasen/flatten",
@@ -58,12 +58,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/rocketeer.git",
-                "reference": "7525afdf4d09cc79741c408cfcd9306960c0dc13"
+                "reference": "26095789b9cfcc5a233164ba408ee526e8248bed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/7525afdf4d09cc79741c408cfcd9306960c0dc13",
-                "reference": "7525afdf4d09cc79741c408cfcd9306960c0dc13",
+                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/26095789b9cfcc5a233164ba408ee526e8248bed",
+                "reference": "26095789b9cfcc5a233164ba408ee526e8248bed",
                 "shasum": ""
             },
             "require": {
@@ -100,7 +100,7 @@
                 "laravel",
                 "ssh"
             ],
-            "time": "2013-07-16 12:02:35"
+            "time": "2013-07-17 17:29:25"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -1325,12 +1325,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/loic-sharma/profiler.git",
-                "reference": "9350929b2793c71546450d760dfdebeb4f8ea3a1"
+                "reference": "66edb80ab48673dd460b09ee88d0cb1c82766bbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/loic-sharma/profiler/zipball/9350929b2793c71546450d760dfdebeb4f8ea3a1",
-                "reference": "9350929b2793c71546450d760dfdebeb4f8ea3a1",
+                "url": "https://api.github.com/repos/loic-sharma/profiler/zipball/66edb80ab48673dd460b09ee88d0cb1c82766bbf",
+                "reference": "66edb80ab48673dd460b09ee88d0cb1c82766bbf",
                 "shasum": ""
             },
             "require": {
@@ -1358,7 +1358,7 @@
                 "laravel",
                 "profiler"
             ],
-            "time": "2013-06-19 05:15:38"
+            "time": "2013-07-18 04:33:34"
         },
         {
             "name": "monolog/monolog",
@@ -2509,14 +2509,14 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "knplabs/packagist-api": 20,
+        "anahkiasen/flatten": 20,
         "anahkiasen/rocketeer": 20,
         "jasonlewis/basset": 20,
-        "loic-sharma/profiler": 20,
+        "kevinlebrun/colors.php": 20,
+        "knplabs/packagist-api": 20,
         "lmammino/jsmin4assetic": 20,
-        "natxet/cssmin": 20,
-        "anahkiasen/flatten": 20,
-        "kevinlebrun/colors.php": 20
+        "loic-sharma/profiler": 20,
+        "natxet/cssmin": 20
     },
     "platform": [
 
