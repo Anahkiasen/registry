@@ -58,12 +58,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/rocketeer.git",
-                "reference": "26095789b9cfcc5a233164ba408ee526e8248bed"
+                "reference": "4fbead73e3681e4dbb130088a703580427ce9fec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/26095789b9cfcc5a233164ba408ee526e8248bed",
-                "reference": "26095789b9cfcc5a233164ba408ee526e8248bed",
+                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/4fbead73e3681e4dbb130088a703580427ce9fec",
+                "reference": "4fbead73e3681e4dbb130088a703580427ce9fec",
                 "shasum": ""
             },
             "require": {
@@ -100,7 +100,7 @@
                 "laravel",
                 "ssh"
             ],
-            "time": "2013-07-17 17:29:25"
+            "time": "2013-07-18 18:51:02"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -1092,12 +1092,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/assetic.git",
-                "reference": "41930af87d8182c3298cf66f49a1606fa3c1d367"
+                "reference": "v1.1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/41930af87d8182c3298cf66f49a1606fa3c1d367",
-                "reference": "41930af87d8182c3298cf66f49a1606fa3c1d367",
+                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/v1.1.2",
+                "reference": "v1.1.2",
                 "shasum": ""
             },
             "require": {
@@ -1155,7 +1155,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2013-07-11 15:46:25"
+            "time": "2013-07-19 00:03:27"
         },
         {
             "name": "laravel/framework",
@@ -1602,12 +1602,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "ae2a0886a5332e18d0449bfa95c606f723f18681"
+                "reference": "415df3bd45e52a283fca35edccb4505d9ad2aa5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/ae2a0886a5332e18d0449bfa95c606f723f18681",
-                "reference": "ae2a0886a5332e18d0449bfa95c606f723f18681",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/415df3bd45e52a283fca35edccb4505d9ad2aa5f",
+                "reference": "415df3bd45e52a283fca35edccb4505d9ad2aa5f",
                 "shasum": ""
             },
             "require": {
@@ -1668,7 +1668,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2013-07-16 16:21:46"
+            "time": "2013-07-18 15:35:39"
         },
         {
             "name": "predis/predis",
