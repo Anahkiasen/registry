@@ -20,6 +20,7 @@ class SeedPackages extends DatabaseSeeder
 		'composer/installers',
 		'typo3/flow-composer-installers',
 		'iyoworks/former',
+		'ppi/skeleton-app',
 	);
 
 	/**
