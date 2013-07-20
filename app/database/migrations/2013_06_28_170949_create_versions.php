@@ -18,8 +18,7 @@ class CreateVersions extends Migration
 				$table->string('keywords');
 				$table->string('homepage');
 				$table->string('version');
-
-				$table->integer('package_id');
+			$table->integer('package_id');
 			$table->timestamps();
 		});
 	}

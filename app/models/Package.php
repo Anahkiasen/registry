@@ -223,4 +223,21 @@ class Package extends Eloquent
 		return $query->orderBy('popularity', 'DESC');
 	}
 
+	/**
+	 * Return packages similar to another one
+	 *
+	 * @param  Query $query
+	 * @param  Package $package
+	 *
+	 * @return Query
+	 */
+	public function scopeSimilar($query, $package)
+	{
+		return $query->where('name', '!=', $package->name)->where(function($query) use ($package) {
+			foreach ($package->keywords as $keyword) {
+				$query->orWhere('keywords', 'LIKE', "%$keyword%");
+			}
+		});
+	}
+
 }

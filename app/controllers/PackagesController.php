@@ -28,23 +28,19 @@ class PackagesController extends BaseController
 	 */
 	public function package($slug)
 	{
+		// Get packages and similar packages
 		$package = Package::with('versions')->whereSlug($slug)->firstOrFail();
-
-		// Get similar packages
-		$similar = Package::with('versions')->where('name', '!=', $package->name)->where(function($query) use ($package) {
-			foreach ($package->keywords as $keyword) {
-				$query->orWhere('keywords', 'LIKE', '%"' .$keyword. '"%');
-			}
-		})->take(5)->get();
+		$similar = Package::with('versions')->similar($package)->take(5)->get();
 
 		// Sort by popularity and number of tags in common
 		$similar->sortBy(function($similarPackage) use ($package) {
 			return $similarPackage->popularity + sizeof(array_intersect($similarPackage->keywords, $package->keywords)) * -1;
 		});
 
-		return View::make('package')
-			->with('similar', $similar)
-			->with('package', $package);
+		return View::make('package', array(
+			'similar' => $similar,
+			'package' => $package,
+		));
 	}
 
 }
