@@ -215,11 +215,11 @@ class SeedPackages extends DatabaseSeeder
 	protected function computePopularity()
 	{
 		$this->computeIndexes('popularity', array(
-			'downloads_total' => 1.5,
+			'downloads_total' => 1.25,
 			'watchers'        => 2,
 			'forks'           => 1,
 			'favorites'       => 0.25,
-			'freshness'       => 0.75,
+			'freshness'       => 1,
 		), array(
 			'downloads_total' => 'downloads_total',
 			'watchers'        => 'watchers',
