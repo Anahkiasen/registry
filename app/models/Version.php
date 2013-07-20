@@ -6,7 +6,6 @@ use Carbon\Carbon;
  */
 class Version extends Eloquent
 {
-
 	////////////////////////////////////////////////////////////////////
 	////////////////////////////// ATTRIBUTES //////////////////////////
 	////////////////////////////////////////////////////////////////////
@@ -20,15 +19,4 @@ class Version extends Eloquent
 	{
 		return json_decode($this->getOriginal('keywords'), true);
 	}
-
-	/**
-	 * Get relative date
-	 *
-	 * @return Carbon
-	 */
-	public function getRelativeDateAttribute()
-	{
-		return $this->created_at->diffForHumans();
-	}
-
 }

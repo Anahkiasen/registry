@@ -1,7 +1,10 @@
 <?php
+
+/**
+ * Controller for Packages
+ */
 class PackagesController extends BaseController
 {
-
 	/**
 	 * Get all packages
 	 *
@@ -42,5 +45,4 @@ class PackagesController extends BaseController
 			'package' => $package,
 		));
 	}
-
 }

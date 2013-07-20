@@ -1,7 +1,6 @@
 <?php
 class SeedMaintainers extends DatabaseSeeder
 {
-
 	/**
 	 * Seed the packages
 	 *
@@ -47,5 +46,4 @@ class SeedMaintainers extends DatabaseSeeder
 
 		return $existingMaintainer;
 	}
-
 }

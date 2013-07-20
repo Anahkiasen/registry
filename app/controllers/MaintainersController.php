@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Controller for Maintainers
+ */
 class MaintainersController extends BaseController
 {
 	/**

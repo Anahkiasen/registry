@@ -7,7 +7,6 @@ use Guzzle\Http\Exception\ClientErrorResponseException;
  */
 class Package extends Eloquent
 {
-
 	////////////////////////////////////////////////////////////////////
 	//////////////////////////// RELATIONSHIPS /////////////////////////
 	////////////////////////////////////////////////////////////////////
@@ -23,7 +22,7 @@ class Package extends Eloquent
 	}
 
 	/**
-	 * Get all of the Package's versions
+	 * Get all of the Package's Versions
 	 *
 	 * @return Collection
 	 */
@@ -43,29 +42,21 @@ class Package extends Eloquent
 	 */
 	public function getPackagist()
 	{
-		return Cache::rememberForever($this->name.'-packagist', function() {
-			$informations = App::make('guzzle')->get('/packages/'.$this->name.'.json')->send()->json();
-			return (object) $informations['package'];
-		});
+		return (object) $this->getFromApi('guzzle', '/packages/'.$this->name.'.json')['package'];
 	}
 
 	/**
 	 * Get the Github informations of a package
 	 *
-	 * @return object
+	 * @return array
 	 */
 	public function getRepository()
 	{
-		return Cache::rememberForever($this->name.'-repository', function() {
-			try {
-				$credentials  = Config::get('registry.api.github');
-				$informations = App::make($this->source)->get($this->repositoryName.'?client_id=' .$credentials['id']. '&client_secret='.$credentials['secret'])->send()->json();
-			} catch (Exception $e) {
-				$informations = array();
-			}
+		list($id, $secret) = Config::get('registry.api.github');
+		$url    = $this->repositoryName.'/client_id=' .$id. '&client_secret='.$secret;
+		$source = Str::contains($this->repository, 'github') ? 'github' : 'bitbucket';
 
-			return $informations;
-		});
+		return $this->getFromApi($source, $url);
 	}
 
 	/**
@@ -75,16 +66,11 @@ class Package extends Eloquent
 	 */
 	public function getRepositoryIssues()
 	{
-		return Cache::rememberForever($this->name.'-repository-issues', function() {
-			try {
-				$credentials = Config::get('registry.api.github');
-				$issues      = App::make($this->source)->get($this->repositoryName.'/issues?client_id=' .$credentials['id']. '&client_secret='.$credentials['secret'])->send()->json();
-			} catch (Exception $e) {
-				$issues = array();
-			}
+		list($id, $secret) = Config::get('registry.api.github');
+		$url    = $this->repositoryName.'/issues?client_id=' .$id. '&client_secret='.$secret;
+		$source = Str::contains($this->repository, 'github') ? 'github' : 'bitbucket';
 
-			return $issues;
-		});
+		return $this->getFromApi($source, $url);
 	}
 
 	/**
@@ -94,13 +80,7 @@ class Package extends Eloquent
 	 */
 	public function getTravis()
 	{
-		return Cache::rememberForever($this->travis.'-travis', function() {
-			try {
-				return App::make('travis')->get($this->travis)->send()->json();
-			} catch (ClientErrorResponseException $e) {
-				return array();
-			}
-		});
+		return $this->getFromApi('travis', $this->travis);
 	}
 
 	/**
@@ -110,24 +90,33 @@ class Package extends Eloquent
 	 */
 	public function getTravisBuilds()
 	{
-		return Cache::rememberForever($this->travis.'-travis-builds', function() {
-			return App::make('travis')->get($this->travis.'/builds')->send()->json();
+		return $this->getFromApi('travis', $this->travis.'/builds');
+	}
+
+	/**
+	 * Get informations from an API
+	 *
+	 * @param  string $source       Source
+	 * @param  string $url          The endpoint
+	 *
+	 * @return array
+	 */
+	protected function getFromApi($source, $url)
+	{
+		return Cache::rememberForever($url, function() use ($source, $url) {
+			try {
+				$informations = App::make($source)->get($url)->send()->json();
+			} catch (Exception $e) {
+				$informations = array();
+			}
+
+			return $informations;
 		});
 	}
 
 	////////////////////////////////////////////////////////////////////
 	///////////////////////////// ATTRIBUTES ///////////////////////////
 	////////////////////////////////////////////////////////////////////
-
-	/**
-	 * Get the source of a Package's repository
-	 *
-	 * @return string
-	 */
-	public function getSourceAttribute()
-	{
-		return str_contains($this->repository, 'github') ? 'github' : 'bitbucket';
-	}
 
 	/**
 	 * Get the shorthand name for the package
@@ -152,16 +141,6 @@ class Package extends Eloquent
 		$status = array('unknown', 'failing', 'passing');
 
 		return $status[(int) $this->build_status];
-	}
-
-	/**
-	 * Get relative date of last update
-	 *
-	 * @return Carbon
-	 */
-	public function getRelativeDateAttribute()
-	{
-		return $this->pushed_at->diffForHumans();
 	}
 
 	/**

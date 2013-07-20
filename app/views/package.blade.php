@@ -13,7 +13,7 @@
 		<h2>Versions</h2>
 		@foreach ($package->versions as $version)
 			<article class="package__version">
-				<h3>{{ $version->version }} <small>{{ $version->relativeDate }}</small></h3>
+				<h3>{{ $version->version }} <small>{{ $version->created_at->diffForHumans() }}</small></h3>
 				<code>
 					<pre>"{{ $package->name }}": "{{ $version->version }}"</pre>
 				</code>
@@ -23,7 +23,7 @@
 			<h2>Similar packages</h2>
 			@foreach ($similar as $package)
 				<article class="maintainer__package">
-					<h3>{{ HTML::linkAction('PackagesController@package', $package->name, $package->slug) }} <small>last updated {{ $package->relativeDate }}</small></h3>
+					<h3>{{ HTML::linkAction('PackagesController@package', $package->name, $package->slug) }} <small>last updated {{ $package->pushed_at->diffForHumans() }}</small></h3>
 					@include('partials.package-summary')
 				</article>
 			@endforeach
