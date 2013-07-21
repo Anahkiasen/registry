@@ -225,9 +225,9 @@ class SeedPackages extends DatabaseSeeder
 		$this->computeIndexes('popularity', array(
 			'downloads_total' => 1.25,
 			'watchers'        => 2,
-			'forks'           => 1,
+			'forks'           => 0.75,
 			'favorites'       => 0.25,
-			'freshness'       => 1,
+			'freshness'       => 0.75,
 		), array(
 			'downloads_total' => 'downloads_total',
 			'watchers'        => 'watchers',
@@ -245,11 +245,11 @@ class SeedPackages extends DatabaseSeeder
 	protected function computeTrust()
 	{
 		$this->computeIndexes('trust', array(
-			'travisStatus' => 1,
+			'travisStatus' => 1.25,
 			'seniority'    => 0.5,
 			'freshness'    => 1,
 			'consistency'  => 1,
-			'issues'       => 0.5,
+			'issues'       => 0.75,
 		), array(
 			'travisStatus' => 2,
 			'seniority'    => 'seniority',
