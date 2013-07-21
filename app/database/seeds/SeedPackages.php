@@ -283,7 +283,6 @@ class SeedPackages extends DatabaseSeeder
 				$value = Package::whereType('package')->max($value);
 			}
 		}
-		var_dump($ceilings);
 
 		// Compute indexes
 		foreach ($packages as $package) {
@@ -291,7 +290,6 @@ class SeedPackages extends DatabaseSeeder
 				if (in_array($index, $inverted)) {
 					$indexes[$index] = (($package->$index * 100 / -$value) + 100) * $weights[$index];
 				} else {
-					var_dump($value);
 					$indexes[$index] = ($package->$index * 100 / $value) * $weights[$index];
 				}
 			}
