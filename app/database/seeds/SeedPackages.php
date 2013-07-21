@@ -12,6 +12,13 @@ class SeedPackages extends DatabaseSeeder
 	protected $timers;
 
 	/**
+	 * The current timer
+	 *
+	 * @var integer
+	 */
+	protected $timer;
+
+	/**
 	 * A list of packages to ignore (forks or CI)
 	 *
 	 * @var array
@@ -32,6 +39,7 @@ class SeedPackages extends DatabaseSeeder
 	{
 		$packages = $this->getPackages();
 		foreach ($packages as $key => $package) {
+			$this->timer = microtime(true);
 			if (in_array($package->getName(), $this->ignore)) continue;
 
 			// Create model
@@ -269,16 +277,21 @@ class SeedPackages extends DatabaseSeeder
 		$packages = Package::all();
 		$inverted = array('freshness');
 
+		// Fetch maximum value
+		foreach ($ceilings as &$value) {
+			if (is_string($value)) {
+				$value = Package::whereType('package')->max($value);
+			}
+		}
+		var_dump($ceilings);
+
 		// Compute indexes
 		foreach ($packages as $package) {
 			foreach ($ceilings as $index => $value) {
-				if (is_string($value)) {
-					$value = Package::whereType('package')->max($value);
-				}
-
 				if (in_array($index, $inverted)) {
 					$indexes[$index] = (($package->$index * 100 / -$value) + 100) * $weights[$index];
 				} else {
+					var_dump($value);
 					$indexes[$index] = ($package->$index * 100 / $value) * $weights[$index];
 				}
 			}
@@ -308,7 +321,6 @@ class SeedPackages extends DatabaseSeeder
 		$key   = $key + 1;
 		$total = sizeof($total);
 		$name  = ($package instanceof Package) ? $package->name : $package->getName();
-		$timer = microtime(true);
 
 		// Global message
 		$this->info(sprintf("Fetching informations for [%s/%s] %s", $key, $total, $name));
@@ -323,20 +335,32 @@ class SeedPackages extends DatabaseSeeder
 		$this->comment('-- Travis builds');
 		$package->getTravisBuilds();
 
-		$timer = round(microtime(true) - $timer, 4);
+		$timer = round(microtime(true) - $this->timer, 4);
 		$final = '--- Total time : '.$timer.'s';
 
 		// Remaining time
 		$this->timers[] = $timer;
-		if (!empty($this->timers)) {
-			$remaining = array_sum($this->timers) / sizeof($this->timers);
-			$remaining = $remaining * ($total - $key);
-			$remaining = Carbon::now()->addSeconds($remaining);
-			$remaining = $remaining->diff(Carbon::now());
-			$final .= ', remaining : '.$remaining->format('%H:%I:%S');
-		}
+		$final .= ', remaining : '.$this->computeRemainingTime($key, $total)->format('%H:%I:%S');
 
 		$this->line($final);
+	}
+
+	/**
+	 * Compute the time remaining
+	 *
+	 * @param integer $current
+	 * @param integer $totla
+	 *
+	 * @return Carbon
+	 */
+	protected function computeRemainingTime($current, $total)
+	{
+		$remaining = array_sum($this->timers) / sizeof($this->timers);
+		$remaining = $remaining * ($total - $current);
+		$remaining = Carbon::now()->addSeconds($remaining);
+		$remaining = $remaining->diff(Carbon::now());
+
+		return $remaining;
 	}
 
 }

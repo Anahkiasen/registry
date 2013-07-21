@@ -53,7 +53,7 @@ class Package extends Eloquent
 	public function getRepository()
 	{
 		extract(Config::get('registry.api.github'));
-		$url    = $this->repositoryName.'/client_id=' .$id. '&client_secret='.$secret;
+		$url    = $this->repositoryName.'?client_id=' .$id. '&client_secret='.$secret;
 		$source = Str::contains($this->repository, 'github') ? 'github' : 'bitbucket';
 
 		return $this->getFromApi($source, $url);
