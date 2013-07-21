@@ -247,8 +247,8 @@ class SeedPackages extends DatabaseSeeder
 		$this->computeIndexes('trust', array(
 			'travisStatus' => 1.25,
 			'seniority'    => 0.5,
-			'freshness'    => 1,
-			'consistency'  => 1,
+			'freshness'    => 1.25,
+			'consistency'  => 1.25,
 			'issues'       => 0.75,
 		), array(
 			'travisStatus' => 2,
