@@ -278,9 +278,9 @@ class SeedPackages extends DatabaseSeeder
 		$inverted = array('freshness');
 
 		// Fetch maximum value
-		foreach ($ceilings as &$value) {
+		foreach ($ceilings as $name => $value) {
 			if (is_string($value)) {
-				$value = Package::whereType('package')->max($value);
+				$ceilings[$name] = Package::whereType('package')->max($value);
 			}
 		}
 
