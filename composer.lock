@@ -1163,12 +1163,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "9f76dd2d3d0e850704d4b65f329a9176b0b35192"
+                "reference": "0d7f0a3a9ace7f6874914731e25a3330fa1834ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/9f76dd2d3d0e850704d4b65f329a9176b0b35192",
-                "reference": "9f76dd2d3d0e850704d4b65f329a9176b0b35192",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/0d7f0a3a9ace7f6874914731e25a3330fa1834ab",
+                "reference": "0d7f0a3a9ace7f6874914731e25a3330fa1834ab",
                 "shasum": ""
             },
             "require": {
@@ -1266,7 +1266,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-07-12 16:31:10"
+            "time": "2013-07-20 13:11:37"
         },
         {
             "name": "lmammino/jsmin4assetic",

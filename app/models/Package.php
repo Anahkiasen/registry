@@ -52,7 +52,7 @@ class Package extends Eloquent
 	 */
 	public function getRepository()
 	{
-		list($id, $secret) = Config::get('registry.api.github');
+		extract(Config::get('registry.api.github'));
 		$url    = $this->repositoryName.'/client_id=' .$id. '&client_secret='.$secret;
 		$source = Str::contains($this->repository, 'github') ? 'github' : 'bitbucket';
 
@@ -66,7 +66,7 @@ class Package extends Eloquent
 	 */
 	public function getRepositoryIssues()
 	{
-		list($id, $secret) = Config::get('registry.api.github');
+		extract(Config::get('registry.api.github'));
 		$url    = $this->repositoryName.'/issues?client_id=' .$id. '&client_secret='.$secret;
 		$source = Str::contains($this->repository, 'github') ? 'github' : 'bitbucket';
 
