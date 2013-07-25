@@ -59,12 +59,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/rocketeer.git",
-                "reference": "ad4b8239cbe4b1e9763581608b35b8f90da219a6"
+                "reference": "a7725ce685d3f6e803a89ccb9efa020cb4f1c8c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/ad4b8239cbe4b1e9763581608b35b8f90da219a6",
-                "reference": "ad4b8239cbe4b1e9763581608b35b8f90da219a6",
+                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/a7725ce685d3f6e803a89ccb9efa020cb4f1c8c6",
+                "reference": "a7725ce685d3f6e803a89ccb9efa020cb4f1c8c6",
                 "shasum": ""
             },
             "require": {
@@ -101,7 +101,7 @@
                 "laravel",
                 "ssh"
             ],
-            "time": "2013-07-19 21:43:08"
+            "time": "2013-07-24 15:36:23"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -990,12 +990,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kevinlebrun/colors.php.git",
-                "reference": "ed8ad2495505ad95d943097aae8e308903a8801a"
+                "reference": "4b490a177ad0fa3f63a6213cb2b6b63792827287"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kevinlebrun/colors.php/zipball/ed8ad2495505ad95d943097aae8e308903a8801a",
-                "reference": "ed8ad2495505ad95d943097aae8e308903a8801a",
+                "url": "https://api.github.com/repos/kevinlebrun/colors.php/zipball/4b490a177ad0fa3f63a6213cb2b6b63792827287",
+                "reference": "4b490a177ad0fa3f63a6213cb2b6b63792827287",
                 "shasum": ""
             },
             "require": {
@@ -1033,7 +1033,7 @@
                 "console",
                 "shell"
             ],
-            "time": "2013-07-22 09:53:17"
+            "time": "2013-07-24 18:06:19"
         },
         {
             "name": "knplabs/packagist-api",
