@@ -20,14 +20,20 @@ a {
 	text-decoration: none;
 }
 
+code {
+	background-color: $color-silver--light;
+	padding: 0.25rem;
+	@include border-radius(0.25em);
+}
+
 pre {
-	background-color: lighten($color-silver, 20);
+	background-color: $color-silver--light;
 	color: $color-silver--dark;
 	padding: 1rem;
 }
 
 hr {
-	border-color: lighten($color-silver, 20);
+	border-color: $color-silver--light;
 	border-width: 1px 0 0 0;
 	margin: 2rem 0;
 }

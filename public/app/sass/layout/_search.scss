@@ -18,7 +18,7 @@
 
 	// Appearance
 	@include transition(background .3s);
-	background-color: lighten($color-silver, 20);
+	background-color: $color-silver--light;
 	border: none;
 	outline: 0;
 	@include input-placeholder {

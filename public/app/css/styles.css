@@ -13,6 +13,13 @@ a {
   color: #f66f5f;
   text-decoration: none; }
 
+code {
+  background-color: #f4f5f6;
+  padding: 0.25rem;
+  -webkit-border-radius: 0.25em;
+  -moz-border-radius: 0.25em;
+  border-radius: 0.25em; }
+
 pre, .package__summary, .maintainer__summary {
   background-color: #f4f5f6;
   color: #869198;

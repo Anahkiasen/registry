@@ -7,7 +7,7 @@
 @section('content')
 	<h1>About</h1>
 	<h2>Packages</h2>
-	<p>Packages are not hand-picked, to get your package in there all you need to do is add a `laravel` tag to it in your `composer.json` file.</p>
+	<p>Packages are not hand-picked, to get your package in there all you need to do is add a <code>laravel</code> tag to it in your `composer.json` file.</p>
 
 	<h2>Indexes</h2>
 	<p>
