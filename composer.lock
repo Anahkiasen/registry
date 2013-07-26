@@ -990,12 +990,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kevinlebrun/colors.php.git",
-                "reference": "4b490a177ad0fa3f63a6213cb2b6b63792827287"
+                "reference": "1d1fed98dc6206fc7c94d7517ad0deff7ff46d0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kevinlebrun/colors.php/zipball/4b490a177ad0fa3f63a6213cb2b6b63792827287",
-                "reference": "4b490a177ad0fa3f63a6213cb2b6b63792827287",
+                "url": "https://api.github.com/repos/kevinlebrun/colors.php/zipball/1d1fed98dc6206fc7c94d7517ad0deff7ff46d0a",
+                "reference": "1d1fed98dc6206fc7c94d7517ad0deff7ff46d0a",
                 "shasum": ""
             },
             "require": {
@@ -1033,7 +1033,7 @@
                 "console",
                 "shell"
             ],
-            "time": "2013-07-24 18:06:19"
+            "time": "2013-07-25 12:13:05"
         },
         {
             "name": "knplabs/packagist-api",
