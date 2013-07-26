@@ -4,6 +4,7 @@
 
 .layout-header {
 	@extend %background-base;
+	@include transition(background .3s);
 	padding: 5rem 0;
 	background-image: inline-image('box.png');
 	background-repeat: no-repeat;
@@ -14,6 +15,11 @@
 		@extend %reset-margins;
 		font-weight: 100;
 		text-align: center;
+	}
+
+	&:hover {
+		background-color: lighten($color-base, 2);
+		background-position: 20% 3rem;
 	}
 
 	@include at-breakpoint(0 $desktop) {
