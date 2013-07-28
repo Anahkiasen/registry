@@ -59,12 +59,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/rocketeer.git",
-                "reference": "a7725ce685d3f6e803a89ccb9efa020cb4f1c8c6"
+                "reference": "475bdef88e2db1b870d346dbd2efc2b69ca16ae8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/a7725ce685d3f6e803a89ccb9efa020cb4f1c8c6",
-                "reference": "a7725ce685d3f6e803a89ccb9efa020cb4f1c8c6",
+                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/475bdef88e2db1b870d346dbd2efc2b69ca16ae8",
+                "reference": "475bdef88e2db1b870d346dbd2efc2b69ca16ae8",
                 "shasum": ""
             },
             "require": {
@@ -101,7 +101,7 @@
                 "laravel",
                 "ssh"
             ],
-            "time": "2013-07-24 15:36:23"
+            "time": "2013-07-27 15:11:00"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -1515,12 +1515,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "f9c3aa2a22498ff4c0db38bae40999cebe60f831"
+                "reference": "01123ae6af005009d1c5fd37e06130bd85aad5dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/f9c3aa2a22498ff4c0db38bae40999cebe60f831",
-                "reference": "f9c3aa2a22498ff4c0db38bae40999cebe60f831",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/01123ae6af005009d1c5fd37e06130bd85aad5dc",
+                "reference": "01123ae6af005009d1c5fd37e06130bd85aad5dc",
                 "shasum": ""
             },
             "require": {
@@ -1551,7 +1551,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2013-07-12 23:03:57"
+            "time": "2013-07-27 16:50:08"
         },
         {
             "name": "patchwork/utf8",
