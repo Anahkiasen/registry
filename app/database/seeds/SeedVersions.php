@@ -12,9 +12,11 @@ class SeedVersions extends DatabaseSeeder
 		$packages = Package::all();
 		foreach ($packages as $package) {
 			$versions = $this->getPackageVersions($package);
-			DB::table('versions')->insert($versions);
-			$package->keywords = $versions[0]['keywords'];
-			$package->save();
+			if (!empty($versions)) {
+				DB::table('versions')->insert($versions);
+				$package->keywords = $versions[0]['keywords'];
+				$package->save();
+			}
 		}
 	}
 

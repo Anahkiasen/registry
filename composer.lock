@@ -59,12 +59,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/rocketeer.git",
-                "reference": "475bdef88e2db1b870d346dbd2efc2b69ca16ae8"
+                "reference": "0.6.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/475bdef88e2db1b870d346dbd2efc2b69ca16ae8",
-                "reference": "475bdef88e2db1b870d346dbd2efc2b69ca16ae8",
+                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/0.6.5",
+                "reference": "0.6.5",
                 "shasum": ""
             },
             "require": {
@@ -101,7 +101,7 @@
                 "laravel",
                 "ssh"
             ],
-            "time": "2013-07-27 15:11:00"
+            "time": "2013-07-29 15:18:48"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -363,12 +363,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "6a39bb947b20d12a16820f2709509e41e28af005"
+                "reference": "9c6b8615a988117dec83bdbb0fad80afef23eab8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/6a39bb947b20d12a16820f2709509e41e28af005",
-                "reference": "6a39bb947b20d12a16820f2709509e41e28af005",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/9c6b8615a988117dec83bdbb0fad80afef23eab8",
+                "reference": "9c6b8615a988117dec83bdbb0fad80afef23eab8",
                 "shasum": ""
             },
             "require": {
@@ -429,7 +429,7 @@
                 "persistence",
                 "spl"
             ],
-            "time": "2013-07-02 11:26:20"
+            "time": "2013-07-30 05:35:10"
         },
         {
             "name": "doctrine/dbal",
@@ -1165,12 +1165,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "0d7f0a3a9ace7f6874914731e25a3330fa1834ab"
+                "reference": "f60478162ef0fa6f06a3f35e84992e333cb1bc22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/0d7f0a3a9ace7f6874914731e25a3330fa1834ab",
-                "reference": "0d7f0a3a9ace7f6874914731e25a3330fa1834ab",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/f60478162ef0fa6f06a3f35e84992e333cb1bc22",
+                "reference": "f60478162ef0fa6f06a3f35e84992e333cb1bc22",
                 "shasum": ""
             },
             "require": {
@@ -1268,7 +1268,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-07-20 13:11:37"
+            "time": "2013-07-29 22:12:55"
         },
         {
             "name": "lmammino/jsmin4assetic",
