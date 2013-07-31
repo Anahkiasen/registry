@@ -10,7 +10,7 @@ class Comment extends Eloquent
 	 *
 	 * @var array
 	 */
-	protected $fillable = array('content', 'user_id', 'package_id');
+	protected $fillable = array('content', 'maintainer_id', 'package_id');
 
 	/**
 	 * Get the author of the Comment

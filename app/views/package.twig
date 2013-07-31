@@ -22,7 +22,7 @@
 						{{ HTML_image(comment.maintainer.gravatar) }}
 					</figure>
 					<section class="maintainer__summary">
-						<p class="package__comment__author">{{ comment.maintainer.username }}, <time datetime="{{ comment.created_at }}">{{ comment.created_at.diffForHumans }}</time></p>
+						<p class="package__comment__author">{{ comment.maintainer.name }}, <time datetime="{{ comment.created_at }}">{{ comment.created_at.diffForHumans }}</time></p>
 						{{ comment.content }}
 					</section>
 				</article>
