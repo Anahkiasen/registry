@@ -120,6 +120,7 @@ return array(
 		'Flatten\FlattenServiceProvider',
 		'Profiler\ProfilerServiceProvider',
 		'TwigBridge\TwigServiceProvider',
+		'Former\FormerServiceProvider',
 
 	),
 
@@ -189,6 +190,7 @@ return array(
 
 		'Basset'    => 'Basset\Facade',
 		'Rocketeer' => 'Rocketeer\Facades\Rocketeer',
+		'Former'    => 'Former\Facades\Former',
 
 	),
 

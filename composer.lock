@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "edc45c03c350eab4dfc1d3cfadd3bde4",
+    "hash": "a2761c74037342621659f50f493cfdba",
     "packages": [
         {
             "name": "anahkiasen/flatten",
@@ -54,6 +54,101 @@
             "time": "2013-07-22 11:14:28"
         },
         {
+            "name": "anahkiasen/former",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Anahkiasen/former.git",
+                "reference": "ecb0d3640fcd6f07c2c54ec409b14446322706c9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Anahkiasen/former/zipball/ecb0d3640fcd6f07c2c54ec409b14446322706c9",
+                "reference": "ecb0d3640fcd6f07c2c54ec409b14446322706c9",
+                "shasum": ""
+            },
+            "require": {
+                "anahkiasen/html-object": "dev-master",
+                "anahkiasen/underscore-php": "dev-master",
+                "illuminate/config": "~4",
+                "illuminate/container": "~4",
+                "illuminate/http": "~4",
+                "illuminate/routing": "~4",
+                "illuminate/session": "~4",
+                "illuminate/translation": "~4"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-agnostic": "3.x.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Former": "src",
+                    "Laravel": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxime Fabre",
+                    "email": "ehtnam6@gmail.com"
+                }
+            ],
+            "description": "A powerful form builder",
+            "homepage": "http://anahkiasen.github.com/former/",
+            "keywords": [
+                "bootstrap",
+                "form",
+                "foundation",
+                "laravel"
+            ],
+            "time": "2013-07-30 23:10:59"
+        },
+        {
+            "name": "anahkiasen/html-object",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Anahkiasen/html-object.git",
+                "reference": "84d3b1266865e054ef33e24b9eee08aa3dd29c21"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Anahkiasen/html-object/zipball/84d3b1266865e054ef33e24b9eee08aa3dd29c21",
+                "reference": "84d3b1266865e054ef33e24b9eee08aa3dd29c21",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "HtmlObject": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anahkiasen",
+                    "email": "ehtnam6@gmail.com"
+                }
+            ],
+            "description": "A set of classes to create and manipulate HTML objects abstractions",
+            "time": "2013-07-29 14:47:43"
+        },
+        {
             "name": "anahkiasen/rocketeer",
             "version": "dev-develop",
             "source": {
@@ -102,6 +197,49 @@
                 "ssh"
             ],
             "time": "2013-07-31 11:31:19"
+        },
+        {
+            "name": "anahkiasen/underscore-php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Anahkiasen/underscore-php.git",
+                "reference": "049a491701a2ee1c15f82f4c502bbe87671d1619"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Anahkiasen/underscore-php/zipball/049a491701a2ee1c15f82f4c502bbe87671d1619",
+                "reference": "049a491701a2ee1c15f82f4c502bbe87671d1619",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~4",
+                "patchwork/utf8": "1.1.*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Underscore": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxime Fabre",
+                    "email": "ehtnam6@gmail.com"
+                }
+            ],
+            "description": "A redacted port of Underscore.js for PHP",
+            "keywords": [
+                "internals",
+                "laravel",
+                "toolkit"
+            ],
+            "time": "2013-07-15 09:18:39"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -2619,7 +2757,8 @@
         "lmammino/jsmin4assetic": 20,
         "loic-sharma/profiler": 20,
         "natxet/cssmin": 20,
-        "rcrowe/twigbridge": 20
+        "rcrowe/twigbridge": 20,
+        "anahkiasen/former": 20
     },
     "platform": [
 

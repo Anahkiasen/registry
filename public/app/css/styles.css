@@ -48,6 +48,58 @@ h2 {
   padding-bottom: 0.5rem;
   border-bottom: 1px solid #d9dcde; }
 
+form {
+  margin: 2rem auto;
+  max-width: 40%; }
+
+legend {
+  width: 100%;
+  font-size: 2rem;
+  border-bottom: 1px solid #bdc3c7;
+  margin-bottom: 1rem; }
+
+.control-group {
+  *zoom: 1;
+  margin: 1rem 0; }
+  .control-group:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+input, label {
+  height: 3rem; }
+
+label {
+  background-color: #869198;
+  padding: 0.5rem;
+  padding-top: 1rem;
+  color: white;
+  float: left;
+  width: 20%;
+  text-align: right; }
+
+input {
+  -webkit-transition: background 0.3s;
+  -moz-transition: background 0.3s;
+  -o-transition: background 0.3s;
+  transition: background 0.3s;
+  float: right;
+  width: 80%;
+  display: block;
+  border: none;
+  background-color: #f2f2f2;
+  padding: 1rem;
+  font-size: 1rem;
+  color: #869198; }
+  input:focus {
+    background-color: #f7f7f7;
+    outline: 0; }
+
+input[type="submit"] {
+  font-size: 1.5rem;
+  height: 3rem;
+  width: 100%; }
+
 table {
   width: 100%; }
   table th {
@@ -114,11 +166,11 @@ table th.sort-desc:before {
     table td.packages-list__downloads {
       text-align: left; } }
 
-table th, .tag, .package__status, .packages-list__pagination ul li, .layout-header, .layout-footer {
+table th, .tag, .package__status, .packages-list__pagination ul li, .btn, input[type="submit"], .layout-header, .layout-footer {
   background-color: #f66f5f;
   color: white;
   text-shadow: 0 0.25em 0 rgba(0, 0, 0, 0.1); }
-  table th a, .tag a, .package__status a, .packages-list__pagination ul li a, .layout-header a, .layout-footer a {
+  table th a, .tag a, .package__status a, .packages-list__pagination ul li a, .btn a, input[type="submit"] a, .layout-header a, .layout-footer a {
     color: white; }
 
 .packages-list__pagination ul {
@@ -130,7 +182,7 @@ table th, .tag, .package__status, .packages-list__pagination ul li, .layout-head
   margin: 0;
   padding: 0; }
 
-.package__summary, .maintainer__summary, .layout-content, .layout-search {
+input, label, .package__summary, .maintainer__summary, .layout-content, .layout-search {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -141,7 +193,7 @@ table th, .tag, .package__status, .packages-list__pagination ul li, .layout-head
 .visible {
   display: block; }
 
-.tag, .package__status, .packages-list__pagination ul li {
+.tag, .package__status, .packages-list__pagination ul li, .btn, input[type="submit"] {
   -webkit-border-radius: 0.25em;
   -moz-border-radius: 0.25em;
   border-radius: 0.25em;
@@ -149,7 +201,7 @@ table th, .tag, .package__status, .packages-list__pagination ul li, .layout-head
   margin-left: 0.25rem;
   padding: 0.25rem;
   cursor: pointer; }
-  .tag:first-child, .package__status:first-child, .packages-list__pagination ul li:first-child {
+  .tag:first-child, .package__status:first-child, .packages-list__pagination ul li:first-child, .btn:first-child, input[type="submit"]:first-child {
     margin-left: 0; }
 
 .package__informations {
@@ -212,11 +264,11 @@ table th, .tag, .package__status, .packages-list__pagination ul li, .layout-head
   color: #869198; }
   .packages-list thead th {
     padding: 1rem; }
-  .packages-list .tag, .packages-list .package__status, .packages-list .packages-list__pagination ul li, .packages-list__pagination ul .packages-list li {
+  .packages-list .tag, .packages-list .package__status, .packages-list .packages-list__pagination ul li, .packages-list__pagination ul .packages-list li, .packages-list .btn, .packages-list input[type="submit"] {
     background-color: rgba(246, 111, 95, 0.5);
     font-size: 0.75rem;
     margin-left: 0.1rem; }
-    .packages-list .tag:hover, .packages-list .package__status:hover, .packages-list .packages-list__pagination ul li:hover, .packages-list__pagination ul .packages-list li:hover {
+    .packages-list .tag:hover, .packages-list .package__status:hover, .packages-list .packages-list__pagination ul li:hover, .packages-list__pagination ul .packages-list li:hover, .packages-list .btn:hover, .packages-list input[type="submit"]:hover {
       background-color: #f66f5f; }
 
 .packages-list__empty {
@@ -296,6 +348,16 @@ table th, .tag, .package__status, .packages-list__pagination ul li, .layout-head
 
 .maintainers-list {
   list-style-type: none; }
+
+.btn, input[type="submit"] {
+  -webkit-transition: background 0.3s;
+  -moz-transition: background 0.3s;
+  -o-transition: background 0.3s;
+  transition: background 0.3s;
+  border: none;
+  clear: both; }
+  .btn:hover, input[type="submit"]:hover {
+    background-color: #f78577; }
 
 .layout-header {
   -webkit-transition: background 0.3s;

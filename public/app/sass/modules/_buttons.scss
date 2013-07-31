@@ -1,0 +1,14 @@
+// BUTTONS
+//
+//////////////////////////////////////////////////////////////////////
+
+.btn {
+	@include transition(background .3s);
+	@extend .tag;
+	border: none;
+	clear: both;
+
+	&:hover {
+		background-color: lighten($color-base, 5);
+	}
+}

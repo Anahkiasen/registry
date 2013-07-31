@@ -25,3 +25,5 @@ Route::get('package/{package}', ['as' => 'package', 'uses' => 'PackagesControlle
 // Maintainers
 Route::get('maintainers',       'MaintainersController@index');
 Route::get('maintainer/{slug}', ['as' => 'maintainer', 'uses' => 'MaintainersController@maintainer']);
+
+Route::controller('users', 'UsersController');

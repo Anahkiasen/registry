@@ -1,0 +1,10 @@
+{% extends 'layouts.layout' %}
+
+{% block content %}
+	{{ former_open() }}
+		<legend>Login</legend>
+		{{ former_text('login') }}
+		{{ former_password('password') }}
+		{{ former_submit('Login') }}
+	{{ former_close() }}
+{% endblock %}

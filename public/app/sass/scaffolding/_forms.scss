@@ -1,0 +1,59 @@
+// FORMS
+//
+//////////////////////////////////////////////////////////////////////
+
+form {
+	margin: 2rem auto;
+	max-width: 40%;
+}
+
+legend {
+	width: 100%;
+	font-size: 2rem;
+	border-bottom: 1px solid $color-silver;
+	margin-bottom: 1rem;
+}
+
+.control-group {
+	@include pie-clearfix;
+	margin: 1rem 0;
+}
+
+input, label {
+	@extend %border-box;
+	height: 3rem;
+}
+
+label {
+	background-color: $color-silver--dark;
+	padding: 0.5rem;
+	padding-top: 1rem;
+	color: white;
+	float: left;
+	width: 20%;
+	text-align: right;
+}
+
+input {
+	@include transition(background .3s);
+	float: right;
+	width: 80%;
+	display: block;
+	border: none;
+	background-color: grey(95);
+	padding: 1rem;
+	font-size: 1rem;
+	color: $color-silver--dark;
+
+	&:focus {
+		background-color: grey(97);
+		outline: 0;
+	}
+}
+
+input[type="submit"] {
+	@extend .btn;
+	font-size: 1.5rem;
+	height: 3rem;
+	width: 100%;
+}
