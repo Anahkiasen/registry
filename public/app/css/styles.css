@@ -307,7 +307,8 @@ h2 {
 form {
   margin: 2rem 0; }
   .layout-content form, .layout-content--narrow form {
-    max-width: 60%; }
+    max-width: 80%;
+    margin: 2rem auto; }
   form p {
     margin: 1rem 0; }
 

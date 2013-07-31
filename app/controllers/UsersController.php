@@ -9,7 +9,10 @@ class UsersController extends BaseController
 	 */
 	public function getProfile()
 	{
-		return View::make('users.profile');
+		$maintainer = Auth::user()->maintainer;
+
+		return View::make('maintainer')
+			->with('maintainer', $maintainer);
 	}
 
 	////////////////////////////////////////////////////////////////////

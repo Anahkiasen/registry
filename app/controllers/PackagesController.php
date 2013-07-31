@@ -61,6 +61,7 @@ class PackagesController extends BaseController
 			return Redirect::back()->withInput()->withErrors($validation);
 		}
 
+		// Create comment
 		Comment::create(array(
 			'content'    => $input['content'],
 			'user_id'    => Auth::user()->id,
