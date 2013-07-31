@@ -28,10 +28,17 @@
 				</article>
 			{% endfor %}
 
-			{{ former_inline_open() }}
-				{{ former_textarea('content').label(null).placeholder('Your comment...') }}
-				{{ former_submit('Add a comment') }}
-			{{ former_close() }}
+			<div class="package__comment__form">
+				{{ former_inline_open().rules({content: 'required'}) }}
+					<figure class="maintainer__avatar">
+						{{ HTML_image(auth_user().gravatar) }}
+					</figure>
+					<section class="maintainer__summary">
+						{{ former_textarea('content').label(null).placeholder('Your comment...') }}
+						{{ former_submit('Add a comment') }}
+					</section>
+				{{ former_close() }}
+			</div>
 		{% endif %}
 
 		{# Versions #}

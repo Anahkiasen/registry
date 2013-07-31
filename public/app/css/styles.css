@@ -112,10 +112,10 @@ label, .layout-content, .layout-content--narrow, .layout-navigation {
   .package__status.package__status--unknown {
     background-color: #7F8C8D; }
 
-.package__comment .maintainer__summary {
+.package__comment .maintainer__summary, .package__comment__form .maintainer__summary {
   margin-left: 6rem;
   height: 5rem; }
-.package__comment .maintainer__avatar {
+.package__comment .maintainer__avatar, .package__comment__form .maintainer__avatar {
   width: 5rem; }
 
 .package__comment__author {
@@ -124,6 +124,29 @@ label, .layout-content, .layout-content--narrow, .layout-navigation {
   .package__comment__author time {
     font-style: italic;
     color: #bdc3c7; }
+
+.package__comment__form {
+  width: 100;
+  margin: 0; }
+  .package__comment__form form {
+    margin: 1rem 0 0;
+    max-width: 100% !important; }
+  .package__comment__form .maintainer__summary {
+    margin-left: 11rem;
+    height: 10rem;
+    margin-top: 0;
+    padding: 0; }
+  .package__comment__form .maintainer__avatar {
+    width: 10rem; }
+  .package__comment__form textarea {
+    min-height: 8rem; }
+  .package__comment__form input[type="submit"] {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    font-size: 1rem;
+    height: 2rem;
+    margin-top: 0; }
 
 .package__links a, .maintainer__links a {
   display: inline-block;
@@ -194,7 +217,7 @@ label, .layout-content, .layout-content--narrow, .layout-navigation {
     .packages-list__pagination ul li.active {
       background-color: #f66f5f; }
 
-.maintainer__informations, .package__comment {
+.maintainer__informations, .package__comment, .package__comment__form {
   *zoom: 1;
   max-width: 59em;
   _width: 59em;
@@ -202,9 +225,14 @@ label, .layout-content, .layout-content--narrow, .layout-navigation {
   padding-right: 1em;
   margin-left: auto;
   margin-right: auto;
+  *zoom: 1;
   max-width: 100%;
   padding: 0; }
-  .maintainer__informations:after, .package__comment:after {
+  .maintainer__informations:after, .package__comment:after, .package__comment__form:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .maintainer__informations:after, .package__comment:after, .package__comment__form:after {
     content: "";
     display: table;
     clear: both; }
@@ -370,12 +398,27 @@ textarea {
   input[type="email"]:focus,
   textarea:focus {
     background-color: #e6e9ea; }
-  input[type="text"]:invalid,
-  input[type="password"]:invalid,
-  input[type="email"]:invalid,
-  textarea:invalid {
+  input[type="text"]:focus:invalid,
+  input[type="password"]:focus:invalid,
+  input[type="email"]:focus:invalid,
+  textarea:focus:invalid {
     background-color: #c0392b;
     color: white; }
+    input[type="text"]:focus:invalid::-webkit-input-placeholder,
+    input[type="password"]:focus:invalid::-webkit-input-placeholder,
+    input[type="email"]:focus:invalid::-webkit-input-placeholder,
+    textarea:focus:invalid::-webkit-input-placeholder {
+      color: #df7c72; }
+    input[type="text"]:focus:invalid:-moz-placeholder,
+    input[type="password"]:focus:invalid:-moz-placeholder,
+    input[type="email"]:focus:invalid:-moz-placeholder,
+    textarea:focus:invalid:-moz-placeholder {
+      color: #df7c72; }
+    input[type="text"]:focus:invalid:-ms-input-placeholder,
+    input[type="password"]:focus:invalid:-ms-input-placeholder,
+    input[type="email"]:focus:invalid:-ms-input-placeholder,
+    textarea:focus:invalid:-ms-input-placeholder {
+      color: #df7c72; }
 
 textarea {
   min-height: 10rem; }

@@ -55,8 +55,14 @@ class PackagesController extends BaseController
 	 */
 	public function comment($slug)
 	{
+		$input      = Input::only('content');
+		$validation = Validator::make($input, ['content' => 'required']);
+		if ($validation->fails()) {
+			return Redirect::back()->withInput()->withErrors($validation);
+		}
+
 		Comment::create(array(
-			'content'    => Input::get('content'),
+			'content'    => $input['content'],
 			'user_id'    => Auth::user()->id,
 			'package_id' => Package::whereSlug($slug)->firstOrFail()->id,
 		));

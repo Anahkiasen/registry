@@ -80,6 +80,40 @@
 	}
 }
 
+.package__comment__form {
+	@extend .package__comment;
+	$image-size: 10rem;
+	width: 100;
+	margin: 0;
+
+	form {
+		margin: 1rem 0 0;
+		max-width: 100% !important;
+	}
+
+	.maintainer__summary {
+		margin-left: $image-size + 1rem;
+		height: $image-size;
+		margin-top: 0;
+		padding: 0;
+	}
+
+	.maintainer__avatar {
+		width: $image-size;
+	}
+
+	textarea {
+		min-height: $image-size - 2rem;
+	}
+
+	input[type="submit"] {
+		@include border-radius(0);
+		font-size: 1rem;
+		height: 2rem;
+		margin-top: 0;
+	}
+}
+
 // External links
 //////////////////////////////////////////////////////////////////////
 

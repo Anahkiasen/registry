@@ -96,9 +96,13 @@ textarea {
 	&:focus {
 		background-color: darken($color-silver--light, 5);
 	}
-	&:invalid {
+	&:focus:invalid {
 		background-color: $color-red--dark;
 		color: white;
+
+		@include input-placeholder {
+			color: lighten($color-red--dark, 20);
+		}
 	}
 }
 
