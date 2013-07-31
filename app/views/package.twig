@@ -19,10 +19,10 @@
 			{% for comment in package.comments %}
 				<article class="package__comment">
 					<figure class="maintainer__avatar">
-						{{ HTML_image(comment.user.gravatar) }}
+						{{ HTML_image(comment.maintainer.gravatar) }}
 					</figure>
 					<section class="maintainer__summary">
-						<p class="package__comment__author">{{ comment.user.username }}, <time datetime="{{ comment.created_at }}">{{ comment.created_at.diffForHumans }}</time></p>
+						<p class="package__comment__author">{{ comment.maintainer.username }}, <time datetime="{{ comment.created_at }}">{{ comment.created_at.diffForHumans }}</time></p>
 						{{ comment.content }}
 					</section>
 				</article>

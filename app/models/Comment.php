@@ -17,8 +17,8 @@ class Comment extends Eloquent
 	 *
 	 * @return User
 	 */
-	public function user()
+	public function maintainer()
 	{
-		return $this->belongsTo('User');
+		return $this->belongsTo('Maintainer');
 	}
 }

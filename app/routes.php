@@ -28,7 +28,9 @@ Route::post('package/{package}', 'PackagesController@comment');
 Route::get('maintainers',       'MaintainersController@index');
 Route::get('maintainer/{slug}', ['as' => 'maintainer', 'uses' => 'MaintainersController@maintainer']);
 
-Route::controller('users', 'UsersController');
+Route::get('maintainers/authorize', 'MaintainersController@authorize');
+Route::get('maintainers/confirm',   'MaintainersController@confirm');
+Route::get('maintainers/logout',    'MaintainersController@logout');
 
 App::error(function(ModelNotFoundException $exception) {
 	return View::make('errors.404');

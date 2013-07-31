@@ -14,7 +14,7 @@ class CreateComments extends Migration
 			$table->increments('id');
 				$table->text('content');
 				$table->integer('package_id');
-				$table->integer('user_id');
+				$table->integer('maintainer_id');
 			$table->timestamps();
 		});
 	}

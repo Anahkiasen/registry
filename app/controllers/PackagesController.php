@@ -32,7 +32,7 @@ class PackagesController extends BaseController
 	public function package($slug)
 	{
 		// Get packages and similar packages
-		$package = Package::with('versions', 'comments.user')->whereSlug($slug)->firstOrFail();
+		$package = Package::with('versions', 'comments.maintainer')->whereSlug($slug)->firstOrFail();
 		$similar = Package::with('versions')->similar($package)->take(5)->get();
 
 		// Sort by popularity and number of tags in common
@@ -63,9 +63,9 @@ class PackagesController extends BaseController
 
 		// Create comment
 		Comment::create(array(
-			'content'    => $input['content'],
-			'user_id'    => Auth::user()->id,
-			'package_id' => Package::whereSlug($slug)->firstOrFail()->id,
+			'content'       => $input['content'],
+			'maintainer_id' => Auth::user()->id,
+			'package_id'    => Package::whereSlug($slug)->firstOrFail()->id,
 		));
 
 		return Redirect::action('PackagesController@package', $slug);

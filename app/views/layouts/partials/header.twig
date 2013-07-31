@@ -1,8 +1,9 @@
 <nav class="layout-navigation">
 	{% if auth_guest() %}
-		{{ linkAction('UsersController@getLogin', 'Login') }} {{ linkAction('UsersController@getRegister', 'Register') }}
+		{{ html_decode(linkAction('MaintainersController@authorize', '<i class="icon-github"></i> Login with Github')) }}
 	{% else %}
-		{{ linkAction('UsersController@getProfile', auth_user().username) }} {{ linkAction('UsersController@getLogout', 'Logout') }}
+		{{ linkRoute('maintainer', "Logged in as #{auth_user().name}", auth_user().slug) }}
+		{{ linkAction('MaintainersController@logout', 'Logout') }}
 	{% endif %}
 </nav>
 
