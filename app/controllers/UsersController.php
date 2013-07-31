@@ -63,7 +63,7 @@ class UsersController extends BaseController
 
 		// Send code
 		Mail::send('emails.register', $credentials, function($mail) use ($credentials) {
-			$mail->to($credentials['email']);
+			$mail->to($credentials['email'])->subject('Activate your account');
 		});
 
 		return Redirect::action('UsersController@getRegister')
