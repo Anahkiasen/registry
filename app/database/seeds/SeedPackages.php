@@ -160,6 +160,12 @@ class SeedPackages extends DatabaseSeeder
 		$buildStatus = array_get($package->getTravis(), 'last_build_status', 2);
 		$buildStatus = (int) abs($buildStatus - 2);
 
+		// Tests coverage
+		$coverage = $package->getScrutinizer();
+		$methods  = array_get($coverage, 'php_code_coverage.methods', 1);
+		$covered  = array_get($coverage, 'php_code_coverage.covered_methods', 1);
+		$coverage = ceil($covered * 100 / $methods);
+
 		// Ratio of open issues
 		$openIssues   = array_get($repository, 'open_issues_count', 0);
 		$totalIssues  = $package->getRepositoryIssues();
@@ -202,6 +208,7 @@ class SeedPackages extends DatabaseSeeder
 			// Unit testing
 			'build_status'      => $buildStatus,
 			'consistency'       => $consistency,
+			'coverage'          => $coverage,
 
 			// Date-related statistics
 			'created_at'        => $created_at->toDateTimeString(),
@@ -247,15 +254,17 @@ class SeedPackages extends DatabaseSeeder
 		$this->computeIndexes('trust', array(
 			'travisStatus' => 1.25,
 			'seniority'    => 0.5,
-			'freshness'    => 1.25,
-			'consistency'  => 1.25,
+			'freshness'    => 1,
+			'consistency'  => 1,
 			'issues'       => 0.75,
+			'coverage'     => 0.5,
 		), array(
 			'travisStatus' => 2,
 			'seniority'    => 'seniority',
 			'freshness'    => 'freshness',
 			'consistency'  => 'consistency',
 			'issues'       => 'issues',
+			'coverage'     => 100,
 		), 0);
 	}
 
@@ -332,6 +341,8 @@ class SeedPackages extends DatabaseSeeder
 		$package->getTravis();
 		$this->comment('-- Travis builds');
 		$package->getTravisBuilds();
+		$this->comment('-- Scrutinizer');
+		$package->getScrutinizer();
 
 		$timer = round(microtime(true) - $this->timer, 4);
 		$final = '--- Total time : '.$timer.'s';

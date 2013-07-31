@@ -26,6 +26,7 @@ class CreatePackages extends Migration
 				// Unit tests
 				$table->integer('build_status');
 				$table->integer('consistency');
+				$table->integer('coverage');
 
 				// Repository statistics
 				$table->integer('downloads_total');

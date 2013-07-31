@@ -28,7 +28,7 @@ class Package extends Eloquent
 	 */
 	public function versions()
 	{
-		return $this->hasMany('Version')->orderBy('created_at', 'DESC');
+		return $this->hasMany('Version')->latest();
 	}
 
 	////////////////////////////////////////////////////////////////////
@@ -91,6 +91,16 @@ class Package extends Eloquent
 	public function getTravisBuilds()
 	{
 		return $this->getFromApi('travis', $this->travis.'/builds');
+	}
+
+	/**
+	 * Get Scrutinizer
+	 *
+	 * @return array
+	 */
+	public function getScrutinizer()
+	{
+		return $this->getFromApi('scrutinizer', $this->repositoryName.'/metric');
 	}
 
 	/**

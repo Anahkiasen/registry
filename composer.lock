@@ -59,12 +59,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/rocketeer.git",
-                "reference": "65fc675527301c71c3adaa479d63577bb12d74aa"
+                "reference": "779e26ea3a738e6a2a947b7f3601315a10a80bb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/65fc675527301c71c3adaa479d63577bb12d74aa",
-                "reference": "65fc675527301c71c3adaa479d63577bb12d74aa",
+                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/779e26ea3a738e6a2a947b7f3601315a10a80bb1",
+                "reference": "779e26ea3a738e6a2a947b7f3601315a10a80bb1",
                 "shasum": ""
             },
             "require": {
@@ -101,7 +101,7 @@
                 "laravel",
                 "ssh"
             ],
-            "time": "2013-07-30 14:33:18"
+            "time": "2013-07-31 11:31:19"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -208,7 +208,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -555,7 +555,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -902,7 +902,7 @@
             "authors": [
                 {
                     "name": "Anthony Ferrara",
-                    "email": "ircmaxell@ircmaxell.com",
+                    "email": "ircmaxell@php.net",
                     "homepage": "http://blog.ircmaxell.com"
                 }
             ],

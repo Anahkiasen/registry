@@ -53,7 +53,7 @@ class PackagesController extends BaseController
 	 */
 	public function history()
 	{
-		$packages = Package::orderBy('created_at', 'asc')->get();
+		$packages = Package::oldest()->get();
 		$history  = array();
 		foreach ($packages as $key => $package) {
 			$date           = $package->created_at->format('Y-m');

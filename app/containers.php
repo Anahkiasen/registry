@@ -25,3 +25,7 @@ App::bind('bitbucket', function() {
 App::bind('travis', function() {
 	return new Guzzle('https://api.travis-ci.org/repos/');
 });
+
+App::bind('scrutinizer', function() {
+	return new Guzzle('https://scrutinizer-ci.com/api/repositories/g/');
+});
