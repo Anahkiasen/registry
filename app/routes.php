@@ -20,8 +20,8 @@ Route::get('about', function() {
 Route::get('/',                 'PackagesController@index');
 Route::get('packages',          'PackagesController@index');
 Route::get('packages/history',  'PackagesController@history');
-Route::get('package/{package}', 'PackagesController@package');
+Route::get('package/{package}', ['as' => 'package', 'uses' => 'PackagesController@package']);
 
 // Maintainers
 Route::get('maintainers',       'MaintainersController@index');
-Route::get('maintainer/{slug}', 'MaintainersController@maintainer');
+Route::get('maintainer/{slug}', ['as' => 'maintainer', 'uses' => 'MaintainersController@maintainer']);

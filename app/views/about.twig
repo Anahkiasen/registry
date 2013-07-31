@@ -31,12 +31,6 @@
 	</ul>
 	<p>Each of these factors is then assigned a weight according to how important it is in the index</p>
 
-	<h2>Statistics</h2>
-	<figure class="chart">
-		<figcaption>Number of packages</figcaption>
-		<canvas id="packages" width="1000" height="400"></canvas>
-	</figure>
-
 	<h2>Architecture</h2>
 	<p>
 		This registry binds the various APIs and services on which packages are hosted : Packagist, Github, Travis, Bitbucket.
@@ -44,6 +38,19 @@
 		the informations you see on the registry are not "live". The database is refreshed every night.
 	</p>
 	<p>The registry is a Laravel 4.1 application. It uses the following packages from the community :</p>
+	<ul>
+		<li>{{ linkRoute('package', 'Flatten', 'anahkiasen-flatten') }} by {{ linkRoute('maintainer', 'Maxime Fabre', 'anahkiasen') }} for building cached HTML versions of the views</li>
+		<li>{{ linkRoute('package', 'Rocketeer', 'anahkiasen-rocketeer') }} by {{ linkRoute('maintainer', 'Maxime Fabre', 'anahkiasen') }} for deploying to the server</li>
+		<li>{{ linkRoute('package', 'Basset', 'jasonlewis-basset') }} by {{ linkRoute('maintainer', 'Jason Lewis', 'jasonlewis') }} for the managing of assets</li>
+		<li>{{ linkRoute('package', 'Profiler', 'loic-sharma-profiler') }} by {{ linkRoute('maintainer', 'Loic Sharma', 'loic-sharm') }} for debugging in local</li>
+		<li>{{ linkRoute('package', 'TwigBridge', 'rcrowe-twigbridge') }} by {{ linkRoute('maintainer', 'Rob Crowe', 'rcrowe') }} for using Twig hand-in-hand with Laravel</li>
+	</ul>
+
+	<h2>Statistics</h2>
+	<figure class="chart">
+		<figcaption>Number of packages</figcaption>
+		<canvas id="packages" width="1000" height="400"></canvas>
+	</figure>
 {% endblock %}
 
 {% block js %}

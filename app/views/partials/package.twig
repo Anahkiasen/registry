@@ -1,6 +1,6 @@
 <tr class="packages-list__package" data-id="{{ package.slug }}">
 	<td data-title="#" class="packages-list__key">{{ loop.index }}</td>
-	<td data-title="Name">{{ linkAction('PackagesController@package', package.name, package.slug) }}</td>
+	<td data-title="Name">{{ linkRoute('package', package.name, package.slug) }}</td>
 	<td data-title="Description" class="packages-list__description">{{ Str_words(package.description, 15) }}</td>
 	<td data-title="Tags" class="packages-list__tags">
 		{% for keyword in package.keywords %}

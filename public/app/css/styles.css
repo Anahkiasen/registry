@@ -333,7 +333,7 @@ table th, .tag, .package__status, .packages-list__pagination ul li, .layout-head
   min-height: 100%;
   position: relative; }
   .layout-footer__wrapper .layout-content {
-    padding-bottom: 7rem;
+    padding-bottom: 9rem;
     height: 100%; }
 
 .layout-footer {

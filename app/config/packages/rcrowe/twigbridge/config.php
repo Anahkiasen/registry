@@ -100,13 +100,14 @@ return array(
     */
     'alias_shortcuts' => array(
         'assets'     => 'basset_show',
-        'input'      => 'input_get',
         'config'     => 'config_get',
+        'input'      => 'input_get',
         'lang'       => 'lang_get',
-        'logged_in'  => 'auth_check',
-        'url'        => 'url_to',
         'link'       => 'html_link',
         'linkAction' => 'html_linkAction',
+        'linkRoute'  => 'html_linkRoute',
+        'logged_in'  => 'auth_check',
+        'url'        => 'url_to',
     ),
 
     /*

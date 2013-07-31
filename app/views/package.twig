@@ -27,7 +27,7 @@
 			{% for package in similar %}
 				<article class="maintainer__package">
 					<h3>
-						{{ linkAction('PackagesController@package', package.name, package.slug) }}
+						{{ linkRoute('package', package.name, package.slug) }}
 						<small>
 							last updated
 							<time datetime="{{ package.pushed_at }}">{{ package.pushed_at.diffForHumans() }}</time>
