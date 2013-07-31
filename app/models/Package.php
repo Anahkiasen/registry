@@ -100,7 +100,7 @@ class Package extends Eloquent
 	 */
 	public function getScrutinizer()
 	{
-		return $this->getFromApi('scrutinizer', $this->repositoryName.'/metric');
+		return $this->getFromApi('scrutinizer', $this->repositoryName.'/metrics');
 	}
 
 	/**
