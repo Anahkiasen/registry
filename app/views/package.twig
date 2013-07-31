@@ -15,7 +15,7 @@
 
 		{# Comments #}
 		{% if auth_check() %}
-			<h2>Comments</h2>
+			<h2>{{ package.comments.count }} {{ Str_plural('comment', package.comments.count) }}</h2>
 			{% for comment in package.comments %}
 				<article class="package__comment">
 					<figure class="maintainer__avatar">

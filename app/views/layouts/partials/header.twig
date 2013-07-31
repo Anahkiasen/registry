@@ -1,6 +1,6 @@
 <nav class="layout-navigation">
 	{% if auth_guest() %}
-		{{ html_decode(linkAction('MaintainersController@authorize', '<i class="icon-github"></i> Login with Github')) }}
+		{{ html_decode(link("https://github.com/login/oauth/authorize?client_id=#{config('registry.api.github.id')}", '<i class="icon-github"></i> Login with Github')) }}
 	{% else %}
 		{{ linkRoute('maintainer', "Logged in as #{auth_user().name}", auth_user().slug) }}
 		{{ linkAction('MaintainersController@logout', 'Logout') }}

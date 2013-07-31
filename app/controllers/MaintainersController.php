@@ -1,4 +1,5 @@
 <?php
+use Guzzle\Http\Client as Guzzle;
 
 /**
  * Controller for Maintainers
@@ -43,16 +44,6 @@ class MaintainersController extends BaseController
 	////////////////////////////////////////////////////////////////////
 
 	/**
-	 * Log in via Github
-	 *
-	 * @return Redirect
-	 */
-	public function authorize()
-	{
-		return Redirect::to('https://github.com/login/oauth/authorize?client_id='.Config::get('registry.api.github.id'));
-	}
-
-	/**
 	 * Confirm OAuth code
 	 *
 	 * @return Redirect
@@ -61,42 +52,41 @@ class MaintainersController extends BaseController
 	{
 		$code   = Input::get('code');
 		$github = Config::get('registry.api.github');
+		$guzzle = new Guzzle;
+		$guzzle->setDefaultOption('headers', ['Accept' => 'application/json']);
 
 		// Get token
-		$request = new Guzzle('https://github.com');
-		$request->setDefaultOption('headers', array('Accept' => 'application/json'));
-		$request = $request->post('/login/oauth/access_token');
-		$request->setPostField('client_id', $github['id']);
-		$request->setPostField('client_secret', $github['secret']);
-		$request->setPostField('code', $code);
+		$request = clone $guzzle->setBaseUrl('https://github.com');
+		$request = $request->post('/login/oauth/access_token')->addPostFields(array(
+			'client_id'     => $github['id'],
+			'client_secret' => $github['secret'],
+			'code'          => $code,
+		));
 		$request = $request->send()->json();
 
+		// Cancel if error
 		if (!isset($request['access_token'])) {
 			return Redirect::to('/');
 		}
 
 		// Get User informations
-		$api = new Guzzle('https://api.github.com');
-		$api->setDefaultOption('headers', array('Accept' => 'application/json'));
+		$api = clone $guzzle->setBaseUrl('https://api.github.com');
 		$user = $api->get('/user');
-		$user->getQuery()->set('client_id', $github['id']);
-		$user->getQuery()->set('client_secret', $github['secret']);
-		$user->getQuery()->set('access_token', $request['access_token']);
+		$user->getQuery()->merge(array(
+			'client_id'     => $github['id'],
+			'client_secret' => $github['secret'],
+			'access_token'  => $request['access_token'],
+		));
 		$user = $user->send()->json();
 
 		// Get existing User
-		$existing = Maintainer::whereName($user['login'])->first();
-		if (!$existing) {
-			$user = Maintainer::create([
-				'name'     => $user['login'],
-				'slug'     => Str::slug($user['login']),
-				'email'    => $user['email'],
-				'github'   => $user['html_url'],
-				'homepage' => $user['blog'],
-			]);
-		} else {
-			$user = $existing;
-		}
+		$user = Maintainer::whereName($user['login'])->first() ?: Maintainer::create([
+			'name'     => $user['login'],
+			'slug'     => Str::slug($user['login']),
+			'email'    => $user['email'],
+			'github'   => $user['html_url'],
+			'homepage' => $user['blog'],
+		]);
 
 		// Log in user
 		Auth::login($user, true);

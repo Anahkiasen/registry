@@ -37,6 +37,8 @@ class SeedPackages extends DatabaseSeeder
 	 */
 	public function run()
 	{
+		DB::truncate('packages');
+
 		$packages = $this->getPackages();
 		foreach ($packages as $key => $package) {
 			$this->timer = microtime(true);

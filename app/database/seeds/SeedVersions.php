@@ -9,6 +9,8 @@ class SeedVersions extends DatabaseSeeder
 	 */
 	public function run()
 	{
+		DB::truncate('versions');
+
 		$packages = Package::all();
 		foreach ($packages as $package) {
 			$versions = $this->getPackageVersions($package);
