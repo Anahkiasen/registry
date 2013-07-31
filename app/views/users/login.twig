@@ -1,10 +1,20 @@
 {% extends 'layouts.layout' %}
 
+{% block title %}
+	Login -
+{% endblock %}
+
 {% block content %}
 	{{ former_open() }}
 		<legend>Login</legend>
-		{{ former_text('login') }}
+		{% if session_has('error') %}
+			<p class="alert-error">The login or password is incorrect</p>
+		{% endif %}
+
+		{{ former_text('login').autofocus() }}
 		{{ former_password('password') }}
 		{{ former_submit('Login') }}
+
+		<p>Not a member yet ? {{ linkAction('UsersController@getRegister', 'Register here') }}.</p>
 	{{ former_close() }}
 {% endblock %}

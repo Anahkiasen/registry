@@ -43,10 +43,10 @@
 	cursor: initial;
 
 	&.package__status--passing {
-		background-color: #2ECC71;
+		background-color: $color-green;
 	}
 	&.package__status--failing {
-		background-color: #C0392B;
+		background-color: $color-red--dark;
 	}
 	&.package__status--unknown {
 		background-color: #7F8C8D;

@@ -10,7 +10,8 @@ $color-laravel       : rgb(246, 111, 95);
 $color-silver        : #BDC3C7;
 $color-silver--dark  : darken($color-silver, 20);
 $color-silver--light : lighten($color-silver, 20);
-
+$color-red--dark     : rgb(192, 57, 43);
+$color-green         : #2ECC71;
 $color-base          : $color-laravel;
 
 // Fonts

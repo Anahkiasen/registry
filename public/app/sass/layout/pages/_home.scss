@@ -4,36 +4,16 @@
 
 #search {
 	position: relative;
+	max-width: 100%;
+	margin: 0;
 }
 
 // Input
 //////////////////////////////////////////////////////////////////////
 
-.layout-search {
-
-	// Structure
-	@extend %border-box;
-	padding: 1rem;
+input[type="text"].layout-search {
 	width: 100%;
-
-	// Appearance
-	@include transition(background .3s);
-	background-color: $color-silver--light;
-	border: none;
-	outline: 0;
-	@include input-placeholder {
-		font-style: italic;
-		color: lighten($color-silver--dark, 20);
-	}
-
-	// Text
-	color: $color-silver--dark;
 	font-size: 1.5rem;
-
-	// States
-	&:focus {
-		background-color: lighten($color-silver, 25);
-	}
 }
 
 // Close button

@@ -14,14 +14,6 @@
 @import "helpers/functions";
 @import "helpers/mixins";
 
-// Scaffolding
-//
-//////////////////////////////////////////////////////////////////////
-
-@import "scaffolding/scaffolding";
-@import "scaffolding/forms";
-@import "scaffolding/tables";
-
 // Patterns
 //
 //////////////////////////////////////////////////////////////////////
@@ -39,6 +31,15 @@
 @import "modules/maintainer";
 @import "modules/maintainers-list";
 @import "modules/buttons";
+@import "modules/alerts";
+
+// Scaffolding
+//
+//////////////////////////////////////////////////////////////////////
+
+@import "scaffolding/scaffolding";
+@import "scaffolding/forms";
+@import "scaffolding/tables";
 
 // Layout
 //

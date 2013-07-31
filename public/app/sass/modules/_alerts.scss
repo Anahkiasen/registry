@@ -1,0 +1,22 @@
+// ALERTS
+//
+//////////////////////////////////////////////////////////////////////
+
+.alert {
+	@extend .tag;
+	@include border-radius(0);
+	cursor: default;
+	padding: 0.5rem 0;
+	text-align: center;
+	width: 100%;
+}
+
+.alert-succes {
+	@extend .alert;
+	background-color: $color-green;
+}
+
+.alert-error {
+	@extend .alert;
+	background-color: $color-red--dark;
+}

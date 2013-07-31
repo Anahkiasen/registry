@@ -14,6 +14,7 @@ class CreateUsers extends Migration
 			$table->increments('id');
 				$table->string('name');
 				$table->string('password');
+				$table->boolean('activated')->default(0);
 			$table->timestamps();
 		});
 	}

@@ -1,0 +1,20 @@
+{% extends 'layouts.layout' %}
+
+{% block title %}
+	Register -
+{% endblock %}
+
+{% block content %}
+	{{ former_open() }}
+		<legend>Register</legend>
+
+		{% if session_has('success') %}
+			<p class="alert-success">Your account was successfully created, an email has been sent to you to activate it</p>
+		{% endif %}
+
+		{{ former_text('login').autofocus() }}
+		{{ former_password('password') }}
+		{{ former_email('email') }}
+		{{ former_submit('Register') }}
+	{{ former_close() }}
+{% endblock %}

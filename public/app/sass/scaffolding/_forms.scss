@@ -5,6 +5,10 @@
 form {
 	margin: 2rem auto;
 	max-width: 40%;
+
+	p {
+		margin: 1rem 0;
+	}
 }
 
 legend {
@@ -17,9 +21,21 @@ legend {
 .control-group {
 	@include pie-clearfix;
 	margin: 1rem 0;
+
+	&.error .help-inline {
+		clear: both;
+		color: $color-red--dark;
+		padding: 0;
+		padding-top: 0.5rem;
+		display: block;
+		text-align: right;
+	}
 }
 
-input, label {
+input[type="text"],
+input[type="password"],
+input[type="email"],
+label {
 	@extend %border-box;
 	height: 3rem;
 }
@@ -34,25 +50,38 @@ label {
 	text-align: right;
 }
 
-input {
+input[type="text"],
+input[type="password"],
+input[type="email"] {
 	@include transition(background .3s);
-	float: right;
-	width: 80%;
-	display: block;
+	background-color: $color-silver--light;
 	border: none;
-	background-color: grey(95);
-	padding: 1rem;
-	font-size: 1rem;
 	color: $color-silver--dark;
+	display: block;
+	float: right;
+	font-size: 1.25rem;
+	outline: 0;
+	padding: 1rem;
+	width: 80%;
 
+	@include input-placeholder {
+		font-style: italic;
+		color: lighten($color-silver--dark, 20);
+	}
+
+	// States
 	&:focus {
-		background-color: grey(97);
-		outline: 0;
+		background-color: lighten($color-silver, 25);
+	}
+	&:invalid {
+		background-color: $color-red--dark;
+		color: white;
 	}
 }
 
 input[type="submit"] {
 	@extend .btn;
+	margin-left: 0;
 	font-size: 1.5rem;
 	height: 3rem;
 	width: 100%;
