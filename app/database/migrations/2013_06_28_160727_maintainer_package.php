@@ -3,7 +3,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class MaintainerPackage extends Migration
 {
-
 	/**
 	 * Run the migrations.
 	 *
@@ -28,5 +27,4 @@ class MaintainerPackage extends Migration
 	{
 		Schema::drop('maintainer_package');
 	}
-
 }

@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVersions extends Migration
+class CreateUsers extends Migration
 {
 	/**
 	 * Run the migrations.
@@ -10,14 +10,10 @@ class CreateVersions extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('versions', function($table) {
+		Schema::create('users', function($table) {
 			$table->increments('id');
 				$table->string('name');
-				$table->string('description');
-				$table->string('keywords');
-				$table->string('homepage');
-				$table->string('version');
-			$table->integer('package_id');
+				$table->string('password');
 			$table->timestamps();
 		});
 	}
@@ -29,6 +25,6 @@ class CreateVersions extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('versions');
+		Schema::drop('users');
 	}
 }

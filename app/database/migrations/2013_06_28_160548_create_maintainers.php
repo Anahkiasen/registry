@@ -3,7 +3,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateMaintainers extends Migration
 {
-
 	/**
 	 * Run the migrations.
 	 *
@@ -31,5 +30,4 @@ class CreateMaintainers extends Migration
 	{
 		Schema::drop('maintainers');
 	}
-
 }

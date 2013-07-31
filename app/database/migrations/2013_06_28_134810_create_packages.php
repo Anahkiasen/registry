@@ -3,7 +3,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreatePackages extends Migration
 {
-
 	/**
 	 * Run the migrations.
 	 *
@@ -61,5 +60,4 @@ class CreatePackages extends Migration
 	{
 		Schema::drop('packages');
 	}
-
 }
