@@ -538,10 +538,17 @@ table th.sort-desc:before {
   text-align: right;
   background-color: #f3442f;
   padding: 0.5rem;
-  color: white; }
+  color: white;
+  position: relative; }
   .layout-navigation a {
     list-style-type: none;
     padding: 0.5rem 0.75rem; }
+
+.layout-navigation__main {
+  margin: 0;
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem; }
 
 .layout-footer__wrapper {
   min-height: 100%;

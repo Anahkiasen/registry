@@ -2,17 +2,27 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+$padding: 0.5rem;
+
 .layout-navigation {
 	@extend %border-box;
 	width: 100%;
 	text-align: right;
 	background-color: $color-base--dark;
-	padding: 0.5rem;
+	padding: $padding;
 	color: white;
+	position: relative;
 
 	a {
 		list-style-type: none;
 		@extend .btn;
 		padding: 0.5rem 0.75rem;
 	}
+}
+
+.layout-navigation__main {
+	margin: 0;
+	position: absolute;
+	top: $padding;
+	left: $padding;
 }
