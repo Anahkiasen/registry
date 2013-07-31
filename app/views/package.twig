@@ -1,0 +1,41 @@
+{% extends 'layouts.layout' %}
+
+{% block title %}
+	{{ package.name }} -
+{% endblock %}
+
+{% block content %}
+	<section class="package">
+		<section class="package__informations">
+			<h1>{{ package.name }} <small>by {{ package.maintainersList }}</small></h1>
+			{% include 'partials.package-summary' %}
+		</section>
+		<h2>Versions</h2>
+		{% for version in package.versions %}
+			<article class="package__version">
+				<h3>
+					{{ version.version }}
+					<time datetime="{{ version.created_at }}">{{ version.created_at.diffForHumans() }}</time>
+				</h3>
+				<code>
+					<pre>"{{ package.name }}": "{{ version.version }}"</pre>
+				</code>
+			</article>
+		{% endfor %}
+		{% if not similar.isEmpty %}
+			<h2>Similar packages</h2>
+			{% for package in similar %}
+				<article class="maintainer__package">
+					<h3>
+						{{ linkAction('PackagesController@package', package.name, package.slug) }}
+						<small>
+							last updated
+							<time datetime="{{ package.pushed_at }}">{{ package.pushed_at.diffForHumans() }}</time>
+						</small>
+					</h3>
+					{% include 'partials.package-summary' %}
+				</article>
+			{% endfor %}
+		{% endif %}
+	</section>
+{% endblock %}

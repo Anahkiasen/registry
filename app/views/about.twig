@@ -1,10 +1,10 @@
-@extends('layouts.layout')
+{% extends 'layouts.layout' %}
 
-@section('title')
+{% block title %}
 	About the registry -
-@stop
+{% endblock %}
 
-@section('content')
+{% block content %}
 	<h1>About</h1>
 	<h2>Packages</h2>
 	<p>Packages are not hand-picked, to get your package in there all you need to do is add a <code>laravel</code> tag to it in your `composer.json` file.</p>
@@ -43,9 +43,9 @@
 		As a lot of endpoints need to be hit in order to build a good registry, and as indexes need to be calculated,
 		the informations you see on the registry are not "live". The database is refreshed every night.
 	</p>
-	<p>The registry is a Laravel 4.1 application</p>
-@stop
+	<p>The registry is a Laravel 4.1 application. It uses the following packages from the community :</p>
+{% endblock %}
 
-@section('js')
-	{{ Basset::show('chart.js') }}
-@stop
+{% block js %}
+	{{ assets('chart.js') }}
+{% endblock %}

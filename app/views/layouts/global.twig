@@ -2,21 +2,23 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>@yield('title')Laravel Packages Registry</title>
-	<link href="{{ URL::asset('app/img/favicon.png') }}" rel="shortcut icon"/>
+	<title>{% block title %}{% endblock %}Laravel Packages Registry</title>
+	<link href="{{ URL_asset('app/img/favicon.png') }}" rel="shortcut icon"/>
   <meta name='apple-mobile-web-app-capable' content='yes' />
   <meta name='apple-touch-fullscreen' content='yes' />
   <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-	{{ Basset::show('application.css') }}
+	{{ assets('application.css') }}
 </head>
 <body>
 
 	<div class="layout-footer__wrapper">
-		@yield('layout')
+		{% block layout %}
+		{% endblock %}
 	</div>
 
-	{{ Basset::show('application.js') }}
-	@yield('js')
+	{{ assets('application.js') }}
+	{% block js %}
+	{% endblock %}
 	<script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-728496-10']);

@@ -119,6 +119,7 @@ return array(
 		'Rocketeer\RocketeerServiceProvider',
 		'Flatten\FlattenServiceProvider',
 		'Profiler\ProfilerServiceProvider',
+		'TwigBridge\TwigServiceProvider',
 
 	),
 

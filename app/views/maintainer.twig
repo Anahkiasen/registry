@@ -1,0 +1,26 @@
+{% extends 'layouts.layout' %}
+
+{% block title %}
+	{{ maintainer.name }} -
+{% endblock %}
+
+{% block content %}
+	<section class="maintainer">
+		{# Maintainer summary #}
+		<h1>{{ maintainer.name }} <small>{{ maintainer.packages|length }} packages</small></h1>
+		{% include 'partials.maintainer-summary' %}
+		<hr>
+
+		{# Maintainer packages #}
+		<h2>Packages</h2>
+		{% for package in maintainer.packages %}
+			<article class="maintainer__package">
+				<h3>
+					{{ linkAction('PackagesController@package', package.name, package.slug) }}
+					<small>last updated {{ package.relativeDate }}</small>
+				</h3>
+				{% include 'partials.package-summary' %}
+			</article>
+		{% endfor %}
+	</section>
+{% endblock %}

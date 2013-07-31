@@ -11,7 +11,8 @@
 		"knplabs/packagist-api": "dev-master",
 		"lmammino/jsmin4assetic": "dev-master",
 		"loic-sharma/profiler": "dev-master",
-		"natxet/CssMin": "dev-master"
+		"natxet/CssMin": "dev-master",
+		"rcrowe/twigbridge": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

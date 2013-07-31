@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "92e5dbfc1989ff4bddc6500593abd767",
+    "hash": "edc45c03c350eab4dfc1d3cfadd3bde4",
     "packages": [
         {
             "name": "anahkiasen/flatten",
@@ -1758,6 +1758,57 @@
             "time": "2012-12-21 11:40:51"
         },
         {
+            "name": "rcrowe/twigbridge",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rcrowe/TwigBridge.git",
+                "reference": "55fd16b144e3cfe1ac80de8655dfc0f062ca9f09"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rcrowe/TwigBridge/zipball/55fd16b144e3cfe1ac80de8655dfc0f062ca9f09",
+                "reference": "55fd16b144e3cfe1ac80de8655dfc0f062ca9f09",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "twig/twig": "1.*"
+            },
+            "require-dev": {
+                "illuminate/filesystem": "4.0.*",
+                "illuminate/foundation": "4.0.*",
+                "mockery/mockery": "0.7.2"
+            },
+            "suggest": {
+                "twig/extensions": "1.0.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "TwigBridge": "src/",
+                    "TwigBridgeTests": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Crowe",
+                    "email": "hello@vivalacrowe.com",
+                    "homepage": "http://vivalacrowe.com"
+                }
+            ],
+            "description": "Adds the power of Twig to Illuminate / Laravel 4",
+            "keywords": [
+                "laravel",
+                "twig"
+            ],
+            "time": "2013-07-29 17:01:21"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "v5.0.1",
             "source": {
@@ -2501,6 +2552,55 @@
             "description": "Symfony Translation Component",
             "homepage": "http://symfony.com",
             "time": "2013-07-21 12:12:18"
+        },
+        {
+            "name": "twig/twig",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fabpot/Twig.git",
+                "reference": "0e63ef04a00fb238ee457708f8b4e8918aa51d7e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/0e63ef04a00fb238ee457708f8b4e8918aa51d7e",
+                "reference": "0e63ef04a00fb238ee457708f8b4e8918aa51d7e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.13-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Twig_": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Armin Ronacher",
+                    "email": "armin.ronacher@active-4.com"
+                }
+            ],
+            "description": "Twig, the flexible, fast, and secure template language for PHP",
+            "homepage": "http://twig.sensiolabs.org",
+            "keywords": [
+                "templating"
+            ],
+            "time": "2013-07-24 03:16:45"
         }
     ],
     "packages-dev": [
@@ -2518,7 +2618,8 @@
         "knplabs/packagist-api": 20,
         "lmammino/jsmin4assetic": 20,
         "loic-sharma/profiler": 20,
-        "natxet/cssmin": 20
+        "natxet/cssmin": 20,
+        "rcrowe/twigbridge": 20
     },
     "platform": [
 
