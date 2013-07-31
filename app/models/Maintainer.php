@@ -1,11 +1,10 @@
 <?php
 use Illuminate\Auth\UserInterface;
-use Illuminate\Auth\Reminders\RemindableInterface;
 
 /**
  * The Maintainer of a Package
  */
-class Maintainer extends Eloquent implements UserInterface, RemindableInterface
+class Maintainer extends Eloquent implements UserInterface
 {
 	use Traits\Gravatar;
 
@@ -45,16 +44,6 @@ class Maintainer extends Eloquent implements UserInterface, RemindableInterface
 	public function getAuthPassword()
 	{
 		return $this->password;
-	}
-
-	/**
-	 * Get the e-mail address where password reminders are sent.
-	 *
-	 * @return string
-	 */
-	public function getReminderEmail()
-	{
-		return $this->email;
 	}
 
 	////////////////////////////////////////////////////////////////////
@@ -103,6 +92,6 @@ class Maintainer extends Eloquent implements UserInterface, RemindableInterface
 	 */
 	public function __toString()
 	{
-		return HTML::linkAction('MaintainersController@maintainer', $this->name, $this->slug);
+		return HTML::linkRoute('maintainer', $this->name, $this->slug);
 	}
 }

@@ -31,10 +31,10 @@ class RoutesTest extends TestCase
 
 		// Add resources routes
 		foreach (Maintainer::all() as $maintainer) {
-			$routes[] = URL::action('MaintainersController@maintainer', $maintainer->slug);
+			$this->routes[] = URL::route('maintainer', $maintainer->slug);
 		}
 		foreach (Package::all() as $package) {
-			$routes[] = URL::action('PackagesController@package', $package->slug);
+			$this->routes[] = URL::route('package', $package->slug);
 		}
 
 		foreach ($this->routes as $route) {

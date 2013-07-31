@@ -9,7 +9,7 @@
 	<section class="maintainer__summary">
 		<dl>
 			<dt>Name</dt>
-			<dd>{{ linkAction('MaintainersController@maintainer', maintainer.name, maintainer.slug) }}</dd>
+			<dd>{{ linkRoute('maintainer', maintainer.name, maintainer.slug) }}</dd>
 
 			<dt>Packages</dt>
 			<dd>{{ maintainer.packagesNumber }} {{ Str_plural('package', maintainer.packagesNumber) }} ({{ maintainer.popularity }} popularity)</dd>
