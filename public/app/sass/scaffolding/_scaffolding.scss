@@ -20,7 +20,7 @@ a {
 	text-decoration: none;
 }
 
-code {
+p > code {
 	background-color: $color-silver--light;
 	padding: 0.25rem;
 	@include border-radius(0.25em);

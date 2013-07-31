@@ -226,7 +226,7 @@ a {
   color: #f66f5f;
   text-decoration: none; }
 
-code {
+p > code {
   background-color: #f4f5f6;
   padding: 0.25rem;
   -webkit-border-radius: 0.25em;
