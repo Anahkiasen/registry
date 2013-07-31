@@ -19,6 +19,7 @@ Route::get('about', function() {
 // Packages
 Route::get('/',                 'PackagesController@index');
 Route::get('packages',          'PackagesController@index');
+Route::get('packages/history',  'PackagesController@history');
 Route::get('package/{package}', 'PackagesController@package');
 
 // Maintainers

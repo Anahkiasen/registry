@@ -23,3 +23,8 @@ Basset::collection('home', function($collection) {
 })
 ->rawOnEnvironment('local')
 ->apply('JsMin');
+
+Basset::collection('chart', function($collection) {
+	$collection->javascript('components/nnnick-chartjs/Chart.min.js');
+	$collection->javascript('app/js/chart.js');
+})->rawOnEnvironment('local');

@@ -31,6 +31,12 @@
 	</ul>
 	<p>Each of these factors is then assigned a weight according to how important it is in the index</p>
 
+	<h2>Statistics</h2>
+	<figure class="chart">
+		<figcaption>Number of packages</figcaption>
+		<canvas id="packages" width="1000" height="400"></canvas>
+	</figure>
+
 	<h2>Architecture</h2>
 	<p>
 		This registry binds the various APIs and services on which packages are hosted : Packagist, Github, Travis, Bitbucket.
@@ -38,4 +44,8 @@
 		the informations you see on the registry are not "live". The database is refreshed every night.
 	</p>
 	<p>The registry is a Laravel 4.1 application</p>
+@stop
+
+@section('js')
+	{{ Basset::show('chart.js') }}
 @stop

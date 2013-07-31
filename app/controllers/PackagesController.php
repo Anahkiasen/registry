@@ -45,4 +45,29 @@ class PackagesController extends BaseController
 			'package' => $package,
 		));
 	}
+
+	/**
+	 * Get the history of packages
+	 *
+	 * @return Response
+	 */
+	public function history()
+	{
+		$packages = Package::orderBy('created_at', 'asc')->get();
+		$history  = array();
+		foreach ($packages as $key => $package) {
+			$date           = $package->created_at->format('Y-m');
+			$dates[$date]   = $date;
+			$history[$date] = $key;
+		}
+
+		// Sort
+		ksort($dates);
+		ksort($history);
+
+		return array(
+			'labels' => array_values($dates),
+			'data'   => array_values($history),
+		);
+	}
 }

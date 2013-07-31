@@ -130,7 +130,7 @@ table th, .tag, .package__status, .packages-list__pagination ul li, .layout-head
   margin: 0;
   padding: 0; }
 
-.package__summary, .maintainer__summary, .layout-search, .layout-content {
+.package__summary, .maintainer__summary, .layout-content, .layout-search {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -319,6 +319,37 @@ table th, .tag, .package__status, .packages-list__pagination ul li, .layout-head
       .layout-header h1 {
         font-size: 1rem; } }
 
+.layout-content {
+  width: 100%;
+  max-width: 150rem;
+  margin: auto;
+  padding: 0 2rem; }
+  @media (max-width: 90em) {
+    .layout-content {
+      max-width: 100%;
+      padding: 0 1rem; } }
+
+.layout-footer__wrapper {
+  min-height: 100%;
+  position: relative; }
+  .layout-footer__wrapper .layout-content {
+    padding-bottom: 7rem;
+    height: 100%; }
+
+.layout-footer {
+  height: 5rem;
+  text-align: center;
+  font-size: 1rem;
+  padding: 1rem 0;
+  text-shadow: none;
+  font-weight: 100;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0; }
+  .layout-footer a {
+    color: #fbc6c0; }
+
 #search {
   position: relative; }
 
@@ -359,33 +390,11 @@ table th, .tag, .package__status, .packages-list__pagination ul li, .layout-head
     .layout-search__reset {
       display: none; } }
 
-.layout-content {
-  width: 100%;
-  max-width: 150rem;
-  margin: auto;
-  padding: 0 2rem; }
-  @media (max-width: 90em) {
-    .layout-content {
-      max-width: 100%;
-      padding: 0 1rem; } }
-
-.layout-footer__wrapper {
-  min-height: 100%;
-  position: relative; }
-  .layout-footer__wrapper .layout-content {
-    padding-bottom: 7rem;
-    height: 100%; }
-
-.layout-footer {
-  height: 5rem;
-  text-align: center;
-  font-size: 1rem;
-  padding: 1rem 0;
-  text-shadow: none;
-  font-weight: 100;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0; }
-  .layout-footer a {
-    color: #fbc6c0; }
+.chart {
+  width: 1000px;
+  margin: auto; }
+  .chart figcaption {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem; }
