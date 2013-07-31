@@ -33,4 +33,6 @@ var chart   = new Chart(context).Line({
 			data: packages.data
 		}
 	],
+}, {
+	bezierCurve: false,
 });
