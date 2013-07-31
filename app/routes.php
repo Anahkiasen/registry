@@ -18,10 +18,11 @@ Route::get('about', function() {
 });
 
 // Packages
-Route::get('/',                 'PackagesController@index');
-Route::get('packages',          'PackagesController@index');
-Route::get('packages/history',  'PackagesController@history');
-Route::get('package/{package}', ['as' => 'package', 'uses' => 'PackagesController@package']);
+Route::get('/',                  'PackagesController@index');
+Route::get('packages',           'PackagesController@index');
+Route::get('packages/history',   'PackagesController@history');
+Route::get('package/{package}',  ['as' => 'package', 'uses' => 'PackagesController@package']);
+Route::post('package/{package}', 'PackagesController@comment');
 
 // Maintainers
 Route::get('maintainers',       'MaintainersController@index');

@@ -3,6 +3,20 @@
 class UsersController extends BaseController
 {
 	/**
+	 * Get the user profile
+	 *
+	 * @return View
+	 */
+	public function getProfile()
+	{
+		return View::make('users.profile');
+	}
+
+	////////////////////////////////////////////////////////////////////
+	////////////////////////// AUTHENTIFICATION ////////////////////////
+	////////////////////////////////////////////////////////////////////
+
+	/**
 	 * Log in the User
 	 *
 	 * @return View
@@ -59,7 +73,14 @@ class UsersController extends BaseController
 
 		// Create User
 		$credentials['activation_code'] = Str::random();
-		User::create($credentials);
+		$user = User::create($credentials);
+
+		// Link maintainer
+		$maintainer = Maintainer::whereName($user->username)->first();
+		if ($maintainer) {
+			$maintainer->user_id = $user->id;
+			$maintainer->save();
+		}
 
 		// Send code
 		Mail::send('emails.register', $credentials, function($mail) use ($credentials) {
@@ -85,5 +106,17 @@ class UsersController extends BaseController
 		$user->save();
 
 		return View::make('users.activate');
+	}
+
+	/**
+	 * Logout the current User
+	 *
+	 * @return Redirect
+	 */
+	public function getLogout()
+	{
+		Auth::logout();
+
+		return Redirect::to('/');
 	}
 }

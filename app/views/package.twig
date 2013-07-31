@@ -6,22 +6,49 @@
 
 {% block content %}
 	<section class="package">
+
+		{# Package summary #}
 		<section class="package__informations">
 			<h1>{{ package.name }} <small>by {{ package.maintainersList }}</small></h1>
 			{% include 'partials.package-summary' %}
 		</section>
+
+		{# Comments #}
+		{% if auth_check() %}
+			<h2>Comments</h2>
+			{% for comment in package.comments %}
+				<article class="package__comment">
+					<figure class="maintainer__avatar">
+						{{ HTML_image(comment.user.gravatar) }}
+					</figure>
+					<section class="maintainer__summary">
+						<p class="package__comment__author">{{ comment.user.username }}, <time datetime="{{ comment.created_at }}">{{ comment.created_at.diffForHumans }}</time></p>
+						{{ comment.content }}
+					</section>
+				</article>
+			{% endfor %}
+
+			{{ former_inline_open() }}
+				{{ former_textarea('content').label(null).placeholder('Your comment...') }}
+				{{ former_submit('Add a comment') }}
+			{{ former_close() }}
+		{% endif %}
+
+		{# Versions #}
 		<h2>Versions</h2>
 		{% for version in package.versions %}
 			<article class="package__version">
 				<h3>
 					{{ version.version }}
-					<time datetime="{{ version.created_at }}">{{ version.created_at.diffForHumans() }}</time>
+					<time datetime="{{ version.created_at }}">{{ version.created_at.diffForHumans }}</time>
 				</h3>
 				<code>
 					<pre>"{{ package.name }}": "{{ version.version }}"</pre>
 				</code>
 			</article>
 		{% endfor %}
+
+		{# Similar packages #}
 		{% if not similar.isEmpty %}
 			<h2>Similar packages</h2>
 			{% for package in similar %}
@@ -30,12 +57,13 @@
 						{{ linkRoute('package', package.name, package.slug) }}
 						<small>
 							last updated
-							<time datetime="{{ package.pushed_at }}">{{ package.pushed_at.diffForHumans() }}</time>
+							<time datetime="{{ package.pushed_at }}">{{ package.pushed_at.diffForHumans }}</time>
 						</small>
 					</h3>
 					{% include 'partials.package-summary' %}
 				</article>
 			{% endfor %}
 		{% endif %}
+
 	</section>
 {% endblock %}

@@ -31,6 +31,16 @@ class Package extends Eloquent
 		return $this->hasMany('Version')->latest();
 	}
 
+	/**
+	 * Get the Package's Comments
+	 *
+	 * @return Collection
+	 */
+	public function comments()
+	{
+		return $this->hasMany('Comment');
+	}
+
 	////////////////////////////////////////////////////////////////////
 	////////////////////////// RAW INFORMATIONS ////////////////////////
 	////////////////////////////////////////////////////////////////////

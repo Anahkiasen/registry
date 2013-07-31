@@ -2,9 +2,14 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+$label-width: 15%;
+
 form {
-	margin: 2rem auto;
-	max-width: 40%;
+	margin: 2rem 0;
+
+	.layout-content & {
+		max-width: 60%;
+	}
 
 	p {
 		margin: 1rem 0;
@@ -30,11 +35,31 @@ legend {
 		display: block;
 		text-align: right;
 	}
+
+	input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	textarea {
+		float: right;
+		width: (100% - $label-width);
+	}
+
+	label {
+		float: left;
+		width: $label-width;
+	}
+
+	input[type="submit"] {
+		width: (100% - $label-width);
+		margin-left: $label-width;
+	}
 }
 
 input[type="text"],
 input[type="password"],
 input[type="email"],
+input[type="submit"],
+textarea,
 label {
 	@extend %border-box;
 	height: 3rem;
@@ -45,24 +70,22 @@ label {
 	padding: 0.5rem;
 	padding-top: 1rem;
 	color: white;
-	float: left;
-	width: 20%;
 	text-align: right;
 }
 
 input[type="text"],
 input[type="password"],
-input[type="email"] {
+input[type="email"],
+textarea {
 	@include transition(background .3s);
 	background-color: $color-silver--light;
 	border: none;
 	color: $color-silver--dark;
 	display: block;
-	float: right;
 	font-size: 1.25rem;
 	outline: 0;
 	padding: 1rem;
-	width: 80%;
+	width: 100%;
 
 	@include input-placeholder {
 		font-style: italic;
@@ -71,7 +94,7 @@ input[type="email"] {
 
 	// States
 	&:focus {
-		background-color: lighten($color-silver, 25);
+		background-color: darken($color-silver--light, 5);
 	}
 	&:invalid {
 		background-color: $color-red--dark;
@@ -79,10 +102,15 @@ input[type="email"] {
 	}
 }
 
+textarea {
+	min-height: 10rem;
+}
+
 input[type="submit"] {
 	@extend .btn;
+	margin-top: 0.5rem;
 	margin-left: 0;
+	width: 100%;
 	font-size: 1.5rem;
 	height: 3rem;
-	width: 100%;
 }

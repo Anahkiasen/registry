@@ -53,6 +53,33 @@
 	}
 }
 
+// Comments
+//////////////////////////////////////////////////////////////////////
+
+.package__comment {
+	@extend .maintainer__informations;
+	$image-size: 5rem;
+
+	.maintainer__summary {
+		margin-left: $image-size + 1rem;
+		height: $image-size;
+	}
+
+	.maintainer__avatar {
+		width: $image-size;
+	}
+}
+
+.package__comment__author {
+	margin: 0;
+	margin-bottom: 0.25rem;
+
+	time {
+		font-style: italic;
+		color: $color-silver;
+	}
+}
+
 // External links
 //////////////////////////////////////////////////////////////////////
 

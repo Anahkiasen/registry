@@ -1,3 +1,11 @@
+<nav class="layout-navigation">
+	{% if auth_guest() %}
+		{{ linkAction('UsersController@getLogin', 'Login') }} {{ linkAction('UsersController@getRegister', 'Register') }}
+	{% else %}
+		{{ linkAction('UsersController@getProfile', auth_user().username) }} {{ linkAction('UsersController@getLogout', 'Logout') }}
+	{% endif %}
+</nav>
+
 <a href="{{ url('/') }}">
 	<header class="layout-header">
 		<h1>Laravel Packages <strong>Registry</strong></h1>

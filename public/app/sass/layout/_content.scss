@@ -17,5 +17,6 @@
 
 .layout-content--narrow {
 	@extend .layout-content;
-	max-width: 100rem;
+	max-width: 75rem;
+	padding: 2rem;
 }

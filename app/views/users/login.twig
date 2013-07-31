@@ -1,4 +1,4 @@
-{% extends 'layouts.large' %}
+{% extends 'layouts.narrow' %}
 
 {% block title %}
 	Login -
@@ -11,7 +11,7 @@
 			<p class="alert-error">The login or password is incorrect</p>
 		{% endif %}
 
-		{{ former_text('login').autofocus() }}
+		{{ former_text('username').autofocus() }}
 		{{ former_password('password') }}
 		{{ former_submit('Login') }}
 

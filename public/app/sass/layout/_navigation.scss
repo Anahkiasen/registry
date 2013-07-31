@@ -1,0 +1,18 @@
+// NAVIGATION
+//
+//////////////////////////////////////////////////////////////////////
+
+.layout-navigation {
+	@extend %border-box;
+	width: 100%;
+	text-align: right;
+	background-color: $color-base--dark;
+	padding: 0.5rem;
+	color: white;
+
+	a {
+		list-style-type: none;
+		@extend .btn;
+		padding: 0.5rem 0.75rem;
+	}
+}
