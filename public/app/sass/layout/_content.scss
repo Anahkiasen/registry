@@ -14,3 +14,8 @@
 		padding: 0 1rem;
 	}
 }
+
+.layout-content--narrow {
+	@extend .layout-content;
+	max-width: 100rem;
+}

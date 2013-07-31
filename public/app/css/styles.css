@@ -1,8 +1,8 @@
-.tag, .package__status, .packages-list__pagination ul li, .btn, input[type="submit"], .alert, .alert-succes, .alert-error, table th, .layout-header, .layout-footer {
+.tag, .btn, input[type="submit"], .alert, .alert-success, .alert-error, .package__status, .packages-list__pagination ul li, table th, .layout-header, .layout-footer {
   background-color: #f66f5f;
   color: white;
   text-shadow: 0 0.25em 0 rgba(0, 0, 0, 0.1); }
-  .tag a, .package__status a, .packages-list__pagination ul li a, .btn a, input[type="submit"] a, .alert a, .alert-succes a, .alert-error a, table th a, .layout-header a, .layout-footer a {
+  .tag a, .btn a, input[type="submit"] a, .alert a, .alert-success a, .alert-error a, .package__status a, .packages-list__pagination ul li a, table th a, .layout-header a, .layout-footer a {
     color: white; }
 
 .packages-list__pagination ul {
@@ -17,7 +17,7 @@
 .package__summary, .maintainer__summary, input[type="text"],
 input[type="password"],
 input[type="email"],
-label, .layout-content {
+label, .layout-content, .layout-content--narrow {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -28,7 +28,7 @@ label, .layout-content {
 .visible {
   display: block; }
 
-.tag, .package__status, .packages-list__pagination ul li, .btn, input[type="submit"], .alert, .alert-succes, .alert-error {
+.tag, .btn, input[type="submit"], .alert, .alert-success, .alert-error, .package__status, .packages-list__pagination ul li {
   -webkit-border-radius: 0.25em;
   -moz-border-radius: 0.25em;
   border-radius: 0.25em;
@@ -36,8 +36,35 @@ label, .layout-content {
   margin-left: 0.25rem;
   padding: 0.25rem;
   cursor: pointer; }
-  .tag:first-child, .package__status:first-child, .packages-list__pagination ul li:first-child, .btn:first-child, input[type="submit"]:first-child, .alert:first-child, .alert-succes:first-child, .alert-error:first-child {
+  .tag:first-child, .btn:first-child, input[type="submit"]:first-child, .alert:first-child, .alert-success:first-child, .alert-error:first-child, .package__status:first-child, .packages-list__pagination ul li:first-child {
     margin-left: 0; }
+
+.btn, input[type="submit"] {
+  -webkit-transition: background 0.3s;
+  -moz-transition: background 0.3s;
+  -o-transition: background 0.3s;
+  transition: background 0.3s;
+  border: none;
+  clear: both; }
+  .btn:hover, input[type="submit"]:hover {
+    background-color: #f78577; }
+
+.alert, .alert-success, .alert-error {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  cursor: default;
+  display: block;
+  margin: 0;
+  padding: 0.5rem 0;
+  text-align: center;
+  width: 100%; }
+
+.alert-success {
+  background-color: #2ecc71; }
+
+.alert-error {
+  background-color: #c0392b; }
 
 .package__informations {
   *zoom: 1;
@@ -99,11 +126,11 @@ label, .layout-content {
   color: #869198; }
   .packages-list thead th {
     padding: 1rem; }
-  .packages-list .tag, .packages-list .package__status, .packages-list .packages-list__pagination ul li, .packages-list__pagination ul .packages-list li, .packages-list .btn, .packages-list input[type="submit"], .packages-list .alert, .packages-list .alert-succes, .packages-list .alert-error {
+  .packages-list .tag, .packages-list .btn, .packages-list input[type="submit"], .packages-list .alert, .packages-list .alert-success, .packages-list .alert-error, .packages-list .package__status, .packages-list .packages-list__pagination ul li, .packages-list__pagination ul .packages-list li {
     background-color: rgba(246, 111, 95, 0.5);
     font-size: 0.75rem;
     margin-left: 0.1rem; }
-    .packages-list .tag:hover, .packages-list .package__status:hover, .packages-list .packages-list__pagination ul li:hover, .packages-list__pagination ul .packages-list li:hover, .packages-list .btn:hover, .packages-list input[type="submit"]:hover, .packages-list .alert:hover, .packages-list .alert-succes:hover, .packages-list .alert-error:hover {
+    .packages-list .tag:hover, .packages-list .btn:hover, .packages-list input[type="submit"]:hover, .packages-list .alert:hover, .packages-list .alert-success:hover, .packages-list .alert-error:hover, .packages-list .package__status:hover, .packages-list .packages-list__pagination ul li:hover, .packages-list__pagination ul .packages-list li:hover {
       background-color: #f66f5f; }
 
 .packages-list__empty {
@@ -183,31 +210,6 @@ label, .layout-content {
 
 .maintainers-list {
   list-style-type: none; }
-
-.btn, input[type="submit"] {
-  -webkit-transition: background 0.3s;
-  -moz-transition: background 0.3s;
-  -o-transition: background 0.3s;
-  transition: background 0.3s;
-  border: none;
-  clear: both; }
-  .btn:hover, input[type="submit"]:hover {
-    background-color: #f78577; }
-
-.alert, .alert-succes, .alert-error {
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  cursor: default;
-  padding: 0.5rem 0;
-  text-align: center;
-  width: 100%; }
-
-.alert-succes {
-  background-color: #2ecc71; }
-
-.alert-error {
-  background-color: #c0392b; }
 
 html,
 body {
@@ -436,20 +438,23 @@ table th.sort-desc:before {
       .layout-header h1 {
         font-size: 1rem; } }
 
-.layout-content {
+.layout-content, .layout-content--narrow {
   width: 100%;
   max-width: 150rem;
   margin: auto;
   padding: 0 2rem; }
   @media (max-width: 90em) {
-    .layout-content {
+    .layout-content, .layout-content--narrow {
       max-width: 100%;
       padding: 0 1rem; } }
+
+.layout-content--narrow {
+  max-width: 100rem; }
 
 .layout-footer__wrapper {
   min-height: 100%;
   position: relative; }
-  .layout-footer__wrapper .layout-content {
+  .layout-footer__wrapper .layout-content, .layout-footer__wrapper .layout-content--narrow {
     padding-bottom: 9rem;
     height: 100%; }
 
@@ -488,6 +493,13 @@ input[type="text"].layout-search {
   @media (max-width: 50em) {
     .layout-search__reset {
       display: none; } }
+
+.error-title {
+  text-align: center;
+  font-size: 10rem;
+  line-height: 1;
+  font-weight: 100;
+  margin: 2rem 0 1rem; }
 
 .chart {
   width: 1000px;

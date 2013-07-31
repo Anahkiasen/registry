@@ -19,8 +19,13 @@ class UsersController extends BaseController
 	 */
 	public function postLogin()
 	{
-		$credentials = Input::only('login', 'password');
+		$credentials = Input::only('username', 'password');
 		if (!Auth::attempt($credentials)) {
+			return Redirect::back()->withInput()->with('error', true);
+		}
+
+		if (!Auth::user()->activated) {
+			Auth::logout();
 			return Redirect::back()->withInput()->with('error', true);
 		}
 
@@ -52,9 +57,33 @@ class UsersController extends BaseController
 				->withInput()->withErrors($validation);
 		}
 
+		// Create User
+		$credentials['activation_code'] = Str::random();
 		User::create($credentials);
+
+		// Send code
+		Mail::send('emails.register', $credentials, function($mail) use ($credentials) {
+			$mail->to($credentials['email']);
+		});
 
 		return Redirect::action('UsersController@getRegister')
 			->with('success', true);
+	}
+
+	/**
+	 * Activate an User
+	 *
+	 * @param  string $code
+	 *
+	 * @return View
+	 */
+	public function getActivate($code)
+	{
+		$user = User::whereActivationCode($code)->firstOrFail();
+		$user->activation_code = null;
+		$user->activated = true;
+		$user->save();
+
+		return View::make('users.activate');
 	}
 }

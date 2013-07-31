@@ -26,7 +26,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 	 *
 	 * @var array
 	 */
-	protected $fillable = array('login', 'password', 'email');
+	protected $fillable = array('username', 'password', 'email', 'activation_code');
 
 	/**
 	 * The validation rules
@@ -34,7 +34,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 	 * @var array
 	 */
 	public static $rules = array(
-		'login'    => 'required|unique:users,login,{id}',
+		'username' => 'required|unique:users,username,{id}',
 		'password' => 'required',
 		'email'    => 'required|email',
 	);

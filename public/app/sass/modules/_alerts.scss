@@ -6,12 +6,14 @@
 	@extend .tag;
 	@include border-radius(0);
 	cursor: default;
+	display: block;
+	margin: 0;
 	padding: 0.5rem 0;
 	text-align: center;
 	width: 100%;
 }
 
-.alert-succes {
+.alert-success {
 	@extend .alert;
 	background-color: $color-green;
 }

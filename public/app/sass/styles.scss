@@ -26,12 +26,12 @@
 //////////////////////////////////////////////////////////////////////
 
 @import "modules/tag";
+@import "modules/buttons";
+@import "modules/alerts";
 @import "modules/package";
 @import "modules/packages-list";
 @import "modules/maintainer";
 @import "modules/maintainers-list";
-@import "modules/buttons";
-@import "modules/alerts";
 
 // Scaffolding
 //
@@ -49,4 +49,5 @@
 @import "layout/content";
 @import "layout/footer";
 @import "layout/pages/home";
+@import "layout/pages/error";
 @import "layout/pages/about";

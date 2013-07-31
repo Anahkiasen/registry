@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,7 @@ Route::get('maintainers',       'MaintainersController@index');
 Route::get('maintainer/{slug}', ['as' => 'maintainer', 'uses' => 'MaintainersController@maintainer']);
 
 Route::controller('users', 'UsersController');
+
+App::error(function(ModelNotFoundException $exception) {
+	return View::make('errors.404');
+});
