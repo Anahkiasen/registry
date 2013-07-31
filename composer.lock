@@ -59,12 +59,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/rocketeer.git",
-                "reference": "0.6.5"
+                "reference": "65fc675527301c71c3adaa479d63577bb12d74aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/0.6.5",
-                "reference": "0.6.5",
+                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/65fc675527301c71c3adaa479d63577bb12d74aa",
+                "reference": "65fc675527301c71c3adaa479d63577bb12d74aa",
                 "shasum": ""
             },
             "require": {
@@ -101,7 +101,7 @@
                 "laravel",
                 "ssh"
             ],
-            "time": "2013-07-29 15:18:48"
+            "time": "2013-07-30 14:33:18"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -227,12 +227,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "dc3438804c6303f1b5892f184a79aa8e3ce5d81d"
+                "reference": "beb242e0e22eebdca1db571edb1bac788b054124"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/dc3438804c6303f1b5892f184a79aa8e3ce5d81d",
-                "reference": "dc3438804c6303f1b5892f184a79aa8e3ce5d81d",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/beb242e0e22eebdca1db571edb1bac788b054124",
+                "reference": "beb242e0e22eebdca1db571edb1bac788b054124",
                 "shasum": ""
             },
             "require": {
@@ -288,7 +288,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2013-07-04 15:48:06"
+            "time": "2013-07-31 00:07:06"
         },
         {
             "name": "doctrine/collections",
@@ -437,12 +437,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "fbce4b50a89352cfe600116ea7267bd1066dc972"
+                "reference": "170442dcef20c86df4c3bcba4714900ae87dbf33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/fbce4b50a89352cfe600116ea7267bd1066dc972",
-                "reference": "fbce4b50a89352cfe600116ea7267bd1066dc972",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/170442dcef20c86df4c3bcba4714900ae87dbf33",
+                "reference": "170442dcef20c86df4c3bcba4714900ae87dbf33",
                 "shasum": ""
             },
             "require": {
@@ -499,7 +499,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2013-07-29 00:10:38"
+            "time": "2013-07-31 05:13:32"
         },
         {
             "name": "doctrine/inflector",
@@ -1165,12 +1165,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "f60478162ef0fa6f06a3f35e84992e333cb1bc22"
+                "reference": "3f5897d8976dda2faaf5fa541e601cbc896b70e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/f60478162ef0fa6f06a3f35e84992e333cb1bc22",
-                "reference": "f60478162ef0fa6f06a3f35e84992e333cb1bc22",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/3f5897d8976dda2faaf5fa541e601cbc896b70e9",
+                "reference": "3f5897d8976dda2faaf5fa541e601cbc896b70e9",
                 "shasum": ""
             },
             "require": {
@@ -1268,7 +1268,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-07-29 22:12:55"
+            "time": "2013-07-30 13:15:31"
         },
         {
             "name": "lmammino/jsmin4assetic",
@@ -1604,12 +1604,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "25a60ff9a370e400b328eda3e508fd6adc93a8e4"
+                "reference": "73f167e99e96f79cfab76c0d8316544361729eae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/25a60ff9a370e400b328eda3e508fd6adc93a8e4",
-                "reference": "25a60ff9a370e400b328eda3e508fd6adc93a8e4",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/73f167e99e96f79cfab76c0d8316544361729eae",
+                "reference": "73f167e99e96f79cfab76c0d8316544361729eae",
                 "shasum": ""
             },
             "require": {
@@ -1670,7 +1670,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2013-07-27 13:55:48"
+            "time": "2013-07-30 21:07:40"
         },
         {
             "name": "predis/predis",
