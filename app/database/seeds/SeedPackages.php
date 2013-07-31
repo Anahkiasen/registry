@@ -88,7 +88,7 @@ class SeedPackages extends DatabaseSeeder
 	{
 		$this->comment('Fetching list of packages');
 
-		return Cache::remember('packages', Config::get('registry.cache'), function() {
+		return Cache::rememberForever('packages', function() {
 			return App::make('packagist')->search('laravel');
 		});
 	}
