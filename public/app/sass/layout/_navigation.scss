@@ -18,6 +18,16 @@ $padding: 0.5rem;
 		@extend .btn;
 		padding: 0.5rem 0.75rem;
 	}
+
+	@include at-breakpoint(0 $tablet) {
+		text-align: center;
+
+		.layout-navigation__main {
+			position: static;
+			margin: 0 0 0.5rem;
+			text-align: center;
+		}
+	}
 }
 
 .layout-navigation__main {

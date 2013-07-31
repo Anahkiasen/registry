@@ -543,6 +543,13 @@ table th.sort-desc:before {
   .layout-navigation a {
     list-style-type: none;
     padding: 0.5rem 0.75rem; }
+  @media (max-width: 50em) {
+    .layout-navigation {
+      text-align: center; }
+      .layout-navigation .layout-navigation__main {
+        position: static;
+        margin: 0 0 0.5rem;
+        text-align: center; } }
 
 .layout-navigation__main {
   margin: 0;
@@ -582,8 +589,8 @@ input[type="text"].layout-search {
 
 .layout-search__reset {
   position: absolute;
-  right: 0.75rem;
-  top: 0.75rem;
+  right: 0.5rem;
+  top: 0.5rem;
   background: none;
   border: none;
   color: #869198;
