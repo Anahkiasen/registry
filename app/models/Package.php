@@ -5,6 +5,8 @@
  */
 class Package extends Eloquent
 {
+	use Traits\Keywords;
+
 	////////////////////////////////////////////////////////////////////
 	//////////////////////////// RELATIONSHIPS /////////////////////////
 	////////////////////////////////////////////////////////////////////
@@ -60,11 +62,7 @@ class Package extends Eloquent
 	 */
 	public function getRepository()
 	{
-		extract(Config::get('registry.api.github'));
-		$url    = $this->repositoryName.'?client_id=' .$id. '&client_secret='.$secret;
-		$source = Str::contains($this->repository, 'github') ? 'github' : 'bitbucket';
-
-		return $this->getFromApi($source, $url);
+		return $this->getFromApi('scm', '');
 	}
 
 	/**
@@ -74,11 +72,7 @@ class Package extends Eloquent
 	 */
 	public function getRepositoryIssues()
 	{
-		extract(Config::get('registry.api.github'));
-		$url    = $this->repositoryName.'/issues?client_id=' .$id. '&client_secret='.$secret;
-		$source = Str::contains($this->repository, 'github') ? 'github' : 'bitbucket';
-
-		return $this->getFromApi($source, $url);
+		return $this->getFromApi('scm', '/issues');
 	}
 
 	/**
@@ -121,6 +115,13 @@ class Package extends Eloquent
 	 */
 	protected function getFromApi($source, $url)
 	{
+		// Get correct source and URL for SCM
+		if ($source == 'scm') {
+			$api    = Config::get('registry.api.github');
+			$url    = $this->repositoryName.$url.'?client_id=' .$api['id']. '&client_secret='.$api['secret'];
+			$source = Str::contains($this->repository, 'github') ? 'github' : 'bitbucket';
+		}
+
 		return Cache::rememberForever($url, function() use ($source, $url) {
 			try {
 				$informations = App::make($source)->get($url)->send()->json();
@@ -159,24 +160,6 @@ class Package extends Eloquent
 		$status = array('unknown', 'failing', 'passing');
 
 		return $status[(int) $this->build_status];
-	}
-
-	/**
-	 * Get tags as an array
-	 *
-	 * @return array
-	 */
-	public function getKeywordsAttribute()
-	{
-		$keywords = $this->getOriginal('keywords');
-		$keywords = (array) json_decode($keywords, true);
-
-		// Filter out redundant keywords
-		$keywords = array_filter($keywords, function($value) {
-			return !in_array($value, array('laravel', 'illuminate', 'L4', 'Laravel 4', 'laravel4', 'laravel-4'));
-		});
-
-		return $keywords;
 	}
 
 	/**

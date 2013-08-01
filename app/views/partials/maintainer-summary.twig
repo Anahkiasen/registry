@@ -12,7 +12,7 @@
 			<dd>{{ linkRoute('maintainer', maintainer.name, maintainer.slug) }}</dd>
 
 			<dt>Packages</dt>
-			<dd>{{ maintainer.packagesNumber }} {{ Str_plural('package', maintainer.packagesNumber) }} ({{ maintainer.popularity }} popularity)</dd>
+			<dd>{{ maintainer.packages.count }} {{ Str_plural('package', maintainer.packages.count) }} ({{ maintainer.popularity }} popularity)</dd>
 
 			<dt>Mail</dt>
 			<dd>{{ HTML_mailto(maintainer.email) }}</dd>

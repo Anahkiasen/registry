@@ -1,6 +1,9 @@
 <?php
 namespace Traits;
 
+/**
+ * A model that has a gravatar
+ */
 trait Gravatar
 {
 	/**

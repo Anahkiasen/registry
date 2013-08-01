@@ -76,16 +76,6 @@ class Maintainer extends Eloquent implements UserInterface
 	}
 
 	/**
-	 * Get number of packages
-	 *
-	 * @return integer
-	 */
-	public function getPackagesNumberAttribute()
-	{
-		return sizeof($this->packages);
-	}
-
-	/**
 	 * Get the Maintainer as a string
 	 *
 	 * @return string
