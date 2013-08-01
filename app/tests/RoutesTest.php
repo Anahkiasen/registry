@@ -75,5 +75,3 @@ class RoutesTest extends TestCase
 		$this->failed[$route] = sprintf($message, $route);
 	}
 }
-
-

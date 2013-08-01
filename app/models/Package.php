@@ -1,6 +1,4 @@
 <?php
-use Carbon\Carbon;
-use Guzzle\Http\Exception\ClientErrorResponseException;
 
 /**
  * A Package in the registry
