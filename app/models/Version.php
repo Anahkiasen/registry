@@ -5,5 +5,5 @@
  */
 class Version extends Eloquent
 {
-	use Traits\Keywords;
+	use Traits\HasKeywords;
 }
