@@ -37,7 +37,7 @@ class SeedPackages extends DatabaseSeeder
 	 */
 	public function run()
 	{
-		DB::truncate('packages');
+		DB::table('packages')->truncate();
 
 		$packages = $this->getPackages();
 		foreach ($packages as $key => $package) {

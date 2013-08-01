@@ -8,7 +8,8 @@ class SeedMaintainers extends DatabaseSeeder
 	 */
 	public function run()
 	{
-		DB::truncate('maintainers');
+		DB::table('maintainers')->truncate();
+		DB::table('maintainer_package')->truncate();
 
 		$packages = Package::with('maintainers')->get();
 

@@ -9,7 +9,7 @@ class SeedVersions extends DatabaseSeeder
 	 */
 	public function run()
 	{
-		DB::truncate('versions');
+		DB::table('versions')->truncate();
 
 		$packages = Package::all();
 		foreach ($packages as $package) {
