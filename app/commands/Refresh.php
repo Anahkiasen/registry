@@ -20,16 +20,6 @@ class Refresh extends Command
 	protected $description = 'Refresh registry';
 
 	/**
-	 * Create a new command instance.
-	 *
-	 * @return void
-	 */
-	public function __construct()
-	{
-		parent::__construct();
-	}
-
-	/**
 	 * Execute the console command.
 	 *
 	 * @return void
