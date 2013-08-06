@@ -1,9 +1,26 @@
 <?php
-use Registry\Maintainer;
 use Registry\Package;
+use Registry\Repositories\MaintainersRepository;
 
 class SeedMaintainers extends DatabaseSeeder
 {
+	/**
+	 * The Maintainers Repository
+	 *
+	 * @var MaintainersRepository
+	 */
+	protected $maintainers;
+
+	/**
+	 * Build the seed
+	 *
+	 * @param MaintainersRepository $maintainers
+	 */
+	public function __construct(MaintainersRepository $maintainers)
+	{
+		$this->maintainers = $maintainers;
+	}
+
 	/**
 	 * Seed the packages
 	 *
@@ -35,21 +52,12 @@ class SeedMaintainers extends DatabaseSeeder
 	 */
 	protected function getExisting($maintainer)
 	{
-		$name = array_get($maintainer, 'name');
-		$existingMaintainer = Maintainer::whereName($name)->first();
-
-		// Create model if it doesn't already
-		if (!$existingMaintainer) {
-			$existingMaintainer = Maintainer::create(array(
-				'name'     => $name,
-				'slug'     => Str::slug($name),
-				'email'    => array_get($maintainer, 'email'),
-				'homepage' => array_get($maintainer, 'homepage'),
-				'github'   => 'http://github.com/'.$name,
-			));
-			$existingMaintainer->touch();
-		}
-
-		return $existingMaintainer;
+		return $this->maintainers->findOrCreate(array(
+			'name'     => $name,
+			'slug'     => Str::slug($name),
+			'email'    => array_get($maintainer, 'email'),
+			'homepage' => array_get($maintainer, 'homepage'),
+			'github'   => 'http://github.com/'.$name,
+		));
 	}
 }

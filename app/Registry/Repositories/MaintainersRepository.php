@@ -61,6 +61,26 @@ class MaintainersRepository
 	}
 
 	/**
+	 * Find or create a Maintainer by its attributes
+	 *
+	 * @param  array $maintainer
+	 *
+	 * @return Maintainer
+	 */
+	public function findOrCreate($maintainer)
+	{
+		$name = array_get($maintainer, 'name');
+		$existingMaintainer = $this->lookup($name);
+
+		// Create model if it doesn't already
+		if (!$existingMaintainer) {
+			$existingMaintainer = $this->create($maintainer)->touch();
+		}
+
+		return $existingMaintainer;
+	}
+
+	/**
 	 * Lookup an user by name
 	 *
 	 * @param  string $name

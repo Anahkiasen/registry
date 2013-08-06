@@ -109,17 +109,14 @@ class MaintainersAuth
 	 */
 	public function getOrCreateMaintainer(array $user)
 	{
-		$maintainer = $this->maintainers->lookup($user['login']);
-		if (!$maintainer) {
-			$maintainer = $this->maintainers->create(array(
-				'name'     => $user['login'],
-				'slug'     => Str::slug($user['login']),
-				'email'    => $user['email'],
-				'github'   => $user['html_url'],
-				'homepage' => $user['blog'],
-			));
-		}
+		$attributes = array(
+			'name'     => $user['login'],
+			'slug'     => Str::slug($user['login']),
+			'email'    => $user['email'],
+			'github'   => $user['html_url'],
+			'homepage' => $user['blog'],
+		);
 
-		return $maintainer;
+		return $this->maintainers->findOrCreate($attributes);
 	}
 }

@@ -4,7 +4,6 @@ use Registry\Package;
 
 class SeedVersions extends DatabaseSeeder
 {
-
 	/**
 	 * Seed versions
 	 *
@@ -52,5 +51,4 @@ class SeedVersions extends DatabaseSeeder
 
 		return array_values($versions);
 	}
-
 }
