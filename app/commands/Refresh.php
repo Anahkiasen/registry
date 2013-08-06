@@ -49,7 +49,7 @@ class Refresh extends Command
 		system('git push origin master');
 
 		// Send it over
-		$this->call('deploy:update');
+		$this->call('deploy:deploy');
 	}
 
 	/**
