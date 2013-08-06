@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "99a7a96891ed850c03930a1006267ee2",
+    "hash": "9bf17b77b3adc4fa5f5761ca56a0eea7",
     "packages": [
         {
             "name": "anahkiasen/flatten",
@@ -579,12 +579,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "2a7f59c1ecc62d828edf012f344ca44acdbe3c75"
+                "reference": "aa6be84b2804ce0d7f56a5d52693f983656d5eb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/2a7f59c1ecc62d828edf012f344ca44acdbe3c75",
-                "reference": "2a7f59c1ecc62d828edf012f344ca44acdbe3c75",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/aa6be84b2804ce0d7f56a5d52693f983656d5eb8",
+                "reference": "aa6be84b2804ce0d7f56a5d52693f983656d5eb8",
                 "shasum": ""
             },
             "require": {
@@ -641,7 +641,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2013-08-03 15:29:12"
+            "time": "2013-08-06 21:51:07"
         },
         {
             "name": "doctrine/inflector",

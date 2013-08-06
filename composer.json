@@ -1,7 +1,11 @@
 {
-	"name": "laravel/laravel",
-	"description": "The Laravel Framework.",
-	"keywords": ["framework", "laravel"],
+	"name": "anahkiasen/registry",
+	"description": "The Laravel Packages Registry",
+	"license": "CC-BY-NC-ND-3.0",
+	"keywords": [
+		"laravel",
+		"packages"
+	],
 	"require": {
 		"laravel/framework": "4.1.*",
 		"anahkiasen/flatten": "dev-master",
