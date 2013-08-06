@@ -2,6 +2,7 @@
 namespace Registry\Services;
 
 use Config;
+use Exception;
 use Guzzle\Http\Client as Guzzle;
 use Illuminate\Support\Str;
 use Registry\Repositories\MaintainersRepository;

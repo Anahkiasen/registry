@@ -29,7 +29,7 @@ Route::post('package/{package}', 'PackagesController@comment');
 
 // Maintainers
 Route::get('maintainers',       'MaintainersController@index');
-Route::get('maintainer/{slug}', ['as' => 'maintainer', 'uses' => 'MaintainersController@maintainer']);
+Route::get('maintainer/{maintainer}', ['as' => 'maintainer', 'uses' => 'MaintainersController@maintainer']);
 Route::get('maintainers/confirm', 'MaintainersController@confirm');
 Route::get('maintainers/logout',  'MaintainersController@logout');
 
