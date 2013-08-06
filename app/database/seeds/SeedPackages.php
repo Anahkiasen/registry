@@ -1,5 +1,4 @@
 <?php
-use Carbon\Carbon;
 use Packagist\Api\Client as Packagist;
 use Registry\Abstracts\AbstractSeeder;
 use Registry\Package;

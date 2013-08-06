@@ -101,11 +101,9 @@ class IndexesComputer
 		// Compute indexes
 		foreach ($this->packages->all() as $package) {
 			foreach ($ceilings as $index => $value) {
-				if ($index == 'freshness') {
-					$indexes[$index] = (($package->$index * 100 / -$value) + 100) * $weights[$index];
-				} else {
-					$indexes[$index] = ($package->$index * 100 / $value) * $weights[$index];
-				}
+				$indexes[$index] = ($index == 'freshness')
+					? (($package->$index * 100 / -$value) + 100) * $weights[$index]
+					: $indexes[$index] = ($package->$index * 100 / $value) * $weights[$index];
 			}
 
 			// Round and save

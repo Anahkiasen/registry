@@ -5,7 +5,6 @@ use Symfony\Component\Console\Input\InputArgument;
 
 class Refresh extends Command
 {
-
 	/**
 	 * The console command name.
 	 *
@@ -30,13 +29,9 @@ class Refresh extends Command
 		if ($package = $this->argument('package')) {
 			if (Str::contains($package, '/')) {
 				return $this->refreshPackage($this->argument('package'));
-			} else {
-				$packages = Package::where('name', 'LIKE', '%' .$package. '%')->get();
-				foreach ($packages as $package) {
-					$this->refreshPackage($package);
-				}
-				return true;
 			}
+
+			return $this->refreshVendor($package);
 		}
 
 		// Clear cache
@@ -68,6 +63,21 @@ class Refresh extends Command
 	////////////////////////////////////////////////////////////////////
 	///////////////////////////// CORE METHODS /////////////////////////
 	////////////////////////////////////////////////////////////////////
+
+	/**
+	 * Refresh a vendor
+	 *
+	 * @param  string $vendor
+	 *
+	 * @return void
+	 */
+	protected function refreshVendor($vendor)
+	{
+		$packages = Package::where('name', 'LIKE', '%' .$vendor. '%')->get();
+		foreach ($packages as $package) {
+			$this->refreshPackage($package);
+		}
+	}
 
 	/**
 	 * Refresh a package in particular
