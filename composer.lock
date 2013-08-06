@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "a2761c74037342621659f50f493cfdba",
+    "hash": "99a7a96891ed850c03930a1006267ee2",
     "packages": [
         {
             "name": "anahkiasen/flatten",
@@ -59,12 +59,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/former.git",
-                "reference": "7b4e61850716af17ea75472ef254f28d9b54a0cb"
+                "reference": "3.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/former/zipball/7b4e61850716af17ea75472ef254f28d9b54a0cb",
-                "reference": "7b4e61850716af17ea75472ef254f28d9b54a0cb",
+                "url": "https://api.github.com/repos/Anahkiasen/former/zipball/3.1.0",
+                "reference": "3.1.0",
                 "shasum": ""
             },
             "require": {
@@ -110,7 +110,7 @@
                 "foundation",
                 "laravel"
             ],
-            "time": "2013-07-31 17:10:40"
+            "time": "2013-08-05 14:51:00"
         },
         {
             "name": "anahkiasen/html-object",
@@ -118,12 +118,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/html-object.git",
-                "reference": "84d3b1266865e054ef33e24b9eee08aa3dd29c21"
+                "reference": "0b63e3cd3c7334a2cf19c35c63be9a37341fef56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/html-object/zipball/84d3b1266865e054ef33e24b9eee08aa3dd29c21",
-                "reference": "84d3b1266865e054ef33e24b9eee08aa3dd29c21",
+                "url": "https://api.github.com/repos/Anahkiasen/html-object/zipball/0b63e3cd3c7334a2cf19c35c63be9a37341fef56",
+                "reference": "0b63e3cd3c7334a2cf19c35c63be9a37341fef56",
                 "shasum": ""
             },
             "require": {
@@ -132,7 +132,7 @@
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "HtmlObject": "src/"
+                    "HtmlObject": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -146,7 +146,7 @@
                 }
             ],
             "description": "A set of classes to create and manipulate HTML objects abstractions",
-            "time": "2013-07-29 14:47:43"
+            "time": "2013-08-06 01:04:46"
         },
         {
             "name": "anahkiasen/rocketeer",
@@ -154,26 +154,30 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/rocketeer.git",
-                "reference": "cdc6e6f6dec30e70d26c9fc4eaf31d832eed6064"
+                "reference": "8bcd29a27852a29eff1863d2070e1482181a945d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/cdc6e6f6dec30e70d26c9fc4eaf31d832eed6064",
-                "reference": "cdc6e6f6dec30e70d26c9fc4eaf31d832eed6064",
+                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/8bcd29a27852a29eff1863d2070e1482181a945d",
+                "reference": "8bcd29a27852a29eff1863d2070e1482181a945d",
                 "shasum": ""
             },
             "require": {
+                "illuminate/config": "~4",
+                "illuminate/console": "~4",
+                "illuminate/container": "~4",
+                "illuminate/filesystem": "~4",
                 "illuminate/support": "~4",
                 "php": ">=5.3.0"
             },
             "require-dev": {
-                "illuminate/console": "~4",
-                "illuminate/container": "~4",
-                "illuminate/filesystem": "~4",
                 "mockery/mockery": "dev-master",
                 "nesbot/carbon": "dev-master",
                 "patchwork/utf8": "dev-master"
             },
+            "bin": [
+                "rocketeer"
+            ],
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -196,7 +200,7 @@
                 "laravel",
                 "ssh"
             ],
-            "time": "2013-08-02 12:39:31"
+            "time": "2013-08-06 10:05:22"
         },
         {
             "name": "anahkiasen/underscore-php",
@@ -344,7 +348,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -414,7 +418,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -480,7 +484,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -691,7 +695,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -750,7 +754,7 @@
                     "email": "roman@code-factory.org"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -1040,7 +1044,7 @@
             "authors": [
                 {
                     "name": "Anthony Ferrara",
-                    "email": "ircmaxell@php.net",
+                    "email": "ircmaxell@ircmaxell.com",
                     "homepage": "http://blog.ircmaxell.com"
                 }
             ],
@@ -1303,12 +1307,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "a28614bcea318655c14d91e8ac874398f63f010c"
+                "reference": "a69f0f1f8d878bc7a968e58afdb7d97f0fdf882f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/a28614bcea318655c14d91e8ac874398f63f010c",
-                "reference": "a28614bcea318655c14d91e8ac874398f63f010c",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/a69f0f1f8d878bc7a968e58afdb7d97f0fdf882f",
+                "reference": "a69f0f1f8d878bc7a968e58afdb7d97f0fdf882f",
                 "shasum": ""
             },
             "require": {
@@ -1406,7 +1410,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-08-02 16:44:13"
+            "time": "2013-08-05 13:28:56"
         },
         {
             "name": "lmammino/jsmin4assetic",
@@ -1653,12 +1657,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "01123ae6af005009d1c5fd37e06130bd85aad5dc"
+                "reference": "3d467ca18ec08c5df2d5cad5c51442be148a7f21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/01123ae6af005009d1c5fd37e06130bd85aad5dc",
-                "reference": "01123ae6af005009d1c5fd37e06130bd85aad5dc",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/3d467ca18ec08c5df2d5cad5c51442be148a7f21",
+                "reference": "3d467ca18ec08c5df2d5cad5c51442be148a7f21",
                 "shasum": ""
             },
             "require": {
@@ -1689,20 +1693,20 @@
                 "parser",
                 "php"
             ],
-            "time": "2013-07-27 16:50:08"
+            "time": "2013-08-04 14:15:12"
         },
         {
             "name": "patchwork/utf8",
-            "version": "v1.1.8",
+            "version": "v1.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nicolas-grekas/Patchwork-UTF8.git",
-                "reference": "v1.1.8"
+                "reference": "v1.1.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nicolas-grekas/Patchwork-UTF8/zipball/v1.1.8",
-                "reference": "v1.1.8",
+                "url": "https://api.github.com/repos/nicolas-grekas/Patchwork-UTF8/zipball/v1.1.9",
+                "reference": "v1.1.9",
                 "shasum": ""
             },
             "require": {
@@ -1734,7 +1738,7 @@
                 "utf-8",
                 "utf8"
             ],
-            "time": "2013-05-24 12:11:22"
+            "time": "2013-08-04 15:20:14"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -2468,12 +2472,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel.git",
-                "reference": "db40d3dd68f606f8ec0e73c057594b575360c846"
+                "reference": "0c537aa5c4c3e033588a3b8268a4ee35d036fb28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/db40d3dd68f606f8ec0e73c057594b575360c846",
-                "reference": "db40d3dd68f606f8ec0e73c057594b575360c846",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/0c537aa5c4c3e033588a3b8268a4ee35d036fb28",
+                "reference": "0c537aa5c4c3e033588a3b8268a4ee35d036fb28",
                 "shasum": ""
             },
             "require": {
@@ -2530,7 +2534,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "http://symfony.com",
-            "time": "2013-08-02 23:18:34"
+            "time": "2013-08-06 05:49:23"
         },
         {
             "name": "symfony/process",
@@ -2698,12 +2702,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "0559cacfaf815af5bd11b81f88855cdf211e0736"
+                "reference": "e0fbce2fc0e7289a0c47c5fe4dbf2b9ea6c212d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/0559cacfaf815af5bd11b81f88855cdf211e0736",
-                "reference": "0559cacfaf815af5bd11b81f88855cdf211e0736",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/e0fbce2fc0e7289a0c47c5fe4dbf2b9ea6c212d2",
+                "reference": "e0fbce2fc0e7289a0c47c5fe4dbf2b9ea6c212d2",
                 "shasum": ""
             },
             "require": {
@@ -2739,7 +2743,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-08-04 06:56:55"
+            "time": "2013-08-06 05:46:34"
         }
     ],
     "packages-dev": [
@@ -2751,6 +2755,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "anahkiasen/flatten": 20,
+        "anahkiasen/former": 20,
         "anahkiasen/rocketeer": 20,
         "jasonlewis/basset": 20,
         "kevinlebrun/colors.php": 20,
@@ -2758,8 +2763,7 @@
         "lmammino/jsmin4assetic": 20,
         "loic-sharma/profiler": 20,
         "natxet/cssmin": 20,
-        "rcrowe/twigbridge": 20,
-        "anahkiasen/former": 20
+        "rcrowe/twigbridge": 20
     },
     "platform": [
 

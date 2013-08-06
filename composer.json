@@ -5,6 +5,7 @@
 	"require": {
 		"laravel/framework": "4.1.*",
 		"anahkiasen/flatten": "dev-master",
+		"anahkiasen/former": "dev-master",
 		"anahkiasen/rocketeer": "dev-develop",
 		"jasonlewis/basset": "dev-develop",
 		"kevinlebrun/colors.php": "dev-master",
@@ -12,8 +13,7 @@
 		"lmammino/jsmin4assetic": "dev-master",
 		"loic-sharma/profiler": "dev-master",
 		"natxet/CssMin": "dev-master",
-		"rcrowe/twigbridge": "dev-master",
-		"anahkiasen/former": "dev-master"
+		"rcrowe/twigbridge": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
