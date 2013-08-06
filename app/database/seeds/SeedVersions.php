@@ -1,4 +1,5 @@
 <?php
+use Carbon\Carbon;
 use Registry\Package;
 
 class SeedVersions extends DatabaseSeeder
@@ -35,7 +36,7 @@ class SeedVersions extends DatabaseSeeder
 	{
 		$versions = $package->getPackagist()->versions;
 		foreach ($versions as &$version) {
-			$time    = new Carbon\Carbon($version['time']);
+			$time    = new Carbon($version['time']);
 			$version = array(
 				'name'              => $version['name'],
 				'description'       => $version['description'],

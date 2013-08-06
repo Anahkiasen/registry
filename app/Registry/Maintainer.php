@@ -2,14 +2,14 @@
 namespace Registry;
 
 use Config;
-use Eloquent;
 use HTML;
 use Illuminate\Auth\UserInterface;
+use Registry\Abstracts\AbstractModel;
 
 /**
  * The Maintainer of a Package
  */
-class Maintainer extends Eloquent implements UserInterface
+class Maintainer extends AbstractModel implements UserInterface
 {
 	use Traits\Gravatar;
 
@@ -56,6 +56,16 @@ class Maintainer extends Eloquent implements UserInterface
 	////////////////////////////////////////////////////////////////////
 
 	/**
+	 * Get a link to the Maintainer
+	 *
+	 * @return string
+	 */
+	public function getLinkAttribute()
+	{
+		return HTML::linkRoute('maintainer', $this->name, $this->slug);
+	}
+
+	/**
 	 * Save the columns as JSON
 	 *
 	 * @param array $columns
@@ -88,15 +98,7 @@ class Maintainer extends Eloquent implements UserInterface
 	public function getPopularityAttribute()
 	{
 		// Get all packages with a decent popularity
-		$packages   = array_pluck($this->packages->toArray(), 'popularity');
-		$popularity = array_filter($packages, function($package) {
-			return $package > 0.5;
-		});
-
-		// Cancel fitler if empty
-		if (empty($popularity)) {
-			$popularity = $packages;
-		}
+		$popularity = $this->packages->lists('popularity');
 
 		// Compute average popularity
 		$popularity = array_sum($popularity) / sizeof($popularity);
@@ -112,6 +114,6 @@ class Maintainer extends Eloquent implements UserInterface
 	 */
 	public function __toString()
 	{
-		return HTML::linkRoute('maintainer', $this->name, $this->slug);
+		return $this->link;
 	}
 }

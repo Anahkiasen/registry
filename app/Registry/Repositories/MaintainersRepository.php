@@ -20,7 +20,7 @@ class MaintainersRepository
 	 *
 	 * @param Maintainer $maintainers
 	 */
-	function __construct(Maintainer $maintainers)
+	public function __construct(Maintainer $maintainers)
 	{
 		$this->maintainers = $maintainers;
 	}

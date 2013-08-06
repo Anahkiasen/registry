@@ -74,7 +74,7 @@ class PackagesController extends BaseController
 	public function comment($slug)
 	{
 		$input      = Input::only('content');
-		$validation = $this->comments->createFromInput($input);
+		$validation = $this->comments->createFromInput($input, $slug);
 		if (!$validation) {
 			return Redirect::back()->withInput()->withErrors($validation);
 		}

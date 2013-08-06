@@ -20,7 +20,7 @@ class PackagesRepository
 	 *
 	 * @param Package $packages
 	 */
-	function __construct(Package $packages)
+	public function __construct(Package $packages)
 	{
 		$this->packages = $packages;
 	}

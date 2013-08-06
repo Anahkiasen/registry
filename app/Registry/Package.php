@@ -1,16 +1,13 @@
 <?php
 namespace Registry;
 
-use App;
-use Cache;
-use Config;
-use Eloquent;
-use Str;
+use Registry\Abstracts\AbstractModel;
+use Registry\Services\PackagesEndpoints;
 
 /**
  * A Package in the registry
  */
-class Package extends Eloquent
+class Package extends AbstractModel
 {
 	use Traits\HasKeywords;
 
@@ -113,31 +110,16 @@ class Package extends Eloquent
 	}
 
 	/**
-	 * Get informations from an API
+	 * Get a PackagesEndpoints Service
 	 *
-	 * @param  string $source       Source
-	 * @param  string $url          The endpoint
+	 * @param  string $source
+	 * @param  string $url
 	 *
-	 * @return array
+	 * @return PackagesEndpoints
 	 */
 	protected function getFromApi($source, $url)
 	{
-		// Get correct source and URL for SCM
-		if ($source == 'scm') {
-			$api    = Config::get('registry.api.github');
-			$url    = $this->repositoryName.$url.'?client_id=' .$api['id']. '&client_secret='.$api['secret'];
-			$source = Str::contains($this->repository, 'github') ? 'github' : 'bitbucket';
-		}
-
-		return Cache::rememberForever($url, function() use ($source, $url) {
-			try {
-				$informations = App::make($source)->get($url)->send()->json();
-			} catch (Exception $e) {
-				$informations = array();
-			}
-
-			return $informations;
-		});
+		return App::make('packages.endpoints')->getFromApi($this, $source, $url);
 	}
 
 	////////////////////////////////////////////////////////////////////
@@ -151,10 +133,9 @@ class Package extends Eloquent
 	 */
 	public function getRepositoryNameAttribute()
 	{
-		$name = explode('/', $this->repository);
-		$name = $name[3].'/'.$name[4];
+		list($package, $vendor) = array_reverse(explode('/', $this->repository));
 
-		return $name;
+		return $vendor.'/'.$package;
 	}
 
 	/**
@@ -176,12 +157,7 @@ class Package extends Eloquent
 	 */
 	public function getMaintainersListAttribute()
 	{
-		$list = array();
-		foreach ($this->maintainers as $maintainer) {
-			$list[] = $maintainer->__toString();
-		}
-
-		return implode(', ', $list);
+		return $this->maintainers->implode('link', ', ');
 	}
 
 	/**

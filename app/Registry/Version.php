@@ -1,12 +1,12 @@
 <?php
 namespace Registry;
 
-use Eloquent;
+use Registry\Abstracts\AbstractModel;
 
 /**
  * A Package's Version
  */
-class Version extends Eloquent
+class Version extends AbstractModel
 {
 	use Traits\HasKeywords;
 }

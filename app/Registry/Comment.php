@@ -1,12 +1,12 @@
 <?php
 namespace Registry;
 
-use Eloquent;
+use Registry\Abstracts\AbstractModel;
 
 /**
  * A Comment on a Package
  */
-class Comment extends Eloquent
+class Comment extends AbstractModel
 {
 	/**
 	 * The attributes that are mass assignable.
