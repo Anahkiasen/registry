@@ -40,7 +40,7 @@ class Refresh extends Command
 		}
 
 		// Clear cache
-		if (DB::table('versions')->first()) {
+		if ($this->laravel['db']->table('versions')->first()) {
 			$this->call('cache:clear');
 		}
 
@@ -87,12 +87,14 @@ class Refresh extends Command
 
 		$this->info('Refreshing package '.$package->name);
 
-		Cache::forget($package->name.'-packagist');
-		Cache::forget($package->name.'-repository');
-		Cache::forget($package->name.'-repository-issues');
-		Cache::forget($package->travis.'-travis');
-		Cache::forget($package->travis.'-travis-builds');
+		// Forget caches related to the Package
+		$this->laravel['cache']->forget($package->name.'-packagist');
+		$this->laravel['cache']->forget($package->name.'-repository');
+		$this->laravel['cache']->forget($package->name.'-repository-issues');
+		$this->laravel['cache']->forget($package->travis.'-travis');
+		$this->laravel['cache']->forget($package->travis.'-travis-builds');
 
+		// Recompute statistics
 		$seeder = new SeedPackages;
 		$seeder->hydrateStatistics($package);
 		$seeder->computeAllIndexes();

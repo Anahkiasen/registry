@@ -3,6 +3,9 @@ namespace Registry\Abstracts;
 
 use Eloquent;
 
+/**
+ * An abstract model that consider mutators as set
+ */
 abstract class AbstractModel extends Eloquent
 {
 	/**

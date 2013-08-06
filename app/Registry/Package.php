@@ -2,6 +2,7 @@
 namespace Registry;
 
 use App;
+use Illuminate\Support\Collection;
 use Registry\Abstracts\AbstractModel;
 use Registry\Services\PackagesEndpoints;
 
@@ -57,7 +58,7 @@ class Package extends AbstractModel
 	 */
 	public function getPackagist()
 	{
-		return (object) $this->getFromApi('guzzle', '/packages/'.$this->name.'.json')['package'];
+		return $this->getFromApi('guzzle', '/packages/'.$this->name.'.json')['package'];
 	}
 
 	/**
@@ -120,7 +121,9 @@ class Package extends AbstractModel
 	 */
 	protected function getFromApi($source, $url)
 	{
-		return App::make('packages.endpoints')->getFromApi($this, $source, $url);
+		$data = App::make('packages.endpoints')->getFromApi($this, $source, $url);
+
+		return new Collection($data);
 	}
 
 	////////////////////////////////////////////////////////////////////

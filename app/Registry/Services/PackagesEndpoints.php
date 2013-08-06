@@ -56,9 +56,7 @@ class PackagesEndpoints
 	{
 		// Get correct source and URL for SCM
 		if ($source == 'scm') {
-			$api    = $this->app['config']->get('registry.api.github');
-			$url    = $package->repositoryName.$url.'?client_id=' .$api['id']. '&client_secret='.$api['secret'];
-			$source = Str::contains($package->repository, 'github') ? 'github' : 'bitbucket';
+			list($source, $url) = $this->getScmEndpoint($package, $url);
 		}
 
 		return $this->app['cache']->rememberForever($url, function() use ($source, $url) {
@@ -70,6 +68,23 @@ class PackagesEndpoints
 
 			return $informations;
 		});
+	}
+
+	/**
+	 * Get the correct SCM endpoint
+	 *
+	 * @param  Package $package
+	 * @param  string  $url
+	 *
+	 * @return array
+	 */
+	protected function getScmEndpoint(Package $package, $url)
+	{
+		$api    = $this->app['config']->get('registry.api.github');
+		$url    = sprintf('%s%?client_id=%s&client_secret%s', $package->repositoryName, $url, $api['id'], $api['secret']);
+		$source = Str::contains($package->repository, 'github') ? 'github' : 'bitbucket';
+
+		return [$source, $url];
 	}
 
 	/**

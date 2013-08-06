@@ -15,68 +15,76 @@ trait Colorizer
 	/**
 	 * Print an info
 	 *
-	 * @param  string $message
+	 * @param  string $color
 	 *
 	 * @return string
 	 */
-	public function line($message)
+	public function line()
 	{
-		print $message.PHP_EOL;
+		print call_user_func_array('sprintf', func_get_args()).PHP_EOL;
 	}
 
 	/**
 	 * Print an info
 	 *
-	 * @param  string $message
-	 *
 	 * @return string
 	 */
-	public function success($message)
+	public function success()
 	{
-		$colors = new Color;
-
-		$this->line($colors($message)->green);
+		return $this->colorize('green', func_get_args());
 	}
 
 	/**
 	 * Print an info
 	 *
-	 * @param  string $message
-	 *
 	 * @return string
 	 */
-	public function info($message)
+	public function info()
 	{
-		$colors = new Color;
-
-		$this->line($colors($message)->blue);
+		return $this->colorize('blue', func_get_args());
 	}
 
 	/**
 	 * Print an error
 	 *
-	 * @param  string $message
-	 *
 	 * @return string
 	 */
-	public function error($message)
+	public function error()
 	{
-		$colors = new Color;
-
-		$this->line($colors($message)->red);
+		return $this->colorize('red', func_get_args());
 	}
 
 	/**
 	 * Print a comment
 	 *
-	 * @param  string $message
-	 *
 	 * @return string
 	 */
-	public function comment($message)
+	public function comment()
 	{
-		$colors = new Color;
+		return $this->colorize('yellow', func_get_args());
+	}
 
-		$this->line($colors($message)->yellow);
+	////////////////////////////////////////////////////////////////////
+	/////////////////////////////// HELPERS ////////////////////////////
+	////////////////////////////////////////////////////////////////////
+
+	/**
+	 * Colorize a message
+	 *
+	 * @param  string $color
+	 *
+	 * @return void
+	 */
+	protected function colorize($color, $arguments)
+	{
+		$colors    = new Color;
+		$arguments = (array) $arguments;
+
+		// Format message
+		$message = array_shift($arguments);
+		$message = $colors($message)->$color;
+		array_unshift($arguments, $message);
+
+		return call_user_func_array([$this, 'line'], $arguments);
 	}
 }

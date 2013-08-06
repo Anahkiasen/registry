@@ -1,7 +1,7 @@
 <?php
 use Carbon\Carbon;
-use Registry\Package;
 use Registry\Abstracts\AbstractSeeder;
+use Registry\Package;
 
 class SeedVersions extends AbstractSeeder
 {
@@ -33,19 +33,19 @@ class SeedVersions extends AbstractSeeder
 	 */
 	protected function getPackageVersions(Package $package)
 	{
-		$versions = $package->getPackagist()->versions;
+		$versions = $package->getPackagist()['versions'];
 		foreach ($versions as &$version) {
 			$time    = new Carbon($version['time']);
 			$version = array(
-				'name'              => $version['name'],
-				'description'       => $version['description'],
-				'keywords'          => json_encode($version['keywords']),
-				'homepage'          => $version['homepage'],
-				'version'           => $version['version'],
+				'name'        => $version['name'],
+				'description' => $version['description'],
+				'keywords'    => json_encode($version['keywords']),
+				'homepage'    => $version['homepage'],
+				'version'     => $version['version'],
 
-				'created_at' => $time->toDateTimeString(),
-				'updated_at' => $time->toDateTimeString(),
-				'package_id' => $package->id,
+				'created_at'  => $time->toDateTimeString(),
+				'updated_at'  => $time->toDateTimeString(),
+				'package_id'  => $package->id,
 			);
 		}
 

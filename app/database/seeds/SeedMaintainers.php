@@ -1,6 +1,6 @@
 <?php
-use Registry\Package;
 use Registry\Abstracts\AbstractSeeder;
+use Registry\Package;
 
 class SeedMaintainers extends AbstractSeeder
 {
@@ -14,7 +14,7 @@ class SeedMaintainers extends AbstractSeeder
 		$this->maintainers->flush();
 
 		foreach ($this->packages->all() as $package) {
-			$maintainers = $package->getPackagist()->maintainers;
+			$maintainers = $package->getPackagist()['maintainers'];
 			foreach ($maintainers as &$maintainer) {
 				$maintainer = $this->getExisting($maintainer)->id;
 			}

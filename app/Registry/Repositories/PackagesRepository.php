@@ -27,6 +27,34 @@ class PackagesRepository extends AbstractRepository
 	}
 
 	////////////////////////////////////////////////////////////////////
+	////////////////////////////// STATISTICS //////////////////////////
+	////////////////////////////////////////////////////////////////////
+
+	/**
+	 * Get the minimal value for an attribute
+	 *
+	 * @param  string $attribute
+	 *
+	 * @return integer
+	 */
+	public function min($attribute)
+	{
+		return $this->entries->whereType('package')->min($attribute);
+	}
+
+	/**
+	 * Get the maximal value for an attribute
+	 *
+	 * @param  string $attribute
+	 *
+	 * @return integer
+	 */
+	public function max($attribute)
+	{
+		return $this->entries->whereType('package')->max($attribute);
+	}
+
+	////////////////////////////////////////////////////////////////////
 	//////////////////////////// GLOBAL QUERIES ////////////////////////
 	////////////////////////////////////////////////////////////////////
 
