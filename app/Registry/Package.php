@@ -1,4 +1,11 @@
 <?php
+namespace Registry;
+
+use App;
+use Cache;
+use Config;
+use Eloquent;
+use Str;
 
 /**
  * A Package in the registry
@@ -18,7 +25,7 @@ class Package extends Eloquent
 	 */
 	public function maintainers()
 	{
-		return $this->belongsToMany('Maintainer');
+		return $this->belongsToMany('Registry\Maintainer');
 	}
 
 	/**
@@ -28,7 +35,7 @@ class Package extends Eloquent
 	 */
 	public function versions()
 	{
-		return $this->hasMany('Version')->latest();
+		return $this->hasMany('Registry\Version')->latest();
 	}
 
 	/**
@@ -38,7 +45,7 @@ class Package extends Eloquent
 	 */
 	public function comments()
 	{
-		return $this->hasMany('Comment');
+		return $this->hasMany('Registry\Comment');
 	}
 
 	////////////////////////////////////////////////////////////////////

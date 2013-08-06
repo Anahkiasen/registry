@@ -1,4 +1,9 @@
 <?php
+namespace Registry;
+
+use Config;
+use Eloquent;
+use HTML;
 use Illuminate\Auth\UserInterface;
 
 /**
@@ -19,7 +24,7 @@ class Maintainer extends Eloquent implements UserInterface
 	 */
 	public function packages()
 	{
-		return $this->belongsToMany('Package')->popular();
+		return $this->belongsToMany('Registry\Package')->popular();
 	}
 
 	////////////////////////////////////////////////////////////////////

@@ -1,4 +1,7 @@
 <?php
+namespace Registry;
+
+use Eloquent;
 
 /**
  * A Package's Version

@@ -1,5 +1,5 @@
 <?php
-namespace Traits;
+namespace Registry\Traits;
 
 /**
  * A model that has a gravatar

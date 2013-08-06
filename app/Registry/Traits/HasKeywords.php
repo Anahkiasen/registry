@@ -1,11 +1,21 @@
 <?php
-namespace Traits;
+namespace Registry\Traits;
 
 /**
  * A model with JSONified keywords
  */
 trait HasKeywords
 {
+	/**
+	 * Save keywords as JSON
+	 *
+	 * @param array $keywords
+	 */
+	public function setKeywordsAttribute($keywords)
+	{
+		$this->attributes['keywords'] = json_encode($keywords);
+	}
+
 	/**
 	 * Get keywords as an array
 	 *

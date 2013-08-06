@@ -1,5 +1,6 @@
 <?php
-use Guzzle\Http\Client as Guzzle;
+use Registry\Repositories\MaintainersRepository;
+use Registry\Services\MaintainersAuth;
 
 /**
  * Controller for Maintainers
@@ -7,19 +8,39 @@ use Guzzle\Http\Client as Guzzle;
 class MaintainersController extends BaseController
 {
 	/**
+	 * The maintainers repository
+	 *
+	 * @var MaintainersRepository
+	 */
+	protected $maintainers;
+
+	/**
+	 * The MaintainersAuth instance
+	 *
+	 * @var MaintainersAuth
+	 */
+	protected $maintainersAuth;
+
+	/**
+	 * Build a new maintainersController
+	 *
+	 * @param Maintainer $maintainers The maintainers Repository
+	 */
+	public function __construct(MaintainersRepository $maintainers, MaintainersAuth $maintainersAuth)
+	{
+		$this->maintainers     = $maintainers;
+		$this->maintainersAuth = $maintainersAuth;
+	}
+
+	/**
 	 * Display all maintainers
 	 *
 	 * @return View
 	 */
 	public function index()
 	{
-		$maintainers = Maintainer::with('packages.versions')->get();
-		$maintainers = array_sort($maintainers, function($maintainer) {
-			return $maintainer->popularity * -1;
-		});
-
 		return View::make('maintainers', array(
-			'maintainers' => $maintainers,
+			'maintainers' => $this->maintainers->all(),
 		));
 	}
 
@@ -32,10 +53,8 @@ class MaintainersController extends BaseController
 	 */
 	public function maintainer($slug)
 	{
-		$maintainer = Maintainer::with('packages.versions')->whereSlug($slug)->firstOrFail();
-
 		return View::make('maintainer', array(
-			'maintainer' => $maintainer,
+			'maintainer' => $this->maintainers->findBySlug($slug),
 		));
 	}
 
@@ -50,46 +69,15 @@ class MaintainersController extends BaseController
 	 */
 	public function confirm()
 	{
-		$code   = Input::get('code');
-		$github = Config::get('registry.api.github');
-		$guzzle = new Guzzle;
-		$guzzle->setDefaultOption('headers', ['Accept' => 'application/json']);
+		$code  = Input::get('code');
 
-		// Get token
-		$request = clone $guzzle->setBaseUrl('https://github.com');
-		$request = $request->post('/login/oauth/access_token')->addPostFields(array(
-			'client_id'     => $github['id'],
-			'client_secret' => $github['secret'],
-			'code'          => $code,
-		));
-		$request = $request->send()->json();
+		// Auth process
+		$token      = $this->maintainersAuth->getAccessToken($code);
+		$user       = $this->maintainersAuth->getUserInformations($token);
+		$maintainer = $this->maintainersAuth->getOrCreateMaintainer($user);
 
-		// Cancel if error
-		if (!isset($request['access_token'])) {
-			return Redirect::to('/');
-		}
-
-		// Get User informations
-		$api = clone $guzzle->setBaseUrl('https://api.github.com');
-		$user = $api->get('/user');
-		$user->getQuery()->merge(array(
-			'client_id'     => $github['id'],
-			'client_secret' => $github['secret'],
-			'access_token'  => $request['access_token'],
-		));
-		$user = $user->send()->json();
-
-		// Get existing User
-		$user = Maintainer::whereName($user['login'])->first() ?: Maintainer::create([
-			'name'     => $user['login'],
-			'slug'     => Str::slug($user['login']),
-			'email'    => $user['email'],
-			'github'   => $user['html_url'],
-			'homepage' => $user['blog'],
-		]);
-
-		// Log in user
-		Auth::login($user);
+		// Log in Maintainer
+		Auth::login($maintainer);
 
 		return Redirect::to('/');
 	}

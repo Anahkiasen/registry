@@ -1,10 +1,38 @@
 <?php
+use Registry\Repositories\PackagesRepository;
+use Registry\Services\CommentServices;
 
 /**
  * Controller for Packages
  */
 class PackagesController extends BaseController
 {
+	/**
+	 * The Packages repository
+	 *
+	 * @var PackagesRepository
+	 */
+	protected $packages;
+
+	/**
+	 * The Comments services
+	 *
+	 * @var CommentServices
+	 */
+	protected $comments;
+
+	/**
+	 * Build a new PackagesController
+	 *
+	 * @param PackagesRepository $packages The Packages Repository
+	 * @param CommentServices    $comments
+	 */
+	public function __construct(PackagesRepository $packages, CommentServices $comments)
+	{
+		$this->packages = $packages;
+		$this->comments = $comments;
+	}
+
 	/**
 	 * Get all packages
 	 *
@@ -14,11 +42,8 @@ class PackagesController extends BaseController
 	 */
 	public function index()
 	{
-		// Fetch packages, paginated
-		$packages = Package::with('maintainers')->whereType('package')->latest('popularity')->get();
-
 		return View::make('home', array(
-			'packages' => $packages,
+			'packages' => $this->packages->all(),
 		));
 	}
 
@@ -31,18 +56,11 @@ class PackagesController extends BaseController
 	 */
 	public function package($slug)
 	{
-		// Get packages and similar packages
-		$package = Package::with('versions', 'comments.maintainer')->whereSlug($slug)->firstOrFail();
-		$similar = Package::with('versions')->similar($package)->take(5)->get();
-
-		// Sort by popularity and number of tags in common
-		$similar->sortBy(function($similarPackage) use ($package) {
-			return $similarPackage->popularity + sizeof(array_intersect($similarPackage->keywords, $package->keywords)) * -1;
-		});
+		$package = $this->packages->findBySlug($slug);
 
 		return View::make('package', array(
-			'similar' => $similar,
 			'package' => $package,
+			'similar' => $this->packages->findSimilarTo($package),
 		));
 	}
 
@@ -56,17 +74,10 @@ class PackagesController extends BaseController
 	public function comment($slug)
 	{
 		$input      = Input::only('content');
-		$validation = Validator::make($input, ['content' => 'required']);
-		if ($validation->fails()) {
+		$validation = $this->comments->createFromInput($input);
+		if (!$validation) {
 			return Redirect::back()->withInput()->withErrors($validation);
 		}
-
-		// Create comment
-		Comment::create(array(
-			'content'       => $input['content'],
-			'maintainer_id' => Auth::user()->id,
-			'package_id'    => Package::whereSlug($slug)->firstOrFail()->id,
-		));
 
 		return Redirect::action('PackagesController@package', $slug);
 	}
@@ -78,7 +89,7 @@ class PackagesController extends BaseController
 	 */
 	public function history()
 	{
-		$packages = Package::oldest()->get();
+		$packages = $this->packages->oldest();
 		$history  = array();
 		foreach ($packages as $key => $package) {
 			$date           = $package->created_at->format('Y-m');

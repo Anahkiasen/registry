@@ -1,5 +1,6 @@
 <?php
 use Carbon\Carbon;
+use Registry\Package;
 
 class SeedPackages extends DatabaseSeeder
 {
@@ -107,9 +108,9 @@ class SeedPackages extends DatabaseSeeder
 	protected function createPackageModel($package)
 	{
 		// Get type of package
-		$vendor  = explode('/', $package->getName())[0];
-		$type    = in_array($vendor, array('illuminate', 'laravel')) ? 'component' : 'package';
-		$slug    = str_replace('/', '-', $package->getName());
+		$vendor = explode('/', $package->getName())[0];
+		$type   = in_array($vendor, array('illuminate', 'laravel')) ? 'component' : 'package';
+		$slug   = str_replace('/', '-', $package->getName());
 
 		// Create model
 		$package = Package::create(array(
@@ -346,6 +347,7 @@ class SeedPackages extends DatabaseSeeder
 		$this->comment('-- Scrutinizer');
 		$package->getScrutinizer();
 
+		// Total time
 		$timer = round(microtime(true) - $this->timer, 4);
 		$final = '--- Total time : '.$timer.'s';
 

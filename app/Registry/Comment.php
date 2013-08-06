@@ -1,4 +1,7 @@
 <?php
+namespace Registry;
+
+use Eloquent;
 
 /**
  * A Comment on a Package
@@ -19,6 +22,6 @@ class Comment extends Eloquent
 	 */
 	public function maintainer()
 	{
-		return $this->belongsTo('Maintainer');
+		return $this->belongsTo('Registry\Maintainer');
 	}
 }
