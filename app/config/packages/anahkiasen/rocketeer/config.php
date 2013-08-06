@@ -68,7 +68,6 @@
 		// user uploaded data, file-based databases, etc.
 		'shared' => array(
 			'app/database/production.sqlite',
-			'app/storage/cache',
 		),
 
 		'permissions' => array(

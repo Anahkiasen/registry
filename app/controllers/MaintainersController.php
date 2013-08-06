@@ -89,7 +89,7 @@ class MaintainersController extends BaseController
 		]);
 
 		// Log in user
-		Auth::login($user, true);
+		Auth::login($user);
 
 		return Redirect::to('/');
 	}

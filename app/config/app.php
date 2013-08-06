@@ -116,11 +116,11 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
 		'Basset\BassetServiceProvider',
-		'Rocketeer\RocketeerServiceProvider',
-		// 'Flatten\FlattenServiceProvider',
-		'Profiler\ProfilerServiceProvider',
-		'TwigBridge\TwigServiceProvider',
 		'Former\FormerServiceProvider',
+		'Profiler\ProfilerServiceProvider',
+		'Rocketeer\RocketeerServiceProvider',
+		'TwigBridge\TwigServiceProvider',
+		// 'Flatten\FlattenServiceProvider',
 
 	),
 
@@ -189,8 +189,8 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 
 		'Basset'    => 'Basset\Facade',
-		'Rocketeer' => 'Rocketeer\Facades\Rocketeer',
 		'Former'    => 'Former\Facades\Former',
+		'Rocketeer' => 'Rocketeer\Facades\Rocketeer',
 
 	),
 
