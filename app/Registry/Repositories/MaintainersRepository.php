@@ -1,19 +1,21 @@
 <?php
 namespace Registry\Repositories;
 
+use DB;
 use Registry\Maintainer;
+use Registry\Abstracts\AbstractRepository;
 
 /**
 * The Maintainers Repository
 */
-class MaintainersRepository
+class MaintainersRepository extends AbstractRepository
 {
 	/**
 	 * The base Model
 	 *
 	 * @var Maintainer
 	 */
-	protected $maintainers;
+	protected $entries;
 
 	/**
 	 * Build a new Maintainers Repository
@@ -22,7 +24,7 @@ class MaintainersRepository
 	 */
 	public function __construct(Maintainer $maintainers)
 	{
-		$this->maintainers = $maintainers;
+		$this->entries = $maintainers;
 	}
 
 	////////////////////////////////////////////////////////////////////
@@ -36,12 +38,22 @@ class MaintainersRepository
 	 */
 	public function all()
 	{
-		$maintainers = $this->maintainers->with('packages.versions')->get();
+		$maintainers = $this->entries->with('packages.versions')->get();
 		$maintainers = array_sort($maintainers, function($maintainer) {
 			return $maintainer->popularity * -1;
 		});
 
 		return $maintainers;
+	}
+
+	/**
+	 * Flush all Maintainers
+	 *
+	 * @return boolean
+	 */
+	public function flush()
+	{
+		return parent::flush() and DB::table('maintainer_package')->truncate();
 	}
 
 	////////////////////////////////////////////////////////////////////
@@ -57,7 +69,7 @@ class MaintainersRepository
 	 */
 	public function findBySlug($slug)
 	{
-		return $this->maintainers->with('packages.versions')->whereSlug($slug)->firstOrFail();
+		return $this->entries->with('packages.versions')->whereSlug($slug)->firstOrFail();
 	}
 
 	/**
@@ -89,22 +101,6 @@ class MaintainersRepository
 	 */
 	public function lookup($name)
 	{
-		return $this->maintainers->whereName($name)->first();
-	}
-
-	////////////////////////////////////////////////////////////////////
-	///////////////////////////// MODEL FLOW ///////////////////////////
-	////////////////////////////////////////////////////////////////////
-
-	/**
-	 * Return an instance of Maintainer
-	 *
-	 * @param  array  $attributes
-	 *
-	 * @return Maintainer
-	 */
-	public function create(array $attributes)
-	{
-		return $this->maintainers->create($attributes);
+		return $this->entries->whereName($name)->first();
 	}
 }

@@ -2,18 +2,19 @@
 namespace Registry\Repositories;
 
 use Registry\Package;
+use Registry\Abstracts\AbstractRepository;
 
 /**
 * The Packages Repository
 */
-class PackagesRepository
+class PackagesRepository extends AbstractRepository
 {
 	/**
 	 * The base Model
 	 *
 	 * @var Package
 	 */
-	protected $packages;
+	protected $entries;
 
 	/**
 	 * Build a new packages Repository
@@ -22,7 +23,7 @@ class PackagesRepository
 	 */
 	public function __construct(Package $packages)
 	{
-		$this->packages = $packages;
+		$this->entries = $packages;
 	}
 
 	////////////////////////////////////////////////////////////////////
@@ -30,13 +31,23 @@ class PackagesRepository
 	////////////////////////////////////////////////////////////////////
 
 	/**
-	 * Get all packages, sorted by popularity
+	 * Get all packages
 	 *
 	 * @return Collection
 	 */
 	public function all()
 	{
-		return $this->packages->with('maintainers')->whereType('package')->latest('popularity')->get();
+		return $this->entries->with('maintainers')->get();
+	}
+
+	/**
+	 * Get all "packages" packages, sorted by popularity
+	 *
+	 * @return Collection
+	 */
+	public function packages()
+	{
+		return $this->entries->with('maintainers')->whereType('package')->latest('popularity')->get();
 	}
 
 	/**
@@ -46,7 +57,7 @@ class PackagesRepository
 	 */
 	public function oldest()
 	{
-		return $this->packages->oldest()->get();
+		return $this->entries->oldest()->get();
 	}
 
 	////////////////////////////////////////////////////////////////////
@@ -62,7 +73,7 @@ class PackagesRepository
 	 */
 	public function findBySlug($slug)
 	{
-		return $this->packages->with('versions', 'comments.maintainer')->whereSlug($slug)->firstOrFail();
+		return $this->entries->with('versions', 'comments.maintainer')->whereSlug($slug)->firstOrFail();
 	}
 
 	/**
@@ -74,7 +85,7 @@ class PackagesRepository
 	 */
 	public function findSimilarTo(Package $package)
 	{
-		$similar = $this->packages->with('versions')->similar($package)->take(5)->get();
+		$similar = $this->entries->with('versions')->similar($package)->take(5)->get();
 
 		// Sort by popularity and number of tags in common
 		$similar->sortBy(function($similarPackage) use ($package) {

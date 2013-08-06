@@ -1,6 +1,4 @@
 <?php
-use Registry\Maintainer;
-use Registry\Package;
 
 class RoutesTest extends TestCase
 {

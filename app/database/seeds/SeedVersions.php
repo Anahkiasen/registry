@@ -1,8 +1,9 @@
 <?php
 use Carbon\Carbon;
 use Registry\Package;
+use Registry\Abstracts\AbstractSeeder;
 
-class SeedVersions extends DatabaseSeeder
+class SeedVersions extends AbstractSeeder
 {
 	/**
 	 * Seed versions
@@ -11,15 +12,14 @@ class SeedVersions extends DatabaseSeeder
 	 */
 	public function run()
 	{
-		DB::table('versions')->truncate();
+		$this->versions->flush();
 
-		$packages = Package::all();
-		foreach ($packages as $package) {
+		foreach ($this->packages->all() as $package) {
 			$versions = $this->getPackageVersions($package);
 			if (!empty($versions)) {
-				DB::table('versions')->insert($versions);
-				$package->keywords = $versions[0]['keywords'];
-				$package->save();
+				$package->update(array(
+					'keywords' => $versions[0]['keywords'],
+				));
 			}
 		}
 	}
@@ -49,6 +49,12 @@ class SeedVersions extends DatabaseSeeder
 			);
 		}
 
-		return array_values($versions);
+		// Insert into database
+		$versions = array_values($versions);
+		if (!empty($versions)) {
+			$this->versions->insert($versions);
+		}
+
+		return $versions;
 	}
 }

@@ -1,26 +1,9 @@
 <?php
 use Registry\Package;
-use Registry\Repositories\MaintainersRepository;
+use Registry\Abstracts\AbstractSeeder;
 
-class SeedMaintainers extends DatabaseSeeder
+class SeedMaintainers extends AbstractSeeder
 {
-	/**
-	 * The Maintainers Repository
-	 *
-	 * @var MaintainersRepository
-	 */
-	protected $maintainers;
-
-	/**
-	 * Build the seed
-	 *
-	 * @param MaintainersRepository $maintainers
-	 */
-	public function __construct(MaintainersRepository $maintainers)
-	{
-		$this->maintainers = $maintainers;
-	}
-
 	/**
 	 * Seed the packages
 	 *
@@ -28,12 +11,9 @@ class SeedMaintainers extends DatabaseSeeder
 	 */
 	public function run()
 	{
-		DB::table('maintainers')->truncate();
-		DB::table('maintainer_package')->truncate();
+		$this->maintainers->flush();
 
-		$packages = Package::with('maintainers')->get();
-
-		foreach ($packages as $package) {
+		foreach ($this->packages->all() as $package) {
 			$maintainers = $package->getPackagist()->maintainers;
 			foreach ($maintainers as &$maintainer) {
 				$maintainer = $this->getExisting($maintainer)->id;
@@ -50,7 +30,7 @@ class SeedMaintainers extends DatabaseSeeder
 	 *
 	 * @return Maintainer
 	 */
-	protected function getExisting($maintainer)
+	protected function getExisting(array $maintainer)
 	{
 		$name = array_get($maintainer, 'name');
 

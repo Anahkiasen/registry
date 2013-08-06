@@ -2,8 +2,9 @@
 use Carbon\Carbon;
 use Registry\Package;
 use Packagist\Api\Client as Packagist;
+use Registry\Abstracts\AbstractSeeder;
 
-class SeedPackages extends DatabaseSeeder
+class SeedPackages extends AbstractSeeder
 {
 	/**
 	 * An array of timers
