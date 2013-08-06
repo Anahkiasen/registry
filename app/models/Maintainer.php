@@ -51,6 +51,31 @@ class Maintainer extends Eloquent implements UserInterface
 	////////////////////////////////////////////////////////////////////
 
 	/**
+	 * Save the columns as JSON
+	 *
+	 * @param array $columns
+	 */
+	public function setColumnsAttribute($columns)
+	{
+		$this->attributes['columns'] = json_encode($columns);
+	}
+
+	/**
+	 * Decode columns to array
+	 *
+	 * @return array
+	 */
+	public function getColumnsAttribute()
+	{
+		$columns = $this->getOriginal('columns');
+		if (!$columns) {
+			return Config::get('registry.columns');
+		}
+
+		return json_decode($columns, true);
+	}
+
+	/**
 	 * Get the Maintainer's popularity
 	 *
 	 * @return integer
