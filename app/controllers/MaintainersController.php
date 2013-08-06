@@ -71,8 +71,13 @@ class MaintainersController extends BaseController
 	{
 		$code  = Input::get('code');
 
-		// Auth process
-		$token      = $this->maintainersAuth->getAccessToken($code);
+		// Get token
+		$token = $this->maintainersAuth->getAccessToken($code);
+		if (!$token) {
+			return Redirect::to('/');
+		}
+
+		// Get Maintainer
 		$user       = $this->maintainersAuth->getUserInformations($token);
 		$maintainer = $this->maintainersAuth->getOrCreateMaintainer($user);
 

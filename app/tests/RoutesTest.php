@@ -30,12 +30,14 @@ class RoutesTest extends TestCase
 	);
 
 	/**
-	 * Test all routes and actions
+	 * Get the routes to test
 	 *
-	 * @return void
+	 * @return array
 	 */
-	public function testCanDisplayPages()
+	protected function getRoutes()
 	{
+		$routes = array();
+
 		foreach (Route::getRoutes() as $route) {
 			$method = $route->getMethods()[0];
 			$uri    = $route->getPath();
@@ -53,13 +55,25 @@ class RoutesTest extends TestCase
 
 				foreach ($model::all() as $model) {
 					$model = str_replace('{'.$pattern[1].'}', $model->slug, $uri);
-					$this->routes[] = URL::to($model);
+					$routes[] = URL::to($model);
 				}
 				continue;
 			}
 
-			$this->routes[] = URL::to($uri);
+			$routes[] = URL::to($uri);
 		}
+
+		return $routes;
+	}
+
+	/**
+	 * Test all routes and actions
+	 *
+	 * @return void
+	 */
+	public function testCanDisplayPages()
+	{
+		$this->routes = $this->getRoutes();
 
 		foreach ($this->routes as $route) {
 			$shorthand = str_replace(Request::root(), null, $route);

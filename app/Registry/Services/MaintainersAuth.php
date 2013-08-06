@@ -73,7 +73,7 @@ class MaintainersAuth
 
 		// Cancel if invalid response
 		if (!array_key_exists('access_token', $request)) {
-			throw new Exception('An invalid response was received from Github');
+			return false;
 		}
 
 		return $request['access_token'];
