@@ -110,14 +110,11 @@ class MaintainersAuth
 	 */
 	public function getOrCreateMaintainer(array $user)
 	{
-		$attributes = array(
+		return $this->maintainers->findOrCreate(array(
 			'name'     => $user['login'],
-			'slug'     => Str::slug($user['login']),
 			'email'    => $user['email'],
 			'github'   => $user['html_url'],
 			'homepage' => $user['blog'],
-		);
-
-		return $this->maintainers->findOrCreate($attributes);
+		));
 	}
 }

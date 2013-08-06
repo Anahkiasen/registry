@@ -74,7 +74,7 @@ class MaintainersRepository
 
 		// Create model if it doesn't already
 		if (!$existingMaintainer) {
-			$existingMaintainer = $this->create($maintainer)->touch();
+			$existingMaintainer = $this->create($maintainer);
 		}
 
 		return $existingMaintainer;

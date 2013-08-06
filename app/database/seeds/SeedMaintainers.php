@@ -52,9 +52,10 @@ class SeedMaintainers extends DatabaseSeeder
 	 */
 	protected function getExisting($maintainer)
 	{
+		$name = array_get($maintainer, 'name');
+
 		return $this->maintainers->findOrCreate(array(
 			'name'     => $name,
-			'slug'     => Str::slug($name),
 			'email'    => array_get($maintainer, 'email'),
 			'homepage' => array_get($maintainer, 'homepage'),
 			'github'   => 'http://github.com/'.$name,

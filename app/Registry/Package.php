@@ -1,6 +1,7 @@
 <?php
 namespace Registry;
 
+use App;
 use Registry\Abstracts\AbstractModel;
 use Registry\Services\PackagesEndpoints;
 

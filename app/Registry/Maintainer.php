@@ -4,6 +4,7 @@ namespace Registry;
 use Config;
 use HTML;
 use Illuminate\Auth\UserInterface;
+use Illuminate\Support\Str;
 use Registry\Abstracts\AbstractModel;
 
 /**
@@ -54,6 +55,17 @@ class Maintainer extends AbstractModel implements UserInterface
 	////////////////////////////////////////////////////////////////////
 	///////////////////////////// ATTRIBUTES ///////////////////////////
 	////////////////////////////////////////////////////////////////////
+
+	/**
+	 * Keep name and slug in sync
+	 *
+	 * @param string $name
+	 */
+	public function setNameAttribute($name)
+	{
+		$this->attributes['name'] = $name;
+		$this->attributes['slug'] = Str::slug($name);
+	}
 
 	/**
 	 * Get a link to the Maintainer

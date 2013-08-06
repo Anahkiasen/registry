@@ -1,9 +1,6 @@
 <?php
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
-$user = Registry\Maintainer::whereSlug('anahkiasen')->first();
-Auth::login($user);
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes

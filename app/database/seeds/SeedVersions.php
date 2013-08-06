@@ -39,7 +39,7 @@ class SeedVersions extends DatabaseSeeder
 			$version = array(
 				'name'              => $version['name'],
 				'description'       => $version['description'],
-				'keywords'          => $version['keywords'],
+				'keywords'          => json_encode($version['keywords']),
 				'homepage'          => $version['homepage'],
 				'version'           => $version['version'],
 

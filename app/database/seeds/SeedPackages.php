@@ -1,10 +1,10 @@
 <?php
 use Carbon\Carbon;
 use Registry\Package;
+use Packagist\Api\Client as Packagist;
 
 class SeedPackages extends DatabaseSeeder
 {
-
 	/**
 	 * An array of timers
 	 *
@@ -89,8 +89,8 @@ class SeedPackages extends DatabaseSeeder
 	{
 		$this->comment('Fetching list of packages');
 
-		return Cache::rememberForever('packages', function() {
-			return App::make('packagist')->search('laravel');
+		return $this->container['cache']->rememberForever('packages', function() {
+			return (new Packagist)->search('laravel');
 		});
 	}
 
@@ -107,28 +107,25 @@ class SeedPackages extends DatabaseSeeder
 	 */
 	protected function createPackageModel($package)
 	{
-		// Get type of package
-		$vendor = explode('/', $package->getName())[0];
-		$type   = in_array($vendor, array('illuminate', 'laravel')) ? 'component' : 'package';
-		$slug   = str_replace('/', '-', $package->getName());
+		// Unify Git repository URL
+		$basePattern = '([a-zA-Z0-9\-]+)';		$vendor      = explode('/', $package->getName())[0];
+		$type        = in_array($vendor, array('illuminate', 'laravel')) ? 'component' : 'package';
 
-		// Create model
-		$package = Package::create(array(
+		// Create base package
+		$package = new Package(array(
 			'name'        => $package->getName(),
-			'slug'        => Str::slug($slug),
 			'description' => $package->getDescription(),
 			'packagist'   => $package->getUrl(),
 			'type'        => $type,
 		));
 
-		// Unify Git repository URL
-		$basePattern         = '([a-zA-Z0-9\-]+)';
-		$repository          = $package->getPackagist()->repository;
-		$package->repository = preg_replace('#((https|http|git)://|git@)(github.com|bitbucket.org)(:|/)' .$basePattern. '/' .$basePattern. '(.git)?#', 'http://$3/$5/$6', $repository);
+		// Save additional attributes
+		$repository  = $package->getPackagist()->repository;
+		$repository  = preg_replace('#((https|http|git)://|git@)(github.com|bitbucket.org)(:|/)' .$basePattern. '/' .$basePattern. '(.git)?#', 'http://$3/$5/$6', $repository);
 
-		// Add Travis URL
-		$travis          = explode('/', $package->repository);
-		$package->travis = $package->repository ? $travis[3].'/'.$travis[4] : '';
+		$package->repository = $repository;
+		$package->slug   = str_replace('/', '-', $package->repositoryName);
+		$package->travis = $package->repositoryName;
 		$package->save();
 
 		return $package;
@@ -143,7 +140,8 @@ class SeedPackages extends DatabaseSeeder
 	 */
 	public function hydrateStatistics(Package $package)
 	{
-		// Get and compute statistics ---------------------------------- /
+		// Get and compute statistics
+		//////////////////////////////////////////////////////////////////
 
 		// Favorites
 		$repository  = $package->getRepository();
@@ -159,7 +157,7 @@ class SeedPackages extends DatabaseSeeder
 		$consistency  = array_filter($builds, function($build) {
 			return $build['result'] !== 1;
 		});
-		$consistency  = $builds ? round(sizeof($consistency) * 100 / sizeof($builds)) : 0;
+		$consistency = $builds ? round(sizeof($consistency) * 100 / sizeof($builds)) : 0;
 		$buildStatus = array_get($package->getTravis(), 'last_build_status', 2);
 		$buildStatus = (int) abs($buildStatus - 2);
 
@@ -170,8 +168,8 @@ class SeedPackages extends DatabaseSeeder
 		$coverage = ceil($covered * 100 / $methods);
 
 		// Ratio of open issues
-		$openIssues   = array_get($repository, 'open_issues_count', 0);
-		$totalIssues  = $package->getRepositoryIssues();
+		$openIssues  = array_get($repository, 'open_issues_count', 0);
+		$totalIssues = $package->getRepositoryIssues();
 		$totalIssues = array_get($totalIssues, '0.number', array_get($totalIssues, 'count'));
 		if ($totalIssues == 0) {
 			$issues = 100;
@@ -179,7 +177,8 @@ class SeedPackages extends DatabaseSeeder
 			$issues = ($totalIssues- $openIssues) * 100 / $totalIssues;
 		}
 
-		// Save additional informations -------------------------------- /
+		// Save additional informations
+		//////////////////////////////////////////////////////////////////////
 
 		$lastVersion = $package->getPackagist()->versions;
 		$lastVersion = current($lastVersion);
@@ -194,7 +193,7 @@ class SeedPackages extends DatabaseSeeder
 			}
 		}
 
-		$package->fill(array(
+		$package->update(array(
 			'illuminate'        => $illuminate,
 
 			// Downloads
@@ -218,7 +217,7 @@ class SeedPackages extends DatabaseSeeder
 			'pushed_at'         => $pushed_at->toDateTimeString(),
 			'seniority'         => $created_at->diffInDays(),
 			'freshness'         => $pushed_at->diffInDays(),
-		))->save();
+		));
 	}
 
 	////////////////////////////////////////////////////////////////////
@@ -285,10 +284,6 @@ class SeedPackages extends DatabaseSeeder
 	{
 		$this->info('Computing ' .$attribute. ' indexes');
 
-		// Get all packages
-		$packages = Package::all();
-		$inverted = array('freshness');
-
 		// Fetch maximum value
 		foreach ($ceilings as $name => $value) {
 			if (is_string($value)) {
@@ -297,9 +292,10 @@ class SeedPackages extends DatabaseSeeder
 		}
 
 		// Compute indexes
+		$packages = Package::all();
 		foreach ($packages as $package) {
 			foreach ($ceilings as $index => $value) {
-				if (in_array($index, $inverted)) {
+				if ($index == 'freshness') {
 					$indexes[$index] = (($package->$index * 100 / -$value) + 100) * $weights[$index];
 				} else {
 					$indexes[$index] = ($package->$index * 100 / $value) * $weights[$index];
@@ -307,8 +303,9 @@ class SeedPackages extends DatabaseSeeder
 			}
 
 			// Round and save
-			$package->$attribute = round(array_sum($indexes) / array_sum($weights), $rounding);
-			$package->save();
+			$package->update(array(
+				$attribute => round(array_sum($indexes) / array_sum($weights), $rounding)
+			));
 		}
 	}
 
@@ -332,20 +329,13 @@ class SeedPackages extends DatabaseSeeder
 		$total = sizeof($total);
 		$name  = ($package instanceof Package) ? $package->name : $package->getName();
 
-		// Global message
+		// Hit the various endpoints to cache them
 		$this->info(sprintf("Fetching informations for [%s/%s] %s", $key, $total, $name));
-		$this->comment("-- Repository");
-		$package->getRepository();
-		$this->comment("-- Repository issues");
-		$package->getRepositoryIssues();
-		$this->comment('-- Packagist');
-		$package->getPackagist();
-		$this->comment('-- Travis');
-		$package->getTravis();
-		$this->comment('-- Travis builds');
-		$package->getTravisBuilds();
-		$this->comment('-- Scrutinizer');
-		$package->getScrutinizer();
+		$cacheQueue = ['Repository', 'RepositoryIssues', 'Packagist', 'Travis', 'TravisBuilds', 'Scrutinizer'];
+		foreach ($cacheQueue as $cache) {
+			$this->comment('-- '.$cache);
+			$package->{'get'.$cache}();
+		}
 
 		// Total time
 		$timer = round(microtime(true) - $this->timer, 4);
@@ -368,12 +358,14 @@ class SeedPackages extends DatabaseSeeder
 	 */
 	protected function computeRemainingTime($current, $total)
 	{
+		// Comput remaining seconds
 		$remaining = array_sum($this->timers) / sizeof($this->timers);
 		$remaining = $remaining * ($total - $current);
-		$remaining = Carbon::now()->addSeconds($remaining);
-		$remaining = $remaining->diff(Carbon::now());
+
+		// Convert to Carbon object
+		$remaining = Carbon::createFromTimestamp(time() + $remaining);
+		$remaining = Carbon::now()->diff($remaining);
 
 		return $remaining;
 	}
-
 }

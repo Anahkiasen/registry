@@ -6,6 +6,7 @@ use Guzzle\Http\Client as Guzzle;
 use Illuminate\Container\Container;
 use Illuminate\Support\Str;
 use Packagist\Api\Client as Packagist;
+use Registry\Package;
 
 class PackagesEndpoints
 {
