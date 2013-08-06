@@ -1,8 +1,8 @@
 {
   "name": "registry",
   "dependencies": {
-    "normalize-css": "*",
-    "lodash": "*",
-    "nnnick-chartjs": "*"
+    "lodash": "latest",
+    "nnnick-chartjs": "latest",
+    "normalize-css": "latest"
   }
 }
