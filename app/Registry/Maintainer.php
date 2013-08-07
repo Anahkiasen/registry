@@ -14,6 +14,15 @@ class Maintainer extends AbstractModel implements UserInterface
 {
 	use Traits\Gravatar;
 
+	/**
+	 * The attributes that should be hidden for arrays.
+	 *
+	 * @var array
+	 */
+	protected $hidden = array(
+		'stars', 'pivot', 'columns', 'created_at', 'updated_at',
+	);
+
 	////////////////////////////////////////////////////////////////////
 	//////////////////////////// RELATIONSHIPS /////////////////////////
 	////////////////////////////////////////////////////////////////////

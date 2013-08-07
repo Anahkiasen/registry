@@ -73,9 +73,19 @@ class PackagesRepository extends AbstractRepository
 	 *
 	 * @return Collection
 	 */
-	public function packages()
+	public function popular()
 	{
 		return $this->entries->with('maintainers')->whereType('package')->latest('popularity')->get();
+	}
+
+	/**
+	 * Get all packages, sorted by latest first
+	 *
+	 * @return Collection
+	 */
+	public function latest()
+	{
+		return $this->entries->with('maintainers')->latest()->get();
 	}
 
 	/**
@@ -85,7 +95,7 @@ class PackagesRepository extends AbstractRepository
 	 */
 	public function oldest()
 	{
-		return $this->entries->oldest()->get();
+		return $this->entries->with('maintainers')->oldest()->get();
 	}
 
 	////////////////////////////////////////////////////////////////////

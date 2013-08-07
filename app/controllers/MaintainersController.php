@@ -41,7 +41,7 @@ class MaintainersController extends BaseController
 	public function index()
 	{
 		return View::make('maintainers', array(
-			'maintainers' => $this->maintainers->all(),
+			'maintainers' => $this->maintainers->popular(),
 		));
 	}
 

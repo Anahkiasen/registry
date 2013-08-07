@@ -32,14 +32,24 @@ class MaintainersRepository extends AbstractRepository
 	////////////////////////////////////////////////////////////////////
 
 	/**
-	 * Get all maintainers, sorted by aggregated popularity
+	 * Return all Maintainers
 	 *
 	 * @return Collection
 	 */
 	public function all()
 	{
+		return $this->entries->get();
+	}
+
+	/**
+	 * Get all maintainers, sorted by aggregated popularity
+	 *
+	 * @return Collection
+	 */
+	public function popular()
+	{
 		$maintainers = $this->entries->with('packages.versions')->get();
-		$maintainers = array_sort($maintainers, function($maintainer) {
+		$maintainers = $maintainers->sort(function($maintainer) {
 			return $maintainer->popularity * -1;
 		});
 

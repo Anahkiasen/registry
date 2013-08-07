@@ -43,7 +43,7 @@ class PackagesController extends BaseController
 	public function index()
 	{
 		return View::make('home', array(
-			'packages' => $this->packages->packages(),
+			'packages' => $this->packages->popular(),
 		));
 	}
 

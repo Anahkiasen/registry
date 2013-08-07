@@ -14,6 +14,15 @@ class Package extends AbstractModel
 {
 	use Traits\HasKeywords;
 
+	/**
+	 * The attributes that should be hidden for arrays.
+	 *
+	 * @var array
+	 */
+	protected $hidden = array(
+		'illuminate', 'updated_at',
+	);
+
 	////////////////////////////////////////////////////////////////////
 	//////////////////////////// RELATIONSHIPS /////////////////////////
 	////////////////////////////////////////////////////////////////////
@@ -208,6 +217,23 @@ class Package extends AbstractModel
 				$query->orWhere('keywords', 'LIKE', "%$keyword%");
 			}
 		});
+	}
+
+	////////////////////////////////////////////////////////////////////
+	///////////////////////////// SERIALIZATION ////////////////////////
+	////////////////////////////////////////////////////////////////////
+
+	/**
+	 * Convert the model instance to an array.
+	 *
+	 * @return array
+	 */
+	public function toArray()
+	{
+		$package = parent::toArray();
+		$package['keywords'] = json_decode(array_get($package, 'keywords.0'));
+
+		return $package;
 	}
 
 }
