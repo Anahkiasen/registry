@@ -131,7 +131,7 @@ class Package extends AbstractModel
 	 */
 	protected function getFromApi($source, $url)
 	{
-		$data = App::make('packages.endpoints')->getFromApi($this, $source, $url);
+		$data = App::make('endpoints')->getFromApi($this, $source, $url);
 
 		return new Collection($data);
 	}
