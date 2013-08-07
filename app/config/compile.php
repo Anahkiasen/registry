@@ -13,8 +13,4 @@ return array(
 	|
 	*/
 
-	'app/Registry/Maintainer.php',
-	'app/Registry/Package.php',
-	'app/Registry/Version.php',
-
 );
