@@ -15,12 +15,10 @@ class SeedVersions extends AbstractSeeder
 		$this->versions->flush();
 
 		foreach ($this->packages->all() as $package) {
-			$versions = $this->getPackageVersions($package);
-			if (!empty($versions)) {
-				$package->update(array(
-					'keywords' => $versions[0]['keywords'],
-				));
-			}
+			$keywords = $this->createPackageVersions($package);
+			$package->update(array(
+				'keywords' => array_values($keywords),
+			));
 		}
 	}
 
@@ -29,17 +27,19 @@ class SeedVersions extends AbstractSeeder
 	 *
 	 * @param  Package $package
 	 *
-	 * @return array
+	 * @return array An array of keywords
 	 */
-	protected function getPackageVersions(Package $package)
+	protected function createPackageVersions(Package $package)
 	{
-		$versions = $package->getPackagist()['versions'];
-		foreach ($versions as &$version) {
+		$versions    = array();
+		$rawVersions = $package->getPackagist()['versions'];
+
+		foreach ($rawVersions as $version) {
 			$time = new Carbon($version['time']);
-			$this->versions->create(array(
+			$versions[] = $this->versions->create(array(
 				'name'        => $version['name'],
 				'description' => $version['description'],
-				'keywords'    => $version['keywords'],
+				'keywords'    => array_values($version['keywords']),
 				'homepage'    => $version['homepage'],
 				'version'     => $version['version'],
 
@@ -49,6 +49,11 @@ class SeedVersions extends AbstractSeeder
 			));
 		}
 
-		return $this->versions->all();
+		// Return no keywords if no versions
+		if (empty($versions)) {
+			return array();
+		}
+
+		return (array) $versions[0]->keywords;
 	}
 }
