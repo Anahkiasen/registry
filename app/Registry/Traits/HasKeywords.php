@@ -13,7 +13,11 @@ trait HasKeywords
 	 */
 	public function setKeywordsAttribute($keywords)
 	{
-		$this->attributes['keywords'] = json_encode($keywords);
+		if (is_array($keywords)) {
+			$keywords = json_encode($keywords);
+		}
+
+		$this->attributes['keywords'] = $keywords;
 	}
 
 	/**

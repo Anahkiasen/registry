@@ -34,8 +34,13 @@ class SeedVersions extends AbstractSeeder
 		$versions    = array();
 		$rawVersions = $package->getPackagist()['versions'];
 
+		// Cancel if no versions (for some reason)
+		if (empty($rawVersions)) {
+			return array();
+		}
+
 		foreach ($rawVersions as $version) {
-			$time = new Carbon($version['time']);
+			$time       = new Carbon($version['time']);
 			$versions[] = $this->versions->create(array(
 				'name'        => $version['name'],
 				'description' => $version['description'],
@@ -49,11 +54,6 @@ class SeedVersions extends AbstractSeeder
 			));
 		}
 
-		// Return no keywords if no versions
-		if (empty($versions)) {
-			return array();
-		}
-
-		return (array) $versions[0]->keywords;
+		return $versions[0]->keywords;
 	}
 }
