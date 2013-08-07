@@ -1,11 +1,14 @@
 # Dotfiles
 .DS_Store
 
+# Database
+app/database/production.sqlite
+
 # Caches
 .sass-cache
 bootstrap/compiled.php
 public/builds
 
 # Libraries
-vendor
 public/components
+vendor
