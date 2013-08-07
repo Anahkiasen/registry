@@ -12,8 +12,6 @@ use Registry\Services\PackagesEndpoints;
  */
 class Package extends AbstractModel
 {
-	use Traits\HasKeywords;
-
 	/**
 	 * The attributes that should be hidden for arrays.
 	 *
@@ -139,6 +137,20 @@ class Package extends AbstractModel
 	////////////////////////////////////////////////////////////////////
 	///////////////////////////// ATTRIBUTES ///////////////////////////
 	////////////////////////////////////////////////////////////////////
+
+	/**
+	 * Get the Package's Keywords
+	 *
+	 * @return Collection
+	 */
+	public function getKeywordsAttribute()
+	{
+		if ($this->versions->isEmpty()) {
+			return array();
+		}
+
+		return $this->versions->first()->keywords;
+	}
 
 	/**
 	 * Keep the slug in sync with the repository

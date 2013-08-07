@@ -75,7 +75,7 @@ class PackagesRepository extends AbstractRepository
 	 */
 	public function popular()
 	{
-		return $this->entries->with('maintainers')->whereType('package')->latest('popularity')->get();
+		return $this->entries->with('maintainers', 'versions')->whereType('package')->latest('popularity')->get();
 	}
 
 	/**
