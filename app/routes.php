@@ -57,7 +57,6 @@ Route::group(array('prefix' => 'api'), function () {
 	Route::get('maintainers/{maintainer}',          'Api\MaintainersController@maintainer');
 	Route::get('maintainers/{maintainer}/packages', 'Api\MaintainersController@packages');
 
-
 	// Error routes
 	//////////////////////////////////////////////////////////////////////
 

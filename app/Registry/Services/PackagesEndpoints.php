@@ -2,7 +2,6 @@
 namespace Registry\Services;
 
 use Exception;
-use Guzzle\Http\Client as Guzzle;
 use Illuminate\Container\Container;
 use Illuminate\Support\Str;
 use Registry\Package;
@@ -20,8 +19,6 @@ class PackagesEndpoints
 	 * Build a new PackagesEndpoints
 	 *
 	 * @param Container $app
-	 * @param Packagist $packagist
-	 * @param Guzzle    $guzzle
 	 */
 	public function __construct(Container $app)
 	{

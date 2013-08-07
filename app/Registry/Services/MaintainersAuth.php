@@ -1,8 +1,6 @@
 <?php
 namespace Registry\Services;
 
-use Config;
-use Guzzle\Http\Client as Guzzle;
 use Registry\Repositories\MaintainersRepository;
 use Illuminate\Container\Container;
 
@@ -35,7 +33,8 @@ class MaintainersAuth
 	/**
 	 * Build a new MaintainersAuth service
 	 *
-	 * @param Guzzle $guzzle
+	 * @param Container             $app
+	 * @param MaintainersRepository $maintainers
 	 */
 	public function __construct(Container $app, MaintainersRepository $maintainers)
 	{
