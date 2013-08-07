@@ -25,6 +25,13 @@ abstract class AbstractRepository
 	////////////////////////////////////////////////////////////////////
 
 	/**
+	 * Return all entries
+	 *
+	 * @return Collection
+	 */
+	abstract public function all();
+
+	/**
 	 * Find an entry by index
 	 *
 	 * @param  integer $index

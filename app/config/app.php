@@ -122,7 +122,8 @@ return array(
 		'TwigBridge\TwigServiceProvider',
 		// 'Flatten\FlattenServiceProvider',
 
-		'Registry\Providers\PackagesEndpointsServiceProvider',
+		'Registry\Providers\EndpointsServiceProvider',
+		'Registry\Providers\ServicesServiceProvider',
 
 	),
 

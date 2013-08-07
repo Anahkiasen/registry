@@ -4,26 +4,13 @@ namespace Registry\Services;
 use Config;
 use Guzzle\Http\Client as Guzzle;
 use Registry\Repositories\MaintainersRepository;
+use Illuminate\Container\Container;
 
 /**
  * Authentification helpers for Maintainers
  */
 class MaintainersAuth
 {
-	/**
-	 * The Github OAuth endpoint
-	 *
-	 * @var Guzzle
-	 */
-	protected $github;
-
-	/**
-	 * The Github API endpoint
-	 *
-	 * @var Guzzle
-	 */
-	protected $api;
-
 	/**
 	 * The Github API credentials
 	 *
@@ -39,17 +26,21 @@ class MaintainersAuth
 	protected $maintainers;
 
 	/**
+	 * The IoC Container
+	 *
+	 * @var Container
+	 */
+	protected $app;
+
+	/**
 	 * Build a new MaintainersAuth service
 	 *
 	 * @param Guzzle $guzzle
 	 */
-	public function __construct(Guzzle $guzzle, MaintainersRepository $maintainers)
+	public function __construct(Container $app, MaintainersRepository $maintainers)
 	{
-		$guzzle->setDefaultOption('headers', ['Accept' => 'application/json']);
-
-		$this->github      = clone $guzzle->setBaseUrl('https://github.com');
-		$this->api         = clone $guzzle->setBaseUrl('https://api.github.com');
-		$this->credentials = (object) Config::get('registry.api.github');
+		$this->app         = $app;
+		$this->credentials = (object) $this->app['config']->get('registry.api.github');
 		$this->maintainers = $maintainers;
 	}
 
@@ -63,11 +54,13 @@ class MaintainersAuth
 	public function getAccessToken($code)
 	{
 		// Make and gather request
-		$request = $this->github->post('/login/oauth/access_token')->addPostFields(array(
+		$request = $this->app['endpoints.github']->post('/login/oauth/access_token');
+		$request->addPostFields(array(
 			'client_id'     => $this->credentials->id,
 			'client_secret' => $this->credentials->secret,
 			'code'          => $code,
-		))->send()->json();
+		));
+		$request = $request->send()->json();
 
 		// Cancel if invalid response
 		if (!array_key_exists('access_token', $request)) {
@@ -87,7 +80,7 @@ class MaintainersAuth
 	public function getUserInformations($token)
 	{
 		// Make and gather request
-		$user = $this->api->get('/user');
+		$user = $this->app['endpoints.github_api']->get('/user');
 		$user->getQuery()->merge(array(
 			'client_id'     => $this->credentials->id,
 			'client_secret' => $this->credentials->secret,

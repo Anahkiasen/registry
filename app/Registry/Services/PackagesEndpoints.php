@@ -44,9 +44,16 @@ class PackagesEndpoints
 			list($source, $url) = $this->getScmEndpoint($package, $url);
 		}
 
-		return $this->app['cache']->rememberForever($url, function() use ($source, $url) {
+		// Create Guzzle instance
+		$request = $this->app['endpoints.'.$source]->get($url);
+		$request->getQuery()->merge(array(
+			'client_id'     => $this->app['config']->get('registry.api.github')['id'],
+			'client_secret' => $this->app['config']->get('registry.api.github')['secret'],
+		));
+
+		return $this->app['cache']->rememberForever($url, function() use ($request) {
 			try {
-				$informations = $this->app['endpoints.'.$source]->get($url)->send()->json();
+				$informations = $request->send()->json();
 			} catch (Exception $e) {
 				$informations = array();
 			}
@@ -65,9 +72,14 @@ class PackagesEndpoints
 	 */
 	protected function getScmEndpoint(Package $package, $url)
 	{
-		$api    = $this->app['config']->get('registry.api.github');
-		$url    = sprintf('%s%s?client_id=%s&client_secret=%s', $package->travis, $url, $api['id'], $api['secret']);
-		$source = Str::contains($package->repository, 'github') ? 'github' : 'bitbucket';
+		// Get source and URL
+		if (Str::contains($package->repository, 'github')) {
+			$source = 'github_api';
+			$url    = '/repos/'.$package->travis.$url;
+		} else {
+			$source = 'bitbucket';
+			$url    = $package->travis.$url;
+		}
 
 		return [$source, $url];
 	}
