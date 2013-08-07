@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "9bf17b77b3adc4fa5f5761ca56a0eea7",
+    "hash": "0b13481cc5a75715e7a3121096f2171f",
     "packages": [
         {
             "name": "anahkiasen/flatten",
@@ -1746,12 +1746,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "7b5542cc8a3cdd2266e043f084a8f60c52908640"
+                "reference": "442922ff0ac022ce5939b3286bfcb3c503ca4a3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/7b5542cc8a3cdd2266e043f084a8f60c52908640",
-                "reference": "7b5542cc8a3cdd2266e043f084a8f60c52908640",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/442922ff0ac022ce5939b3286bfcb3c503ca4a3c",
+                "reference": "442922ff0ac022ce5939b3286bfcb3c503ca4a3c",
                 "shasum": ""
             },
             "require": {
@@ -1812,7 +1812,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2013-08-02 15:52:58"
+            "time": "2013-08-07 04:17:49"
         },
         {
             "name": "predis/predis",

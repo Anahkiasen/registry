@@ -3,6 +3,9 @@ use Illuminate\Console\Command;
 use Registry\Package;
 use Symfony\Component\Console\Input\InputArgument;
 
+/**
+ * Refreshes one or all packages in the database
+ */
 class Refresh extends Command
 {
 	/**
@@ -28,13 +31,13 @@ class Refresh extends Command
 	{
 		if ($package = $this->argument('package')) {
 			if (Str::contains($package, '/')) {
-				return $this->refreshPackage($this->argument('package'));
+				return $this->refreshPackage($package);
 			}
 
 			return $this->refreshVendor($package);
 		}
 
-		// Clear cache
+		// Clear cache if the database is not empty
 		if ($this->laravel['db']->table('versions')->first()) {
 			$this->call('cache:clear');
 		}
