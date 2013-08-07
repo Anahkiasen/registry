@@ -17,7 +17,7 @@ Rocketeer::after(array('deploy', 'update'), function($task) {
 	$task->command->comment('Clearing cache');
 	$task->runForCurrentRelease('php artisan cache:clear && php artisan twig:clean');
 
-	$task->runForCurrentRelease('chown www-data app/storage/meta/collections.json');
+	$task->runForCurrentRelease('chown www-data storage/meta/collections.json');
 });
 
 Artisan::add(new Refresh);
