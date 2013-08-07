@@ -103,7 +103,7 @@ class IndexesComputer
 			foreach ($ceilings as $index => $value) {
 				$indexes[$index] = ($index == 'freshness')
 					? (($package->$index * 100 / -$value) + 100) * $weights[$index]
-					: $indexes[$index] = ($package->$index * 100 / $value) * $weights[$index];
+					: ($package->$index * 100 / $value) * $weights[$index];
 			}
 
 			// Round and save
