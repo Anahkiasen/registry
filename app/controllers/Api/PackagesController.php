@@ -62,6 +62,6 @@ class PackagesController extends BaseController
 	 */
 	public function package($package)
 	{
-		return $this->packages($package);
+		return $this->packages->find($package);
 	}
 }

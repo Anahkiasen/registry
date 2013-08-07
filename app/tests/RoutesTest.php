@@ -52,8 +52,9 @@ class RoutesTest extends TestCase
 			if (class_exists($model)) {
 
 				foreach ($model::all() as $model) {
-					$model = str_replace('{'.$pattern[1].'}', $model->slug, $uri);
-					$routes[] = URL::to($model);
+					$attribute = Str::contains($uri, 'api') ? 'id' : 'slug';
+					$model     = str_replace('{'.$pattern[1].'}', $model->$attribute, $uri);
+					$routes[]  = URL::to($model);
 				}
 				continue;
 			}
