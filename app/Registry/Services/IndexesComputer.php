@@ -82,10 +82,10 @@ class IndexesComputer
 	/**
 	 * Compute an index
 	 *
-	 * @param  string $attribute
-	 * @param  array  $weights
-	 * @param  array  $ceilings
-	 * @param integer $rounding
+	 * @param  string $attribute  The attribute holding the index
+	 * @param  array  $weights    The weight granted to each component of the index
+	 * @param  array  $ceilings   The maximal value of each component to compare to
+	 * @param integer $rounding   Number of decimals to round the index to
 	 *
 	 * @return void
 	 */
