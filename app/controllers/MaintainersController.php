@@ -24,7 +24,8 @@ class MaintainersController extends BaseController
 	/**
 	 * Build a new maintainersController
 	 *
-	 * @param Maintainer $maintainers The maintainers Repository
+	 * @param MaintainersRepository $maintainers
+	 * @param MaintainersAuth       $maintainersAuth
 	 */
 	public function __construct(MaintainersRepository $maintainers, MaintainersAuth $maintainersAuth)
 	{

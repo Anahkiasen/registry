@@ -32,9 +32,11 @@ class PackagesEndpoints
 	protected $guzzle;
 
 	/**
-	 * Build a new PackagesServices
+	 * Build a new PackagesEndpoints
 	 *
 	 * @param Container $app
+	 * @param Packagist $packagist
+	 * @param Guzzle    $guzzle
 	 */
 	public function __construct(Container $app, Packagist $packagist, Guzzle $guzzle)
 	{

@@ -38,7 +38,9 @@ abstract class AbstractSeeder extends Seeder
 	/**
 	 * Build the seed
 	 *
-	 * @param PackagesRepository $packages
+	 * @param PackagesRepository    $packages
+	 * @param VersionsRepository    $versions
+	 * @param MaintainersRepository $maintainers
 	 */
 	public function __construct(PackagesRepository $packages, VersionsRepository $versions, MaintainersRepository $maintainers)
 	{

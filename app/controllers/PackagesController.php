@@ -83,9 +83,10 @@ class PackagesController extends BaseController
 	}
 
 	/**
-	 * Get the history of packages
+	 * Get the raw data for the "packages evolution" graph
+	 * in the about page
 	 *
-	 * @return Response
+	 * @return array An array holding labels and their values
 	 */
 	public function history()
 	{
