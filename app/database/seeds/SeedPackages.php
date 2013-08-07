@@ -111,12 +111,11 @@ class SeedPackages extends AbstractSeeder
 	protected function createPackageModel($package)
 	{
 		// Unify Git repository URL
-		$basePattern = '([a-zA-Z0-9\-]+)';
-		$vendor      = explode('/', $package->getName())[0];
-		$type        = in_array($vendor, ['illuminate', 'laravel']) ? 'component' : 'package';
+		$vendor = explode('/', $package->getName())[0];
+		$type   = in_array($vendor, ['illuminate', 'laravel']) ? 'component' : 'package';
 
 		// Create base package
-		$package = new Package(array(
+		$package = Package::create(array(
 			'name'        => $package->getName(),
 			'description' => $package->getDescription(),
 			'packagist'   => $package->getUrl(),
@@ -124,13 +123,12 @@ class SeedPackages extends AbstractSeeder
 		));
 
 		// Save additional attributes
-		$repository = $package->getPackagist()['repository'];
-		$package->repository  = preg_replace('#((https|http|git)://|git@)(github.com|bitbucket.org)(:|/)' .$basePattern. '/' .$basePattern. '(.git)?#', 'http://$3/$5/$6', $repository);
-
-		$package->update(array(
-			'slug'   => str_replace('/', '-', $package->repositoryName),
-			'travis' => $package->repositoryName,
-		));
+		$basePattern = '([a-zA-Z0-9\-]+)';
+		$package->repository = preg_replace(
+			'#((https|http|git)://|git@)(github.com|bitbucket.org)(:|/)' .$basePattern. '/' .$basePattern. '(.git)?#',
+			'http://$3/$5/$6',
+			$package->getPackagist()['repository']);
+		$package->save();
 
 		return $package;
 	}

@@ -81,7 +81,7 @@ class PackagesEndpoints
 	protected function getScmEndpoint(Package $package, $url)
 	{
 		$api    = $this->app['config']->get('registry.api.github');
-		$url    = sprintf('%s%?client_id=%s&client_secret%s', $package->repositoryName, $url, $api['id'], $api['secret']);
+		$url    = sprintf('%s%s?client_id=%s&client_secret=%s', $package->travis, $url, $api['id'], $api['secret']);
 		$source = Str::contains($package->repository, 'github') ? 'github' : 'bitbucket';
 
 		return [$source, $url];

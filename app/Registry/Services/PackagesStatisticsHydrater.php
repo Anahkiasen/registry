@@ -41,9 +41,11 @@ class PackagesStatisticsHydrater
 	 */
 	public function hydrateFavorites()
 	{
-		$this->package->favorites = $this->package->getPackagist()['favers'];
-		$this->package->watchers  = $this->getWithFallback($this->repository, 'watchers', 'followers_count');
-		$this->package->forks     = $this->getWithFallback($this->repository, 'forks', 'forks_count');
+		$this->package->fill(array(
+			'favorites' => $this->package->getPackagist()['favers'],
+			'watchers'  => $this->getWithFallback($this->repository, 'watchers', 'followers_count'),
+			'forks'     => $this->getWithFallback($this->repository, 'forks', 'forks_count'),
+		));
 	}
 
 	/**
@@ -119,7 +121,7 @@ class PackagesStatisticsHydrater
 	}
 
 	////////////////////////////////////////////////////////////////////
-	/////////////////////////////// HELPERS ////////////////////////////
+	/////////////////////////// COMPUTED VALUES ////////////////////////
 	////////////////////////////////////////////////////////////////////
 
 	/**
@@ -157,7 +159,7 @@ class PackagesStatisticsHydrater
 		});
 
 		// If no builds, cancel
-		if (empty($consistency)) {
+		if ($consistency->isEmpty()) {
 			return 0;
 		}
 
@@ -181,6 +183,10 @@ class PackagesStatisticsHydrater
 
 		return ceil($covered * 100 / $methods);
 	}
+
+	////////////////////////////////////////////////////////////////////
+	/////////////////////////////// HELPERS ////////////////////////////
+	////////////////////////////////////////////////////////////////////
 
 	/**
 	 * Get an entry from an array, or a fallback entry

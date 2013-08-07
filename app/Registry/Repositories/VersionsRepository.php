@@ -1,8 +1,8 @@
 <?php
 namespace Registry\Repositories;
 
-use Registry\Version;
 use Registry\Abstracts\AbstractRepository;
+use Registry\Version;
 
 /**
 * The Versions Repository
@@ -24,5 +24,19 @@ class VersionsRepository extends AbstractRepository
 	public function __construct(Version $versions)
 	{
 		$this->entries = $versions;
+	}
+
+	////////////////////////////////////////////////////////////////////
+	//////////////////////////// GLOBAL QUERIES ////////////////////////
+	////////////////////////////////////////////////////////////////////
+
+	/**
+	 * Get all packages
+	 *
+	 * @return Collection
+	 */
+	public function all()
+	{
+		return $this->entries->get();
 	}
 }

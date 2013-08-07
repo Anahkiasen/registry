@@ -35,26 +35,20 @@ class SeedVersions extends AbstractSeeder
 	{
 		$versions = $package->getPackagist()['versions'];
 		foreach ($versions as &$version) {
-			$time    = new Carbon($version['time']);
-			$version = array(
+			$time = new Carbon($version['time']);
+			$this->versions->create(array(
 				'name'        => $version['name'],
 				'description' => $version['description'],
-				'keywords'    => json_encode($version['keywords']),
+				'keywords'    => $version['keywords'],
 				'homepage'    => $version['homepage'],
 				'version'     => $version['version'],
 
 				'created_at'  => $time->toDateTimeString(),
 				'updated_at'  => $time->toDateTimeString(),
 				'package_id'  => $package->id,
-			);
+			));
 		}
 
-		// Insert into database
-		$versions = array_values($versions);
-		if (!empty($versions)) {
-			$this->versions->insert($versions);
-		}
-
-		return $versions;
+		return $this->versions->all();
 	}
 }

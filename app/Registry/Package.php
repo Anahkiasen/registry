@@ -3,6 +3,7 @@ namespace Registry;
 
 use App;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 use Registry\Abstracts\AbstractModel;
 use Registry\Services\PackagesEndpoints;
 
@@ -108,7 +109,7 @@ class Package extends AbstractModel
 	 */
 	public function getScrutinizer()
 	{
-		return $this->getFromApi('scrutinizer', $this->repositoryName.'/metrics');
+		return $this->getFromApi('scrutinizer', $this->travis.'/metrics');
 	}
 
 	/**
@@ -131,15 +132,17 @@ class Package extends AbstractModel
 	////////////////////////////////////////////////////////////////////
 
 	/**
-	 * Get the shorthand name for the package
+	 * Keep the slug in sync with the repository
 	 *
-	 * @return string  A vendor/package string
+	 * @param string $repository
 	 */
-	public function getRepositoryNameAttribute()
+	public function setRepositoryAttribute($repository)
 	{
-		list($package, $vendor) = array_reverse(explode('/', $this->repository));
+		list($package, $vendor) = array_reverse(explode('/', $repository));
 
-		return $vendor.'/'.$package;
+		$this->attributes['repository'] = $repository;
+		$this->attributes['travis']     = $vendor.'/'.$package;
+		$this->attributes['slug']       = Str::slug($vendor.'-'.$package);
 	}
 
 	/**
