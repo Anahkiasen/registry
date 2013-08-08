@@ -117,7 +117,7 @@ return array(
 
 		'Basset\BassetServiceProvider',
 		'Former\FormerServiceProvider',
-		'Profiler\ProfilerServiceProvider',
+		'Juy\Profiler\Providers\ProfilerServiceProvider',
 		'Rocketeer\RocketeerServiceProvider',
 		'TwigBridge\TwigServiceProvider',
 		// 'Flatten\FlattenServiceProvider',

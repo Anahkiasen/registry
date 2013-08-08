@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "0b13481cc5a75715e7a3121096f2171f",
+    "hash": "d20597e9bd03dfe7aa9ee39a177a8088",
     "packages": [
         {
             "name": "anahkiasen/flatten",
@@ -1125,6 +1125,52 @@
                 "laravel"
             ],
             "time": "2013-07-10 13:33:12"
+        },
+        {
+            "name": "juy/profiler",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/juy/profiler.git",
+                "reference": "3e649214e9dc69347a42f11611ad61368d913ad6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/juy/profiler/zipball/3e649214e9dc69347a42f11611ad61368d913ad6",
+                "reference": "3e649214e9dc69347a42f11611ad61368d913ad6",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~4",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Juy\\Profiler": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sevdin Filiz",
+                    "email": "angelside@users.sourceforge.net",
+                    "homepage": "http://juysoft.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A profiler for Laravel 4.",
+            "homepage": "http://github.com/juy/profiler",
+            "keywords": [
+                "anbu",
+                "debug bar",
+                "laravel",
+                "profiler"
+            ],
+            "time": "2013-08-08 12:16:40"
         },
         {
             "name": "kevinlebrun/colors.php",
@@ -2763,7 +2809,8 @@
         "lmammino/jsmin4assetic": 20,
         "loic-sharma/profiler": 20,
         "natxet/cssmin": 20,
-        "rcrowe/twigbridge": 20
+        "rcrowe/twigbridge": 20,
+        "juy/profiler": 20
     },
     "platform": [
 
