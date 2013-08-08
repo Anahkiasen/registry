@@ -28,7 +28,7 @@ return array(
 	|
 	*/
 
-	'model' => 'Maintainer',
+	'model' => 'Registry\Maintainer',
 
 	/*
 	|--------------------------------------------------------------------------
