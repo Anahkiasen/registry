@@ -5,6 +5,7 @@ php:
   - 5.5
 
 before_script:
+	- npm install bower -g
   - composer install
   - bower install
   - php artisan basset:build -f -p
