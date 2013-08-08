@@ -75,7 +75,8 @@ class MaintainersController extends BaseController
 		// Get token
 		$token = $this->maintainersAuth->getAccessToken($code);
 		if (!$token) {
-			return Redirect::to('/');
+			return Redirect::to('/')
+				->with('errors', 'An error occured while accessing your Github account');
 		}
 
 		// Get Maintainer

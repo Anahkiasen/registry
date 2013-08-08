@@ -1,11 +1,17 @@
 {% extends 'layouts.large' %}
 
 {% block content %}
+
 	{# Search #}
 	<form method="POST" id="search">
 		<input type="text" autocomplete="off" name="search" value="{{ input('q') }}" placeholder="Type to search in the {{ packages.count }} packages available..." class="layout-search">
 		<input type="reset" value="X" class="layout-search__reset">
 	</form>
+
+	{# Errors #}
+	{% if session_has('errors') %}
+		<p class="alert-error">{{ session_get('errors') }}</p>
+	{% endif %}
 
 	{# Available packages #}
 	<table class="packages-list">

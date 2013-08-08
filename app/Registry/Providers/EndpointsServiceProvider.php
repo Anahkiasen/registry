@@ -43,6 +43,13 @@ class EndpointsServiceProvider extends ServiceProvider
 	 */
 	protected function registerEndpoints()
 	{
+		$this->app->bind('guzzle', function () {
+			$guzzle = new Client;
+			$guzzle->setDefaultOption('headers', ['Accept' => 'application/json']);
+
+			return $guzzle;
+		});
+
 		$this->app->bind('endpoints.packagist', function () {
 			return new Packagist;
 		});
@@ -52,11 +59,11 @@ class EndpointsServiceProvider extends ServiceProvider
 		});
 
 		$this->app->bind('endpoints.github', function ($app) {
-			return new Client('https://github.com/');
+			return $app['guzzle']->setBaseUrl('https://github.com/');
 		});
 
 		$this->app->bind('endpoints.github_api', function ($app) {
-			return new Client('https://api.github.com/');
+			return $app['guzzle']->setBaseUrl('https://api.github.com/');
 		});
 
 		$this->app->bind('endpoints.bitbucket', function ($app) {
