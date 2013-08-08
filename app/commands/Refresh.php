@@ -42,12 +42,8 @@ class Refresh extends Command
 			$this->call('cache:clear');
 		}
 
-		// Rebuild database
-		$this->call('db:seed');
-		system('git commit -am "Rebuild database"');
-		system('git push origin master');
-
 		// Send it over
+		$this->call('db:seed');
 		$this->call('deploy:deploy');
 	}
 
