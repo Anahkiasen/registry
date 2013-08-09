@@ -129,6 +129,9 @@ class Maintainer extends AbstractModel implements UserInterface
 	{
 		// Get all packages with a decent popularity
 		$popularity = $this->packages->lists('popularity');
+		if (empty($popularity)) {
+			return 0;
+		}
 
 		// Compute average popularity
 		$popularity = array_sum($popularity) / sizeof($popularity);

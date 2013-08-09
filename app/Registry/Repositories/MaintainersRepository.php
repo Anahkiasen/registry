@@ -49,7 +49,7 @@ class MaintainersRepository extends AbstractRepository
 	public function popular()
 	{
 		$maintainers = $this->entries->with('packages.versions')->get();
-		$maintainers = $maintainers->sort(function($maintainer) {
+		$maintainers->sortBy(function($maintainer) {
 			return $maintainer->popularity * -1;
 		});
 
