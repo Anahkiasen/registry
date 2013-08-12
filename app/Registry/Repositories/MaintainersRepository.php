@@ -103,6 +103,21 @@ class MaintainersRepository extends AbstractRepository
 	}
 
 	/**
+	 * Update or create a Maintainer by its attributes
+	 *
+	 * @param  array $attributes
+	 *
+	 * @return Maintainer
+	 */
+	public function updateOrCreate($attributes)
+	{
+		$maintainer = $this->findOrCreate($attributes);
+		$maintainer->fill($attributes)->save();
+
+		return $maintainer;
+	}
+
+	/**
 	 * Lookup an user by name
 	 *
 	 * @param  string $name

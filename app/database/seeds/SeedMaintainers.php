@@ -11,8 +11,6 @@ class SeedMaintainers extends AbstractSeeder
 	 */
 	public function run()
 	{
-		$this->maintainers->flush();
-
 		foreach ($this->packages->all() as $package) {
 			$maintainers = $package->getPackagist()['maintainers'];
 			foreach ($maintainers as &$maintainer) {
@@ -34,7 +32,7 @@ class SeedMaintainers extends AbstractSeeder
 	{
 		$name = array_get($maintainer, 'name');
 
-		return $this->maintainers->findOrCreate(array(
+		return $this->maintainers->updateOrCreate(array(
 			'name'     => $name,
 			'email'    => array_get($maintainer, 'email'),
 			'homepage' => array_get($maintainer, 'homepage'),
