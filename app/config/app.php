@@ -115,13 +115,14 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
+		// Packages
 		'Basset\BassetServiceProvider',
 		'Former\FormerServiceProvider',
 		'Juy\Profiler\Providers\ProfilerServiceProvider',
 		'Rocketeer\RocketeerServiceProvider',
 		'TwigBridge\TwigServiceProvider',
-		// 'Flatten\FlattenServiceProvider',
 
+		// Application
 		'Registry\Providers\EndpointsServiceProvider',
 		'Registry\Providers\ServicesServiceProvider',
 
@@ -191,6 +192,7 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 
+		// Packages
 		'Basset'    => 'Basset\Facade',
 		'Former'    => 'Former\Facades\Former',
 		'Rocketeer' => 'Rocketeer\Facades\Rocketeer',
