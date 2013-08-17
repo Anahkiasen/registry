@@ -101,6 +101,18 @@ class PackagesStatisticsHydrater
 	}
 
 	/**
+	 * Hydrate repository-related informations
+	 *
+	 * @return void
+	 */
+	public function hydrateRepositoryInformations()
+	{
+		$this->package->fill(array(
+			'readme'            => $this->package->getRepository()->readme(),
+		));
+	}
+
+	/**
 	 * Save and return the Package
 	 *
 	 * @return Package

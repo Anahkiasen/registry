@@ -41,7 +41,24 @@ abstract class AbstractRepository
 
 		// Hit endpoints
 		$this->show();
+		$this->readme();
 		$this->issues();
+	}
+
+	/**
+	 * Get the README contents
+	 *
+	 * @return string
+	 */
+	public function readme()
+	{
+		return $this->cache->rememberForever($this->package->travis.'-readme', function() {
+			try {
+				return $this->readmeEndpoint();
+			} catch (Exception $e) {
+				return null;
+			}
+		});
 	}
 
 	/**

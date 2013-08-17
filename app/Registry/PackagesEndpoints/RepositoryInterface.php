@@ -63,5 +63,12 @@ interface RepositoryInterface
 	 *
 	 * @return string
 	 */
-	public function readme();
+	public function readmeEndpoint();
+
+	/**
+	 * Get the Repository's README
+	 *
+	 * @return string
+	 */
+	public function showEndpoint();
 }

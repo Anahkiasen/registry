@@ -1,12 +1,12 @@
 <?php
 namespace Registry\PackagesEndpoints;
 
-use Carbon\Carbon;
 use Bitbucket\API\Repositories\Issues;
+use Bitbucket\API\Repositories\Repository;
+use Carbon\Carbon;
 
 class BitbucketRepository extends AbstractRepository implements RepositoryInterface
 {
-
 	/**
 	 * Get the Repository's opened issues
 	 *
@@ -77,28 +77,28 @@ class BitbucketRepository extends AbstractRepository implements RepositoryInterf
 		return new Carbon($this->show('utc_last_updated'));
 	}
 
+	////////////////////////////////////////////////////////////////////
+	////////////////////////////// ENDPOINTS ///////////////////////////
+	////////////////////////////////////////////////////////////////////
+
 	/**
 	 * Get the Repository's README
 	 *
 	 * @return string
 	 */
-	public function readme()
+	public function readmeEndpoint()
 	{
-		$user = explode('/', $this->package->travis);
+		$readme = new Repository;
 
-		return $this->client->api('repo')->watchers($user[0], $user[1]);
+		return $readme->raw($this->package->vendor, $this->package->package, 'master', 'readme.md');
 	}
-
-	////////////////////////////////////////////////////////////////////
-	/////////////////////////////// HELPERS ////////////////////////////
-	////////////////////////////////////////////////////////////////////
 
 	/**
 	 * Get the issues
 	 *
 	 * @return array
 	 */
-	protected function issuesEndpoint()
+	public function issuesEndpoint()
 	{
 		$informations = new Issues;
 		$informations = $informations->all($this->package->vendor, $this->package->package);
@@ -112,7 +112,7 @@ class BitbucketRepository extends AbstractRepository implements RepositoryInterf
 	 *
 	 * @return array
 	 */
-	protected function showEndpoint()
+	public function showEndpoint()
 	{
 		$informations = $this->client->requestGet(sprintf('repositories/%s/%s', $this->package->vendor, $this->package->package));
 		$informations = json_decode($informations, true);

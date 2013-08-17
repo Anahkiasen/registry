@@ -149,6 +149,7 @@ class SeedPackages extends AbstractSeeder
 		$statistics->hydrateTimes();
 		$statistics->hydrateTests();
 		$statistics->hydrateRawStatistics();
+		$statistics->hydrateRepositoryInformations();
 
 		return $statistics->getPackage();
 	}

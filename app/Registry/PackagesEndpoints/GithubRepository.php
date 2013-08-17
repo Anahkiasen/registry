@@ -68,28 +68,29 @@ class GithubRepository extends AbstractRepository implements RepositoryInterface
 		return new Carbon($this->show('pushed_at'));
 	}
 
+	////////////////////////////////////////////////////////////////////
+	////////////////////////////// ENDPOINTS ///////////////////////////
+	////////////////////////////////////////////////////////////////////
+
 	/**
 	 * Get the Repository's README
 	 *
 	 * @return string
 	 */
-	public function readme()
+	public function readmeEndpoint()
 	{
-		$user = explode('/', $this->package->travis);
+		$file = $this->client->api('repos')->contents()->readme($this->package->vendor, $this->package->package);
+		$file = $file['name'];
 
-		return $this->client->api('repo')->watchers($user[0], $user[1]);
+		return $this->client->api('repos')->contents()->download($this->package->vendor, $this->package->package, $file);
 	}
-
-	////////////////////////////////////////////////////////////////////
-	/////////////////////////////// HELPERS ////////////////////////////
-	////////////////////////////////////////////////////////////////////
 
 	/**
 	 * Get the open and closed issues
 	 *
 	 * @return array
 	 */
-	protected function issues($information = null)
+	public function issuesEndpoint($information = null)
 	{
 		return $this->cache->rememberForever($this->package->travis.'-issues', function() {
 			try {
@@ -110,7 +111,7 @@ class GithubRepository extends AbstractRepository implements RepositoryInterface
 	 *
 	 * @return array
 	 */
-	protected function showEndpoint()
+	public function showEndpoint()
 	{
 		return $this->client->api('repo')->show($this->package->vendor, $this->package->package);
 	}
