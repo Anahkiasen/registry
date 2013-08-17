@@ -6,6 +6,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Registry\Abstracts\AbstractModel;
 use Registry\Services\PackagesEndpoints;
+use dflydev\markdown\MarkdownExtraParser;
 
 /**
  * A Package in the registry
@@ -127,6 +128,18 @@ class Package extends AbstractModel
 	////////////////////////////////////////////////////////////////////
 	///////////////////////////// ATTRIBUTES ///////////////////////////
 	////////////////////////////////////////////////////////////////////
+
+	/**
+	 * Get the parsed Markdown of the README
+	 *
+	 * @return string
+	 */
+	public function getReadmeAttribute()
+	{
+		$parser = new MarkdownExtraParser;
+
+		return $parser->transformMarkdown($this->getOriginal('readme'));
+	}
 
 	/**
 	 * Get only the vendor

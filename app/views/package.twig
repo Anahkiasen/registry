@@ -10,6 +10,9 @@
 		{# Package summary #}
 		<section class="package__informations">
 			<h1>{{ package.name }} <small>by {{ package.maintainersList }}</small></h1>
+			<div class="package__informations__readme">
+				{{ package.readme }}
+			</div>
 			{% include 'partials.package-summary' %}
 		</section>
 

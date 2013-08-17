@@ -14,7 +14,7 @@
   margin: 0;
   padding: 0; }
 
-.package__summary, .maintainer__summary, input[type="text"],
+.package__informations__readme, .package__summary, .maintainer__summary, input[type="text"],
 input[type="password"],
 input[type="email"],
 input[type="submit"],
@@ -82,6 +82,31 @@ label, .layout-content, .layout-content--narrow, .layout-navigation {
     content: "";
     display: table;
     clear: both; }
+
+.package__informations__readme {
+  width: 49.15254%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
+  background-color: #f4f5f6;
+  padding: 1rem; }
+  .package__informations__readme h1:first-child {
+    margin-top: 0; }
+  .package__informations__readme + .package__summary, .package__informations__readme + .maintainer__summary {
+    width: 49.15254%;
+    float: right;
+    margin-right: 0;
+    *margin-left: -1em;
+    display: inline;
+    margin-top: 0; }
+  @media (max-width: 75em) {
+    .package__informations__readme, .package__informations__readme + .package__summary, .package__informations__readme + .maintainer__summary {
+      float: none;
+      width: auto;
+      margin-right: auto;
+      display: block;
+      width: 100%;
+      margin-bottom: 1rem; } }
 
 .package__summary, .maintainer__summary {
   margin-top: 1rem; }

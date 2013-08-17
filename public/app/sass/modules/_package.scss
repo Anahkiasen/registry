@@ -11,6 +11,31 @@
 	padding: 0;
 }
 
+.package__informations__readme {
+	@extend %border-box;
+	@include span-columns(6);
+	background-color: $color-silver--light;
+	padding: 1rem;
+
+	h1:first-child {
+		margin-top: 0;
+	}
+
+	& + .package__summary {
+		@include span-columns(6 omega);
+		margin-top: 0;
+	}
+
+	@include at-breakpoint(0 $wide) {
+		&, & + .package__summary {
+			@include reset-columns;
+			display: block;
+			width: 100%;
+			margin-bottom: 1rem;
+		}
+	}
+}
+
 .package__summary {
 	$offset: 7rem;
 	@extend %border-box;
@@ -126,7 +151,6 @@
 			color: lighten($color-base, 10);
 		}
 	}
-
 
 	i {
 		position: relative;

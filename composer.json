@@ -19,7 +19,8 @@
 		"natxet/CssMin": "dev-master",
 		"rcrowe/twigbridge": "dev-master",
 		"gentle/bitbucket-api": "dev-master",
-		"knplabs/github-api": "dev-master"
+		"knplabs/github-api": "dev-master",
+		"dflydev/markdown": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
