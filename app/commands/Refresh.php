@@ -44,7 +44,7 @@ class Refresh extends Command
 
 		// Send it over
 		$this->call('db:seed');
-		$this->call('git push origin master');
+		exec('git push origin master');
 		$this->call('deploy:deploy');
 	}
 
