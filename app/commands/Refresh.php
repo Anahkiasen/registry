@@ -1,4 +1,4 @@
-<?php
+ <?php
 use Illuminate\Console\Command;
 use Registry\Package;
 use Symfony\Component\Console\Input\InputArgument;
@@ -44,6 +44,7 @@ class Refresh extends Command
 
 		// Send it over
 		$this->call('db:seed');
+		$this->call('git push origin master');
 		$this->call('deploy:deploy');
 	}
 
