@@ -123,7 +123,7 @@ return array(
 		'TwigBridge\TwigServiceProvider',
 
 		// Application
-		'Registry\Providers\EndpointsServiceProvider',
+		'Registry\PackagesEndpoints\EndpointsServiceProvider',
 		'Registry\Providers\ServicesServiceProvider',
 
 	),

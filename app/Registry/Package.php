@@ -76,17 +76,7 @@ class Package extends AbstractModel
 	 */
 	public function getRepository()
 	{
-		return $this->getFromApi('scm', '');
-	}
-
-	/**
-	 * Get the issues of a package
-	 *
-	 * @return array
-	 */
-	public function getRepositoryIssues()
-	{
-		return $this->getFromApi('scm', '/issues');
+		return App::make('endpoints')->getRepository($this);
 	}
 
 	/**
@@ -137,6 +127,26 @@ class Package extends AbstractModel
 	////////////////////////////////////////////////////////////////////
 	///////////////////////////// ATTRIBUTES ///////////////////////////
 	////////////////////////////////////////////////////////////////////
+
+	/**
+	 * Get only the vendor
+	 *
+	 * @return string
+	 */
+	public function getVendorAttribute()
+	{
+		return explode('/', $this->travis)[0];
+	}
+
+	/**
+	 * Get only the package
+	 *
+	 * @return string
+	 */
+	public function getPackageAttribute()
+	{
+		return explode('/', $this->travis)[1];
+	}
 
 	/**
 	 * Get the Package's Keywords

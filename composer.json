@@ -17,7 +17,9 @@
 		"knplabs/packagist-api": "dev-master",
 		"lmammino/jsmin4assetic": "dev-master",
 		"natxet/CssMin": "dev-master",
-		"rcrowe/twigbridge": "dev-master"
+		"rcrowe/twigbridge": "dev-master",
+		"gentle/bitbucket-api": "dev-master",
+		"knplabs/github-api": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

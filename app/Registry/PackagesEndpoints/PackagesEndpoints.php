@@ -1,5 +1,5 @@
 <?php
-namespace Registry\Services;
+namespace Registry\PackagesEndpoints;
 
 use Exception;
 use Illuminate\Container\Container;
@@ -36,17 +36,8 @@ class PackagesEndpoints
 	 */
 	public function getFromApi(Package $package, $source, $url)
 	{
-		// Get correct source and URL for SCM
-		if ($source == 'scm') {
-			list($source, $url) = $this->getScmEndpoint($package, $url);
-		}
-
 		// Create Guzzle instance
 		$request = $this->app['endpoints.'.$source]->get($url);
-		$request->getQuery()->merge(array(
-			'client_id'     => $this->app['config']->get('registry.api.github')['id'],
-			'client_secret' => $this->app['config']->get('registry.api.github')['secret'],
-		));
 
 		return $this->app['cache']->rememberForever($url, function() use ($request) {
 			try {
@@ -63,21 +54,20 @@ class PackagesEndpoints
 	 * Get the correct SCM endpoint
 	 *
 	 * @param  Package $package
-	 * @param  string  $url
 	 *
 	 * @return array
 	 */
-	protected function getScmEndpoint(Package $package, $url)
+	public function getRepository(Package $package)
 	{
 		// Get source and URL
 		if (Str::contains($package->repository, 'github')) {
 			$source = 'github_api';
-			$url    = '/repos/'.$package->travis.$url;
+			$class  = 'Registry\PackagesEndpoints\GithubRepository';
 		} else {
 			$source = 'bitbucket';
-			$url    = $package->travis.$url;
+			$class  = 'Registry\PackagesEndpoints\BitbucketRepository';
 		}
 
-		return [$source, $url];
+		return new $class($package, $this->app['endpoints.'.$source], $this->app['cache']);
 	}
 }

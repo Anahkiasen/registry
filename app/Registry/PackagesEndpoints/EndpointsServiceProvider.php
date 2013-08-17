@@ -1,10 +1,12 @@
 <?php
-namespace Registry\Providers;
+namespace Registry\PackagesEndpoints;
 
+use Bitbucket\API\API as Bitbucket;
+use Github\Client as Github;
 use Guzzle\Http\Client;
 use Illuminate\Support\ServiceProvider;
 use Packagist\Api\Client as Packagist;
-use Registry\Services\PackagesEndpoints;
+use Registry\PackagesEndpoints\PackagesEndpoints;
 
 class EndpointsServiceProvider extends ServiceProvider
 {
@@ -43,15 +45,16 @@ class EndpointsServiceProvider extends ServiceProvider
 	 */
 	protected function registerEndpoints()
 	{
-		$this->app->bind('guzzle', function () {
-			$guzzle = new Client;
-			$guzzle->setDefaultOption('headers', ['Accept' => 'application/json']);
-
-			return $guzzle;
-		});
-
 		$this->app->bind('endpoints.packagist', function () {
 			return new Packagist;
+		});
+
+		$this->app->bind('endpoints.github_api', function ($app) {
+			$credentials = $app['config']->get('registry.api.github');
+			$github = new Github;
+			$github->authenticate($credentials['id'], $credentials['secret'], Github::AUTH_URL_CLIENT_ID);
+
+			return $github;
 		});
 
 		$this->app->bind('endpoints.guzzle', function ($app) {
@@ -59,15 +62,14 @@ class EndpointsServiceProvider extends ServiceProvider
 		});
 
 		$this->app->bind('endpoints.github', function ($app) {
-			return $app['guzzle']->setBaseUrl('https://github.com/');
-		});
+			$github = new Client('https://github.com/');
+			$github->setDefaultOption('headers', ['Accept' => 'application/json']);
 
-		$this->app->bind('endpoints.github_api', function ($app) {
-			return $app['guzzle']->setBaseUrl('https://api.github.com/');
+			return $github;
 		});
 
 		$this->app->bind('endpoints.bitbucket', function ($app) {
-			return new Client('https://bitbucket.org/api/1.0/repositories/');
+			return new Bitbucket;
 		});
 
 		$this->app->bind('endpoints.travis', function ($app) {

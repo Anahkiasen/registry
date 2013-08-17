@@ -174,7 +174,7 @@ class SeedPackages extends AbstractSeeder
 
 		// Hit the various endpoints to cache them
 		$this->info('Fetching informations for [%03d/%03d] %s', $key, $total, $name);
-		$cacheQueue = ['Repository', 'RepositoryIssues', 'Packagist', 'Travis', 'TravisBuilds', 'Scrutinizer'];
+		$cacheQueue = ['Repository', 'Packagist', 'Travis', 'TravisBuilds', 'Scrutinizer'];
 		foreach ($cacheQueue as $cache) {
 			$this->comment('-- '.$cache);
 			$package->{'get'.$cache}();

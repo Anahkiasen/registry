@@ -19,7 +19,7 @@ class PackagesStatisticsHydrater
 	/**
 	 * The Package's repository informations
 	 *
-	 * @var array
+	 * @var RepositoryInterface
 	 */
 	protected $repository;
 
@@ -43,8 +43,8 @@ class PackagesStatisticsHydrater
 	{
 		$this->package->fill(array(
 			'favorites' => $this->package->getPackagist()['favers'],
-			'watchers'  => $this->getWithFallback($this->repository, 'watchers', 'followers_count'),
-			'forks'     => $this->getWithFallback($this->repository, 'forks', 'forks_count'),
+			'watchers'  => $this->repository->favorites(),
+			'forks'     => $this->repository->favorites(),
 		));
 	}
 
@@ -55,20 +55,12 @@ class PackagesStatisticsHydrater
 	 */
 	public function hydrateTimes()
 	{
-		// Get data
-		$created_at = $this->getWithFallback($this->repository, 'created_at', 'utc_created_on');
-		$pushed_at  = $this->getWithFallback($this->repository, 'pushed_at', 'utc_last_updated');
-
-		// Convert to Carbon
-		$created_at = new Carbon($created_at);
-		$pushed_at  = new Carbon($pushed_at);
-
 		// Fill attributes
 		$this->package->fill(array(
-			'created_at' => $created_at->toDateTimeString(),
-			'pushed_at'  => $pushed_at->toDateTimeString(),
-			'seniority'  => $created_at->diffInDays(),
-			'freshness'  => $pushed_at->diffInDays(),
+			'created_at' => $this->repository->createdAt()->toDateTimeString(),
+			'pushed_at'  => $this->repository->updatedAt()->toDateTimeString(),
+			'seniority'  => $this->repository->createdAt()->diffInDays(),
+			'freshness'  => $this->repository->updatedAt()->diffInDays(),
 		));
 	}
 
@@ -132,9 +124,8 @@ class PackagesStatisticsHydrater
 	protected function computeIssuesRatio()
 	{
 		// Get open and total issues
-		$opened = array_get($this->repository, 'open_issues_count', 0);
-		$total  = $this->package->getRepositoryIssues();
-		$total  = $this->getWithFallback($total, '0.number', 'count');
+		$opened = $this->repository->openedIssues();
+		$total  = $this->repository->issuesCount();
 
 		if ($total == 0) {
 			return 100;

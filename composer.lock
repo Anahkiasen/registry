@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "8ff5d551b45a4e60c8460598b1c627a8",
+    "hash": "68587505cdea23c24f949f814abef1fd",
     "packages": [
         {
             "name": "anahkiasen/flatten",
@@ -141,7 +141,7 @@
             ],
             "authors": [
                 {
-                    "name": "Anahkiasen",
+                    "name": "Maxime Fabre",
                     "email": "ehtnam6@gmail.com"
                 }
             ],
@@ -418,7 +418,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -556,7 +556,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -818,6 +818,56 @@
                 "zf2"
             ],
             "time": "2013-06-10 12:22:13"
+        },
+        {
+            "name": "gentle/bitbucket-api",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gentlero/bitbucket-api.git",
+                "reference": "0.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gentlero/bitbucket-api/zipball/0.1.0",
+                "reference": "0.1.0",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-spl": "*",
+                "kriswallsmith/buzz": "0.10",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*",
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Bitbucket\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexandru G.",
+                    "email": "alex@gentle.ro",
+                    "homepage": "http://vim.gentle.ro",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Bitbucket API wrapper for PHP >= 5.3",
+            "homepage": "https://bitbucket.org/gentlero/bitbucket-api",
+            "keywords": [
+                "api",
+                "bitbucket"
+            ],
+            "time": "2013-06-09 12:09:45"
         },
         {
             "name": "guzzle/common",
@@ -1224,6 +1274,61 @@
             "time": "2013-07-26 10:25:46"
         },
         {
+            "name": "knplabs/github-api",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/php-github-api.git",
+                "reference": "8a8f304e91a5dbd5ca86fb703675dd060cc5d560"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/php-github-api/zipball/8a8f304e91a5dbd5ca86fb703675dd060cc5d560",
+                "reference": "8a8f304e91a5dbd5ca86fb703675dd060cc5d560",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "kriswallsmith/buzz": ">=0.7",
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Github\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thibault Duplessis",
+                    "email": "thibault.duplessis@gmail.com",
+                    "homepage": "http://ornicar.github.com"
+                },
+                {
+                    "name": "KnpLabs Team",
+                    "homepage": "http://knplabs.com"
+                }
+            ],
+            "description": "GitHub API v3 client",
+            "homepage": "https://github.com/KnpLabs/php-github-api",
+            "keywords": [
+                "api",
+                "gh",
+                "gist",
+                "github"
+            ],
+            "time": "2013-07-31 13:28:53"
+        },
+        {
             "name": "knplabs/packagist-api",
             "version": "dev-master",
             "source": {
@@ -1346,6 +1451,54 @@
                 "minification"
             ],
             "time": "2013-07-19 00:03:27"
+        },
+        {
+            "name": "kriswallsmith/buzz",
+            "version": "v0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kriswallsmith/Buzz.git",
+                "reference": "v0.10"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/v0.10",
+                "reference": "v0.10",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "suggest": {
+                "ext-curl": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Buzz": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kris Wallsmith",
+                    "email": "kris.wallsmith@gmail.com",
+                    "homepage": "http://kriswallsmith.net/"
+                }
+            ],
+            "description": "Lightweight HTTP client",
+            "homepage": "https://github.com/kriswallsmith/Buzz",
+            "keywords": [
+                "curl",
+                "http client"
+            ],
+            "time": "2013-05-19 03:41:15"
         },
         {
             "name": "laravel/framework",
@@ -2770,7 +2923,9 @@
         "knplabs/packagist-api": 20,
         "lmammino/jsmin4assetic": 20,
         "natxet/cssmin": 20,
-        "rcrowe/twigbridge": 20
+        "rcrowe/twigbridge": 20,
+        "gentle/bitbucket-api": 20,
+        "knplabs/github-api": 20
     },
     "platform": [
 
