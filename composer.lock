@@ -3,20 +3,20 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "cda7f248f2bcb01926dc52c041a652b8",
+    "hash": "4de115fe3b9dc051c3e2b782016fb695",
     "packages": [
         {
             "name": "anahkiasen/flatten",
-            "version": "dev-master",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/flatten.git",
-                "reference": "62e3e1402f473d4f70cbe28937408d4af310f048"
+                "reference": "af6dca2a00afd9fc5f7a2a09e96fc81c1d9829c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/flatten/zipball/62e3e1402f473d4f70cbe28937408d4af310f048",
-                "reference": "62e3e1402f473d4f70cbe28937408d4af310f048",
+                "url": "https://api.github.com/repos/Anahkiasen/flatten/zipball/af6dca2a00afd9fc5f7a2a09e96fc81c1d9829c2",
+                "reference": "af6dca2a00afd9fc5f7a2a09e96fc81c1d9829c2",
                 "shasum": ""
             },
             "require": {
@@ -24,7 +24,8 @@
                 "illuminate/config": "~4",
                 "illuminate/container": "~4",
                 "illuminate/http": "~4",
-                "illuminate/support": "~4"
+                "illuminate/support": "~4",
+                "philf/setting": "dev-master"
             },
             "require-dev": {
                 "mockery/mockery": "dev-master"
@@ -51,7 +52,7 @@
                 "laravel",
                 "performance"
             ],
-            "time": "2013-07-22 11:14:28"
+            "time": "2013-08-18 14:18:44"
         },
         {
             "name": "anahkiasen/former",
@@ -564,12 +565,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "9c6b8615a988117dec83bdbb0fad80afef23eab8"
+                "reference": "f28a39065d455b6df1c989ea6590e971a1f0256d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/9c6b8615a988117dec83bdbb0fad80afef23eab8",
-                "reference": "9c6b8615a988117dec83bdbb0fad80afef23eab8",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/f28a39065d455b6df1c989ea6590e971a1f0256d",
+                "reference": "f28a39065d455b6df1c989ea6590e971a1f0256d",
                 "shasum": ""
             },
             "require": {
@@ -615,7 +616,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes M. Schmitt",
+                    "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -630,7 +631,7 @@
                 "persistence",
                 "spl"
             ],
-            "time": "2013-07-30 05:35:10"
+            "time": "2013-08-17 18:48:00"
         },
         {
             "name": "doctrine/dbal",
@@ -1960,6 +1961,49 @@
             "time": "2013-08-13 16:36:44"
         },
         {
+            "name": "philf/setting",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Phil-F/Setting.git",
+                "reference": "14576de9503db0943041503bcc246ebbf703395d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Phil-F/Setting/zipball/14576de9503db0943041503bcc246ebbf703395d",
+                "reference": "14576de9503db0943041503bcc246ebbf703395d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Philf\\Setting": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Phil Foulston",
+                    "email": "info@weztec.com"
+                }
+            ],
+            "description": "Persistent configuration settings for Laravel - Create, Read, Update and Delete settings stored in files using JSON",
+            "keywords": [
+                "config",
+                "laravel"
+            ],
+            "time": "2013-08-09 00:45:01"
+        },
+        {
             "name": "phpseclib/phpseclib",
             "version": "dev-master",
             "source": {
@@ -2280,12 +2324,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "v2.3.3"
+                "reference": "db78f8ff7fc9e28d25ff9a0bf6ddf9f0e35fbbe3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/v2.3.3",
-                "reference": "v2.3.3",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/db78f8ff7fc9e28d25ff9a0bf6ddf9f0e35fbbe3",
+                "reference": "db78f8ff7fc9e28d25ff9a0bf6ddf9f0e35fbbe3",
                 "shasum": ""
             },
             "require": {
@@ -2324,7 +2368,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2013-07-21 12:12:18"
+            "time": "2013-08-17 16:34:49"
         },
         {
             "name": "symfony/css-selector",
@@ -2641,12 +2685,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "f2934b0cf525bef5143e52de93f538df4aeef09c"
+                "reference": "ad778df4e7af3cfb9151eeeeb8b9823d47a2d72f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/f2934b0cf525bef5143e52de93f538df4aeef09c",
-                "reference": "f2934b0cf525bef5143e52de93f538df4aeef09c",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/ad778df4e7af3cfb9151eeeeb8b9823d47a2d72f",
+                "reference": "ad778df4e7af3cfb9151eeeeb8b9823d47a2d72f",
                 "shasum": ""
             },
             "require": {
@@ -2682,7 +2726,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "http://symfony.com",
-            "time": "2013-08-08 12:02:32"
+            "time": "2013-08-17 16:34:49"
         },
         {
             "name": "symfony/http-kernel",

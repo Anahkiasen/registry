@@ -8,7 +8,7 @@
 	],
 	"require": {
 		"laravel/framework": "4.1.*",
-		"anahkiasen/flatten": "dev-master",
+		"anahkiasen/flatten": "dev-develop",
 		"anahkiasen/former": "dev-master",
 		"anahkiasen/rocketeer": "dev-develop",
 		"jasonlewis/basset": "dev-develop",
