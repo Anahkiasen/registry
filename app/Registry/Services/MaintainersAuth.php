@@ -1,8 +1,9 @@
 <?php
 namespace Registry\Services;
 
-use Registry\Repositories\MaintainersRepository;
+use Github\Client as Github;
 use Illuminate\Container\Container;
+use Registry\Repositories\MaintainersRepository;
 
 /**
  * Authentification helpers for Maintainers
@@ -79,13 +80,9 @@ class MaintainersAuth
 	public function getUserInformations($token)
 	{
 		// Make and gather request
-		$user = $this->app['endpoints.github_api']->get('/user');
-		$user->getQuery()->merge(array(
-			'client_id'     => $this->credentials->id,
-			'client_secret' => $this->credentials->secret,
-			'access_token'  => $token,
-		));
-		$user = $user->send()->json();
+		$client = $this->app['endpoints.github_api'];
+		$client->authenticate($token, null, Github::AUTH_URL_TOKEN);
+		$user = $client->api('me')->show();
 
 		return $user;
 	}

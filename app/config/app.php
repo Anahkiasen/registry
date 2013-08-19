@@ -116,7 +116,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
 		// Packages
-		'Flatten\FlattenServiceProvider',
+		// 'Flatten\FlattenServiceProvider',
 		'Basset\BassetServiceProvider',
 		'Former\FormerServiceProvider',
 		'Juy\Profiler\Providers\ProfilerServiceProvider',
