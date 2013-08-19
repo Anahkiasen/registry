@@ -29,6 +29,9 @@ class Refresh extends Command
 	 */
 	public function fire()
 	{
+		// Run outstanding migrations
+		$this->call('migrate');
+
 		if ($package = $this->argument('package')) {
 			if (Str::contains($package, '/')) {
 				return $this->refreshPackage($package);
