@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/flatten.git",
-                "reference": "af6dca2a00afd9fc5f7a2a09e96fc81c1d9829c2"
+                "reference": "491f4d44076531802fbf506b40c7d908ca09eeaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/flatten/zipball/af6dca2a00afd9fc5f7a2a09e96fc81c1d9829c2",
-                "reference": "af6dca2a00afd9fc5f7a2a09e96fc81c1d9829c2",
+                "url": "https://api.github.com/repos/Anahkiasen/flatten/zipball/491f4d44076531802fbf506b40c7d908ca09eeaf",
+                "reference": "491f4d44076531802fbf506b40c7d908ca09eeaf",
                 "shasum": ""
             },
             "require": {
@@ -28,6 +28,7 @@
                 "philf/setting": "dev-master"
             },
             "require-dev": {
+                "illuminate/view": "~4",
                 "mockery/mockery": "dev-master"
             },
             "type": "library",
@@ -52,7 +53,7 @@
                 "laravel",
                 "performance"
             ],
-            "time": "2013-08-18 14:18:44"
+            "time": "2013-08-18 18:33:43"
         },
         {
             "name": "anahkiasen/former",
@@ -155,12 +156,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/rocketeer.git",
-                "reference": "1c6c965a28da2554e3b43c68063a77b595049f66"
+                "reference": "ac33e569601e8719fdf234f01b223eb715bff490"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/1c6c965a28da2554e3b43c68063a77b595049f66",
-                "reference": "1c6c965a28da2554e3b43c68063a77b595049f66",
+                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/ac33e569601e8719fdf234f01b223eb715bff490",
+                "reference": "ac33e569601e8719fdf234f01b223eb715bff490",
                 "shasum": ""
             },
             "require": {
@@ -201,7 +202,7 @@
                 "laravel",
                 "ssh"
             ],
-            "time": "2013-08-16 11:54:55"
+            "time": "2013-08-18 19:09:34"
         },
         {
             "name": "anahkiasen/underscore-php",
@@ -1966,15 +1967,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Phil-F/Setting.git",
-                "reference": "14576de9503db0943041503bcc246ebbf703395d"
+                "reference": "51e6e2ce7f906d527abb694f73c6603a4e9799c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Phil-F/Setting/zipball/14576de9503db0943041503bcc246ebbf703395d",
-                "reference": "14576de9503db0943041503bcc246ebbf703395d",
+                "url": "https://api.github.com/repos/Phil-F/Setting/zipball/51e6e2ce7f906d527abb694f73c6603a4e9799c1",
+                "reference": "51e6e2ce7f906d527abb694f73c6603a4e9799c1",
                 "shasum": ""
             },
             "require": {
+                "illuminate/support": "~4",
                 "php": ">=5.3.0"
             },
             "require-dev": {
@@ -2001,7 +2003,7 @@
                 "config",
                 "laravel"
             ],
-            "time": "2013-08-09 00:45:01"
+            "time": "2013-08-18 19:00:34"
         },
         {
             "name": "phpseclib/phpseclib",
