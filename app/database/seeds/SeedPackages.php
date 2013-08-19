@@ -54,7 +54,7 @@ class SeedPackages extends AbstractSeeder
 			$this->hydrateStatistics($package);
 
 			// Total and remaining time
-			$this->displayProgress();
+			$this->displayProgress($key, $total);
 		}
 
 		// Invert freshness scale
@@ -167,9 +167,12 @@ class SeedPackages extends AbstractSeeder
 	/**
 	 * Display the progress of the seeding
 	 *
+	 * @param integer $key
+	 * @param integer $total
+	 *
 	 * @return void
 	 */
-	protected function displayProgress()
+	protected function displayProgress($key, $total)
 	{
 		$current   = $this->stopTimer();
 		$remaining = $this->estimateForIterations($total - $key)->format('%H:%I:%S');

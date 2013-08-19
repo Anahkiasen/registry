@@ -108,7 +108,7 @@ class PackagesStatisticsHydrater
 	public function hydrateRepositoryInformations()
 	{
 		$this->package->fill(array(
-			'readme'            => $this->package->getRepository()->readme(),
+			'readme' => $this->package->getRepository()->readme(),
 		));
 	}
 
@@ -185,25 +185,5 @@ class PackagesStatisticsHydrater
 		$covered  = array_get($coverage, 'php_code_coverage.covered_methods', 1);
 
 		return ceil($covered * 100 / $methods);
-	}
-
-	////////////////////////////////////////////////////////////////////
-	/////////////////////////////// HELPERS ////////////////////////////
-	////////////////////////////////////////////////////////////////////
-
-	/**
-	 * Get an entry from an array, or a fallback entry
-	 *
-	 * @param  array  $array
-	 * @param  string $key
-	 * @param  string $fallback
-	 *
-	 * @return mixed
-	 */
-	protected function getWithFallback($array, $key, $fallback = null)
-	{
-		return array_get($array, $key, array_get(
-			$array, $fallback
-		));
 	}
 }
