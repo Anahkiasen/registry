@@ -23,6 +23,33 @@ trait Timer
 	protected $timer;
 
 	/**
+	 * A flash timer
+	 *
+	 * @var integer
+	 */
+	protected $flash;
+
+	/**
+	 * Start a timer that won't be saved
+	 *
+	 * @return void
+	 */
+	protected function startFlashTimer()
+	{
+		$this->flash = microtime(true);
+	}
+
+	/**
+	 * Stop the flash timer
+	 *
+	 * @return integer
+	 */
+	protected function stopFlashTimer()
+	{
+		return round(microtime(true) - $this->flash, 2);
+	}
+
+	/**
 	 * Start a timer
 	 *
 	 * @return void

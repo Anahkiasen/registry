@@ -31,6 +31,7 @@ class SeedPackages extends AbstractSeeder
 	{
 		$this->packages->flush();
 		$packages = $this->getPackagesFromPackagist();
+		$total    = sizeof($packages);
 
 		foreach ($packages as $key => $package) {
 			$this->startTimer();
@@ -51,6 +52,9 @@ class SeedPackages extends AbstractSeeder
 			// Add repository and packagist statistics
 			$this->cacheEndpoints($key, $package, $packages);
 			$this->hydrateStatistics($package);
+
+			// Total and remaining time
+			$this->displayProgress();
 		}
 
 		// Invert freshness scale
@@ -142,6 +146,7 @@ class SeedPackages extends AbstractSeeder
 	 */
 	public function hydrateStatistics(Package $package)
 	{
+		$this->startFlashTimer();
 		$statistics = new PackagesStatisticsHydrater($package);
 
 		// Hydrate statistics
@@ -150,6 +155,7 @@ class SeedPackages extends AbstractSeeder
 		$statistics->hydrateTests();
 		$statistics->hydrateRawStatistics();
 		$statistics->hydrateRepositoryInformations();
+		$this->comment('-- Hydrating statistics (%sms)', $this->stopFlashTimer());
 
 		return $statistics->getPackage();
 	}
@@ -157,6 +163,19 @@ class SeedPackages extends AbstractSeeder
 	////////////////////////////////////////////////////////////////////
 	/////////////////////////////// HELPERS ////////////////////////////
 	////////////////////////////////////////////////////////////////////
+
+	/**
+	 * Display the progress of the seeding
+	 *
+	 * @return void
+	 */
+	protected function displayProgress()
+	{
+		$current   = $this->stopTimer();
+		$remaining = $this->estimateForIterations($total - $key)->format('%H:%I:%S');
+
+		$this->line('-- Total time : %ss, remaining : %s', $current, $remaining);
+	}
 
 	/**
 	 * Print progress
@@ -177,14 +196,9 @@ class SeedPackages extends AbstractSeeder
 		$this->info('Fetching informations for [%03d/%03d] %s', $key, $total, $name);
 		$cacheQueue = ['Repository', 'Packagist', 'Travis', 'TravisBuilds', 'Scrutinizer'];
 		foreach ($cacheQueue as $cache) {
-			$this->comment('-- '.$cache);
+			$this->startFlashTimer();
 			$package->{'get'.$cache}();
+			$this->comment('-- %s (%sms)', $cache, $this->stopFlashTimer());
 		}
-
-		// Total and remaining time
-		$remaining = $this->stopTimer();
-		$total     = $this->estimateForIterations($total - $key)->format('%H:%I:%S');
-
-		$this->line('-- Total time : %ss, remaining : %s', $remaining, $total);
 	}
 }
