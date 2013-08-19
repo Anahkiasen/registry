@@ -197,6 +197,7 @@ return array(
 		'Basset'    => 'Basset\Facade',
 		'Former'    => 'Former\Facades\Former',
 		'Rocketeer' => 'Rocketeer\Facades\Rocketeer',
+		'Flatten'   => 'Flatten\Facades\Flatten',
 
 	),
 
