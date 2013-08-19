@@ -20,7 +20,7 @@ class Refresh extends Command
 	 *
 	 * @var string
 	 */
-	protected $description = 'Refresh registry';
+	protected $description = 'Refreshes the Registry';
 
 	/**
 	 * Execute the console command.
@@ -47,8 +47,6 @@ class Refresh extends Command
 
 		// Send it over
 		$this->call('db:seed');
-		exec('git push origin master');
-		$this->call('deploy:deploy');
 	}
 
 	/**
@@ -101,9 +99,10 @@ class Refresh extends Command
 		$this->info('Refreshing package '.$package->name);
 
 		// Forget caches related to the Package
-		$this->laravel['cache']->forget($package->name.'-packagist');
-		$this->laravel['cache']->forget($package->name.'-repository');
-		$this->laravel['cache']->forget($package->name.'-repository-issues');
+		$this->laravel['cache']->forget($package->travis);
+		$this->laravel['cache']->forget($package->travis.'-issues');
+		$this->laravel['cache']->forget($package->travis.'-packagist');
+		$this->laravel['cache']->forget($package->travis.'-scm');
 		$this->laravel['cache']->forget($package->travis.'-travis');
 		$this->laravel['cache']->forget($package->travis.'-travis-builds');
 
