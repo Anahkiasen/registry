@@ -126,12 +126,15 @@ class SeedPackages extends AbstractSeeder
 			'type'        => $type,
 		));
 
-		// Save additional attributes
+		// Save repository slug
 		$basePattern = '([a-zA-Z0-9\-]+)';
 		$package->repository = preg_replace(
 			'#((https|http|git)://|git@)(github.com|bitbucket.org)(:|/)' .$basePattern. '/' .$basePattern. '(.git)?#',
 			'http://$3/$5/$6',
 			$package->getPackagist()['repository']);
+
+		// Save Laravel requirement
+		$package->laravel = $package->requirement;
 		$package->save();
 
 		return $package;

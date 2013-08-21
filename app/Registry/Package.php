@@ -130,6 +130,47 @@ class Package extends AbstractModel
 	////////////////////////////////////////////////////////////////////
 
 	/**
+	 * Get the Laravel requirement for the package
+	 *
+	 * @return string
+	 */
+	public function getRequirementAttribute()
+	{
+		if ($this->laravel) {
+			return $this->laravel;
+		}
+
+		// Get Laravel requirement
+		$version = $this->getPackagist()['versions'];
+		$version = array_get($version, key($version).'.require');
+		$laravel = array_get($version, 'laravel/framework');
+		if (!$laravel) $laravel = array_get($version, 'illuminate/support');
+		if (!$laravel) $laravel = '>=4.0.0';
+
+		// Unify wildcards
+		$laravel = str_replace('x', '*', $laravel);
+
+		// Remove special flags
+		$laravel = preg_replace('#(.+)[\-@](dev|BETA[0-9])#', '$1', $laravel);
+
+		// Transcribe major wildcards to versions
+		$laravel = preg_replace('#^\*$#', '>=4.0.0', $laravel);
+		$laravel = str_replace('dev-master', '>=4.1.0', $laravel);
+		$laravel = str_replace('v', null, $laravel);
+
+		// Transcribe next version wildcards
+		$laravel = preg_replace('#>=4.0$#', '~4', $laravel);
+		$laravel = preg_replace('#^4.*$#', '~4.0', $laravel);
+		$laravel = preg_replace('#^4.0.*$#', '~4.0.0', $laravel);
+
+		$laravel = preg_replace('#^~4$#', '>=4.0.0', $laravel);
+		$laravel = preg_replace('#^~4.0$#', '>=4.0.0,<5.0.0', $laravel);
+		$laravel = preg_replace('#^~4.0.0$#', '>=4.0.0,<4.1.0', $laravel);
+
+		return $laravel;
+	}
+
+	/**
 	 * Get the parsed Markdown of the README
 	 *
 	 * @return string
