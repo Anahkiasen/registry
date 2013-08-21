@@ -177,9 +177,25 @@ class Package extends AbstractModel
 	 */
 	public function getReadmeAttribute()
 	{
-		$parser = new MarkdownExtraParser;
+		$languages = 'php|javascript|css|json';
 
-		return $parser->transformMarkdown($this->getOriginal('readme'));
+		// Get README and replace fenced blocks
+		$readme = $this->getOriginal('readme');
+		$readme = preg_replace('#```(' .$languages. ')?#', "~~~\n$1", $readme);
+
+		// Convert Markdown
+		$parser = new MarkdownExtraParser;
+		$readme = $parser->transformMarkdown($readme);
+
+		// Add syntax highlighting
+		$readme = preg_replace("#<pre><code>(" .$languages. ")\n#", '<pre><code data-language="$1">', $readme);
+		$readme = preg_replace_callback("#\n(    ){1,}#", function ($matches) {
+			$tabs = (strlen($matches[0]) - 1) / 4;
+
+			return "\n".str_repeat("\t", $tabs);
+		}, $readme);
+
+		return $readme;
 	}
 
 	/**

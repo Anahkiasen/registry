@@ -3,6 +3,7 @@
   "dependencies": {
     "lodash": "latest",
     "nnnick-chartjs": "latest",
-    "normalize-css": "latest"
+    "normalize-css": "latest",
+    "rainbow": "latest"
   }
 }

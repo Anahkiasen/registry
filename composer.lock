@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "4de115fe3b9dc051c3e2b782016fb695",
+    "hash": "8e20aca826f381a8a16e42b9b2fe4636",
     "packages": [
         {
             "name": "anahkiasen/flatten",
@@ -246,6 +246,35 @@
                 "toolkit"
             ],
             "time": "2013-07-15 09:18:39"
+        },
+        {
+            "name": "brainsware/php-markdown-extra-extended",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Brainsware/php-markdown-extra-extended.git",
+                "reference": "630b5fb86d4839f4e468b49529e26009863bae0b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Brainsware/php-markdown-extra-extended/zipball/630b5fb86d4839f4e468b49529e26009863bae0b",
+                "reference": "630b5fb86d4839f4e468b49529e26009863bae0b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP Markdown & Extra",
+            "homepage": "https://github.com/Brainsware/php-markdown-extra-extended",
+            "keywords": [
+                "markdown"
+            ],
+            "time": "2013-03-22 13:22:28"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -3031,7 +3060,8 @@
         "rcrowe/twigbridge": 20,
         "gentle/bitbucket-api": 20,
         "knplabs/github-api": 20,
-        "dflydev/markdown": 20
+        "dflydev/markdown": 20,
+        "brainsware/php-markdown-extra-extended": 20
     },
     "platform": [
 
