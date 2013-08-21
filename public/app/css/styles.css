@@ -109,6 +109,8 @@ label, .layout-content, .layout-content--narrow, .layout-navigation {
       margin-bottom: 1rem; } }
 
 .package__summary, .maintainer__summary {
+  padding: 1rem;
+  background-color: #f4f5f6;
   margin-top: 1rem; }
   .package__summary dl, .maintainer__summary dl {
     *zoom: 1; }
@@ -302,13 +304,13 @@ p > code {
   -moz-border-radius: 0.25em;
   border-radius: 0.25em; }
 
-pre > code, .package__summary > code, .maintainer__summary > code {
+pre > code {
   display: block;
   padding: 1rem 0.25rem;
   tab-size: 2;
   line-height: 1.3; }
 
-code > pre, code > .package__summary, code > .maintainer__summary {
+code > pre {
   background-color: #f4f5f6;
   color: #869198;
   padding: 1rem; }

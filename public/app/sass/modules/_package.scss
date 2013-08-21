@@ -39,7 +39,8 @@
 .package__summary {
 	$offset: 7rem;
 	@extend %border-box;
-	@extend pre;
+	padding: 1rem;
+	background-color: $color-silver--light;
 	margin-top: 1rem;
 
 	dl {
