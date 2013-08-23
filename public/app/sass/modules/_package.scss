@@ -20,6 +20,10 @@
 	h1:first-child {
 		margin-top: 0;
 	}
+	
+	img {
+		max-width: 100%;
+	}
 
 	& + .package__summary {
 		@include span-columns(6 omega);
