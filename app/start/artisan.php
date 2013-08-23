@@ -22,3 +22,4 @@ Rocketeer::after(array('deploy', 'update'), function($task) {
 });
 
 Artisan::add(new Refresh);
+Artisan::add(new Update);
