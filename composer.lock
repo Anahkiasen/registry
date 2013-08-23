@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "8e20aca826f381a8a16e42b9b2fe4636",
+    "hash": "4de115fe3b9dc051c3e2b782016fb695",
     "packages": [
         {
             "name": "anahkiasen/flatten",
@@ -61,12 +61,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/former.git",
-                "reference": "3bf9d07b292155cd706e2df009d298dcf7664fda"
+                "reference": "70768b1542b1cd33cd84a913f27f53d74e591110"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/former/zipball/3bf9d07b292155cd706e2df009d298dcf7664fda",
-                "reference": "3bf9d07b292155cd706e2df009d298dcf7664fda",
+                "url": "https://api.github.com/repos/Anahkiasen/former/zipball/70768b1542b1cd33cd84a913f27f53d74e591110",
+                "reference": "70768b1542b1cd33cd84a913f27f53d74e591110",
                 "shasum": ""
             },
             "require": {
@@ -112,7 +112,7 @@
                 "foundation",
                 "laravel"
             ],
-            "time": "2013-08-05 14:51:00"
+            "time": "2013-08-22 13:33:48"
         },
         {
             "name": "anahkiasen/html-object",
@@ -246,35 +246,6 @@
                 "toolkit"
             ],
             "time": "2013-07-15 09:18:39"
-        },
-        {
-            "name": "brainsware/php-markdown-extra-extended",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Brainsware/php-markdown-extra-extended.git",
-                "reference": "630b5fb86d4839f4e468b49529e26009863bae0b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Brainsware/php-markdown-extra-extended/zipball/630b5fb86d4839f4e468b49529e26009863bae0b",
-                "reference": "630b5fb86d4839f4e468b49529e26009863bae0b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3"
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "PHP Markdown & Extra",
-            "homepage": "https://github.com/Brainsware/php-markdown-extra-extended",
-            "keywords": [
-                "markdown"
-            ],
-            "time": "2013-03-22 13:22:28"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -1596,12 +1567,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "d304fdff24ea7d99e50c9645f03d1a30db42a9af"
+                "reference": "65c7827090355c4145794f158e7743bc2264865d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/d304fdff24ea7d99e50c9645f03d1a30db42a9af",
-                "reference": "d304fdff24ea7d99e50c9645f03d1a30db42a9af",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/65c7827090355c4145794f158e7743bc2264865d",
+                "reference": "65c7827090355c4145794f158e7743bc2264865d",
                 "shasum": ""
             },
             "require": {
@@ -1701,7 +1672,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-08-15 05:03:24"
+            "time": "2013-08-23 03:27:47"
         },
         {
             "name": "lmammino/jsmin4assetic",
@@ -2199,12 +2170,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rcrowe/TwigBridge.git",
-                "reference": "0.5.0"
+                "reference": "279d8a44d8777d0573a92727c7a596698eacbee4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rcrowe/TwigBridge/zipball/0.5.0",
-                "reference": "0.5.0",
+                "url": "https://api.github.com/repos/rcrowe/TwigBridge/zipball/279d8a44d8777d0573a92727c7a596698eacbee4",
+                "reference": "279d8a44d8777d0573a92727c7a596698eacbee4",
                 "shasum": ""
             },
             "require": {
@@ -2716,12 +2687,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "0cbb3fbc984834ece17abcbadfd91d1f622daf27"
+                "reference": "d5a7516f7351d13d5d7700265b44a8ba6578d5f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/0cbb3fbc984834ece17abcbadfd91d1f622daf27",
-                "reference": "0cbb3fbc984834ece17abcbadfd91d1f622daf27",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/d5a7516f7351d13d5d7700265b44a8ba6578d5f4",
+                "reference": "d5a7516f7351d13d5d7700265b44a8ba6578d5f4",
                 "shasum": ""
             },
             "require": {
@@ -2757,7 +2728,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "http://symfony.com",
-            "time": "2013-08-21 07:58:38"
+            "time": "2013-08-21 10:06:02"
         },
         {
             "name": "symfony/http-kernel",
@@ -2766,12 +2737,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel.git",
-                "reference": "b77ad515a2bb8d81f029b8af23135e8fb151de9f"
+                "reference": "2e7f6b902532491cd3ee16de90932aa9f7b00123"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/b77ad515a2bb8d81f029b8af23135e8fb151de9f",
-                "reference": "b77ad515a2bb8d81f029b8af23135e8fb151de9f",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/2e7f6b902532491cd3ee16de90932aa9f7b00123",
+                "reference": "2e7f6b902532491cd3ee16de90932aa9f7b00123",
                 "shasum": ""
             },
             "require": {
@@ -2828,7 +2799,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "http://symfony.com",
-            "time": "2013-08-15 17:08:02"
+            "time": "2013-08-22 06:42:25"
         },
         {
             "name": "symfony/process",
@@ -2837,12 +2808,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Process.git",
-                "reference": "a49d145045efb086592c2df48490a14d6d9e9874"
+                "reference": "1e91553e1cedd0b8fb1da6ea4f89b02e21713d5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Process/zipball/a49d145045efb086592c2df48490a14d6d9e9874",
-                "reference": "a49d145045efb086592c2df48490a14d6d9e9874",
+                "url": "https://api.github.com/repos/symfony/Process/zipball/1e91553e1cedd0b8fb1da6ea4f89b02e21713d5b",
+                "reference": "1e91553e1cedd0b8fb1da6ea4f89b02e21713d5b",
                 "shasum": ""
             },
             "require": {
@@ -2875,7 +2846,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "http://symfony.com",
-            "time": "2013-08-21 07:58:38"
+            "time": "2013-08-22 06:42:25"
         },
         {
             "name": "symfony/routing",
@@ -3060,8 +3031,7 @@
         "rcrowe/twigbridge": 20,
         "gentle/bitbucket-api": 20,
         "knplabs/github-api": 20,
-        "dflydev/markdown": 20,
-        "brainsware/php-markdown-extra-extended": 20
+        "dflydev/markdown": 20
     },
     "platform": [
 

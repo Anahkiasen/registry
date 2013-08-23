@@ -89,9 +89,12 @@ label, .layout-content, .layout-content--narrow, .layout-navigation {
   margin-right: 1.69492%;
   display: inline;
   background-color: #f4f5f6;
-  padding: 1rem; }
+  padding: 1rem;
+  line-height: 1.5em; }
   .package__informations__readme h1:first-child {
     margin-top: 0; }
+  .package__informations__readme img {
+    max-width: 100%; }
   .package__informations__readme + .package__summary, .package__informations__readme + .maintainer__summary {
     width: 49.15254%;
     float: right;
@@ -297,7 +300,7 @@ a {
   text-decoration: none; }
 
 p > code {
-  font-size: 0.8em;
+  font-size: 0.7em;
   background-color: rgba(0, 0, 0, 0.05);
   padding: 0.25rem;
   -webkit-border-radius: 0.25em;
