@@ -16,6 +16,7 @@
 	@include span-columns(6);
 	background-color: $color-silver--light;
 	padding: 1rem;
+	line-height: 1.5em;
 
 	h1:first-child {
 		margin-top: 0;
