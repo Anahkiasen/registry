@@ -79,6 +79,9 @@ class PackagesController extends BaseController
 			return Redirect::back()->withInput()->withErrors($validation);
 		}
 
+		// Flush package cache
+		Flatten::flushAction('PackagesController@package', array($slug));
+
 		return Redirect::action('PackagesController@package', $slug);
 	}
 
