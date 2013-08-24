@@ -1,7 +1,6 @@
 <?php
 namespace Registry\Services;
 
-use Carbon\Carbon;
 use Registry\Package;
 
 /**
