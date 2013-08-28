@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/flatten.git",
-                "reference": "39c8037908db6fe19d21a5c9edcf64fd483dbc50"
+                "reference": "87757bc9956366593360881573cf991aa473b3ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/flatten/zipball/39c8037908db6fe19d21a5c9edcf64fd483dbc50",
-                "reference": "39c8037908db6fe19d21a5c9edcf64fd483dbc50",
+                "url": "https://api.github.com/repos/Anahkiasen/flatten/zipball/87757bc9956366593360881573cf991aa473b3ac",
+                "reference": "87757bc9956366593360881573cf991aa473b3ac",
                 "shasum": ""
             },
             "require": {
@@ -53,7 +53,7 @@
                 "laravel",
                 "performance"
             ],
-            "time": "2013-08-25 15:40:41"
+            "time": "2013-08-28 13:50:23"
         },
         {
             "name": "anahkiasen/former",
