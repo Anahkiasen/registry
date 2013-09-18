@@ -75,7 +75,7 @@ class PackagesRepository extends AbstractRepository
 	 */
 	public function popular()
 	{
-		return $this->entries->with('maintainers', 'versions')->whereType('package')->latest('popularity')->get();
+		return $this->entries->with('maintainers', 'versions')->whereType('package')->orderBy('popularity', 'DESC')->get();
 	}
 
 	/**
@@ -85,7 +85,7 @@ class PackagesRepository extends AbstractRepository
 	 */
 	public function latest()
 	{
-		return $this->entries->with('maintainers')->latest()->get();
+		return $this->entries->with('maintainers')->orderBy('created_at', 'DESC')->get();
 	}
 
 	/**
@@ -95,7 +95,7 @@ class PackagesRepository extends AbstractRepository
 	 */
 	public function oldest()
 	{
-		return $this->entries->with('maintainers')->oldest()->get();
+		return $this->entries->with('maintainers')->orderBy('created_at')->get();
 	}
 
 	////////////////////////////////////////////////////////////////////

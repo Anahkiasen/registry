@@ -7,20 +7,21 @@
 		"packages"
 	],
 	"require": {
-		"laravel/framework": "4.1.*",
+		"laravel/framework": "4.0.*",
+		"illuminate/remote": "4.1.*@dev",
 		"anahkiasen/flatten": "dev-develop",
 		"anahkiasen/former": "dev-master",
 		"anahkiasen/rocketeer": "dev-develop",
+		"dflydev/markdown": "dev-master",
+		"gentle/bitbucket-api": "dev-master",
 		"jasonlewis/basset": "dev-develop",
 		"juy/profiler": "dev-master",
 		"kevinlebrun/colors.php": "dev-master",
+		"knplabs/github-api": "dev-master",
 		"knplabs/packagist-api": "dev-master",
 		"lmammino/jsmin4assetic": "dev-master",
 		"natxet/CssMin": "dev-master",
-		"rcrowe/twigbridge": "dev-master",
-		"gentle/bitbucket-api": "dev-master",
-		"knplabs/github-api": "dev-master",
-		"dflydev/markdown": "dev-master"
+		"rcrowe/twigbridge": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

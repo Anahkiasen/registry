@@ -43,7 +43,7 @@ class Package extends AbstractModel
 	 */
 	public function versions()
 	{
-		return $this->hasMany('Registry\Version')->latest();
+		return $this->hasMany('Registry\Version')->orderBy('created_at', 'DESC');
 	}
 
 	/**
