@@ -24,7 +24,7 @@ Basset::collection('application', function($collection) {
 //////////////////////////////////////////////////////////////////////
 
 Basset::collection('home', function($collection) {
-	$collection->javascript('components/lodash/dist/lodash.backbone.min.js');
+	$collection->javascript('components/lodash/dist/lodash.underscore.min.js');
 	$collection->javascript('app/js/scripts.js');
 })
 ->rawOnEnvironment('local')
