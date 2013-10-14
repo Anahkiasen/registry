@@ -11,7 +11,7 @@ class AddReadmeColumn extends Migration
 	public function up()
 	{
 		Schema::table('packages', function ($table) {
-			$table->text('readme');
+			$table->text('readme')->nullable();
 		});
 	}
 

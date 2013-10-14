@@ -11,7 +11,7 @@ class AddColumnsColumn extends Migration
 	public function up()
 	{
 		Schema::table('maintainers', function ($table) {
-			$table->text('columns');
+			$table->text('columns')->nullable();
 		});
 	}
 
