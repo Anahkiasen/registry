@@ -20,6 +20,7 @@ class SeedPackages extends AbstractSeeder
 		'typo3/flow-composer-installers',
 		'iyoworks/former',
 		'ppi/skeleton-app',
+		'rcrowe/Turbo' // Just for now
 	);
 
 	/**
@@ -43,6 +44,9 @@ class SeedPackages extends AbstractSeeder
 
 			// Create model
 			$package = $this->createPackageModel($package);
+			if (!$package) {
+				continue;
+			}
 
 			// Skip non-library
 			if ($package->getPackagist()['type'] !== 'library') {
@@ -125,6 +129,11 @@ class SeedPackages extends AbstractSeeder
 			'packagist'   => $package->getUrl(),
 			'type'        => $type,
 		));
+
+		// Cancel if no results found
+		if (!$package->getPackagist()) {
+			return false;
+		}
 
 		// Save repository slug
 		$basePattern = '([a-zA-Z0-9\-]+)';

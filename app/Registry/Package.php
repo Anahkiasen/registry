@@ -2,11 +2,11 @@
 namespace Registry;
 
 use App;
+use dflydev\markdown\MarkdownExtraParser;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Registry\Abstracts\AbstractModel;
 use Registry\Services\PackagesEndpoints;
-use dflydev\markdown\MarkdownExtraParser;
 
 /**
  * A Package in the registry
@@ -67,7 +67,7 @@ class Package extends AbstractModel
 	 */
 	public function getPackagist()
 	{
-		return $this->getFromApi('guzzle', '/packages/'.$this->name.'.json')['package'];
+		return $this->getFromApi('guzzle', '/packages/'.$this->name.'.json')->get('package');
 	}
 
 	/**
