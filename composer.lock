@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/flatten.git",
-                "reference": "87757bc9956366593360881573cf991aa473b3ac"
+                "reference": "f39460c7439f2f785d006d871ab0f7c74e710949"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/flatten/zipball/87757bc9956366593360881573cf991aa473b3ac",
-                "reference": "87757bc9956366593360881573cf991aa473b3ac",
+                "url": "https://api.github.com/repos/Anahkiasen/flatten/zipball/f39460c7439f2f785d006d871ab0f7c74e710949",
+                "reference": "f39460c7439f2f785d006d871ab0f7c74e710949",
                 "shasum": ""
             },
             "require": {
@@ -53,7 +53,7 @@
                 "laravel",
                 "performance"
             ],
-            "time": "2013-08-28 13:50:23"
+            "time": "2013-10-19 17:47:05"
         },
         {
             "name": "anahkiasen/former",
@@ -120,12 +120,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/html-object.git",
-                "reference": "6c38e388bd75fe49c927ec88c1261e57b2124ba7"
+                "reference": "c6a901b12285f9a5b4a3731565eef9580d55dbee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/html-object/zipball/6c38e388bd75fe49c927ec88c1261e57b2124ba7",
-                "reference": "6c38e388bd75fe49c927ec88c1261e57b2124ba7",
+                "url": "https://api.github.com/repos/Anahkiasen/html-object/zipball/c6a901b12285f9a5b4a3731565eef9580d55dbee",
+                "reference": "c6a901b12285f9a5b4a3731565eef9580d55dbee",
                 "shasum": ""
             },
             "require": {
@@ -148,7 +148,7 @@
                 }
             ],
             "description": "A set of classes to create and manipulate HTML objects abstractions",
-            "time": "2013-08-20 12:47:19"
+            "time": "2013-10-16 23:04:59"
         },
         {
             "name": "anahkiasen/rocketeer",
@@ -156,12 +156,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/rocketeer.git",
-                "reference": "cf12c2ef2b56451fa082b7aaa8d00e675f465763"
+                "reference": "b0248edfdf01993d3fe13f1591cc847a4641e9f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/cf12c2ef2b56451fa082b7aaa8d00e675f465763",
-                "reference": "cf12c2ef2b56451fa082b7aaa8d00e675f465763",
+                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/b0248edfdf01993d3fe13f1591cc847a4641e9f6",
+                "reference": "b0248edfdf01993d3fe13f1591cc847a4641e9f6",
                 "shasum": ""
             },
             "require": {
@@ -202,7 +202,7 @@
                 "laravel",
                 "ssh"
             ],
-            "time": "2013-09-19 10:01:34"
+            "time": "2013-10-19 13:06:09"
         },
         {
             "name": "anahkiasen/underscore-php",
@@ -1428,12 +1428,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/php-github-api.git",
-                "reference": "3787a1b87cf9d8549dc33b5b73a5d09f23a91ea2"
+                "reference": "682b8cea30752ab579687c95955f88b876ac97e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/php-github-api/zipball/3787a1b87cf9d8549dc33b5b73a5d09f23a91ea2",
-                "reference": "3787a1b87cf9d8549dc33b5b73a5d09f23a91ea2",
+                "url": "https://api.github.com/repos/KnpLabs/php-github-api/zipball/682b8cea30752ab579687c95955f88b876ac97e9",
+                "reference": "682b8cea30752ab579687c95955f88b876ac97e9",
                 "shasum": ""
             },
             "require": {
@@ -1475,7 +1475,7 @@
                 "gist",
                 "github"
             ],
-            "time": "2013-09-24 10:40:31"
+            "time": "2013-10-16 10:39:40"
         },
         {
             "name": "knplabs/packagist-api",
@@ -1655,12 +1655,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "dfaeb785e478981a49dd1a0e4c95faadbd69ba50"
+                "reference": "420983055892abd7917e1f69c7e824516c457b58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/dfaeb785e478981a49dd1a0e4c95faadbd69ba50",
-                "reference": "dfaeb785e478981a49dd1a0e4c95faadbd69ba50",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/420983055892abd7917e1f69c7e824516c457b58",
+                "reference": "420983055892abd7917e1f69c7e824516c457b58",
                 "shasum": ""
             },
             "require": {
@@ -1718,10 +1718,10 @@
                 "illuminate/workbench": "self.version"
             },
             "require-dev": {
-                "aws/aws-sdk-php": "2.2.*",
-                "iron-io/iron_mq": "1.4.4",
+                "aws/aws-sdk-php": "2.4.*",
+                "iron-io/iron_mq": "1.4.*",
                 "mockery/mockery": "0.8.0",
-                "pda/pheanstalk": "2.0.*",
+                "pda/pheanstalk": "2.1.*",
                 "phpunit/phpunit": "3.7.*"
             },
             "type": "library",
@@ -1760,7 +1760,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-10-09 19:50:44"
+            "time": "2013-10-20 00:52:20"
         },
         {
             "name": "lmammino/jsmin4assetic",
@@ -1819,12 +1819,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "8e5a671eef6e1096d764e6f3524e6f732afa53b4"
+                "reference": "620922356a36d8903d213c986568fe159b530747"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/8e5a671eef6e1096d764e6f3524e6f732afa53b4",
-                "reference": "8e5a671eef6e1096d764e6f3524e6f732afa53b4",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/620922356a36d8903d213c986568fe159b530747",
+                "reference": "620922356a36d8903d213c986568fe159b530747",
                 "shasum": ""
             },
             "require": {
@@ -1874,7 +1874,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2013-10-11 16:18:40"
+            "time": "2013-10-16 16:27:10"
         },
         {
             "name": "natxet/CssMin",
@@ -2107,12 +2107,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "a577a09a4f891a16c8734626f5042b4b9fae2877"
+                "reference": "1e3ff81e7d1978e87aefee604e9da0f8169a0020"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/a577a09a4f891a16c8734626f5042b4b9fae2877",
-                "reference": "a577a09a4f891a16c8734626f5042b4b9fae2877",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/1e3ff81e7d1978e87aefee604e9da0f8169a0020",
+                "reference": "1e3ff81e7d1978e87aefee604e9da0f8169a0020",
                 "shasum": ""
             },
             "require": {
@@ -2173,7 +2173,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2013-10-09 19:51:34"
+            "time": "2013-10-18 18:24:06"
         },
         {
             "name": "predis/predis",
@@ -2635,12 +2635,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher.git",
-                "reference": "7fc72a7a346a1887d3968cc1ce5642a15cd182e9"
+                "reference": "2d8ece3c610726a73d0c95c885134efea182610e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/7fc72a7a346a1887d3968cc1ce5642a15cd182e9",
-                "reference": "7fc72a7a346a1887d3968cc1ce5642a15cd182e9",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/2d8ece3c610726a73d0c95c885134efea182610e",
+                "reference": "2d8ece3c610726a73d0c95c885134efea182610e",
                 "shasum": ""
             },
             "require": {
@@ -2680,7 +2680,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "http://symfony.com",
-            "time": "2013-09-19 09:45:20"
+            "time": "2013-10-13 06:32:10"
         },
         {
             "name": "symfony/filesystem",
@@ -2783,12 +2783,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "1217d740a61f2317ef7e5e49e807ae2fc7f0c44e"
+                "reference": "8f383fa5e4b66b66ba2d09e502e8bf73bdd04901"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/1217d740a61f2317ef7e5e49e807ae2fc7f0c44e",
-                "reference": "1217d740a61f2317ef7e5e49e807ae2fc7f0c44e",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/8f383fa5e4b66b66ba2d09e502e8bf73bdd04901",
+                "reference": "8f383fa5e4b66b66ba2d09e502e8bf73bdd04901",
                 "shasum": ""
             },
             "require": {
@@ -2824,7 +2824,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "http://symfony.com",
-            "time": "2013-10-11 11:59:44"
+            "time": "2013-10-17 11:48:01"
         },
         {
             "name": "symfony/http-kernel",
@@ -3063,12 +3063,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "09c386b3359cc22b4112197c2d8c6d6f7a49c918"
+                "reference": "27bd8b185f9e7e217952de05756fdfce6bdc4673"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/09c386b3359cc22b4112197c2d8c6d6f7a49c918",
-                "reference": "09c386b3359cc22b4112197c2d8c6d6f7a49c918",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/27bd8b185f9e7e217952de05756fdfce6bdc4673",
+                "reference": "27bd8b185f9e7e217952de05756fdfce6bdc4673",
                 "shasum": ""
             },
             "require": {
@@ -3104,7 +3104,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-10-07 10:00:50"
+            "time": "2013-10-17 08:34:06"
         }
     ],
     "packages-dev": [
