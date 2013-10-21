@@ -1,7 +1,7 @@
 {
 	"name": "anahkiasen/registry",
 	"description": "The Laravel Packages Registry",
-	"license": "CC-BY-NC-ND-3.0",
+	"license": "MIT",
 	"keywords": [
 		"laravel",
 		"packages"
