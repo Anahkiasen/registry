@@ -7,13 +7,12 @@
 
 .package__informations {
 	@include container;
-	max-width: 100%;
 	padding: 0;
 }
 
 .package__informations__readme {
 	@extend %border-box;
-	@include span-columns(6);
+	@include span(6);
 	background-color: $color-silver--light;
 	padding: 1rem;
 	line-height: 1.5em;
@@ -21,19 +20,20 @@
 	h1:first-child {
 		margin-top: 0;
 	}
-	
+
 	img {
 		max-width: 100%;
 	}
 
 	& + .package__summary {
-		@include span-columns(6 omega);
+		@include span(6 omega);
 		margin-top: 0;
 	}
 
-	@include at-breakpoint(0 $wide) {
+	@include breakpoint(max-width $wide) {
 		&, & + .package__summary {
-			@include reset-columns;
+			float: none;
+			margin-right: auto;
 			display: block;
 			width: 100%;
 			margin-bottom: 1rem;

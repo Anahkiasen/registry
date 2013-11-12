@@ -22,7 +22,7 @@
 		background-position: 20% 3rem;
 	}
 
-	@include at-breakpoint(0 $desktop) {
+	@include breakpoint(max-width $desktop) {
 		padding: 2rem 0;
 		h1 {
 			font-size: 1rem;

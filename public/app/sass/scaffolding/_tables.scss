@@ -52,13 +52,13 @@ table th {
 //////////////////////////////////////////////////////////////////////
 
 table {
-	@include at-breakpoint($tablet $wide) {
+	@include breakpoint($tablet $wide) {
 		.packages-list__tags {
 			display: none;
 		}
 	}
 
-	@include at-breakpoint(0 $tablet) {
+	@include breakpoint(max-width $tablet) {
 		thead, tbody, th, tr, td {
 			display: block;
 			width: 100%;

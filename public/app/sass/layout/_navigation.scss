@@ -19,7 +19,7 @@ $padding: 0.5rem;
 		padding: 0.5rem 0.75rem;
 	}
 
-	@include at-breakpoint(0 $tablet) {
+	@include breakpoint(max-width $tablet) {
 		text-align: center;
 
 		.layout-navigation__main {
