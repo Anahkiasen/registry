@@ -22,6 +22,15 @@ class Package extends AbstractModel
 		'illuminate', 'updated_at',
 	);
 
+	/**
+	 * The attributes that should be mutated to dates.
+	 *
+	 * @var array
+	 */
+	protected $dates = array(
+		'pushed_at',
+	);
+
 	////////////////////////////////////////////////////////////////////
 	//////////////////////////// RELATIONSHIPS /////////////////////////
 	////////////////////////////////////////////////////////////////////
@@ -268,16 +277,6 @@ class Package extends AbstractModel
 		return $this->maintainers->implode('link', ', ');
 	}
 
-	/**
-	 * The DateTime fields of the model
-	 *
-	 * @return array
-	 */
-	public function getDates()
-	{
-		return array_merge(parent::getDates(), array('pushed_at'));
-	}
-
 	////////////////////////////////////////////////////////////////////
 	///////////////////////////// QUERY SCOPES /////////////////////////
 	////////////////////////////////////////////////////////////////////
@@ -327,5 +326,4 @@ class Package extends AbstractModel
 
 		return $package;
 	}
-
 }

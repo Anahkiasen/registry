@@ -1,10 +1,7 @@
 <?php
-use Registry\Traits\Colorizer;
 
-class TestCase extends Illuminate\Foundation\Testing\TestCase
+class TestCase extends Arrounded\Testing\TestCase
 {
-	use Colorizer;
-
 	/**
 	 * Reset the tests
 	 */

@@ -1,10 +1,8 @@
 <?php
-use Registry\Traits\Colorizer;
+use Registry\Abstracts\AbstractSeeder;
 
-class DatabaseSeeder extends Seeder
+class DatabaseSeeder extends AbstractSeeder
 {
-	use Colorizer;
-
 	/**
 	 * Run the database seeds.
 	 *
@@ -14,23 +12,8 @@ class DatabaseSeeder extends Seeder
 	{
 		Eloquent::unguard();
 
-		$this->seed('SeedPackages');
-		$this->seed('SeedVersions');
-		$this->seed('SeedMaintainers');
-	}
-
-	/**
-	 * Run a seed
-	 *
-	 * @param  string $class
-	 *
-	 * @return void
-	 */
-	public function seed($class)
-	{
-		$name = str_replace('Seed', null, $class);
-		$this->info('Seeding '.$name);
-
-		$this->call($class);
+		$this->seed('Packages');
+		$this->seed('Versions');
+		$this->seed('Maintainers');
 	}
 }

@@ -13,11 +13,7 @@ trait HasKeywords
 	 */
 	public function setKeywordsAttribute($keywords)
 	{
-		if (is_array($keywords)) {
-			$keywords = json_encode($keywords);
-		}
-
-		$this->attributes['keywords'] = $keywords;
+		$this->setJsonAttribute('keywords', $keywords);
 	}
 
 	/**
@@ -27,8 +23,7 @@ trait HasKeywords
 	 */
 	public function getKeywordsAttribute()
 	{
-		$keywords = $this->getOriginal('keywords');
-		$keywords = (array) json_decode($keywords, true);
+		$keywords = $this->getJsonAttribute('keywords');
 
 		// Filter out redundant keywords
 		$keywords = array_filter($keywords, function($value) {

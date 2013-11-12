@@ -15,38 +15,38 @@ class CreatePackages extends Migration
 
 				// Package informations
 				$table->string('name');
-				$table->string('slug');
+				$table->string('slug')->nullable();
 				$table->string('description');
-				$table->integer('favorites');
+				$table->integer('favorites')->default(0);
 				$table->string('type');
 				$table->string('keywords');
-				$table->boolean('illuminate');
+				$table->boolean('illuminate')->default(false);
 
 				// Unit tests
-				$table->integer('build_status');
-				$table->integer('consistency');
-				$table->integer('coverage');
+				$table->integer('build_status')->default(0);
+				$table->integer('consistency')->default(0);
+				$table->integer('coverage')->default(0);
 
 				// Repository statistics
-				$table->integer('downloads_total');
-				$table->integer('downloads_monthly');
-				$table->integer('downloads_daily');
-				$table->integer('watchers');
-				$table->integer('forks');
-				$table->integer('issues');
-				$table->integer('seniority');
-				$table->integer('freshness');
+				$table->integer('downloads_total')->default(0);
+				$table->integer('downloads_monthly')->default(0);
+				$table->integer('downloads_daily')->default(0);
+				$table->integer('watchers')->default(0);
+				$table->integer('forks')->default(0);
+				$table->integer('issues')->default(0);
+				$table->integer('seniority')->default(0);
+				$table->integer('freshness')->default(0);
 
 				// Indexes
-				$table->integer('popularity');
-				$table->integer('trust');
+				$table->integer('popularity')->default(0);
+				$table->integer('trust')->default(0);
 
 				// Endpoints
-				$table->string('travis');
-				$table->string('packagist');
-				$table->string('repository');
+				$table->string('travis')->nullable();
+				$table->string('packagist')->nullable();
+				$table->string('repository')->nullable();
 
-			$table->timestamp('pushed_at');
+			$table->timestamp('pushed_at')->nullable();
 			$table->timestamps();
 		});
 	}

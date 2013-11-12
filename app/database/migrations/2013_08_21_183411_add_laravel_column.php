@@ -11,7 +11,7 @@ class AddLaravelColumn extends Migration
 	public function up()
 	{
 		Schema::table('packages', function ($table) {
-			$table->string('laravel');
+			$table->string('laravel')->nullable();
 		});
 	}
 

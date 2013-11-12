@@ -1,12 +1,11 @@
 <?php
 use Packagist\Api\Client as Packagist;
-use Registry\Abstracts\AbstractSeeder;
 use Registry\Package;
 use Registry\Services\IndexesComputer;
 use Registry\Services\PackagesStatisticsHydrater;
 use Registry\Traits\Timer;
 
-class SeedPackages extends AbstractSeeder
+class PackagesTableSeeder extends DatabaseSeeder
 {
 	use Timer;
 
@@ -98,7 +97,7 @@ class SeedPackages extends AbstractSeeder
 	 */
 	protected function getPackagesFromPackagist()
 	{
-		$this->comment('Fetching list of packages');
+		$this->command->comment('Fetching list of packages');
 
 		return $this->container['cache']->rememberForever('packages', function() {
 			return (new Packagist)->search('laravel');
@@ -167,7 +166,7 @@ class SeedPackages extends AbstractSeeder
 		$statistics->hydrateTests();
 		$statistics->hydrateRawStatistics();
 		$statistics->hydrateRepositoryInformations();
-		$this->comment('-- Hydrating statistics (%sms)', $this->stopFlashTimer());
+		$this->command->comment(sprintf('-- Hydrating statistics (%sms)', $this->stopFlashTimer()));
 
 		return $statistics->getPackage();
 	}
@@ -189,7 +188,7 @@ class SeedPackages extends AbstractSeeder
 		$current   = $this->stopTimer();
 		$remaining = $this->estimateForIterations($total - $key)->format('%H:%I:%S');
 
-		$this->line('-- Total time : %ss, remaining : %s', $current, $remaining);
+		$this->command->line(sprintf('-- Total time : %ss, remaining : %s', $current, $remaining));
 	}
 
 	/**
@@ -208,12 +207,12 @@ class SeedPackages extends AbstractSeeder
 		$name  = ($package instanceof Package) ? $package->name : $package->getName();
 
 		// Hit the various endpoints to cache them
-		$this->info('Fetching informations for [%03d/%03d] %s', $key, $total, $name);
+		$this->command->info(sprintf('Fetching informations for [%03d/%03d] %s', $key, $total, $name));
 		$cacheQueue = ['Repository', 'Packagist', 'Travis', 'TravisBuilds', 'Scrutinizer'];
 		foreach ($cacheQueue as $cache) {
 			$this->startFlashTimer();
 			$package->{'get'.$cache}();
-			$this->comment('-- %s (%sms)', $cache, $this->stopFlashTimer());
+			$this->command->comment(sprintf('-- %s (%sms)', $cache, $this->stopFlashTimer()));
 		}
 	}
 }

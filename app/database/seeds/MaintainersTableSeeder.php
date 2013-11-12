@@ -1,8 +1,7 @@
 <?php
-use Registry\Abstracts\AbstractSeeder;
 use Registry\Package;
 
-class SeedMaintainers extends AbstractSeeder
+class MaintainersTableSeeder extends DatabaseSeeder
 {
 	/**
 	 * Seed the packages

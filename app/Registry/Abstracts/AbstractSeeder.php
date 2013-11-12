@@ -1,19 +1,15 @@
 <?php
 namespace Registry\Abstracts;
 
-use Illuminate\Database\Seeder;
 use Registry\Repositories\MaintainersRepository;
 use Registry\Repositories\PackagesRepository;
 use Registry\Repositories\VersionsRepository;
-use Registry\Traits\Colorizer;
 
 /**
  * A core seeder
  */
-abstract class AbstractSeeder extends Seeder
+abstract class AbstractSeeder extends \Arrounded\Seeders\AbstractSeeder
 {
-	use Colorizer;
-
 	/**
 	 * The Maintainers Repository
 	 *
@@ -44,6 +40,8 @@ abstract class AbstractSeeder extends Seeder
 	 */
 	public function __construct(PackagesRepository $packages, VersionsRepository $versions, MaintainersRepository $maintainers)
 	{
+		parent::__construct();
+
 		$this->packages    = $packages;
 		$this->versions    = $versions;
 		$this->maintainers = $maintainers;

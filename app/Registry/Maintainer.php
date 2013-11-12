@@ -102,7 +102,7 @@ class Maintainer extends AbstractModel implements UserInterface
 	 */
 	public function setColumnsAttribute($columns)
 	{
-		$this->attributes['columns'] = json_encode($columns);
+		$this->setJsonAttribute('columns', $columns);
 	}
 
 	/**
@@ -112,12 +112,7 @@ class Maintainer extends AbstractModel implements UserInterface
 	 */
 	public function getColumnsAttribute()
 	{
-		$columns = $this->getOriginal('columns');
-		if (!$columns) {
-			return Config::get('registry.columns');
-		}
-
-		return json_decode($columns, true);
+		return $this->getJsonAttribute('columns') ?: Config::get('registry.columns');
 	}
 
 	/**

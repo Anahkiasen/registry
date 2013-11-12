@@ -10,13 +10,6 @@ use Registry\Abstracts\AbstractRepository;
 class PackagesRepository extends AbstractRepository
 {
 	/**
-	 * The base Model
-	 *
-	 * @var Package
-	 */
-	protected $entries;
-
-	/**
 	 * Build a new packages Repository
 	 *
 	 * @param Package $packages

@@ -1,9 +1,8 @@
 <?php
 use Carbon\Carbon;
-use Registry\Abstracts\AbstractSeeder;
 use Registry\Package;
 
-class SeedVersions extends AbstractSeeder
+class VersionsTableSeeder extends DatabaseSeeder
 {
 	/**
 	 * Seed versions

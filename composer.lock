@@ -3,8 +3,51 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "7f7e24e994208aefd8607dca24b716f4",
+    "hash": "e3dae0bee6656e865482c57a6d8e1b41",
     "packages": [
+        {
+            "name": "anahkiasen/arrounded",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Anahkiasen/arrounded.git",
+                "reference": "b897c5be701e8ab200dafea609f951d2a10a4bd9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Anahkiasen/arrounded/zipball/b897c5be701e8ab200dafea609f951d2a10a4bd9",
+                "reference": "b897c5be701e8ab200dafea609f951d2a10a4bd9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~4",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "illuminate/container": "~4",
+                "illuminate/database": "~4",
+                "mockery/mockery": "dev-master",
+                "patchwork/utf8": "dev-master"
+            },
+            "suggest": {
+                "kevinlebrun/colors.php": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Arrounded": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Maxime Fabre",
+                    "email": "ehtnam6@gmail.com"
+                }
+            ],
+            "description": "A set of self-aware Laravel abstracts that know their way around",
+            "time": "2013-11-07 14:39:41"
+        },
         {
             "name": "anahkiasen/flatten",
             "version": "dev-develop",
@@ -3043,7 +3086,8 @@
         "knplabs/packagist-api": 20,
         "lmammino/jsmin4assetic": 20,
         "natxet/cssmin": 20,
-        "rcrowe/twigbridge": 20
+        "rcrowe/twigbridge": 20,
+        "anahkiasen/arrounded": 20
     },
     "platform": [
 

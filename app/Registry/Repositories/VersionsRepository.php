@@ -10,33 +10,12 @@ use Registry\Version;
 class VersionsRepository extends AbstractRepository
 {
 	/**
-	 * The base Model
-	 *
-	 * @var Version
-	 */
-	protected $entries;
-
-	/**
 	 * Build a new Versions Repository
 	 *
-	 * @param Version $Versions
+	 * @param Version $versions
 	 */
 	public function __construct(Version $versions)
 	{
 		$this->entries = $versions;
-	}
-
-	////////////////////////////////////////////////////////////////////
-	//////////////////////////// GLOBAL QUERIES ////////////////////////
-	////////////////////////////////////////////////////////////////////
-
-	/**
-	 * Get all packages
-	 *
-	 * @return Collection
-	 */
-	public function all()
-	{
-		return $this->entries->get();
 	}
 }

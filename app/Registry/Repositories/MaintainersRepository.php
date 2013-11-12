@@ -11,13 +11,6 @@ use Registry\Abstracts\AbstractRepository;
 class MaintainersRepository extends AbstractRepository
 {
 	/**
-	 * The base Model
-	 *
-	 * @var Maintainer
-	 */
-	protected $entries;
-
-	/**
 	 * Build a new Maintainers Repository
 	 *
 	 * @param Maintainer $maintainers
@@ -30,16 +23,6 @@ class MaintainersRepository extends AbstractRepository
 	////////////////////////////////////////////////////////////////////
 	//////////////////////////// GLOBAL QUERIES ////////////////////////
 	////////////////////////////////////////////////////////////////////
-
-	/**
-	 * Return all Maintainers
-	 *
-	 * @return Collection
-	 */
-	public function all()
-	{
-		return $this->entries->get();
-	}
 
 	/**
 	 * Get all maintainers, sorted by aggregated popularity

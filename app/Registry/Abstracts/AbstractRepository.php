@@ -6,6 +6,13 @@ namespace Registry\Abstracts;
  */
 abstract class AbstractRepository
 {
+	/**
+	 * The base entries
+	 *
+	 * @var Query
+	 */
+	protected $entries;
+
 	////////////////////////////////////////////////////////////////////
 	//////////////////////////// GLOBAL QUERIES ////////////////////////
 	////////////////////////////////////////////////////////////////////
@@ -25,11 +32,14 @@ abstract class AbstractRepository
 	////////////////////////////////////////////////////////////////////
 
 	/**
-	 * Return all entries
+	 * Get all entries
 	 *
 	 * @return Collection
 	 */
-	abstract public function all();
+	public function all()
+	{
+		return $this->entries->get();
+	}
 
 	/**
 	 * Find an entry by index

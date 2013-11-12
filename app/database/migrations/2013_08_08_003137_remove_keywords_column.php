@@ -23,7 +23,7 @@ class RemoveKeywordsColumn extends Migration
 	public function down()
 	{
 		Schema::table('packages', function ($table) {
-			$table->text('keywords');
+			$table->text('keywords')->nullable();
 		});
 	}
 }
