@@ -8,7 +8,7 @@
 	],
 	"require": {
 		"laravel/framework": "4.0.*",
-		"illuminate/remote": "4.1.*@dev",
+		"illuminate/remote": "dev-master",
 		"anahkiasen/flatten": "dev-develop",
 		"anahkiasen/former": "dev-master",
 		"anahkiasen/rocketeer": "dev-develop",
@@ -49,6 +49,12 @@
 			"php artisan key:generate"
 		]
 	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/changwuf31/remote"
+		}
+	],
 	"config": {
 		"preferred-install": "dist"
 	},
