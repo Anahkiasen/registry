@@ -41,9 +41,9 @@ class PackagesStatisticsHydrater
 	public function hydrateFavorites()
 	{
 		$this->package->fill(array(
-			'favorites' => $this->package->getPackagist()['favers'],
-			'watchers'  => $this->repository->favorites(),
-			'forks'     => $this->repository->favorites(),
+			'favorites' => (int) $this->package->getPackagist()['favers'],
+			'watchers'  => (int) $this->repository->favorites(),
+			'forks'     => (int) $this->repository->favorites(),
 		));
 	}
 
@@ -58,8 +58,8 @@ class PackagesStatisticsHydrater
 		$this->package->fill(array(
 			'created_at' => $this->repository->createdAt()->toDateTimeString(),
 			'pushed_at'  => $this->repository->updatedAt()->toDateTimeString(),
-			'seniority'  => $this->repository->createdAt()->diffInDays(),
-			'freshness'  => $this->repository->updatedAt()->diffInDays(),
+			'seniority'  => (int) $this->repository->createdAt()->diffInDays(),
+			'freshness'  => (int) $this->repository->updatedAt()->diffInDays(),
 		));
 	}
 
@@ -76,9 +76,9 @@ class PackagesStatisticsHydrater
 
 		// Fill attributes
 		$this->package->fill(array(
-			'build_status' => $buildStatus,
-			'consistency'  => $this->computeConsistency(),
-			'coverage'     => $this->computeCoverage(),
+			'build_status' => (int) $buildStatus,
+			'consistency'  => (int) $this->computeConsistency(),
+			'coverage'     => (int) $this->computeCoverage(),
 		));
 	}
 

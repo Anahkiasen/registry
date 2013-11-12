@@ -97,7 +97,7 @@ class PackagesTableSeeder extends DatabaseSeeder
 	 */
 	protected function getPackagesFromPackagist()
 	{
-		$this->command->comment('Fetching list of packages');
+		$this->comment('Fetching list of packages');
 
 		return $this->container['cache']->rememberForever('packages', function() {
 			return (new Packagist)->search('laravel');
@@ -166,7 +166,7 @@ class PackagesTableSeeder extends DatabaseSeeder
 		$statistics->hydrateTests();
 		$statistics->hydrateRawStatistics();
 		$statistics->hydrateRepositoryInformations();
-		$this->command->comment(sprintf('-- Hydrating statistics (%sms)', $this->stopFlashTimer()));
+		$this->comment('-- Hydrating statistics (%sms)', $this->stopFlashTimer());
 
 		return $statistics->getPackage();
 	}
@@ -188,7 +188,7 @@ class PackagesTableSeeder extends DatabaseSeeder
 		$current   = $this->stopTimer();
 		$remaining = $this->estimateForIterations($total - $key)->format('%H:%I:%S');
 
-		$this->command->line(sprintf('-- Total time : %ss, remaining : %s', $current, $remaining));
+		$this->line('-- Total time : %ss, remaining : %s', $current, $remaining);
 	}
 
 	/**
@@ -207,12 +207,12 @@ class PackagesTableSeeder extends DatabaseSeeder
 		$name  = ($package instanceof Package) ? $package->name : $package->getName();
 
 		// Hit the various endpoints to cache them
-		$this->command->info(sprintf('Fetching informations for [%03d/%03d] %s', $key, $total, $name));
+		$this->info('Fetching informations for [%03d/%03d] %s', $key, $total, $name);
 		$cacheQueue = ['Repository', 'Packagist', 'Travis', 'TravisBuilds', 'Scrutinizer'];
 		foreach ($cacheQueue as $cache) {
 			$this->startFlashTimer();
 			$package->{'get'.$cache}();
-			$this->command->comment(sprintf('-- %s (%sms)', $cache, $this->stopFlashTimer()));
+			$this->comment('-- %s (%sms)', $cache, $this->stopFlashTimer());
 		}
 	}
 }

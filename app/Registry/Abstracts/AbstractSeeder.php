@@ -1,6 +1,7 @@
 <?php
 namespace Registry\Abstracts;
 
+use Arrounded\Traits\Colorizer;
 use Registry\Repositories\MaintainersRepository;
 use Registry\Repositories\PackagesRepository;
 use Registry\Repositories\VersionsRepository;
@@ -10,6 +11,8 @@ use Registry\Repositories\VersionsRepository;
  */
 abstract class AbstractSeeder extends \Arrounded\Seeders\AbstractSeeder
 {
+	use Colorizer;
+
 	/**
 	 * The Maintainers Repository
 	 *

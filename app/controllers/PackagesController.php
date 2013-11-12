@@ -96,14 +96,10 @@ class PackagesController extends BaseController
 		$packages = $this->packages->oldest();
 		$history  = array();
 		foreach ($packages as $key => $package) {
-			$date           = $package->created_at->format('Y-m');
+			$date           = $package->created_at->format('M y');
 			$dates[$date]   = $date;
 			$history[$date] = $key;
 		}
-
-		// Sort
-		ksort($dates);
-		ksort($history);
 
 		return array(
 			'labels' => array_values($dates),

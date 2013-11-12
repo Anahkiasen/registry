@@ -54,9 +54,9 @@ abstract class AbstractRepository
 	{
 		return $this->cache->rememberForever($this->package->travis.'-readme', function() {
 			try {
-				return $this->readmeEndpoint();
+				return (string) $this->readmeEndpoint();
 			} catch (Exception $e) {
-				return null;
+				return '';
 			}
 		});
 	}
