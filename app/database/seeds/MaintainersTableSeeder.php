@@ -11,7 +11,7 @@ class MaintainersTableSeeder extends DatabaseSeeder
 	public function run()
 	{
 		foreach ($this->packages->all() as $package) {
-			$maintainers = $package->getPackagist()['maintainers'];
+			$maintainers = array_get($package->getPackagist(), 'maintainers', array());
 			foreach ($maintainers as &$maintainer) {
 				$maintainer = $this->getExisting($maintainer)->id;
 			}

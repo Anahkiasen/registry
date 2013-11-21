@@ -14,7 +14,8 @@ class VersionsTableSeeder extends DatabaseSeeder
 		$this->versions->flush();
 
 		foreach ($this->packages->all() as $package) {
-			foreach ($package->getPackagist()['versions'] as $version) {
+			$versions = array_get($package->getPackagist(), 'versions', array());
+			foreach ($versions as $version) {
 				$time = new Carbon($version['time']);
 				$this->versions->create(array(
 					'name'        => $version['name'],
