@@ -1,6 +1,9 @@
 # Dotfiles
 .DS_Store
 
+# Credentials
+sftp-config.json
+
 # Database
 app/database/production.sqlite
 
