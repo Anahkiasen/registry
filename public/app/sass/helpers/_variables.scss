@@ -36,5 +36,7 @@ $mini                : 20em;
 // Layout
 //////////////////////////////////////////////////////////////////////
 
-$columns    : 12;
-$show-grids : false;
+$susy : (
+	"columns"    : 12,
+	"show-grids" : hide,
+);
