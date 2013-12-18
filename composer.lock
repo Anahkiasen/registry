@@ -52,12 +52,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/arrounded.git",
-                "reference": "cf3f3b61c504ceca881c54d9cf198a7294a29fda"
+                "reference": "2104341af32a6260c30a76005fb462f4162c2a66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/arrounded/zipball/cf3f3b61c504ceca881c54d9cf198a7294a29fda",
-                "reference": "cf3f3b61c504ceca881c54d9cf198a7294a29fda",
+                "url": "https://api.github.com/repos/Anahkiasen/arrounded/zipball/2104341af32a6260c30a76005fb462f4162c2a66",
+                "reference": "2104341af32a6260c30a76005fb462f4162c2a66",
                 "shasum": ""
             },
             "require": {
@@ -90,7 +90,7 @@
                 }
             ],
             "description": "A set of self-aware Laravel abstracts that know their way around",
-            "time": "2013-12-18 10:25:34"
+            "time": "2013-12-18 14:05:58"
         },
         {
             "name": "anahkiasen/flatten",
