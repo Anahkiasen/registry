@@ -145,8 +145,8 @@ module.exports = function(grunt) {
 					{
 						expand : true,
 						src    : ['**'],
-						cwd    : '<%= components %>/bootstrap/dist/fonts',
-						dest   : '<%= builds %>/fonts/'
+						cwd    : '<%= components %>/icomoon/fonts',
+						dest   : '<%= builds %>/css/fonts/'
 					},
 					{
 						expand : true,
