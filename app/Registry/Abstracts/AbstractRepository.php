@@ -1,18 +1,13 @@
 <?php
 namespace Registry\Abstracts;
 
+use Arrounded\Abstracts\AbstractRepository as ArroundedRepository;
+
 /**
  * A base repository class
  */
-abstract class AbstractRepository
+abstract class AbstractRepository extends ArroundedRepository
 {
-	/**
-	 * The base entries
-	 *
-	 * @var Query
-	 */
-	protected $entries;
-
 	////////////////////////////////////////////////////////////////////
 	//////////////////////////// GLOBAL QUERIES ////////////////////////
 	////////////////////////////////////////////////////////////////////
@@ -24,50 +19,12 @@ abstract class AbstractRepository
 	 */
 	public function flush()
 	{
-		return $this->entries->truncate();
-	}
-
-	////////////////////////////////////////////////////////////////////
-	//////////////////////// SINGLE-RESULT QUERIES /////////////////////
-	////////////////////////////////////////////////////////////////////
-
-	/**
-	 * Get all entries
-	 *
-	 * @return Collection
-	 */
-	public function all()
-	{
-		return $this->entries->get();
-	}
-
-	/**
-	 * Find an entry by index
-	 *
-	 * @param  integer $index
-	 *
-	 * @return Model
-	 */
-	public function find($index)
-	{
-		return $this->entries->findOrFail($index);
+		return $this->items->truncate();
 	}
 
 	////////////////////////////////////////////////////////////////////
 	///////////////////////////// MODEL FLOW ///////////////////////////
 	////////////////////////////////////////////////////////////////////
-
-	/**
-	 * Return an instance of Model
-	 *
-	 * @param  array  $attributes
-	 *
-	 * @return AbstractModel
-	 */
-	public function create(array $attributes)
-	{
-		return $this->entries->create($attributes);
-	}
 
 	/**
 	 * Insert multiple entries
@@ -78,6 +35,6 @@ abstract class AbstractRepository
 	 */
 	public function insert(array $entries)
 	{
-		return $this->entries->insert($entries);
+		return $this->items->insert($entries);
 	}
 }

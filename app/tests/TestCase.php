@@ -22,4 +22,21 @@ class TestCase extends Arrounded\Testing\TestCase
 
 		return require __DIR__.'/../../bootstrap/start.php';
 	}
+
+	/**
+	 * Recreate the database
+	 *
+	 * @return void
+	 */
+	protected function recreateDatabase()
+	{
+		if (!Schema::hasTable('migrations')) {
+			Artisan::call('migrate:install');
+			Artisan::call('migrate');
+
+			$this->seedDatabase();
+		}
+
+		Eloquent::reguard();
+	}
 }

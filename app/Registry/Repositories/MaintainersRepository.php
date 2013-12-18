@@ -17,7 +17,7 @@ class MaintainersRepository extends AbstractRepository
 	 */
 	public function __construct(Maintainer $maintainers)
 	{
-		$this->entries = $maintainers;
+		$this->items = $maintainers;
 	}
 
 	////////////////////////////////////////////////////////////////////
@@ -31,7 +31,7 @@ class MaintainersRepository extends AbstractRepository
 	 */
 	public function popular()
 	{
-		$maintainers = $this->entries->with('packages.versions')->get();
+		$maintainers = $this->items->with('packages.versions')->get();
 		$maintainers->sortBy(function($maintainer) {
 			return $maintainer->popularity * -1;
 		});
@@ -62,7 +62,7 @@ class MaintainersRepository extends AbstractRepository
 	 */
 	public function findBySlug($slug)
 	{
-		return $this->entries->with('packages.versions')->whereSlug($slug)->firstOrFail();
+		return $this->items->with('packages.versions')->whereSlug($slug)->firstOrFail();
 	}
 
 	/**
@@ -109,6 +109,6 @@ class MaintainersRepository extends AbstractRepository
 	 */
 	public function lookup($name)
 	{
-		return $this->entries->whereName($name)->first();
+		return $this->items->whereName($name)->first();
 	}
 }

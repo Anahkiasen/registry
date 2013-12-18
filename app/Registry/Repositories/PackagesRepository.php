@@ -16,7 +16,7 @@ class PackagesRepository extends AbstractRepository
 	 */
 	public function __construct(Package $packages)
 	{
-		$this->entries = $packages;
+		$this->items = $packages;
 	}
 
 	////////////////////////////////////////////////////////////////////
@@ -32,7 +32,7 @@ class PackagesRepository extends AbstractRepository
 	 */
 	public function min($attribute)
 	{
-		return $this->entries->whereType('package')->min($attribute);
+		return $this->items->whereType('package')->min($attribute);
 	}
 
 	/**
@@ -44,7 +44,7 @@ class PackagesRepository extends AbstractRepository
 	 */
 	public function max($attribute)
 	{
-		return $this->entries->whereType('package')->max($attribute);
+		return $this->items->whereType('package')->max($attribute);
 	}
 
 	////////////////////////////////////////////////////////////////////
@@ -54,11 +54,13 @@ class PackagesRepository extends AbstractRepository
 	/**
 	 * Get all packages
 	 *
+	 * @param integer|null $perPage
+	 *
 	 * @return Collection
 	 */
-	public function all()
+	public function all($perPage = NULL)
 	{
-		return $this->entries->with('maintainers')->get();
+		return parent::all($perPage)->load('maintainers');
 	}
 
 	/**
@@ -68,7 +70,7 @@ class PackagesRepository extends AbstractRepository
 	 */
 	public function popular()
 	{
-		return $this->entries->with('maintainers', 'versions')->whereType('package')->orderBy('popularity', 'DESC')->get();
+		return $this->items->with('maintainers', 'versions')->whereType('package')->orderBy('popularity', 'DESC')->get();
 	}
 
 	/**
@@ -78,7 +80,7 @@ class PackagesRepository extends AbstractRepository
 	 */
 	public function latest()
 	{
-		return $this->entries->with('maintainers')->orderBy('created_at', 'DESC')->get();
+		return $this->items->with('maintainers')->orderBy('created_at', 'DESC')->get();
 	}
 
 	/**
@@ -88,7 +90,7 @@ class PackagesRepository extends AbstractRepository
 	 */
 	public function oldest()
 	{
-		return $this->entries->with('maintainers')->orderBy('created_at')->get();
+		return $this->items->with('maintainers')->orderBy('created_at')->get();
 	}
 
 	////////////////////////////////////////////////////////////////////
@@ -104,7 +106,7 @@ class PackagesRepository extends AbstractRepository
 	 */
 	public function findBySlug($slug)
 	{
-		return $this->entries->with('versions', 'comments.maintainer')->whereSlug($slug)->firstOrFail();
+		return $this->items->with('versions', 'comments.maintainer')->whereSlug($slug)->firstOrFail();
 	}
 
 	/**
@@ -116,7 +118,7 @@ class PackagesRepository extends AbstractRepository
 	 */
 	public function findSimilarTo(Package $package)
 	{
-		$similar = $this->entries->with('versions')->similar($package)->take(5)->get();
+		$similar = $this->items->with('versions')->similar($package)->take(5)->get();
 
 		// Sort by popularity and number of tags in common
 		$similar->sortBy(function($similarPackage) use ($package) {

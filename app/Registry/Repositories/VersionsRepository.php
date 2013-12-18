@@ -16,6 +16,6 @@ class VersionsRepository extends AbstractRepository
 	 */
 	public function __construct(Version $versions)
 	{
-		$this->entries = $versions;
+		$this->items = $versions;
 	}
 }
