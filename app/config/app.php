@@ -117,11 +117,11 @@ return array(
 
 		// Packages
 		'Flatten\FlattenServiceProvider',
-		'Basset\BassetServiceProvider',
 		'Former\FormerServiceProvider',
 		'Juy\Profiler\Providers\ProfilerServiceProvider',
 		'Rocketeer\RocketeerServiceProvider',
 		'TwigBridge\TwigServiceProvider',
+		'Acetone\AcetoneServiceProvider',
 
 		// Application
 		'Registry\PackagesEndpoints\EndpointsServiceProvider',
@@ -194,7 +194,7 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 
 		// Packages
-		'Basset'    => 'Basset\Facade',
+		'Acetone'   => 'Acetone\Facades\Acetone',
 		'Former'    => 'Former\Facades\Former',
 		'Rocketeer' => 'Rocketeer\Facades\Rocketeer',
 		'Flatten'   => 'Flatten\Facades\Flatten',

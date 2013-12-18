@@ -13,5 +13,6 @@ bootstrap/compiled.php
 public/builds
 
 # Libraries
+node_modules
 public/components
 vendor

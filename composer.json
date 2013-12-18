@@ -22,7 +22,8 @@
 		"lmammino/jsmin4assetic": "dev-master",
 		"natxet/CssMin": "dev-master",
 		"rcrowe/twigbridge": "dev-master",
-		"anahkiasen/arrounded": "dev-master"
+		"anahkiasen/arrounded": "dev-master",
+		"anahkiasen/acetone": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

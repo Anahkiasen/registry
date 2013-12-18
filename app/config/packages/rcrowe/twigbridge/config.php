@@ -99,7 +99,7 @@ return array(
 	|
 	*/
 	'alias_shortcuts' => array(
-		'assets'     => 'basset_show',
+		'assets'     => 'acetone_show',
 		'config'     => 'config_get',
 		'input'      => 'input_get',
 		'lang'       => 'lang_get',
