@@ -118,7 +118,6 @@ return array(
 		// Packages
 		'Flatten\FlattenServiceProvider',
 		'Former\FormerServiceProvider',
-		'Juy\Profiler\Providers\ProfilerServiceProvider',
 		'Rocketeer\RocketeerServiceProvider',
 		'TwigBridge\TwigServiceProvider',
 		'Acetone\AcetoneServiceProvider',
