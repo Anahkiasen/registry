@@ -12,4 +12,11 @@ class RoutesTest extends Arrounded\Testing\RoutesTest
 		'maintainers/confirm',
 		'maintainers/logout',
 	);
+
+	/**
+	 * The model namespace
+	 *
+	 * @var string
+	 */
+	protected $namespace = 'Registry\\';
 }

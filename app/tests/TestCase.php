@@ -24,19 +24,14 @@ class TestCase extends Arrounded\Testing\TestCase
 	}
 
 	/**
-	 * Recreate the database
+	 * Seed the current database
 	 *
 	 * @return void
 	 */
-	protected function recreateDatabase()
+	protected function seedDatabase()
 	{
-		if (!Schema::hasTable('migrations')) {
-			Artisan::call('migrate:install');
-			Artisan::call('migrate');
-
-			$this->seedDatabase();
+		if (!Registry\Package::count() === 0) {
+			Artisan::call('db:seed');
 		}
-
-		Eloquent::reguard();
 	}
 }
