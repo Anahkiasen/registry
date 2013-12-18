@@ -84,7 +84,6 @@ textarea {
 	color: $color-silver--dark;
 	display: block;
 	font-size: 1.25rem;
-	outline: 0;
 	padding: 1rem;
 	width: 100%;
 
@@ -95,6 +94,7 @@ textarea {
 
 	// States
 	&:focus {
+		outline: 0;
 		background-color: darken($color-silver--light, 5);
 	}
 	&:focus:invalid {

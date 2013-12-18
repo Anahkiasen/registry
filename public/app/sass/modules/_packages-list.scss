@@ -10,7 +10,7 @@
 	}
 
 	.tag {
-		background-color: rgba($color-base, .5);
+		@include rgba-background(rgba($color-base, .5));
 		font-size: 0.75rem;
 		margin-left: 0.1rem;
 
@@ -23,7 +23,7 @@
 // Header
 //////////////////////////////////////////////////////////////////////
 
-.packages-list__empty {
+.packages-list .packages-list__empty {
 	color: $color-silver--dark;
 	text-align: center;
 
@@ -52,13 +52,13 @@
 	text-align: center;
 }
 
-td.packages-list__downloads {
+tbody .packages-list__downloads {
 	text-align: center;
 	font-size: 1rem;
 	font-weight: bold;
 }
 
-td.packages-list__description {
+tbody .packages-list__description {
 	color: $color-silver--dark ;
 }
 
@@ -89,9 +89,9 @@ td.packages-list__description {
 				background-color: $color-silver;
 				color: white;
 			}
-			&.active {
-				background-color: $color-base;
-			}
+		}
+		.active {
+			background-color: $color-base;
 		}
 	}
 }

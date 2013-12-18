@@ -22,7 +22,7 @@ a {
 
 p > code {
 	font-size: 0.7em;
-	background-color: rgba(black, .05);
+	@include rgba-background(rgba(black, .05));
 	padding: 0.25rem;
 	@include border-radius(0.25em);
 }

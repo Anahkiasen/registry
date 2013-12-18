@@ -2,7 +2,6 @@ var packages      = document.querySelectorAll('.packages-list__package'),
 		empty         = document.querySelector('.packages-list__empty'),
 		search        = document.querySelector('.layout-search'),
 		form          = document.getElementById('search'),
-		nbPackages    = packages.length,
 		packagesInfos = [],
 		lastQuery     = null;
 
@@ -19,7 +18,7 @@ var packages      = document.querySelectorAll('.packages-list__package'),
  * @return {void}
  */
 var each = function(selector, fn) {
-	if (typeof(selector) == 'string') {
+	if (typeof(selector) === 'string') {
 		selector = document.querySelectorAll(selector);
 	}
 

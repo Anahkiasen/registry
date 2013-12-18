@@ -3,8 +3,8 @@
 {% block content %}
 
 	{# Search #}
-	<form method="POST" id="search">
-		<input type="text" autocomplete="off" name="search" value="{{ input('q') }}" placeholder="Type to search in the {{ packages.count }} packages available..." class="layout-search">
+	<form method="POST" id="search" class="layout-search">
+		<input type="text" autocomplete="off" name="search" value="{{ input('q') }}" placeholder="Type to search in the {{ packages.count }} packages available..." class="layout-search__input">
 		<input type="reset" value="X" class="layout-search__reset">
 	</form>
 

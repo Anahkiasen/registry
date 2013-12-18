@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#search {
+.layout-content .layout-search {
 	position: relative;
 	max-width: 100%;
 	margin: 0;
@@ -11,7 +11,7 @@
 // Input
 //////////////////////////////////////////////////////////////////////
 
-input[type="text"].layout-search {
+.layout-search .layout-search__input {
 	width: 100%;
 	font-size: 1.5rem;
 }
