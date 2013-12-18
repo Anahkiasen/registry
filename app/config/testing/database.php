@@ -19,13 +19,11 @@ return array(
 	*/
 
 	'connections' => array(
-
 		'sqlite' => array(
 			'driver'   => 'sqlite',
-			'database' => __DIR__.'/../database/testing.sqlite',
+			'database' => ':memory:',
 			'prefix'   => '',
 		),
-
 	),
 
 );
