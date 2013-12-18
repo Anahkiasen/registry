@@ -5,7 +5,7 @@
 //////////////////////////////////////////////////////////////////////
 
 $providers = array(
-	'Juy\Profiler\Providers\ProfilerServiceProvider',
+	// 'Juy\Profiler\Providers\ProfilerServiceProvider',
 );
 
 // Register and boot providers

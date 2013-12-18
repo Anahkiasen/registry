@@ -1,7 +1,7 @@
 var packages      = document.querySelectorAll('.packages-list__package'),
 		empty         = document.querySelector('.packages-list__empty'),
-		search        = document.querySelector('.layout-search'),
-		form          = document.getElementById('search'),
+		search        = document.querySelector('.layout-search__input'),
+		form          = document.querySelector('.layout-search'),
 		packagesInfos = [],
 		lastQuery     = null;
 
