@@ -6,6 +6,12 @@
 
 {% block content %}
 	<h1>About</h1>
+	<h2>Statistics</h2>
+	<figure class="chart">
+		<figcaption>Number of packages</figcaption>
+		<canvas id="packages" width="1000" height="400"></canvas>
+	</figure>
+
 	<h2>Packages</h2>
 	<p>Packages are not hand-picked, to get your package in there all you need to do is add a <code>laravel</code> tag to it in your <code>composer.json</code> file.</p>
 
@@ -46,12 +52,6 @@
 		<li>{{ linkRoute('package', 'TwigBridge', 'rcrowe-twigbridge') }} by {{ linkRoute('maintainer', 'Rob Crowe', 'rcrowe') }} for using Twig hand-in-hand with Laravel</li>
 	</ul>
 	<p>The registry is hosted by the awesome guys at {{ link('https://www.digitalocean.com/', 'Digital Ocean') }} so big up to them.</p>
-
-	<h2>Statistics</h2>
-	<figure class="chart">
-		<figcaption>Number of packages</figcaption>
-		<canvas id="packages" width="1000" height="400"></canvas>
-	</figure>
 {% endblock %}
 
 {% block js %}
