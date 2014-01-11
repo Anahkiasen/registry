@@ -8,7 +8,7 @@
 
 	// The SSH/HTTPS address to your repository
 	// Example: https://github.com/vendor/website.git
-		'repository' => 'https://github.com/Anahkiasen/registry.git',
+	'repository' => 'https://github.com/Anahkiasen/registry.git',
 
 	// The repository credentials : you can leave those empty
 	// if you're using SSH or if your repository is public
@@ -19,5 +19,11 @@
 
 	// The branch to deploy
 	'branch'     => 'master',
+
+	// Whether your SCM should do a "shallow" clone of the repository
+	// or not – this means a clone with just the latest state of your
+	// application (no history)
+	// If you're having problems cloning, try setting this to false
+	'shallow' => true,
 
 );
