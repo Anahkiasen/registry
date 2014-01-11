@@ -16,7 +16,7 @@ class CreatePackages extends Migration
 				// Package informations
 				$table->string('name');
 				$table->string('slug')->nullable();
-				$table->string('description');
+				$table->text('description');
 				$table->integer('favorites')->default(0);
 				$table->string('type');
 				$table->string('keywords');
