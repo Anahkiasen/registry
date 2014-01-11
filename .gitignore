@@ -5,7 +5,7 @@
 sftp-config.json
 
 # Database
-app/database/production.sqlite
+app/config/production/database.php
 
 # Caches
 .sass-cache
