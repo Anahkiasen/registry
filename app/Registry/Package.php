@@ -303,11 +303,7 @@ class Package extends AbstractModel
 	 */
 	public function scopeSimilar($query, $package)
 	{
-		return $query->where('name', '!=', $package->name)->where(function($query) use ($package) {
-			foreach ($package->keywords as $keyword) {
-				$query->orWhere('keywords', 'LIKE', "%$keyword%");
-			}
-		});
+		return $query->where('name', '!=', $package->name);
 	}
 
 	////////////////////////////////////////////////////////////////////
