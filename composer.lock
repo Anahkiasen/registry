@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "96575e5631f1df6a7ec2072246241b81",
+    "hash": "047b2bce7b182bc92032e2f78a9a0a3d",
     "packages": [
         {
             "name": "anahkiasen/acetone",
@@ -2876,27 +2876,28 @@
     ],
     "packages-dev": [
         {
-            "name": "juy/profiler",
+            "name": "barryvdh/laravel-debugbar",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/juy/profiler.git",
-                "reference": "2fc6f0998eadb25994d839c0d18335214ee6f2fb"
+                "url": "https://github.com/barryvdh/laravel-debugbar.git",
+                "reference": "94d12cfa9b8bc2031051bb1d4ab8d39e9cdd1363"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/juy/profiler/zipball/2fc6f0998eadb25994d839c0d18335214ee6f2fb",
-                "reference": "2fc6f0998eadb25994d839c0d18335214ee6f2fb",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/94d12cfa9b8bc2031051bb1d4ab8d39e9cdd1363",
+                "reference": "94d12cfa9b8bc2031051bb1d4ab8d39e9cdd1363",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "~4",
+                "illuminate/support": "~4.0",
+                "maximebf/debugbar": "~1.9",
                 "php": ">=5.3.0"
             },
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "Juy\\Profiler": "src/"
+                    "Barryvdh\\Debugbar": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2905,21 +2906,69 @@
             ],
             "authors": [
                 {
-                    "name": "Sevdin Filiz",
-                    "email": "angelside@users.sourceforge.net",
-                    "homepage": "http://juysoft.com",
-                    "role": "Developer"
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
                 }
             ],
-            "description": "A profiler for Laravel 4.",
-            "homepage": "http://github.com/juy/profiler",
+            "description": "PHP Debugbar integration for Laravel",
             "keywords": [
-                "anbu",
-                "debug bar",
+                "debug",
+                "debugbar",
                 "laravel",
-                "profiler"
+                "profiler",
+                "webprofiler"
             ],
-            "time": "2013-09-29 20:11:48"
+            "time": "2014-01-10 15:54:29"
+        },
+        {
+            "name": "maximebf/debugbar",
+            "version": "1.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maximebf/php-debugbar.git",
+                "reference": "ec6a857a308373fb61449e74a5aaf06af5f2ce87"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/ec6a857a308373fb61449e74a5aaf06af5f2ce87",
+                "reference": "ec6a857a308373fb61449e74a5aaf06af5f2ce87",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "psr/log": "~1.0"
+            },
+            "require-dev": {
+                "php": ">=5.3.0"
+            },
+            "suggest": {
+                "kriswallsmith/assetic": "The best way to manage assets",
+                "monolog/monolog": "Log using Monolog",
+                "predis/predis": "Redis storage"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "DebugBar": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxime Bouroumeau-Fuseau",
+                    "email": "maxime.bouroumeau@gmail.com",
+                    "homepage": "http://maximebf.com"
+                }
+            ],
+            "description": "Debug bar in the browser for php application",
+            "homepage": "https://github.com/maximebf/php-debugbar",
+            "keywords": [
+                "debug"
+            ],
+            "time": "2014-01-07 20:49:48"
         }
     ],
     "aliases": [
@@ -2940,7 +2989,7 @@
         "knplabs/github-api": 20,
         "knplabs/packagist-api": 20,
         "anahkiasen/flatten": 20,
-        "juy/profiler": 20
+        "barryvdh/laravel-debugbar": 20
     },
     "platform": [
 

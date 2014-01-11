@@ -15,4 +15,5 @@ public/builds
 # Libraries
 node_modules
 public/components
+public/packages
 vendor

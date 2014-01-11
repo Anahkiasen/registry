@@ -121,6 +121,7 @@ return array(
 		'Rocketeer\RocketeerServiceProvider',
 		'TwigBridge\TwigServiceProvider',
 		'Acetone\AcetoneServiceProvider',
+		'Barryvdh\Debugbar\ServiceProvider',
 
 		// Application
 		'Registry\PackagesEndpoints\EndpointsServiceProvider',

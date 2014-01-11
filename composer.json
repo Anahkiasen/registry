@@ -27,7 +27,7 @@
 		"anahkiasen/flatten": "dev-develop"
 	},
 	"require-dev": {
-		"juy/profiler": "dev-master"
+		"barryvdh/laravel-debugbar": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
@@ -49,7 +49,8 @@
 			"php artisan clear-compiled"
 		],
 		"post-update-cmd": [
-			"php artisan optimize"
+			"php artisan optimize",
+			"php artisan debugbar:publish"
 		],
 		"post-create-project-cmd": [
 			"php artisan key:generate"
