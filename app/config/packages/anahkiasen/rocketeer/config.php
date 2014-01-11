@@ -12,7 +12,15 @@
 	// You can leave all of this empty or remove it entirely if you don't want
 	// to track files with credentials : Rocketeer will prompt you for your credentials
 	// and store them locally
-	'connections' => array(),
+	'connections' => array(
+		'production' => array(
+			'host'      => 'autopergamene.eu',
+			'password'  => '',
+			'username'  => '',
+			'keyphrase' => '',
+			'key'       => '/Users/anahkiasen/.ssh/id_rsa',
+		),
+	),
 
 	// Contextual options
 	//

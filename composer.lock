@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "047b2bce7b182bc92032e2f78a9a0a3d",
+    "hash": "f589cb2f5cdaa4b5b74287a3f9d77323",
     "packages": [
         {
             "name": "anahkiasen/acetone",
@@ -2881,12 +2881,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "94d12cfa9b8bc2031051bb1d4ab8d39e9cdd1363"
+                "reference": "425adab6002041a72908e0e4e528bf23a78bf805"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/94d12cfa9b8bc2031051bb1d4ab8d39e9cdd1363",
-                "reference": "94d12cfa9b8bc2031051bb1d4ab8d39e9cdd1363",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/425adab6002041a72908e0e4e528bf23a78bf805",
+                "reference": "425adab6002041a72908e0e4e528bf23a78bf805",
                 "shasum": ""
             },
             "require": {
@@ -2918,7 +2918,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2014-01-10 15:54:29"
+            "time": "2014-01-11 14:19:54"
         },
         {
             "name": "maximebf/debugbar",
