@@ -1,19 +1,24 @@
 {
-	"name": "quickvox",
+	"name": "registry",
 	"dependencies": {
 		"bower": "*",
 		"grunt": "*",
 		"grunt-cli": "*",
-		"grunt-bower-task": "*",
-		"grunt-contrib-clean": "*",
-		"grunt-contrib-compass": "*",
-		"grunt-contrib-concat": "*",
-		"grunt-contrib-copy": "*",
-		"grunt-contrib-csslint": "*",
-		"grunt-contrib-cssmin": "*",
-		"grunt-contrib-jshint": "*",
-		"grunt-contrib-uglify": "*",
-		"grunt-contrib-watch": "*",
-		"grunt-phpunit": "*"
-	}
+    "glob": "*"
+  },
+  "devDependencies": {
+    "grunt-bower-task": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-compass": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-csslint": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-phpunit": "*",
+    "grunt-tinypng": "*",
+    "load-grunt-tasks": "*"
+  }
 }

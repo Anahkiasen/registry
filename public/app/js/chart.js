@@ -24,10 +24,10 @@ new Chart(context).Line({
 	labels: packages.labels,
 	datasets: [
 		{
-			fillColor        : "rgba(248, 110, 91, 0.50)",
-			strokeColor      : "rgba(212, 101, 86, 1)",
-			pointColor       : "rgba(187, 90, 75, 1)",
-			pointStrokeColor : "#fff",
+			fillColor        : 'rgba(248, 110, 91, 0.50)',
+			strokeColor      : 'rgba(212, 101, 86, 1)',
+			pointColor       : 'rgba(187, 90, 75, 1)',
+			pointStrokeColor : '#fff',
 			data             : packages.data
 		}
 	],
