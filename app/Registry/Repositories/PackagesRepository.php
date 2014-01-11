@@ -60,7 +60,7 @@ class PackagesRepository extends AbstractRepository
 	 */
 	public function all($perPage = NULL)
 	{
-		return parent::all($perPage)->load('maintainers');
+		return parent::all($perPage);
 	}
 
 	/**
@@ -70,7 +70,7 @@ class PackagesRepository extends AbstractRepository
 	 */
 	public function popular()
 	{
-		return $this->items->with('maintainers', 'versions')->whereType('package')->orderBy('popularity', 'DESC')->get();
+		return $this->items->whereType('package')->orderBy('popularity', 'DESC')->get();
 	}
 
 	/**
@@ -80,7 +80,7 @@ class PackagesRepository extends AbstractRepository
 	 */
 	public function latest()
 	{
-		return $this->items->with('maintainers')->orderBy('created_at', 'DESC')->get();
+		return $this->items->orderBy('created_at', 'DESC')->get();
 	}
 
 	/**
@@ -90,7 +90,7 @@ class PackagesRepository extends AbstractRepository
 	 */
 	public function oldest()
 	{
-		return $this->items->with('maintainers')->orderBy('created_at')->get();
+		return $this->items->orderBy('created_at')->get();
 	}
 
 	////////////////////////////////////////////////////////////////////
