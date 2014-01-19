@@ -2,13 +2,24 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// Resets the margins of a block
+/**
+ * A block with transitions
+ */
+%background-transition {
+	@include transition(background .3s);
+}
+
+/**
+ * A block with reset margin and padding
+ */
 %reset-margins {
 	margin: 0;
 	padding: 0;
 }
 
-// Sets a block in border-box mode
+/**
+ * A border box block
+ */
 %border-box {
 	@include box-sizing(border-box);
 }

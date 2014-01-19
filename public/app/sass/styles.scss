@@ -20,37 +20,22 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-@import "modules/patterns/blocks";
-@import "modules/patterns/properties";
+@import "patterns/*";
 
 // Modules
 //
 //////////////////////////////////////////////////////////////////////
 
-@import "modules/tag";
-@import "modules/buttons";
-@import "modules/alerts";
-@import "modules/package";
-@import "modules/packages-list";
-@import "modules/maintainer";
-@import "modules/maintainers-list";
+@import "modules/*";
 
 // Scaffolding
 //
 //////////////////////////////////////////////////////////////////////
 
-@import "scaffolding/scaffolding";
-@import "scaffolding/forms";
-@import "scaffolding/tables";
+@import "scaffolding/*";
 
 // Layout
 //
 //////////////////////////////////////////////////////////////////////
 
-@import "layout/header";
-@import "layout/content";
-@import "layout/navigation";
-@import "layout/footer";
-@import "layout/pages/home";
-@import "layout/pages/error";
-@import "layout/pages/about";
+@import "layout/*";

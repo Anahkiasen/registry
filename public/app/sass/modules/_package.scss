@@ -6,7 +6,7 @@
 //////////////////////////////////////////////////////////////////////
 
 .package__informations {
-	@include container;
+	@extend %container;
 	padding: 0;
 }
 

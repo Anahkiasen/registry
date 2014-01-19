@@ -8,7 +8,7 @@
 $image-size: 10rem;
 
 .maintainer__informations {
-	@include container;
+	@extend %container;
 	@include pie-clearfix;
 	max-width: 100%;
 	padding: 0;

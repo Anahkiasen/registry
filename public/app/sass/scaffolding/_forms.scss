@@ -78,7 +78,7 @@ input[type="text"],
 input[type="password"],
 input[type="email"],
 textarea {
-	@include transition(background .3s);
+	@extend %background-transition;
 	background-color: $color-silver--light;
 	border: none;
 	color: $color-silver--dark;

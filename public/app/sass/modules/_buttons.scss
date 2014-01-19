@@ -3,7 +3,7 @@
 //////////////////////////////////////////////////////////////////////
 
 .btn {
-	@include transition(background .3s);
+	@extend %background-transition;
 	@extend .tag;
 	border: none;
 	clear: both;

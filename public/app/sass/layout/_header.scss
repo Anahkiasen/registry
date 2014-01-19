@@ -4,7 +4,7 @@
 
 .layout-header {
 	@extend %background-base;
-	@include transition(background .3s);
+	@extend %background-transition;
 	padding: 5rem 0;
 	background-image: inline-image('box.png');
 	background-repeat: no-repeat;
