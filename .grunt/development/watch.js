@@ -2,11 +2,10 @@ module.exports = {
 	options: {
 		livereload : true,
 		interrupt  : true,
-		poll       : true,
 	},
 
 	grunt: {
-		files: 'Gruntfile.js',
+		files: ['Gruntfile.js', '.grunt/**/*'],
 		tasks: 'default',
 	},
 	img: {

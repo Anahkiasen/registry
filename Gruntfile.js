@@ -46,7 +46,7 @@ module.exports = function(grunt) {
 	};
 
 	// Load all tasks
-	loadConfig('./grunt/');
+	loadConfig('./.grunt/');
 	grunt.initConfig(config);
 
 	////////////////////////////////////////////////////////////////////
@@ -89,6 +89,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('css', 'Build stylesheets', [
 		'compass:compile',
 		'csslint',
+		'csscss',
 		'concat:css'
 	]);
 };
