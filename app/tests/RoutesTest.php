@@ -8,7 +8,7 @@ class RoutesTest extends Arrounded\Testing\RoutesTest
 	 * @var array
 	 */
 	protected $ignored = array(
-		'_profiler',
+		'_debugbar/open',
 		'maintainers/confirm',
 		'maintainers/logout',
 	);
