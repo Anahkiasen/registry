@@ -15,6 +15,6 @@ include $routes.'/errors.php';
 // API routes
 //////////////////////////////////////////////////////////////////////
 
-Route::group(array('prefix' => 'api'), function () {
+Route::group(array('prefix' => 'api'), function () use ($routes) {
 	include $routes.'/api.php';
 });
