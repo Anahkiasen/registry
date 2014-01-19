@@ -52,12 +52,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/arrounded.git",
-                "reference": "8f50a38f89104a3b87ba5517c1b96b0207641f38"
+                "reference": "bb8f06ab60aa9f01fb1629e879d23b6a5eec9a3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/arrounded/zipball/8f50a38f89104a3b87ba5517c1b96b0207641f38",
-                "reference": "8f50a38f89104a3b87ba5517c1b96b0207641f38",
+                "url": "https://api.github.com/repos/Anahkiasen/arrounded/zipball/bb8f06ab60aa9f01fb1629e879d23b6a5eec9a3f",
+                "reference": "bb8f06ab60aa9f01fb1629e879d23b6a5eec9a3f",
                 "shasum": ""
             },
             "require": {
@@ -90,7 +90,7 @@
                 }
             ],
             "description": "A set of self-aware Laravel abstracts that know their way around",
-            "time": "2014-01-08 14:06:22"
+            "time": "2014-01-16 10:07:32"
         },
         {
             "name": "anahkiasen/flatten",
@@ -148,16 +148,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/former.git",
-                "reference": "46ec780515273d1799a6a083602dd94ce7b3e987"
+                "reference": "e399cd88d4ee4f8f656fd27cf3c8a07d58e02840"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/former/zipball/46ec780515273d1799a6a083602dd94ce7b3e987",
-                "reference": "46ec780515273d1799a6a083602dd94ce7b3e987",
+                "url": "https://api.github.com/repos/Anahkiasen/former/zipball/e399cd88d4ee4f8f656fd27cf3c8a07d58e02840",
+                "reference": "e399cd88d4ee4f8f656fd27cf3c8a07d58e02840",
                 "shasum": ""
             },
             "require": {
-                "anahkiasen/html-object": "dev-master",
+                "anahkiasen/html-object": "~1.2.0",
                 "illuminate/config": "~4",
                 "illuminate/container": "~4",
                 "illuminate/http": "~4",
@@ -197,20 +197,20 @@
                 "foundation",
                 "laravel"
             ],
-            "time": "2013-12-21 16:33:28"
+            "time": "2014-01-14 11:49:56"
         },
         {
             "name": "anahkiasen/html-object",
-            "version": "dev-master",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/html-object.git",
-                "reference": "6264f3dd6b65b40a47632328e9049db83750a4c6"
+                "reference": "71eb5bd920e845aaea0d7face6e73aa9a63d6bde"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/html-object/zipball/6264f3dd6b65b40a47632328e9049db83750a4c6",
-                "reference": "6264f3dd6b65b40a47632328e9049db83750a4c6",
+                "url": "https://api.github.com/repos/Anahkiasen/html-object/zipball/71eb5bd920e845aaea0d7face6e73aa9a63d6bde",
+                "reference": "71eb5bd920e845aaea0d7face6e73aa9a63d6bde",
                 "shasum": ""
             },
             "require": {
@@ -228,12 +228,12 @@
             ],
             "authors": [
                 {
-                    "name": "Maxime Fabre",
+                    "name": "Anahkiasen",
                     "email": "ehtnam6@gmail.com"
                 }
             ],
             "description": "A set of classes to create and manipulate HTML objects abstractions",
-            "time": "2014-01-08 20:26:54"
+            "time": "2014-01-14 11:42:36"
         },
         {
             "name": "anahkiasen/rocketeer",
@@ -241,12 +241,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anahkiasen/rocketeer.git",
-                "reference": "a6492641acfa13dd6dfa1301a6a753f62da5d199"
+                "reference": "83fce9ac5a43fe73411a506c867e5ab392c26bd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/a6492641acfa13dd6dfa1301a6a753f62da5d199",
-                "reference": "a6492641acfa13dd6dfa1301a6a753f62da5d199",
+                "url": "https://api.github.com/repos/Anahkiasen/rocketeer/zipball/83fce9ac5a43fe73411a506c867e5ab392c26bd3",
+                "reference": "83fce9ac5a43fe73411a506c867e5ab392c26bd3",
                 "shasum": ""
             },
             "require": {
@@ -297,7 +297,7 @@
                 "laravel",
                 "ssh"
             ],
-            "time": "2014-01-11 00:20:38"
+            "time": "2014-01-18 23:35:08"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -625,12 +625,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "d2d2e0a64d4686dd0908c9226c8acfe5bcb4089f"
+                "reference": "a45d110f71c323e29f41eb0696fa230e3fa1b1b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/d2d2e0a64d4686dd0908c9226c8acfe5bcb4089f",
-                "reference": "d2d2e0a64d4686dd0908c9226c8acfe5bcb4089f",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/a45d110f71c323e29f41eb0696fa230e3fa1b1b5",
+                "reference": "a45d110f71c323e29f41eb0696fa230e3fa1b1b5",
                 "shasum": ""
             },
             "require": {
@@ -680,7 +680,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes M. Schmitt",
+                    "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -695,7 +695,7 @@
                 "persistence",
                 "spl"
             ],
-            "time": "2013-12-23 05:55:47"
+            "time": "2014-01-12 22:00:08"
         },
         {
             "name": "doctrine/dbal",
@@ -997,12 +997,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "6ef45a4097c4c99faa0c815e059dffa8e4c3b0bd"
+                "reference": "cd97afb9dd564869d607eb18abf8ec84be647e87"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/6ef45a4097c4c99faa0c815e059dffa8e4c3b0bd",
-                "reference": "6ef45a4097c4c99faa0c815e059dffa8e4c3b0bd",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/cd97afb9dd564869d607eb18abf8ec84be647e87",
+                "reference": "cd97afb9dd564869d607eb18abf8ec84be647e87",
                 "shasum": ""
             },
             "require": {
@@ -1081,7 +1081,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-01-10 18:51:00"
+            "time": "2014-01-15 23:31:19"
         },
         {
             "name": "illuminate/remote",
@@ -1275,12 +1275,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/php-github-api.git",
-                "reference": "b06e01c507c9ddfb3b1c1f7bead45c538ecb5cc0"
+                "reference": "f0effe22daaf1b664ef2ed5be2b199ef7c61be17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/php-github-api/zipball/b06e01c507c9ddfb3b1c1f7bead45c538ecb5cc0",
-                "reference": "b06e01c507c9ddfb3b1c1f7bead45c538ecb5cc0",
+                "url": "https://api.github.com/repos/KnpLabs/php-github-api/zipball/f0effe22daaf1b664ef2ed5be2b199ef7c61be17",
+                "reference": "f0effe22daaf1b664ef2ed5be2b199ef7c61be17",
                 "shasum": ""
             },
             "require": {
@@ -1328,7 +1328,7 @@
                 "gist",
                 "github"
             ],
-            "time": "2014-01-08 18:25:22"
+            "time": "2014-01-15 01:35:49"
         },
         {
             "name": "knplabs/packagist-api",
@@ -1550,12 +1550,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "d81ca5a8d2d97bf9d77605359a12399c0ca28653"
+                "reference": "7f783c0ab09dc341f858882e2d2ce6fc36ca1351"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/d81ca5a8d2d97bf9d77605359a12399c0ca28653",
-                "reference": "d81ca5a8d2d97bf9d77605359a12399c0ca28653",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/7f783c0ab09dc341f858882e2d2ce6fc36ca1351",
+                "reference": "7f783c0ab09dc341f858882e2d2ce6fc36ca1351",
                 "shasum": ""
             },
             "require": {
@@ -1567,7 +1567,7 @@
                 "doctrine/couchdb": "dev-master",
                 "mlehner/gelf-php": "1.0.*",
                 "phpunit/phpunit": "~3.7.0",
-                "raven/raven": "0.5.*",
+                "raven/raven": "~0.5",
                 "ruflin/elastica": "0.90.*"
             },
             "suggest": {
@@ -1609,7 +1609,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-01-10 08:22:47"
+            "time": "2014-01-17 14:16:06"
         },
         {
             "name": "nesbot/carbon",
@@ -1803,12 +1803,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "268ec2e5d18110235f3677a15abae39303191b2f"
+                "reference": "211e237090842f0bc1813b639633e05267fb0444"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/268ec2e5d18110235f3677a15abae39303191b2f",
-                "reference": "268ec2e5d18110235f3677a15abae39303191b2f",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/211e237090842f0bc1813b639633e05267fb0444",
+                "reference": "211e237090842f0bc1813b639633e05267fb0444",
                 "shasum": ""
             },
             "require": {
@@ -1889,7 +1889,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2013-12-28 19:49:05"
+            "time": "2014-01-18 17:51:33"
         },
         {
             "name": "predis/predis",
@@ -1897,12 +1897,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "0f01b89d44368633e05da72db434df3cb078f08c"
+                "reference": "5f2eea628eb465d866ad2771927d83769c8f956c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/0f01b89d44368633e05da72db434df3cb078f08c",
-                "reference": "0f01b89d44368633e05da72db434df3cb078f08c",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/5f2eea628eb465d866ad2771927d83769c8f956c",
+                "reference": "5f2eea628eb465d866ad2771927d83769c8f956c",
                 "shasum": ""
             },
             "require": {
@@ -1936,7 +1936,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2014-01-10 16:46:58"
+            "time": "2014-01-16 14:10:29"
         },
         {
             "name": "psr/log",
@@ -1944,12 +1944,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "65f363ac44058796a8e1428cf41e6d92d8a75ddc"
+                "reference": "a78d6504ff5d4367497785ab2ade91db3a9fbe11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/65f363ac44058796a8e1428cf41e6d92d8a75ddc",
-                "reference": "65f363ac44058796a8e1428cf41e6d92d8a75ddc",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/a78d6504ff5d4367497785ab2ade91db3a9fbe11",
+                "reference": "a78d6504ff5d4367497785ab2ade91db3a9fbe11",
                 "shasum": ""
             },
             "type": "library",
@@ -1979,7 +1979,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2013-12-25 11:17:50"
+            "time": "2014-01-18 15:33:09"
         },
         {
             "name": "raveren/kint",
@@ -2600,12 +2600,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel.git",
-                "reference": "48f3ec321753a0178a68df8e05ebbaaf6a5c7c70"
+                "reference": "814c80567cf0008cf752c7ab6ec9c67389a07a5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/48f3ec321753a0178a68df8e05ebbaaf6a5c7c70",
-                "reference": "48f3ec321753a0178a68df8e05ebbaaf6a5c7c70",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/814c80567cf0008cf752c7ab6ec9c67389a07a5f",
+                "reference": "814c80567cf0008cf752c7ab6ec9c67389a07a5f",
                 "shasum": ""
             },
             "require": {
@@ -2662,7 +2662,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "http://symfony.com",
-            "time": "2014-01-07 13:19:25"
+            "time": "2014-01-16 09:15:18"
         },
         {
             "name": "symfony/process",
@@ -2718,12 +2718,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Routing.git",
-                "reference": "6f24d5a3f2ad3e4f4064daaf45037bbd59c45043"
+                "reference": "f999807229f341ec467fbd96a28e8ca8df23380d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Routing/zipball/6f24d5a3f2ad3e4f4064daaf45037bbd59c45043",
-                "reference": "6f24d5a3f2ad3e4f4064daaf45037bbd59c45043",
+                "url": "https://api.github.com/repos/symfony/Routing/zipball/f999807229f341ec467fbd96a28e8ca8df23380d",
+                "reference": "f999807229f341ec467fbd96a28e8ca8df23380d",
                 "shasum": ""
             },
             "require": {
@@ -2767,7 +2767,7 @@
             ],
             "description": "Symfony Routing Component",
             "homepage": "http://symfony.com",
-            "time": "2014-01-07 13:19:25"
+            "time": "2014-01-13 20:21:10"
         },
         {
             "name": "symfony/translation",
@@ -2881,18 +2881,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "425adab6002041a72908e0e4e528bf23a78bf805"
+                "reference": "d55178144c2954cffa9e06da41ac2873e949a046"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/425adab6002041a72908e0e4e528bf23a78bf805",
-                "reference": "425adab6002041a72908e0e4e528bf23a78bf805",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/d55178144c2954cffa9e06da41ac2873e949a046",
+                "reference": "d55178144c2954cffa9e06da41ac2873e949a046",
                 "shasum": ""
             },
             "require": {
+                "illuminate/filesystem": "~4.0",
                 "illuminate/support": "~4.0",
                 "maximebf/debugbar": "~1.9",
-                "php": ">=5.3.0"
+                "php": ">=5.3.0",
+                "symfony/finder": "~2.3"
             },
             "type": "library",
             "autoload": {
@@ -2918,20 +2920,20 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2014-01-11 14:19:54"
+            "time": "2014-01-18 15:34:39"
         },
         {
             "name": "maximebf/debugbar",
-            "version": "1.9",
+            "version": "1.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "ec6a857a308373fb61449e74a5aaf06af5f2ce87"
+                "reference": "12997a339db150b64a2a6f4e0505351257a3189a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/ec6a857a308373fb61449e74a5aaf06af5f2ce87",
-                "reference": "ec6a857a308373fb61449e74a5aaf06af5f2ce87",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/12997a339db150b64a2a6f4e0505351257a3189a",
+                "reference": "12997a339db150b64a2a6f4e0505351257a3189a",
                 "shasum": ""
             },
             "require": {
@@ -2968,7 +2970,7 @@
             "keywords": [
                 "debug"
             ],
-            "time": "2014-01-07 20:49:48"
+            "time": "2014-01-14 00:37:10"
         }
     ],
     "aliases": [

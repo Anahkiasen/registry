@@ -1,9 +1,9 @@
 {
   "name": "registry",
   "dependencies": {
-		"lodash": "2.4.1",
-		"nnnick-chartjs": "latest",
-		"normalize-css": "2.1.3",
-		"rainbow": "1.1.9"
+		"lodash": "~2.4.1",
+		"nnnick-chartjs": "#master",
+		"normalize-css": "~2.1.3",
+		"rainbow": "~1.1.9"
   }
 }
