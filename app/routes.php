@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 // Common routes
 //////////////////////////////////////////////////////////////////////
 
-Route::get('about', function() {
+Route::get('about', function () {
 	return View::make('about');
 });
 
@@ -32,7 +32,7 @@ Route::get('maintainers/logout',      'MaintainersController@logout');
 // Error routes
 //////////////////////////////////////////////////////////////////////
 
-App::error(function(ModelNotFoundException $exception) {
+App::error(function (ModelNotFoundException $exception) {
 	return View::make('errors.404');
 });
 
@@ -60,7 +60,7 @@ Route::group(array('prefix' => 'api'), function () {
 	// Error routes
 	//////////////////////////////////////////////////////////////////////
 
-	App::error(function(Symfony\Component\HttpKernel\Exception\NotFoundHttpException $exception) {
+	App::error(function (Symfony\Component\HttpKernel\Exception\NotFoundHttpException $exception) {
 		return Response::json(array(
 			'status'  => 404,
 			'message' => 'The package or maintainer requested could not be found',

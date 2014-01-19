@@ -121,7 +121,7 @@ class PackagesRepository extends AbstractRepository
 		$similar = $this->items->with('versions')->similar($package)->take(5)->get();
 
 		// Sort by popularity and number of tags in common
-		$similar->sortBy(function($similarPackage) use ($package) {
+		$similar->sortBy(function ($similarPackage) use ($package) {
 			return $similarPackage->popularity + sizeof(array_intersect($similarPackage->keywords, $package->keywords)) * -1;
 		});
 

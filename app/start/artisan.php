@@ -4,7 +4,7 @@
 ///////////////////////////// DEPLOYMENT /////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-Rocketeer::after(array('deploy', 'update'), function($task) {
+Rocketeer::after(array('deploy', 'update'), function ($task) {
 	$task->command->comment('Building assets');
 	$task->runForCurrentRelease(['npm install', 'node node_modules/.bin/bower install --allow-root', 'node node_modules/.bin/grunt production']);
 

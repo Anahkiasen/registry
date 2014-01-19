@@ -18,7 +18,7 @@ class BitbucketRepository extends AbstractRepository implements RepositoryInterf
 		if (!is_array($closed)) {
 			$closed = 0;
 		} else {
-			$closed = array_filter($closed, function($issue) {
+			$closed = array_filter($closed, function ($issue) {
 				return array_get($issue, 'status') === 'resolved';
 			});
 			$closed = sizeof($closed);

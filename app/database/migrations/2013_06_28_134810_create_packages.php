@@ -10,7 +10,7 @@ class CreatePackages extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('packages', function($table) {
+		Schema::create('packages', function ($table) {
 			$table->increments('id');
 
 				// Package informations

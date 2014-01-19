@@ -10,7 +10,7 @@ class CreateMaintainers extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('maintainers', function($table) {
+		Schema::create('maintainers', function ($table) {
 			$table->increments('id');
 				$table->string('name');
 				$table->string('slug');

@@ -39,7 +39,7 @@ class PackagesEndpoints
 		// Create Guzzle instance
 		$request = $this->app['endpoints.'.$source]->get($url);
 
-		return $this->app['cache']->rememberForever($url, function() use ($request) {
+		return $this->app['cache']->rememberForever($url, function () use ($request) {
 			try {
 				$informations = $request->send()->json();
 			} catch (Exception $e) {

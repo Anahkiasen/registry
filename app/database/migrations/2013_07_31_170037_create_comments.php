@@ -10,7 +10,7 @@ class CreateComments extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('comments', function($table) {
+		Schema::create('comments', function ($table) {
 			$table->increments('id');
 				$table->text('content');
 				$table->integer('package_id');

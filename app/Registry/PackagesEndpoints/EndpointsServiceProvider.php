@@ -6,7 +6,6 @@ use Github\Client as Github;
 use Guzzle\Http\Client;
 use Illuminate\Support\ServiceProvider;
 use Packagist\Api\Client as Packagist;
-use Registry\PackagesEndpoints\PackagesEndpoints;
 
 class EndpointsServiceProvider extends ServiceProvider
 {

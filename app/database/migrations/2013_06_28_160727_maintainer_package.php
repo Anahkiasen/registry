@@ -10,7 +10,7 @@ class MaintainerPackage extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('maintainer_package', function($table) {
+		Schema::create('maintainer_package', function ($table) {
 			$table->increments('id');
 			$table->integer('maintainer_id');
 			$table->integer('package_id');

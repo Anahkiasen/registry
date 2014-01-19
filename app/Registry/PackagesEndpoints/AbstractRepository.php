@@ -52,7 +52,7 @@ abstract class AbstractRepository
 	 */
 	public function readme()
 	{
-		return $this->cache->rememberForever($this->package->travis.'-readme', function() {
+		return $this->cache->rememberForever($this->package->travis.'-readme', function () {
 			try {
 				return (string) $this->readmeEndpoint();
 			} catch (Exception $e) {
@@ -70,7 +70,7 @@ abstract class AbstractRepository
 	 */
 	protected function issues($information = null)
 	{
-		$informations = $this->cache->rememberForever($this->package->travis.'-issues', function() {
+		$informations = $this->cache->rememberForever($this->package->travis.'-issues', function () {
 			try {
 				return $this->issuesEndpoint();
 			} catch (Exception $e) {
@@ -90,7 +90,7 @@ abstract class AbstractRepository
 	 */
 	protected function show($information = null)
 	{
-		$informations = $this->cache->rememberForever($this->package->travis.'-scm', function() {
+		$informations = $this->cache->rememberForever($this->package->travis.'-scm', function () {
 			try {
 				return $this->showEndpoint();
 			} catch (Exception $e) {

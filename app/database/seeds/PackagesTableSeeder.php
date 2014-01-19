@@ -99,7 +99,7 @@ class PackagesTableSeeder extends DatabaseSeeder
 	{
 		$this->comment('Fetching list of packages');
 
-		return $this->container['cache']->rememberForever('packages', function() {
+		return $this->container['cache']->rememberForever('packages', function () {
 			return (new Packagist)->search('laravel');
 		});
 	}

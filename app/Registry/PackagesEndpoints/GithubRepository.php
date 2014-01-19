@@ -92,7 +92,7 @@ class GithubRepository extends AbstractRepository implements RepositoryInterface
 	 */
 	public function issuesEndpoint($information = null)
 	{
-		return $this->cache->rememberForever($this->package->travis.'-issues', function() {
+		return $this->cache->rememberForever($this->package->travis.'-issues', function () {
 			try {
 				$opened = $this->client->api('issues')->all($this->package->vendor, $this->package->package, array('state' => 'open'));
 				$closed = $this->client->api('issues')->all($this->package->vendor, $this->package->package, array('state' => 'closed'));
