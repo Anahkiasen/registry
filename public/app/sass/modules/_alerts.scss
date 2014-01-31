@@ -4,7 +4,7 @@
 
 .alert {
 	@extend .tag;
-	@include border-radius(0);
+	border-radius: 0;
 	cursor: default;
 	display: block;
 	margin: 0;

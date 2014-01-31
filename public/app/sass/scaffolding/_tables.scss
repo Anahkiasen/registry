@@ -87,7 +87,7 @@ table {
 			padding: 1rem 0;
 		}
 		td {
-			@include box-sizing(border-box);
+			box-sizing: border-box;
 			width: 100%;
 			text-align: left;
 			&.packages-list__key {

@@ -77,7 +77,7 @@ tbody .packages-list__description {
 
 		li {
 			@extend .tag;
-			@include border-radius(0);
+			border-radius: 0;
 			margin-right: -0.1rem;
 			padding: 0.5rem 1rem;
 

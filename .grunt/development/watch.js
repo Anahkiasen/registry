@@ -1,7 +1,6 @@
 module.exports = {
 	options: {
 		livereload : true,
-		interrupt  : true,
 	},
 
 	grunt: {
@@ -19,9 +18,5 @@ module.exports = {
 	css: {
 		files: '<%= paths.original.sass %>/**/*',
 		tasks: 'css',
-	},
-	phpunit: {
-		files: 'app/**/*.php',
-		tasks: 'phpunit:core',
-	},
+	}
 };

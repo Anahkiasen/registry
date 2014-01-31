@@ -29,6 +29,7 @@ module.exports = function(grunt) {
 		app        : 'public/app',
 		builds     : 'public/builds',
 		components : 'public/components',
+		tests      : 'app/tests',
 
 		paths: {
 			original: {
@@ -81,6 +82,11 @@ module.exports = function(grunt) {
 	// By filetype
 	////////////////////////////////////////////////////////////////////
 
+	grunt.registerTask('images', 'Recompress images', [
+		'svgmin',
+		'tinypng',
+	]);
+
 	grunt.registerTask('js', 'Build scripts', [
 		'jshint',
 		'concat:js',
@@ -90,6 +96,7 @@ module.exports = function(grunt) {
 		'compass:compile',
 		'csslint',
 		'csscss',
+		'autoprefixer',
 		'concat:css'
 	]);
 };

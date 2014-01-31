@@ -1,16 +1,16 @@
 {
-	"name": "registry",
-	"dependencies": {
-		"bower": "*",
-		"grunt": "*",
-		"grunt-cli": "*",
+  "name": "registry",
+  "dependencies": {
+    "bower": "*",
+    "grunt": "*",
+    "grunt-cli": "*",
     "glob": "*"
   },
   "devDependencies": {
     "grunt-bower-task": "*",
+    "grunt-contrib-concat": "*",
     "grunt-contrib-clean": "*",
     "grunt-contrib-compass": "*",
-    "grunt-contrib-concat": "*",
     "grunt-contrib-copy": "*",
     "grunt-contrib-csslint": "*",
     "grunt-contrib-cssmin": "*",
@@ -18,8 +18,11 @@
     "grunt-contrib-uglify": "*",
     "grunt-contrib-watch": "*",
     "grunt-csscss": "*",
+    "grunt-git": "*",
     "grunt-phpunit": "*",
+    "grunt-svgmin": "*",
     "grunt-tinypng": "*",
-    "load-grunt-tasks": "*"
+    "load-grunt-tasks": "*",
+    "grunt-autoprefixer": "*"
   }
 }
