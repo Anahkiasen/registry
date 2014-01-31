@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Config;
+
 return array(
 
 	/*
@@ -11,7 +13,22 @@ return array(
 	 |
 	 */
 
-	'enabled' => App::environment('local') and \Config::get('app.debug'),
+	'enabled' => App::environment('local') and Config::get('app.debug'),
+
+	/*
+	 |--------------------------------------------------------------------------
+	 | Storage settings
+	 |--------------------------------------------------------------------------
+	 |
+	 | DebugBar stores data for session/ajax requests in a directory.
+	 | You can disable this, so the debugbar stores data in headers/session,
+	 | but this can cause problems with large data collectors.
+	 |
+	 */
+	'storage' => array(
+		'enabled' => true,
+		'path' => storage_path() . '/debugbar',
+	),
 
 	/*
 	 |--------------------------------------------------------------------------
@@ -55,7 +72,7 @@ return array(
 		'exceptions'      => true,  // Exception displayer
 		'log'             => true,  // Logs from Monolog (merged in messages if enabled)
 		'db'              => true,  // Show database (PDO) queries and bindings
-		'views'           => false,  // Views with their data
+		'views'           => true,  // Views with their data
 		'route'           => true,  // Current route information
 		'laravel'         => true, // Laravel version and environment
 		'events'          => true, // All events fired
@@ -63,7 +80,7 @@ return array(
 		'default_request' => false, // Regular or special Symfony request logger
 		'symfony_request' => true,  // Only one can be enabled..
 		'mail'            => true,  // Catch mail messages
-		'logs'            => false, // Add the latest log messages
+		'logs'            => true, // Add the latest log messages
 		'files'           => true, // Show the included files
 		'config'          => true, // Display config settings
 	),
@@ -89,7 +106,7 @@ return array(
 			'full_log' => false,
 		),
 		'views' => array(
-			'data' => true,
+			'data' => false,
 		),
 		'route' => array(
 			'label' => true,

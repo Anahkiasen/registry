@@ -10,6 +10,7 @@ return array(
 	| File extension for Twig view files.
 	|
 	*/
+
 	'extension' => 'twig',
 
 	/*
@@ -20,6 +21,7 @@ return array(
 	| Change the block delimiter tags.
 	|
 	*/
+
 	'delimiters' => array(
 		'tag_comment'  => array('{#', '#}'),
 		'tag_block'    => array('{%', '%}'),
@@ -34,12 +36,13 @@ return array(
 	| http://twig.sensiolabs.org/doc/api.html#environment-options
 	|
 	*/
+
 	'twig' => array(
 
 		// When set to true, the generated templates have a __toString() method
 		// that you can use to display the generated nodes.
 		// default: false
-		'debug' => false,
+		'debug' => true,
 
 		//  The charset used by the templates.
 		// default: utf-8
@@ -84,9 +87,60 @@ return array(
 	| NOTE: If you change this, make sure you clear your cache
 	|
 	*/
+
 	'extensions' => array(
 		'Twig_Extension_Debug',
 		'TwigBridge\Extensions\AliasLoader',
+		'TwigBridge\Extensions\HelperLoader',
+	),
+
+	/*
+	|--------------------------------------------------------------------------
+	| Functions
+	|--------------------------------------------------------------------------
+	|
+	| Functions that are made available to your Twig templates.
+	| Supports `string` or `closure`.
+	|
+	*/
+
+	'functions' => array(
+		// URLs
+		'route',
+		'action',
+		'asset',
+		'url',
+		'link_to',
+		'link_to_asset',
+		'link_to_route',
+		'link_to_action',
+		'secure_asset',
+		'secure_url',
+		// Translation
+		'trans',
+		'trans_choice',
+		// Miscellaneous
+		'csrf_token',
+	),
+
+	/*
+	|--------------------------------------------------------------------------
+	| Filters
+	|--------------------------------------------------------------------------
+	|
+	| Filters that are made available to your Twig templates.
+	| Supports `string` or `closure`.
+	|
+	*/
+
+	'filters' => array(
+		// Strings
+		'camel_case',
+		'snake_case',
+		'studly_case',
+		'str_finish',
+		'str_plural',
+		'str_singular'
 	),
 
 	/*
@@ -98,6 +152,7 @@ return array(
 	| to an alias.
 	|
 	*/
+
 	'alias_shortcuts' => array(
 		'config'     => 'config_get',
 		'input'      => 'input_get',
@@ -118,6 +173,7 @@ return array(
 	| NOTE: these will be overwritten if you pass data into the view with the same key.
 	|
 	*/
+
 	'globals' => array(),
 
 );
