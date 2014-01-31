@@ -583,3 +583,41 @@ table th.sort-desc:before {
   position: absolute;
   top: 0.5rem;
   left: 0.5rem; }
+
+.chart {
+  width: 1000px;
+  margin: auto; }
+  .chart figcaption {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem; }
+
+.error-title {
+  text-align: center;
+  font-size: 10rem;
+  line-height: 1;
+  font-weight: 100;
+  margin: 2rem 0 1rem; }
+
+.layout-content .layout-search, .layout-content--narrow .layout-search {
+  position: relative;
+  max-width: 100%;
+  margin: 0; }
+
+.layout-search .layout-search__input {
+  width: 100%;
+  font-size: 1.5rem; }
+
+.layout-search__reset {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  background: none;
+  border: none;
+  color: #869198;
+  font-size: 2rem;
+  font-weight: 100; }
+  @media (max-width: 50em) {
+    .layout-search__reset {
+      display: none; } }
