@@ -8,12 +8,9 @@
 	],
 	"require": {
 		"raveren/kint": "dev-1.0.0-wip",
-		"laravel/framework": "4.0.*",
+		"laravel/framework": "4.1.*",
 		"anahkiasen/arrounded": "dev-master",
 		"kevinlebrun/colors.php": "dev-master",
-
-		"illuminate/remote": "dev-master",
-		"anahkiasen/rocketeer": "dev-develop",
 
 		"rcrowe/twigbridge": "dev-master",
 		"anahkiasen/acetone": "dev-master",
@@ -27,7 +24,8 @@
 		"anahkiasen/flatten": "dev-develop"
 	},
 	"require-dev": {
-		"barryvdh/laravel-debugbar": "dev-master"
+		"barryvdh/laravel-debugbar": "dev-master",
+		"anahkiasen/rocketeer": "dev-develop"
 	},
 	"autoload": {
 		"classmap": [
@@ -56,12 +54,6 @@
 			"php artisan key:generate"
 		]
 	},
-	"repositories": [
-		{
-			"type": "vcs",
-			"url": "https://github.com/changwuf31/remote"
-		}
-	],
 	"config": {
 		"preferred-install": "dist"
 	},
