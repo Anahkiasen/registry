@@ -1,10 +1,11 @@
 module.exports = {
 	options: {
 		livereload : true,
+		interrupt  : true,
 	},
 
 	grunt: {
-		files: ['Gruntfile.js', '.grunt/**/*'],
+		files: ['Gruntfile.js', '<%= grunt %>/**/*'],
 		tasks: 'default',
 	},
 	img: {
@@ -18,5 +19,5 @@ module.exports = {
 	css: {
 		files: '<%= paths.original.sass %>/**/*',
 		tasks: 'css',
-	}
+	},
 };

@@ -12,7 +12,6 @@ module.exports = {
 	coverage: {
 		options: {
 			excludeGroup: 'Routes',
-			coverageText: '<%= tests %>/.coverage.txt',
 			coverageHtml: '<%= tests %>/.coverage'
 		}
 	},

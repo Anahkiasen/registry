@@ -11,8 +11,8 @@ module.exports = function(grunt) {
 	 * @return {Object}
 	 */
 	function loadConfig(folder) {
-		var glob   = require('glob');
-		var path   = require('path');
+		var glob = require('glob');
+		var path = require('path');
 		var key;
 
 		glob.sync('**/*.js', {cwd: folder}).forEach(function(option) {
@@ -26,10 +26,13 @@ module.exports = function(grunt) {
 	////////////////////////////////////////////////////////////////////
 
 	var config = {
+		pkg  : grunt.file.readJSON('package.json'),
+		name : '<%= pkg.name %>',
+
+		grunt      : '.grunt',
 		app        : 'public/app',
 		builds     : 'public/builds',
 		components : 'public/components',
-		tests      : 'app/tests',
 
 		paths: {
 			original: {
@@ -37,66 +40,33 @@ module.exports = function(grunt) {
 				js   : '<%= app %>/js',
 				sass : '<%= app %>/sass',
 				img  : '<%= app %>/img',
+				svg  : '<%= app %>/svg',
 			},
 			compiled: {
 				css : '<%= builds %>/css',
 				js  : '<%= builds %>/js',
 				img : '<%= builds %>/img',
+				svg : '<%= builds %>/svg',
 			},
+			components: {
+				jquery    : '<%= components %>/jquery/dist/jquery.js',
+				icomoon   : '<%= components %>/icomoon/style.css',
+				backbone  : '<%= components %>/backbone/backbone.js',
+				bootstrap : {
+					css   : '<%= components %>/bootstrap/dist/css/bootstrap.css',
+					fonts : '<%= components %>/bootstrap/dist/fonts',
+					js    : '<%= components %>/bootstrap/dist/js/bootstrap.js',
+				},
+			}
 		},
 	};
 
 	// Load all tasks
-	loadConfig('./.grunt/');
+	var gruntPath = './'+config.grunt+'/';
+	loadConfig(gruntPath);
 	grunt.initConfig(config);
 
-	////////////////////////////////////////////////////////////////////
-	/////////////////////////////// COMMANDS ///////////////////////////
-	////////////////////////////////////////////////////////////////////
+	// Load custom tasks
+	require(gruntPath + 'tasks.js')(grunt);
 
-	grunt.registerTask('default', 'Build assets for local', [
-		'css', 'js',
-		'copy',
-	]);
-
-	grunt.registerTask('production', 'Build assets for production', [
-		'copy',
-		'concat',
-		'minify',
-	]);
-
-	grunt.registerTask('rebuild', 'Build assets from scratch', [
-		'compass',
-		'clean',
-		'default',
-	]);
-
-	// Flow
-	////////////////////////////////////////////////////////////////////
-
-	grunt.registerTask('minify', 'Minify assets', [
-		'cssmin',
-		'uglify',
-	]);
-
-	// By filetype
-	////////////////////////////////////////////////////////////////////
-
-	grunt.registerTask('images', 'Recompress images', [
-		'svgmin',
-		'tinypng',
-	]);
-
-	grunt.registerTask('js', 'Build scripts', [
-		'jshint',
-		'concat:js',
-	]);
-
-	grunt.registerTask('css', 'Build stylesheets', [
-		'compass:compile',
-		'csslint',
-		'csscss',
-		'autoprefixer',
-		'concat:css'
-	]);
 };
