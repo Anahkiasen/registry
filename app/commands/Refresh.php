@@ -1,6 +1,7 @@
  <?php
 use Illuminate\Console\Command;
 use Registry\Package;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
 /**
@@ -41,12 +42,24 @@ class Refresh extends Command
 		}
 
 		// Clear cache if the database is not empty
-		if ($this->laravel['db']->table('versions')->first()) {
+		if ($this->option('clear') and $this->laravel['db']->table('versions')->first()) {
 			$this->call('cache:clear');
 		}
 
 		// Send it over
 		$this->call('db:seed');
+	}
+
+	/**
+	 * Get the console command options.
+	 *
+	 * @return array
+	 */
+	protected function getOptions()
+	{
+		return array(
+			array('clear', 'C', InputOption::VALUE_NONE, 'Clear database or not'),
+		);
 	}
 
 	/**

@@ -28,7 +28,7 @@ class Update extends Command
 	public function fire()
 	{
 		// Refresh database
-		$this->call('registry:refresh');
+		$this->call('registry:refresh', ['--clear' => '']);
 
 		// Commit and deploy
 		exec('git push origin master');
