@@ -1,6 +1,7 @@
 <?php
 namespace Registry;
 
+use Arrounded\Traits\Authentifiable;
 use Config;
 use HTML;
 use Illuminate\Auth\UserInterface;
@@ -12,6 +13,7 @@ use Registry\Abstracts\AbstractModel;
  */
 class Maintainer extends AbstractModel implements UserInterface
 {
+	use Authentifiable;
 	use Traits\Gravatar;
 
 	/**
@@ -44,30 +46,6 @@ class Maintainer extends AbstractModel implements UserInterface
 	public function packages()
 	{
 		return $this->belongsToMany('Registry\Package')->popular();
-	}
-
-	////////////////////////////////////////////////////////////////////
-	////////////////////////// AUTHENTIFICATION ////////////////////////
-	////////////////////////////////////////////////////////////////////
-
-	/**
-	 * Get the unique identifier for the user.
-	 *
-	 * @return mixed
-	 */
-	public function getAuthIdentifier()
-	{
-		return $this->getKey();
-	}
-
-	/**
-	 * Get the password for the user.
-	 *
-	 * @return string
-	 */
-	public function getAuthPassword()
-	{
-		return $this->password;
 	}
 
 	////////////////////////////////////////////////////////////////////
