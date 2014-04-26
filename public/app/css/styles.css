@@ -91,6 +91,7 @@ label, .layout-content, .layout-content--narrow, .layout-navigation {
   height: 10rem; }
 
 .maintainer__avatar {
+  margin: 0;
   float: left;
   width: 10rem; }
   .maintainer__avatar img {
