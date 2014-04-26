@@ -5,16 +5,16 @@
 {% endblock %}
 
 {% block content %}
-	{{ former_open() }}
+	{{ Former.open() }}
 		<legend>Login</legend>
 		{% if session_has('error') %}
 			<p class="alert-error">The login or password is incorrect</p>
 		{% endif %}
 
-		{{ former_text('username').autofocus() }}
-		{{ former_password('password') }}
-		{{ former_submit('Login') }}
+		{{ Former.text('username').autofocus() }}
+		{{ Former.password('password') }}
+		{{ Former.submit('Login') }}
 
-		<p>Not a member yet ? {{ linkAction('UsersController@getRegister', 'Register here') }}.</p>
-	{{ former_close() }}
+		<p>Not a member yet ? {{ HTML.linkAction('UsersController@getRegister', 'Register here') }}.</p>
+	{{ Former.close() }}
 {% endblock %}

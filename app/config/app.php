@@ -110,7 +110,7 @@ return array(
 		// Packages
 		'Flatten\FlattenServiceProvider',
 		'Former\FormerServiceProvider',
-		'TwigBridge\TwigServiceProvider',
+		'Barryvdh\TwigBridge\ServiceProvider',
 		'Acetone\AcetoneServiceProvider',
 
 		// Application

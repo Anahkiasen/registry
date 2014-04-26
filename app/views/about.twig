@@ -45,14 +45,14 @@
 	</p>
 	<p>The registry is a Laravel 4.1 application. It uses the following packages from the community :</p>
 	<ul>
-		<li>{{ linkRoute('package', 'Flatten', 'anahkiasen-flatten') }} by {{ linkRoute('maintainer', 'Maxime Fabre', 'anahkiasen') }} for building cached HTML versions of the views</li>
-		<li>{{ linkRoute('package', 'Rocketeer', 'anahkiasen-rocketeer') }} by {{ linkRoute('maintainer', 'Maxime Fabre', 'anahkiasen') }} for deploying to the server</li>
-		<li>{{ linkRoute('package', 'TwigBridge', 'rcrowe-twigbridge') }} by {{ linkRoute('maintainer', 'Rob Crowe', 'rcrowe') }} for using Twig hand-in-hand with Laravel</li>
-		<li>{{ linkRoute('package', 'DebugBar', 'barryvdh-laravel-debugbar') }} by {{ linkRoute('maintainer', 'Barry Heuvel', 'barryvdh') }} for local debug and profiling informations</li>
+		<li>{{ HTML.linkRoute('package', 'Flatten', 'anahkiasen-flatten') }} by {{ HTML.linkRoute('maintainer', 'Maxime Fabre', 'anahkiasen') }} for building cached HTML versions of the views</li>
+		<li>{{ HTML.linkRoute('package', 'Rocketeer', 'anahkiasen-rocketeer') }} by {{ HTML.linkRoute('maintainer', 'Maxime Fabre', 'anahkiasen') }} for deploying to the server</li>
+		<li>{{ HTML.linkRoute('package', 'TwigBridge', 'rcrowe-twigbridge') }} by {{ HTML.linkRoute('maintainer', 'Rob Crowe', 'rcrowe') }} for using Twig hand-in-hand with Laravel</li>
+		<li>{{ HTML.linkRoute('package', 'DebugBar', 'barryvdh-laravel-debugbar') }} by {{ HTML.linkRoute('maintainer', 'Barry Heuvel', 'barryvdh') }} for local debug and profiling informations</li>
 	</ul>
-	<p>The registry is hosted by the awesome guys at {{ link('https://www.digitalocean.com/', 'Digital Ocean') }} so big up to them.</p>
+	<p>The registry is hosted by the awesome guys at {{ HTML.link('https://www.digitalocean.com/', 'Digital Ocean') }} so big up to them.</p>
 {% endblock %}
 
 {% block js %}
-	{{ acetone_scripts('builds/js/chart.js') }}
+	{{ Acetone.scripts('builds/js/chart.js') }}
 {% endblock %}

@@ -2,22 +2,22 @@
 
 	{# Avatar #}
 	<figure class="maintainer__avatar">
-		{{ HTML_image(maintainer.gravatar) }}
+		{{ HTML.image(maintainer.gravatar) }}
 	</figure>
 
 	{# Informations #}
 	<section class="maintainer__summary">
 		<dl>
 			<dt>Name</dt>
-			<dd>{{ linkRoute('maintainer', maintainer.name, maintainer.slug) }}</dd>
+			<dd>{{ HTML.linkRoute('maintainer', maintainer.name, maintainer.slug) }}</dd>
 
 			{% if not maintainer.packages.isEmpty %}
 				<dt>Packages</dt>
-				<dd>{{ maintainer.packages.count }} {{ Str_plural('package', maintainer.packages.count) }} ({{ maintainer.popularity }} popularity)</dd>
+				<dd>{{ maintainer.packages.count }} {{ Str.plural('package', maintainer.packages.count) }} ({{ maintainer.popularity }} popularity)</dd>
 			{% endif %}
 
 			<dt>Mail</dt>
-			<dd>{{ HTML_mailto(maintainer.email) }}</dd>
+			<dd>{{ HTML.mailto(maintainer.email) }}</dd>
 
 			{% if maintainer.homepage %}
 				<dt>Homepage</dt>

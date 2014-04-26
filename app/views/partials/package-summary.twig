@@ -13,7 +13,7 @@
 			<dd>
 				{% for keyword in package.keywords %}
 					<li class="tag">
-						<a href="{{ URL_action('PackagesController@index') }}?q={{ keyword }}">{{ keyword }}</a>
+						<a href="{{ URL.action('PackagesController@index') }}?q={{ keyword }}">{{ keyword }}</a>
 					</li>
 				{% endfor %}
 			</dd>

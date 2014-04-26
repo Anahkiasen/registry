@@ -5,16 +5,16 @@
 {% endblock %}
 
 {% block content %}
-	{{ former_open() }}
+	{{ Former.open() }}
 		<legend>Register</legend>
 
 		{% if session_has('success') %}
 			<p class="alert-success">Your account was successfully created, an email has been sent to you to activate it</p>
 		{% endif %}
 
-		{{ former_text('username').autofocus() }}
-		{{ former_text('password') }}
-		{{ former_email('email') }}
-		{{ former_submit('Register') }}
-	{{ former_close() }}
+		{{ Former.text('username').autofocus() }}
+		{{ Former.text('password') }}
+		{{ Former.email('email') }}
+		{{ Former.submit('Register') }}
+	{{ Former.close() }}
 {% endblock %}

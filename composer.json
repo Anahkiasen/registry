@@ -12,7 +12,7 @@
 		"anahkiasen/arrounded": "dev-master",
 		"kevinlebrun/colors.php": "dev-master",
 
-		"rcrowe/twigbridge": "dev-master",
+		"barryvdh/laravel-twigbridge": "dev-master",
 		"anahkiasen/acetone": "dev-master",
 		"anahkiasen/former": "dev-master",
 		"dflydev/markdown": "dev-master",

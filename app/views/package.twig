@@ -18,11 +18,11 @@
 
 		{# Comments #}
 		{% if auth_check() %}
-			<h2>{{ package.comments.count }} {{ Str_plural('comment', package.comments.count) }}</h2>
+			<h2>{{ package.comments.count }} {{ Str.plural('comment', package.comments.count) }}</h2>
 			{% for comment in package.comments %}
 				<article class="package__comment">
 					<figure class="maintainer__avatar">
-						{{ HTML_image(comment.maintainer.gravatar) }}
+						{{ HTML.image(comment.maintainer.gravatar) }}
 					</figure>
 					<section class="maintainer__summary">
 						<p class="package__comment__author">{{ comment.maintainer.name }}, <time datetime="{{ comment.created_at }}">{{ comment.created_at.diffForHumans }}</time></p>
@@ -32,15 +32,15 @@
 			{% endfor %}
 
 			<div class="package__comment__form">
-				{{ former_inline_open().rules({content: 'required'}) }}
+				{{ Former.inline_open().rules({content: 'required'}) }}
 					<figure class="maintainer__avatar">
-						{{ HTML_image(auth_user().gravatar) }}
+						{{ HTML.image(auth_user().gravatar) }}
 					</figure>
 					<section class="maintainer__summary">
-						{{ former_textarea('content').label(null).placeholder('Your comment...') }}
-						{{ former_submit('Add a comment') }}
+						{{ Former.textarea('content').label(null).placeholder('Your comment...') }}
+						{{ Former.submit('Add a comment') }}
 					</section>
-				{{ former_close() }}
+				{{ Former.close() }}
 			</div>
 		{% endif %}
 
@@ -64,7 +64,7 @@
 			{% for package in similar %}
 				<article class="maintainer__package">
 					<h3>
-						{{ linkRoute('package', package.name, package.slug) }}
+						{{ HTML.linkRoute('package', package.name, package.slug) }}
 						<small>
 							last updated
 							<time datetime="{{ package.pushed_at }}">{{ package.pushed_at.diffForHumans }}</time>

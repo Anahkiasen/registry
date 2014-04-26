@@ -4,7 +4,7 @@
 
 	{# Search #}
 	<form method="POST" id="search" class="layout-search">
-		<input type="text" autocomplete="off" name="search" value="{{ input('q') }}" placeholder="Type to search in the {{ packages.count }} packages available..." class="layout-search__input">
+		<input type="text" autocomplete="off" name="search" value="{{ Input.get('q') }}" placeholder="Type to search in the {{ packages.count }} packages available..." class="layout-search__input">
 		<input type="reset" value="X" class="layout-search__reset">
 	</form>
 
@@ -19,7 +19,7 @@
 			<tr>
 				<th>#</th>
 				{% for column in columns %}
-					<th class="packages-list__{{ column }}">{{ lang("columns.#{column}") }}</th>
+					<th class="packages-list__{{ column }}">{{ Lang.get("columns.#{column}") }}</th>
 				{% endfor %}
 			</tr>
 		</thead>
@@ -30,8 +30,8 @@
 			{% for package in packages %}
 				<tr class="packages-list__package" data-id="{{ package.slug }}">
 					<td data-title="#" class="packages-list__key">{{ loop.index }}</td>
-					<td data-title="Name">{{ linkRoute('package', package.name, package.slug) }}</td>
-					<td data-title="Description" class="packages-list__description">{{ Str_words(package.description, 15) }}</td>
+					<td data-title="Name">{{ HTML.linkRoute('package', package.name, package.slug) }}</td>
+					<td data-title="Description" class="packages-list__description">{{ Str.words(package.description, 15) }}</td>
 					<td data-title="Tags" class="packages-list__tags">
 						{% for keyword in package.keywords %}
 							<span class="tag">{{ keyword }}</span>
@@ -47,5 +47,5 @@
 {% endblock %}
 
 {% block js %}
-	{{ acetone_scripts('builds/js/home.js') }}
+	{{ Acetone.scripts('builds/js/home.js') }}
 {% endblock %}

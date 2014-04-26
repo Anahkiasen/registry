@@ -3,11 +3,11 @@
 <head>
 	<meta charset="utf-8">
 	<title>{% block title %}{% endblock %}Laravel Packages Registry</title>
-	<link href="{{ URL_asset('app/img/favicon.png') }}" rel="shortcut icon"/>
+	<link href="{{ URL.asset('app/img/favicon.png') }}" rel="shortcut icon"/>
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-touch-fullscreen" content="yes" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	{{ acetone_stylesheets('builds/css/styles.css') }}
+	{{ Acetone.stylesheets('builds/css/styles.css') }}
 </head>
 <body>
 
@@ -20,7 +20,7 @@
 		{% include 'layouts.partials.footer' %}
 	</div>
 
-	{{ acetone_scripts('builds/js/styles.js') }}
+	{{ Acetone.scripts('builds/js/styles.js') }}
 	{% block js %}
 	{% endblock %}
 	<script type="text/javascript" src="//use.typekit.net/xgg1dgz.js"></script>

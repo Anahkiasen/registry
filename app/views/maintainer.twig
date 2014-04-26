@@ -16,7 +16,7 @@
 		{% for package in maintainer.packages %}
 			<article class="maintainer__package">
 				<h3>
-					{{ linkRoute('package', package.name, package.slug) }}
+					{{ HTML.linkRoute('package', package.name, package.slug) }}
 					<small>last updated {{ package.relativeDate }}</small>
 				</h3>
 				{% include 'partials.package-summary' %}
