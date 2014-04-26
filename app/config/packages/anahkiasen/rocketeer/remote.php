@@ -1,5 +1,11 @@
 <?php return array(
 
+	// The strategory to deploy with
+	// Availables are:
+	// - clone | Clones the repository from scratch on every deploy
+	// - copy  | Copies the previous release and then updates it
+	'strategy' => 'clone',
+
 	// Remote server
 	//////////////////////////////////////////////////////////////////////
 
@@ -10,21 +16,33 @@
 		'line_endings'        => "\n",
 	),
 
-	// The root directory where your applications will be deployed
-	'root_directory'   => '/home/www/',
-
-	// The name of the application to deploy
-	// This will create a folder of the same name in the root directory
-	// configured above, so be careful about the characters used
-	'application_name' => 'registry',
+	// The process that will be executed by Composer
+	'composer' => function ($task) {
+		return array(
+			$task->composer('install --no-interaction --no-dev --prefer-dist'),
+		);
+	},
 
 	// The number of releases to keep at all times
 	'keep_releases'    => 4,
+
+	// Folders
+	////////////////////////////////////////////////////////////////////
+
+	// The root directory where your applications will be deployed
+	'root_directory'   => '/home/www/',
+
+	// The folder the application will be cloned in
+	// Leave empty to use `application_name` as your folder name
+	'app_directory' => '',
 
 	// A list of folders/file to be shared between releases
 	// Use this to list folders that need to keep their state, like
 	// user uploaded data, file-based databases, etc.
 	'shared' => array(),
+
+	// Permissions
+	////////////////////////////////////////////////////////////////////
 
 	'permissions' => array(
 
