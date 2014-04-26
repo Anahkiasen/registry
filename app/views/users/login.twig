@@ -7,7 +7,7 @@
 {% block content %}
 	{{ Former.open() }}
 		<legend>Login</legend>
-		{% if session_has('error') %}
+		{% if Session.has('error') %}
 			<p class="alert-error">The login or password is incorrect</p>
 		{% endif %}
 

@@ -8,7 +8,7 @@
 	{{ Former.open() }}
 		<legend>Register</legend>
 
-		{% if session_has('success') %}
+		{% if Session.has('success') %}
 			<p class="alert-success">Your account was successfully created, an email has been sent to you to activate it</p>
 		{% endif %}
 

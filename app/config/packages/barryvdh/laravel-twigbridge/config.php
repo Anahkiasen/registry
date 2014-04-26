@@ -80,7 +80,8 @@ return array(
 	),
 
 	'facades' => array(
-		'Input', 'Lang', 'HTML', 'Str', 'Acetone', 'URL', 'Config', 'Former',
+		'Input', 'Lang', 'HTML', 'Str', 'Acetone', 'URL', 'Config',
+    'Former', 'Auth', 'Session',
 	)
 
 );

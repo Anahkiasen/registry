@@ -17,7 +17,7 @@
 		</section>
 
 		{# Comments #}
-		{% if auth_check() %}
+		{% if Auth.check() %}
 			<h2>{{ package.comments.count }} {{ Str.plural('comment', package.comments.count) }}</h2>
 			{% for comment in package.comments %}
 				<article class="package__comment">
@@ -34,7 +34,7 @@
 			<div class="package__comment__form">
 				{{ Former.inline_open().rules({content: 'required'}) }}
 					<figure class="maintainer__avatar">
-						{{ HTML.image(auth_user().gravatar) }}
+						{{ HTML.image(Auth.user().gravatar) }}
 					</figure>
 					<section class="maintainer__summary">
 						{{ Former.textarea('content').label(null).placeholder('Your comment...') }}

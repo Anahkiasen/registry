@@ -9,8 +9,8 @@
 	</form>
 
 	{# Errors #}
-	{% if session_has('errors') %}
-		<p class="alert-error">{{ session_get('errors') }}</p>
+	{% if Session.has('errors') %}
+		<p class="alert-error">{{ Session.get('errors') }}</p>
 	{% endif %}
 
 	{# Available packages #}
