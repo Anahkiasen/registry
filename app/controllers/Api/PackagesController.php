@@ -1,18 +1,11 @@
 <?php
 namespace Api;
 
-use BaseController;
+use Registry\Abstracts\AbstractApiController;
 use Registry\Repositories\PackagesRepository;
 
-class PackagesController extends BaseController
+class PackagesController extends AbstractApiController
 {
-	/**
-	 * The Packages repository
-	 *
-	 * @var PackagesRepository
-	 */
-	protected $packages;
-
 	/**
 	 * Build a new PackagesController
 	 *
@@ -20,7 +13,7 @@ class PackagesController extends BaseController
 	 */
 	public function __construct(PackagesRepository $packages)
 	{
-		$this->packages = $packages;
+		$this->repository = $packages;
 	}
 
 	/**
@@ -30,7 +23,7 @@ class PackagesController extends BaseController
 	 */
 	public function index()
 	{
-		return $this->packages->all();
+		return $this->repository->all();
 	}
 
 	/**
@@ -40,7 +33,7 @@ class PackagesController extends BaseController
 	 */
 	public function latest()
 	{
-		return $this->packages->latest();
+		return $this->repository->latest();
 	}
 
 	/**
@@ -50,7 +43,7 @@ class PackagesController extends BaseController
 	 */
 	public function popular()
 	{
-		return $this->packages->popular();
+		return $this->repository->popular();
 	}
 
 	/**
@@ -62,6 +55,6 @@ class PackagesController extends BaseController
 	 */
 	public function package($package)
 	{
-		return $this->packages->find($package);
+		return $this->repository->find($package);
 	}
 }

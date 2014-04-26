@@ -5,8 +5,8 @@ use Arrounded\Traits\Authentifiable;
 use Config;
 use HTML;
 use Illuminate\Auth\UserInterface;
-use Illuminate\Support\Str;
 use Registry\Abstracts\AbstractModel;
+use Arrounded\Traits\Sluggable;
 
 /**
  * The Maintainer of a Package
@@ -14,6 +14,7 @@ use Registry\Abstracts\AbstractModel;
 class Maintainer extends AbstractModel implements UserInterface
 {
 	use Authentifiable;
+	use Sluggable;
 	use Traits\Gravatar;
 
 	/**
@@ -22,7 +23,10 @@ class Maintainer extends AbstractModel implements UserInterface
 	 * @var array
 	 */
 	protected $fillable = array(
-		'name', 'email', 'github', 'homepage',
+		'name',
+		'email',
+		'github',
+		'homepage',
 	);
 
 	/**
@@ -31,7 +35,11 @@ class Maintainer extends AbstractModel implements UserInterface
 	 * @var array
 	 */
 	protected $hidden = array(
-		'stars', 'pivot', 'columns', 'created_at', 'updated_at',
+		'stars',
+		'pivot',
+		'columns',
+		'created_at',
+		'updated_at',
 	);
 
 	////////////////////////////////////////////////////////////////////
@@ -51,17 +59,6 @@ class Maintainer extends AbstractModel implements UserInterface
 	////////////////////////////////////////////////////////////////////
 	///////////////////////////// ATTRIBUTES ///////////////////////////
 	////////////////////////////////////////////////////////////////////
-
-	/**
-	 * Keep name and slug in sync
-	 *
-	 * @param string $name
-	 */
-	public function setNameAttribute($name)
-	{
-		$this->attributes['name'] = $name;
-		$this->attributes['slug'] = Str::slug($name);
-	}
 
 	/**
 	 * Get a link to the Maintainer

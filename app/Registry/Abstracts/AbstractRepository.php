@@ -1,12 +1,10 @@
 <?php
 namespace Registry\Abstracts;
 
-use Arrounded\Abstracts\AbstractRepository as ArroundedRepository;
-
 /**
  * A base repository class
  */
-abstract class AbstractRepository extends ArroundedRepository
+abstract class AbstractRepository extends \Arrounded\Abstracts\AbstractRepository
 {
 	////////////////////////////////////////////////////////////////////
 	//////////////////////////// GLOBAL QUERIES ////////////////////////

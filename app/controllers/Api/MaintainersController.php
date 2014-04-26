@@ -1,18 +1,11 @@
 <?php
 namespace Api;
 
-use BaseController;
+use Registry\Abstracts\AbstractApiController;
 use Registry\Repositories\MaintainersRepository;
 
-class MaintainersController extends BaseController
+class MaintainersController extends AbstractApiController
 {
-	/**
-	 * The maintainers repository
-	 *
-	 * @var MaintainersRepository
-	 */
-	protected $maintainers;
-
 	/**
 	 * Build a new maintainersController
 	 *
@@ -20,7 +13,7 @@ class MaintainersController extends BaseController
 	 */
 	public function __construct(MaintainersRepository $maintainers)
 	{
-		$this->maintainers = $maintainers;
+		$this->repository = $maintainers;
 	}
 
 	/**
@@ -30,7 +23,7 @@ class MaintainersController extends BaseController
 	 */
 	public function index()
 	{
-		return $this->maintainers->all();
+		return $this->repository->all();
 	}
 
 	/**
@@ -40,7 +33,7 @@ class MaintainersController extends BaseController
 	 */
 	public function popular()
 	{
-		return $this->maintainers->popular();
+		return $this->repository->popular();
 	}
 
 	/**
@@ -52,7 +45,7 @@ class MaintainersController extends BaseController
 	 */
 	public function maintainer($maintainer)
 	{
-		return $this->maintainers->find($maintainer);
+		return $this->repository->find($maintainer);
 	}
 
 	/**
@@ -64,6 +57,6 @@ class MaintainersController extends BaseController
 	 */
 	public function packages($maintainer)
 	{
-		return $this->maintainers->find($maintainer)->packages;
+		return $this->repository->find($maintainer)->packages;
 	}
 }

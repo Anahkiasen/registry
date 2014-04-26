@@ -5,7 +5,7 @@ use Registry\Services\CommentServices;
 /**
  * Controller for Packages
  */
-class PackagesController extends BaseController
+class PackagesController extends Controller
 {
 	/**
 	 * The Packages repository

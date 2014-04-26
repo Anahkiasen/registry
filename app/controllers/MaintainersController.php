@@ -5,7 +5,7 @@ use Registry\Services\MaintainersAuth;
 /**
  * Controller for Maintainers
  */
-class MaintainersController extends BaseController
+class MaintainersController extends Controller
 {
 	/**
 	 * The maintainers repository
