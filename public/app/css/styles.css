@@ -343,6 +343,12 @@ textarea {
   textarea::-webkit-input-placeholder {
     font-style: italic;
     color: #bdc3c7; }
+  input[type="text"]:-moz-placeholder,
+  input[type="password"]:-moz-placeholder,
+  input[type="email"]:-moz-placeholder,
+  textarea:-moz-placeholder {
+    font-style: italic;
+    color: #bdc3c7; }
   input[type="text"]:-ms-input-placeholder,
   input[type="password"]:-ms-input-placeholder,
   input[type="email"]:-ms-input-placeholder,
@@ -365,6 +371,11 @@ textarea {
     input[type="password"]:focus:invalid::-webkit-input-placeholder,
     input[type="email"]:focus:invalid::-webkit-input-placeholder,
     textarea:focus:invalid::-webkit-input-placeholder {
+      color: #df7c72; }
+    input[type="text"]:focus:invalid:-moz-placeholder,
+    input[type="password"]:focus:invalid:-moz-placeholder,
+    input[type="email"]:focus:invalid:-moz-placeholder,
+    textarea:focus:invalid:-moz-placeholder {
       color: #df7c72; }
     input[type="text"]:focus:invalid:-ms-input-placeholder,
     input[type="password"]:focus:invalid:-ms-input-placeholder,
