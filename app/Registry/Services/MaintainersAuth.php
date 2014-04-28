@@ -98,10 +98,10 @@ class MaintainersAuth
 	public function getOrCreateMaintainer(array $user)
 	{
 		return $this->maintainers->findOrCreate(array(
-			'name'     => $user['login'],
-			'email'    => $user['email'],
-			'github'   => $user['html_url'],
-			'homepage' => $user['blog'],
+			'name'     => array_get($user, 'login'),
+			'email'    => array_get($user, 'email'),
+			'github'   => array_get($user, 'html_url'),
+			'homepage' => array_get($user, 'blog'),
 		));
 	}
 }
