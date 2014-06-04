@@ -14,7 +14,7 @@ class CreateVersions extends Migration
 			$table->increments('id');
 				$table->string('name');
 				$table->text('description');
-				$table->string('keywords');
+				$table->text('keywords');
 				$table->string('homepage');
 				$table->string('version');
 			$table->integer('package_id');

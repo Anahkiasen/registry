@@ -12,8 +12,9 @@ class VersionsTableSeeder extends DatabaseSeeder
 	public function run()
 	{
 		$this->versions->flush();
+		$packages = $this->packages->all();
 
-		foreach ($this->packages->all() as $package) {
+		$this->progressIterator($packages, function ($package) {
 			$versions = array_get($package->getPackagist(), 'versions', array());
 			foreach ($versions as $version) {
 				$time = new Carbon($version['time']);
@@ -29,6 +30,6 @@ class VersionsTableSeeder extends DatabaseSeeder
 					'package_id'  => $package->id,
 				));
 			}
-		}
+		});
 	}
 }
