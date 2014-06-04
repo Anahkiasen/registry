@@ -1,9 +1,7 @@
 module.exports = {
 	dist: {
 		expand : true,
-		cwd    : '<%= paths.original.svg %>',
-		src    : '**/*.svg',
-		dest   : '<%= paths.original.svg %>',
+		src    : ['<%= paths.original.svg %>/**/*.svg', '<%= paths.original.img %>/**/*.svg'],
 		ext    : '.svg'
 	}
 };
