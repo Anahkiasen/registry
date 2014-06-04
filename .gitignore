@@ -11,6 +11,7 @@ app/config/production/database.php
 .sass-cache
 bootstrap/compiled.php
 public/builds
+public/app/js
 storage/debugbar/
 
 # Libraries

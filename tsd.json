@@ -1,0 +1,12 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "public/app/ts/_definitions",
+  "bundle": "public/app/ts/tsd.d.ts",
+  "installed": {
+    "lodash/lodash.d.ts": {
+      "commit": "59b3880681685a66349bf6f57a59c9dc77230973"
+    }
+  }
+}
