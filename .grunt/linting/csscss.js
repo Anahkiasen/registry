@@ -3,7 +3,7 @@ module.exports = {
 		compass            : true,
 		ignoreSassMixins   : true,
 		minMatch           : 5,
-		failWhenDuplicates : true,
+		failWhenDuplicates : false,
 		verbose            : true,
 	},
 
