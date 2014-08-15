@@ -203,7 +203,6 @@ return array(
 		// Packages
 		'Acetone'   => 'Acetone\Facades\Acetone',
 		'Former'    => 'Former\Facades\Former',
-		'Rocketeer' => 'Rocketeer\Facades\Rocketeer',
 		'Flatten'   => 'Flatten\Facades\Flatten',
 
 	),
