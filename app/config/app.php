@@ -78,7 +78,7 @@ return array(
 	|
 	*/
 
-	'key' => 'YourSecretKey!!!',
+	'key' => 'UgpohQ2CgFOvT7nPRjz7aM3Ttz0S99Dy',
 
 	'cipher' => MCRYPT_RIJNDAEL_128,
 
@@ -129,6 +129,7 @@ return array(
 		'Acetone\AcetoneServiceProvider',
 
 		// Application
+		'Registry\RegistryServiceProvider',
 		'Registry\PackagesEndpoints\EndpointsServiceProvider',
 		'Registry\Providers\ServicesServiceProvider',
 
