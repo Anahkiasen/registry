@@ -35,7 +35,7 @@ return array(
 
 	// If enabled will force a shell to be created
 	// which is requried for some tools like RVM or NVM
-	'shell'          => false,
+	'shell'          => true,
 
 	// An array of commands to run under shell
 	'shelled'        => ['npm ', 'bundle ', 'grunt'],
