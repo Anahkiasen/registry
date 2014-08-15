@@ -21,5 +21,4 @@ public/packages
 vendor
 
 # Development
-.ruby-gemset
-.ruby-version
+.idea

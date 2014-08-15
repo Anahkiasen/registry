@@ -84,5 +84,4 @@ Kint::enabled(App::environment('local'));
 |
 */
 
-require app_path().'/composers.php';
 require app_path().'/filters.php';

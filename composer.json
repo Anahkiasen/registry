@@ -7,8 +7,8 @@
 		"packages"
 	],
 	"require": {
-		"raveren/kint": "dev-1.0.0-wip",
-		"laravel/framework": "4.1.*",
+		"raveren/kint": "dev-master",
+		"laravel/framework": "4.2.*",
 		"anahkiasen/arrounded": "dev-master",
 		"kevinlebrun/colors.php": "dev-master",
 
@@ -24,6 +24,7 @@
 		"anahkiasen/flatten": "dev-develop"
 	},
 	"require-dev": {
+		"barryvdh/laravel-ide-helper": "dev-dev",
 		"barryvdh/laravel-debugbar": "dev-master",
 		"anahkiasen/rocketeer": "dev-develop"
 	},
