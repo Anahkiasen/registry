@@ -40,7 +40,7 @@ class MaintainersAuth
 	public function __construct(Container $app, MaintainersRepository $maintainers)
 	{
 		$this->app         = $app;
-		$this->credentials = (object) $this->app['config']->get('registry.api.github');
+		$this->credentials = (object) $this->app['config']->get('services.github');
 		$this->maintainers = $maintainers;
 	}
 

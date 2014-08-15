@@ -49,7 +49,7 @@ class EndpointsServiceProvider extends ServiceProvider
 		});
 
 		$this->app->bind('endpoints.github_api', function ($app) {
-			$credentials = $app['config']->get('registry.api.github');
+			$credentials = $app['config']->get('services.github');
 			$github = new Github;
 			$github->authenticate($credentials['id'], $credentials['secret'], Github::AUTH_URL_CLIENT_ID);
 

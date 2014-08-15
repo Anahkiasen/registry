@@ -6,7 +6,7 @@
 	</p>
 
 	{% if Auth.guest() %}
-		{{ HTML.decode(HTML.link("https://github.com/login/oauth/authorize?client_id=#{Config.get('registry.api.github.id')}", '<i class="icon-github"></i> Login with Github')) }}
+		{{ HTML.decode(HTML.link("https://github.com/login/oauth/authorize?client_id=#{Config.get('services.github.id')}", '<i class="icon-github"></i> Login with Github')) }}
 	{% else %}
 		{{ HTML.linkRoute('maintainer', "Logged in as #{Auth.user().name}", Auth.user().slug) }}
 		{{ HTML.linkAction('MaintainersController@logout', 'Logout') }}
