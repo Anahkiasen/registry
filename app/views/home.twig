@@ -1,49 +1,7 @@
 {% extends 'layouts.large' %}
 
 {% block content %}
-
-	{# Search #}
-	<form method="POST" id="search" class="layout-search">
-		<input type="text" autocomplete="off" name="search" value="{{ Input.get('q') }}" placeholder="Type to search in the {{ packages.count }} packages available..." class="layout-search__input">
-		<input type="reset" value="X" class="layout-search__reset">
-	</form>
-
-	{# Errors #}
-	{% if Session.has('errors') %}
-		<p class="alert-error">{{ Session.get('errors') }}</p>
-	{% endif %}
-
-	{# Available packages #}
-	<table class="packages-list">
-		<thead>
-			<tr>
-				<th>#</th>
-				{% for column in columns %}
-					<th class="packages-list__{{ column }}">{{ Lang.get("columns.#{column}") }}</th>
-				{% endfor %}
-			</tr>
-		</thead>
-		<tbody>
-			<tr class="packages-list__empty hidden">
-				<td colspan="50">No results match your query</td>
-			</tr>
-			{% for package in packages %}
-				<tr class="packages-list__package" data-id="{{ package.slug }}">
-					<td data-title="#" class="packages-list__key">{{ loop.index }}</td>
-					<td data-title="Name">{{ HTML.linkRoute('package', package.name, package.slug) }}</td>
-					<td data-title="Description" class="packages-list__description">{{ Str.words(package.description, 15) }}</td>
-					<td data-title="Tags" class="packages-list__tags">
-						{% for keyword in package.keywords %}
-							<span class="tag">{{ keyword }}</span>
-						{% endfor %}
-					</td>
-					<td data-title="Authors">{{ package.maintainersList }}</td>
-					<td data-title="Trust" class="packages-list__downloads">{{ package.trust }}</td>
-					<td data-title="Popularity" class="packages-list__downloads">{{ package.popularity }}</td>
-				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
+	<p style="font-size: 2rem; text-align: center">This website is deprecated, I don't have enough time to maintain it anymore. I recommend you check out <a href="http://packalyst.com/" target="_blank">Packalyst</a> instead.</p>
 {% endblock %}
 
 {% block js %}

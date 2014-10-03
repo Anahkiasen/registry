@@ -1,16 +1,4 @@
 <nav class="layout-navigation">
-	<p class="layout-navigation__main">
-		{{ HTML.link('about', 'About') }}
-		{{ HTML.linkAction('PackagesController@index', 'Packages') }}
-		{{ HTML.linkAction('MaintainersController@index', 'Maintainers') }}
-	</p>
-
-	{% if Auth.guest() %}
-		{{ HTML.decode(HTML.link("https://github.com/login/oauth/authorize?client_id=#{Config.get('services.github.id')}", '<i class="icon-github"></i> Login with Github')) }}
-	{% else %}
-		{{ HTML.linkRoute('maintainer', "Logged in as #{Auth.user().name}", Auth.user().slug) }}
-		{{ HTML.linkAction('MaintainersController@logout', 'Logout') }}
-	{% endif %}
 </nav>
 
 <a href="{{ url('/') }}">
